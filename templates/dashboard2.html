@@ -1,0 +1,301 @@
+{% extends 'home.html' %}
+
+{% block left %}{% endblock %}
+
+{% block headline %}
+    {% spaceless %}
+        <div class="title">
+            <div class="wrapper" style="position:relative;">
+                <a href="#" class="p-call-create back" style="margin-right:0;margin-top:15px;float:right;background:#3b99d8;color:#fff;width:200px;">+ Создать занятие</a>
+                <div style="padding-top:20px;">
+                    <a href="{% url 'dashboard4' %}" class="title-button back {% active 'dashboard4' %}" style="border-radius:2px 0 0 2px;">Список</a>
+                    <a href="{% url 'dashboard2' %}" class="title-button back {% active 'dashboard2' %}" style="border-radius:0;">Неделя</a>
+                    <a href="{% url 'dashboard3' %}" class="title-button back {% active 'dashboard3' %}" style="border-radius:0 2px 2px 0;">Месяц</a>
+                    <span style="text-align:center;margin-left:-120px;position:absolute;left:50%;top:20px;">
+                        <span class="fa fa-angle-left"  style="cursor:pointer;width:40px;height:40px;line-height:40px;background:#e4e4ea;color:#343d46;margin-top:-5px;border-radius:2px;text-align:center;"></span>
+                        <span style="font-size:18px;padding:0 10px;line-height:30px;">12 – 17 сен 2015</span>
+                        <span class="fa fa-angle-right" style="cursor:pointer;width:40px;height:40px;line-height:40px;background:#e4e4ea;color:#343d46;margin-top:-5px;border-radius:2px;text-align:center;"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block content %}
+
+    <style>
+        .weekdays {background:#F8F8FA;border-bottom:1px solid #ddd;width:100%;}
+            .weekdays-column {border-right:1px solid #ddd;width:107px;text-align:center;min-height:337px;}
+            .weekdays-column:first-child {border-left:1px solid #ddd;width:109px;}
+                .w-label {border-top:1px solid #ddd;background:#fff;border-bottom:1px solid #ddd;color:#999;display:block;line-height:20px;padding:6px 0;font-size:13px;}
+                    .w-label i {color:#000;line-height:15px;font-size:15px;padding-top:2px;font-style:normal;}
+                .w-lesson {display:block;line-height:15px;text-align:left;padding:0 5px;cursor:pointer;}
+                    .w-time {color:rgba(0,0,0,0.33);font-size:12px;line-height:15px;display:block;}
+                    .w-students {display:block;}
+                        .w-student {padding:5px 5px 5px 10px;margin:5px 0;display:block;font-size:15px;line-height:15px;border-radius:2px;background:#fff !important;border:1px solid #ddd;position:relative;}
+                        .w-student-create {padding:5px 5px 5px 10px;margin:5px 0;display:block;font-size:15px;line-height:30px;border-radius:2px;color:#777;background:#e4e4ea !important;border:1px solid #e4e4ea;position:relative;}
+                        .w-student-create:hover {background:#f1f1f5 !important;border-color:#f1f1f5 !important;}
+                        .w-student:hover {background:#f1f1f5 !important;}
+                .w-student:after {content: '';  position: absolute;  left: -1px;  top: -1px;  height: 42px;  background: #e1e1e5;  width: 5px;  border-radius: 2px 0 0 2px;}
+                .w-student.ok:after {background:#5DAC78;}
+                .w-student.good:after {background:#3b99d8;}
+                .w-student.bad:after {background:#C15757;}
+
+        .normal .weekdays .member-avatar {display:none;}
+    </style>
+    {% spaceless %}
+        <table class="weekdays">
+            <tr class="tr">
+                <td class="weekdays-column">
+                    <div class="w-label">ПН, 12 Августа</div>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student ok" ><img class="member-avatar" src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg?quality=0.6&height=200&width=200&" style="margin:0px 4px 0 -2px;width:30px;height:30px;"><span class="w-time">8:15 - 16:00</span>Коротеев </span>
+                            <span class="w-student ok" ><img class="member-avatar" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg" style="margin:0px 4px 0 -2px;width:30px;height:30px;"><span class="w-time">8:15 - 16:00</span>Петрова </span>
+                            <span class="w-student bad"><img class="member-avatar" src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg" style="margin:0px 4px 0 -2px;width:30px;height:30px;"><span class="w-time">8:15 - 16:00</span>Сидоров </span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student"><img class="member-avatar" src="http://michaelgowin.com/blog/wp-content/uploads/2014/03/strauss.jpg" style="margin:0px 4px 0 -2px;width:30px;height:30px;"><span class="w-time">16:45 - 18:00</span>Иванов </span>
+                        </span>
+                    </span>
+                    <span class="p-call-create w-lesson">
+                        <span class="w-student-create"> + Занятие</span>
+                    </span>
+
+                </td>
+                <td class="weekdays-column">
+                    <div class="w-label">ВТ, 13 Августа</div>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student ok"><img class="member-avatar" src="http://www.joblo.com/newsimages1/cool-videos-django-sam-jackson.jpg" style="margin:0px 4px 0 -2px;width:30px;height:30px;"><span class="w-time">16:45 - 18:00</span>Иванов </span>
+                            <span class="w-student ok"><img class="member-avatar" src="http://305hiphop.com/ckfinder/userfiles/images/jacki-o-shoots-goons.jpg" style="margin:0px 4px 0 -2px;width:30px;height:30px;"><span class="w-time">16:45 - 18:00</span>Волкова </span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student bad"><img class="member-avatar" src="http://www.epigami.sg/images/tutor/3761/ashley-chin-tutor-epigami-L.jpg" style="margin:0px 4px 0 -2px;width:30px;height:30px;"><span class="w-time">18:0 - 19:00</span>Иванов</span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student"><img class="member-avatar" src="http://partycity2.scene7.com/is/image/PartyCity/_ml_p2p_pc_badge_taller15?$_ml_p2p_pc_thumb_taller15$=&$product=PartyCity/451438_full&hei=200&wid=200" style="margin:0px 4px 0 -2px;width:30px;height:30px;"><span class="w-time">19:00 - 19:45</span>Сидоров</span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student"><span class="w-time">20:00 - 20:45</span>Ломов</span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-create w-lesson">
+                        <span class="w-student-create"> + Занятие</span>
+                    </span>
+
+                </td>
+                <td class="weekdays-column">
+                    <div class="w-label">СР, 14 Августа</div>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student"><span class="w-time">11:00 - 12:00</span>Сидоров</span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student"><span class="w-time">16:45 - 18:00</span>Коротеев</span>
+                            <span class="w-student ok"><span class="w-time">16:45 - 18:00</span>Петрова</span>
+                            <span class="w-student"><span class="w-time">16:45 - 18:00</span>Сидоров</span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-create w-lesson">
+                        <span class="w-student-create"> + Занятие</span>
+                    </span>
+
+                </td>
+                <td class="weekdays-column">
+                    <div class="w-label">ЧТ, 15 Августа</div>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student ok"><span class="w-time">16:45 - 18:00</span>Иванов</span>
+                            <span class="w-student ok"><span class="w-time">16:45 - 18:00</span>Волкова</span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student"><span class="w-time">18:0 - 19:00</span>Иванов</span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student good"><span class="w-time">19:00 - 19:45</span>Сидоров</span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student"><span class="w-time">20:00 - 20:45</span>Ломов</span>
+                        </span>
+                    </span>
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student bad"><img class="member-avatar" src="http://www.epigami.sg/images/tutor/3761/ashley-chin-tutor-epigami-L.jpg" style="margin:0px 4px 0 -2px;width:30px;height:30px;"><span class="w-time">18:0 - 19:00</span>Иванов</span>
+                        </span>
+                    </span>
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student"><span class="w-time">20:45 - 21:45</span>Сидоров</span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-create w-lesson">
+                        <span class="w-student-create"> + Занятие</span>
+                    </span>
+
+                </td>
+                <td class="weekdays-column">
+                    <div class="w-label">ПТ, 16 Августа</div>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student"><span class="w-time">11:00 - 12:00</span>Сидоров</span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student good"><span class="w-time">12:00 - 13:30</span>Ломов</span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-create w-lesson">
+                        <span class="w-student-create"> + Занятие</span>
+                    </span>
+
+                </td>
+                <td class="weekdays-column">
+                    <div class="w-label">СБ, 17 Августа</div>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student good"><img class="member-avatar" src="http://www.joblo.com/newsimages1/cool-videos-django-sam-jackson.jpg" style="margin:0px 4px 0 -2px;width:30px;height:30px;"><span class="w-time">16:45 - 18:00</span>Иванов </span>
+                            <span class="w-student"><img class="member-avatar" src="http://305hiphop.com/ckfinder/userfiles/images/jacki-o-shoots-goons.jpg" style="margin:0px 4px 0 -2px;width:30px;height:30px;"><span class="w-time">16:45 - 18:00</span>Волкова </span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student bad"><img class="member-avatar" src="http://www.epigami.sg/images/tutor/3761/ashley-chin-tutor-epigami-L.jpg" style="margin:0px 4px 0 -2px;width:30px;height:30px;"><span class="w-time">18:0 - 19:00</span>Иванов</span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student ok"><img class="member-avatar" src="http://partycity2.scene7.com/is/image/PartyCity/_ml_p2p_pc_badge_taller15?$_ml_p2p_pc_thumb_taller15$=&$product=PartyCity/451438_full&hei=200&wid=200" style="margin:0px 4px 0 -2px;width:30px;height:30px;"><span class="w-time">19:00 - 19:45</span>Сидоров</span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-create w-lesson">
+                        <span class="w-student-create"> + Занятие</span>
+                    </span>
+
+                </td>
+                <td class="weekdays-column">
+                    <div class="w-label">ВС, 18 Августа</div>
+
+                    <span class="p-call-lesson w-lesson">
+                        <span class="w-students">
+                            <span class="w-student good"><span class="w-time">19:00 - 20:00</span>Иванов</span>
+                            <span class="w-student bad"><span class="w-time">19:00 - 20:00</span>Волкова</span>
+                            <span class="w-student"><span class="w-time">19:00 - 20:00</span>Сидоров</span>
+                        </span>
+                    </span>
+
+                    <span class="p-call-create w-lesson">
+                        <span class="w-student-create"> + Занятие</span>
+                    </span>
+
+                </td>
+            </tr>
+        </table>
+
+        <div style="margin-top:15px;">
+            <span style="width:20px;height:20px;margin-right:5px;background:#e4e4ea;border-radius:15px;"></span> <span style="line-height:20px;margin-right:20px;font-size:15px;">Не оплачено</span>
+            <span style="width:20px;height:20px;margin-right:5px;background:#3b99d8;border-radius:15px;"></span> <span style="line-height:20px;margin-right:20px;font-size:15px;">Согласовано</span>
+            <span style="width:20px;height:20px;margin-right:5px;background:#5dac78;border-radius:15px;"></span> <span style="line-height:20px;margin-right:20px;font-size:15px;">Оплачено</span>
+            <span style="width:20px;height:20px;margin-right:5px;background:#C15757;border-radius:15px;"></span> <span style="line-height:20px;margin-right:20px;font-size:15px;">Сбой оплаты</span>
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block right %}
+    <div style="width:200px;padding-left:10px;" class="td members-list">
+        <style>
+            .member {display:block;border-bottom:1px solid #ddd;padding:8px;}
+            .member:last-child {border-bottom:0;}
+            .member:hover {background:#fff;}
+                .member-avatar {width:30px;height:30px;}
+                .member-name {line-height:30px;font-size:16px;}
+                    .member-name .counter {margin-top:5px;}
+        </style>
+        <div style="border:1px solid #ddd;border-bottom:0;color:#999;font-size:13px;height:31px;line-height:31px;padding:0 10px"><i class="fa fa-search" style="float:right;color:#ccc;margin-top:9px;"></i>Мои ученики</div>
+        <div style="border:1px solid #ddd;background:#F8F8FA;overflow-y:scroll;height:0;" class="members-block">
+        {% for i in '12345' %}
+            <a href="{% url 'dashboard5' %}" class="p-call-dialog member" style="color:#000;font-size:14px;white-space:nowrap;text-decoration:none;">
+                <img class="member-avatar" src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg">
+                <div class="member-name">Петров Ю.М.</div>
+            </a>
+
+            <a href="{% url 'dashboard5' %}" class="p-call-dialog member" style="color:#000;font-size:14px;white-space:nowrap;text-decoration:none;display:block">
+                <img class="member-avatar" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">
+                <div class="member-name">Петров И.Ю.</div>
+            </a>
+
+            <a href="{% url 'dashboard5' %}" class="p-call-dialog member" style="color:#000;font-size:14px;white-space:nowrap;text-decoration:none;">
+                <img class="member-avatar" src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg?quality=0.6&height=200&width=200&">
+                <div class="member-name"><span class="counter">1</span>Петрова А.И.</div>
+            </a>
+            <a href="{% url 'dashboard5' %}" class="p-call-dialog member" style="color:#000;font-size:14px;white-space:nowrap;text-decoration:none;">
+                <img class="member-avatar" src="http://partycity2.scene7.com/is/image/PartyCity/_ml_p2p_pc_badge_taller15?$_ml_p2p_pc_thumb_taller15$=&$product=PartyCity/451438_full&hei=200&wid=200">
+                <div class="member-name">Петров Ю.М.</div>
+            </a>
+
+            <a href="{% url 'dashboard5' %}" class="p-call-dialog member" style="color:#000;font-size:14px;white-space:nowrap;text-decoration:none;">
+                <img class="member-avatar" src="http://www.epigami.sg/images/tutor/3761/ashley-chin-tutor-epigami-L.jpg">
+                <div class="member-name">Петров И.Ю.</div>
+            </a>
+
+            <a href="{% url 'dashboard5' %}" class="p-call-dialog member" style="color:#000;font-size:14px;white-space:nowrap;text-decoration:none;">
+                <img class="member-avatar" src="http://305hiphop.com/ckfinder/userfiles/images/jacki-o-shoots-goons.jpg">
+                <div class="member-name">Петрова А.И.</div>
+            </a>
+            <a href="{% url 'dashboard5' %}" class="p-call-dialog member" style="color:#000;font-size:14px;white-space:nowrap;text-decoration:none;">
+                <img class="member-avatar" src="http://www.joblo.com/newsimages1/cool-videos-django-sam-jackson.jpg">
+                <div class="member-name"><span class="counter">2</span>Петров Ю.М.</div>
+            </a>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        var lol = $('.all').height() - 240 - 20;
+        if (lol > $('.weekdays').height());
+        $('.weekdays').css('min-height', lol);
+        $('.members-block').css('height', $('.weekdays').height() - 33);
+    </script>
+{% endblock %}

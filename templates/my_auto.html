@@ -1,0 +1,60 @@
+{% extends 'home.html' %}
+
+{% block style %}
+    <style>
+        .tip {font-size:15px;color:#999;}
+        .photo-input {border:3px dashed #ccc;width:150px;height:150px;border-radius:100px;}
+    </style>
+{% endblock %}
+
+{% block bg %}<div class="column-left-separator"></div>{% endblock %}
+
+{% block headline %}{% endblock %}
+
+{% block left %}
+    <div class="column-left">
+        {% include 'blocks/client_menu.html' %}
+    </div>
+{% endblock %}
+
+{% block header %}<h1 class="title-content">Мои автоплатежи</h1>{% endblock %}
+
+{% block content %}
+
+<div style="margin-top:-20px;">
+    {% for i in '123' %}
+        <div style="border-bottom:1px solid #ccc;padding:30px 0 30px;">
+            <table style="margin:0 0 0;">
+                <tr>
+                    <td style="padding:0 0 10px;">
+                        <div class="header-tip" style="padding:0;margin:0;">Репетитор</div>
+                        <div class="h-mini">Зюзькевич В.А.</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:0 0 10px;">
+                        <div class="header-tip" style="padding:0;margin:0;">Ученик</div>
+                        <div class="h-mini">Петрова А.И.</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:0 0 10px;">
+                        <div class="header-tip" style="padding:0;margin:0;">Курс и стоимость</div>
+                        <div class="h-mini">Базовый курс математики, 1 500 р. (1 час 30 минут)</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:0 0 0;">
+                        <div class="header-tip" style="padding:0;margin:0;">Адрес</div>
+                        <div class="h-mini">г. Москва, Ленинский проспект, дом 132, стр 20, кв. 10</div>
+                    </td>
+                </tr>
+            </table>
+            <a href="#" class="button" style="margin-top:20px;margin-right:2%;height:40px;line-height:40px;font-size:12px;font-weight:bold;text-transform:uppercase;">Отменить автоплатежи с такими параметрами</a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block right %}{% endblock %}

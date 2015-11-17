@@ -1,0 +1,53 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+
+            <style>
+
+                .aaa > span {width:90% !important;margin-top:5px;float:left;}
+                .select2-selection--multiple {border-color:#ddd !important;border-radius:0 !important;}
+                .select2.select2-container--open .select2-selection--multiple {border-color:#aaa !important;}
+                .select2-container--default .select2-selection--multiple .select2-selection__choice {border-color:#ddd !important;background:#f1f1f5 !important;border-radius:0 !important;}
+                select[multiple="multiple"] {height:25px;margin-top:5px;}
+
+                table {border-collapse: collapse}
+                th {text-align:center;padding:5px 0;border-right:1px solid #ddd;border-left:1px solid #ddd;border-bottom:1px solid #ddd;font-size:15px;font-weight:normal;}
+                th:first-child {text-align:left;border-left:0;font-weight:bold;}
+                th:last-child {border-right:0;border-right:0;}
+            </style>
+
+            {% spaceless %}
+                <div class="tabs" style="width:100%;margin-left:-20px;padding:0 20px;">
+                    <a href="{% url 'subjects' %}"  class="tab {% active 'subjects' %}">Предметы (Вариант 1)</a>
+                    <a href="{% url 'subjects2' %}" class="tab {% active 'subjects2' %}">Предметы (Вариант 2)</a>
+                </div>
+            {% endspaceless %}
+
+            {% for sub in subs %}
+                <div style="border:1px solid #ccc;padding:5px;margin:10px 0;clear:both;">
+                    <table style="width:100%;margin-top:-5px;">
+                        <tr>
+                            <th>{{ sub }}</th>
+                            <th>№: 1</th>
+                            <th>дат.п.: {{ sub }}у</th>
+                            <th>род.п.: {{ sub }}a</th>
+                            <th>Порядок сорт.: 10</th>
+                            <th>Приоритет: 20</th>
+                        </tr>
+                    </table>
+
+                    <div class="aaa">
+                        <span style="width:10% !important;float:left;line-height:25px;">Разделы</span> {% include 'back/b_divisions.html' %}
+                    </div>
+                    <div class="aaa">
+                        <span style="width:10% !important;float:left;line-height:25px;">Дополнения</span> {% include 'back/b_additions.html' %}
+                    </div>
+
+                    <div style="clear:both;"></div>
+                </div>
+            {% endfor %}
+
+        <button>Сохранить разделы и дополнения</button>
+
+
+{% endblock %}

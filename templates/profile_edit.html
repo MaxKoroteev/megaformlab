@@ -1,0 +1,102 @@
+{% extends 'home.html' %}
+
+{% block style %}
+    <style>
+        .tip {font-size:15px;color:#999;}
+        .photo-input {border:3px dashed #ccc;width:150px;height:150px;border-radius:100px;}
+    </style>
+{% endblock %}
+
+{% block bg %}<div class="column-left-separator"></div>{% endblock %}
+
+{% block headline %}{% endblock %}
+
+{% block left %}
+    <div class="column-left">
+        {% include 'blocks/client_menu.html' %}
+    </div>
+{% endblock %}
+
+{% block header %}<h1 class="title-content">Юрий Петров</h1>{% endblock %}
+
+{% block content %}
+
+    <h4 style="color:#777">Фото</h4>
+
+    <div style="float:right;margin-left:200px;margin-top:30px;">
+        <div class="tip" style="margin:5px 0;"> - JPG, PNG, GIF до 3 Мб</div>
+        <div class="tip" style="margin:5px 0;"> - Фото анфас</div>
+        <div class="tip" style="margin:5px 0;"> - Лицо должно быть четко видно и не быть скрыто солнцезащитными &nbsp;&nbsp;очками или головным убором</div>
+    </div>
+
+    <div class="photo-input"></div>
+
+    <div style="width:31.3%;float:left;margin-right:2%;">
+        <h4>Имя</h4>
+        <div class="input">Юрий</div>
+    </div>
+
+    <div style="width:31.3%;float:left;margin-right:2%;">
+        <h4>Фамилия</h4>
+        <div class="input">Петров</div>
+    </div>
+
+    <div style="width:32.3%;float:left;">
+        <h4 style="color:#777">Пол</h4>
+        <span><span class="radio-cool active">М</span><span class="radio-cool">Ж</span></span>
+    </div>
+
+    <div style="clear:both;"></div>
+
+
+    <h2 style="margin-top:30px;border-bottom:1px solid #ddd;padding:0 0 5px 0;">Контактная информация для связи с репетиторами
+
+    <div class="tip" style="margin-top:2px;">Контактные данные будут отображаться только выбранным Вами репетиторам</div>
+
+    </h2>
+
+    <div style="width:31.3%;float:left;margin-right:2%;">
+        <h4 style="color:#777">Телефон</h4>
+        <div class="input">8 (800) 800 80 80</div>
+    </div>
+
+    <div style="width:31.3%;float:left;margin-right:2%;">
+        <h4 style="color:#777">Email</h4>
+        <div class="input">maxim@koroteev.ru</div>
+    </div>
+
+    <div style="width:32.3%;float:left;">
+        <h4 style="color:#777">Skype</h4>
+        <div class="input"></div>
+    </div>
+
+    <div style="clear:both;"></div>
+
+    <h2 style="margin-top:30px;border-bottom:1px solid #ddd;padding:0 0 5px 0;">Дополнительная информация
+
+    <div class="tip" style="margin-top:2px;">Рекомендуется указать, если Вы лично планируете заниматься с репетитором</div>
+
+    </h2>
+    <div style="width:64%;float:left;margin-right:2%;">
+        <h4 style="color:#777">Основное занятие</h4>
+        <div class="select">Работает</div>
+        <!--div class="select">МГТУ им. Баумана</div>
+        <div class="select">Финансовый</div>
+        <div class="select">Специалист по финансовому менеджменту</div>
+        <div class="select">Магистратура</div-->
+    </div>
+
+    <div style="width:34%;float:left;">
+        <h4 style="color:#777">Дата рождения</h4>
+        <div class="input" style="width:10%;margin-right:3%;float:left;padding:0 10px;text-align:center;">31</div>
+        <div class="select" style="width:38%;margin-right:3%;float:left;padding:0 10px;">Сентября</div>
+        <div class="select" style="width:21%;float:left;padding:0 10px;">1990</div>
+    </div>
+
+    <div style="clear:both;"></div>
+
+    <span class="button" style="margin-top:5px;">Сохранить</span>
+
+{% endblock %}
+
+{% block right %}{% endblock %}

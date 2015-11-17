@@ -1,0 +1,159 @@
+{% extends 'home.html' %}
+
+{% block style %}
+    <style>
+        .tip {font-size:15px;color:#999;}
+        .photo-input {border:3px dashed #ccc;width:150px;height:150px;border-radius:100px;}
+    </style>
+{% endblock %}
+
+{% block bg %}<div class="column-left-separator"></div>{% endblock %}
+
+{% block headline %}{% endblock %}
+
+{% block left %}
+    <div class="column-left">
+        {% include 'blocks/client_menu.html' %}
+    </div>
+{% endblock %}
+
+{% block header %}<h1 class="title-content"><div style="font-size:17px;color:#999;float:right;">Основной аккаунт</div>Юрий Петров</h1>{% endblock %}
+
+{% block content %}
+
+            <style>
+                .popup-student {cursor:pointer;float:left;}
+                .popup-student:hover {background:#f1f1f5;}
+            </style>
+            <div style="float:left;width:200px;">
+
+                <img src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg" style="width:200px;height:200px;border-radius:100px;">
+
+{#                <h3 style="font-size:20px;line-height:20px;margin:38px 0 15px;border-bottom:1px solid #ddd;padding:0 0 10px 0;">Другие члены семьи</h3>#}
+{##}
+{#                <div style="clear:both;height:40px;margin:10px 0;padding:5px;border-radius:2px;" class="popup-student">#}
+{#                    <img style="float:left;width:40px;height:40px;border-radius:20px;margin-right:10px;" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">#}
+{#                    <div style="float:left;">#}
+{#                        <div style="line-height:20px;font-size:18px;margin-top:3px;color:#47b;">Иван Петров</div>#}
+{#                        <div style="line-height:15px;font-size:14px;color:#999;">Ученик</div>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <div style="clear:both;height:40px;margin:10px 0;padding:5px;border-radius:2px;" class="popup-student">#}
+{#                    <img style="float:left;width:40px;height:40px;border-radius:20px;margin-right:10px;" src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg">#}
+{#                    <div style="float:left;">#}
+{#                        <div style="line-height:20px;font-size:18px;margin-top:3px;color:#47b;">Елена Петрова</div>#}
+{#                        <div style="line-height:15px;font-size:14px;color:#999;">Ученик без аккаунта</div>#}
+{#                    </div>#}
+{#                </div>#}
+
+                <h3 style="font-size:20px;line-height:20px;margin:38px 0 10px;border-bottom:1px solid #ddd;padding:0 0 10px 0;">Контакты</h3>
+
+                <div>
+                    <div style="height:40px;">
+                        <div class="header-tip" style="margin-top:0;">Телефон</div>
+                        <div class="h-mini">8 (800) 800 80 80</div>
+                    </div>
+                    <div style="height:40px;margin-top:10px;">
+                        <div class="header-tip" style="margin-top:0;">Email</div>
+                        <div class="h-mini">maxim@koroteev.ru</div>
+                    </div>
+                    <div style="height:40px;margin-top:10px;">
+                        <div class="header-tip" style="margin-top:0;">Skype</div>
+                        <div class="h-mini">maxim.koroteev</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="margin-left:230px;">
+{#                <h2 style="margin:0 0 0;border-bottom:1px solid transparent;padding:0 0 0 0;">Петров Юрий Владимирович</h2>#}
+{#                <div style="font-size:14px;line-height:20px;margin-bottom:20px;color:#999;">Основной аккаунт</div>#}
+
+{#                <div style="height:40px;margin-bottom:20px;">#}
+{#                    <a href="#" class="button button-light" style="height:40px;line-height:40px;padding:0 10px;border:0;font-size:11px;font-weight:bold;color:#fff;text-transform:uppercase;background:#3b99d8;">+ Добавить в мои ученики</a>#}
+{#                    <a href="#" class="button button-light call-student-create-form" style="height:40px;line-height:40px;padding:0 10px;border:0;font-size:11px;font-weight:bold;color:#74747a;text-transform:uppercase;margin-left:10px;background:#f1f1f5;">Создать занятие</a>#}
+{#                    <a href="#" class="button button-light call-student-create-form" style="height:40px;line-height:40px;padding:0 10px;border:0;font-size:11px;font-weight:bold;color:#74747a;text-transform:uppercase;margin-left:10px;background:#f1f1f5;">Запросить создать ученика</a>#}
+{#                    <a href="#" class="button button-light" style="height:40px;line-height:40px;padding:0 10px;border:0;font-size:11px;font-weight:bold;color:#74747a;text-transform:uppercase;margin-left:10px;background:#f1f1f5;">Скрыть контакты</a>#}
+{#                </div>#}
+
+                <h3 style="font-size:20px;line-height:20px;margin:0px 0 0px;border-bottom:1px solid #ddd;padding:0 0 10px 0;">Другие члены семьи</h3>
+
+                <div style="height:40px;margin:10px 0;padding:5px;border-radius:2px;margin-right:20px;" class="popup-student">
+                    <img style="float:left;width:40px;height:40px;border-radius:20px;margin-right:10px;" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">
+                    <div style="float:left;">
+                        <div style="line-height:20px;font-size:18px;margin-top:3px;color:#47b;">Иван Петров</div>
+                        <div style="line-height:15px;font-size:14px;color:#999;">Ученик</div>
+                    </div>
+                </div>
+
+                <div style="height:40px;margin:10px 0;padding:5px;border-radius:2px;" class="popup-student">
+                    <img style="float:left;width:40px;height:40px;border-radius:20px;margin-right:10px;" src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg">
+                    <div style="float:left;">
+                        <div style="line-height:20px;font-size:18px;margin-top:3px;color:#47b;">Елена Петрова</div>
+                        <div style="line-height:15px;font-size:14px;color:#999;">Ученик без аккаунта</div>
+                    </div>
+                </div>
+
+                <h3 style="font-size:20px;line-height:20px;margin:0 0 10px;border-bottom:1px solid #ddd;padding:30px 0 10px 0;width:100%;margin-top:50px;">Адреса</h3>
+
+                <div>
+                    <div class="h-mini" style="margin-top:0;">г. Москва, Ленинский проспект, дом 100, подъезд 1, этаж 3, квартира 10. м. Юго-западная</div>
+                </div>
+
+                <h3 style="font-size:20px;line-height:20px;margin:0 0 10px;border-bottom:1px solid #ddd;padding:30px 0 10px 0;">Дополнительная информация</h3>
+
+                <div>
+                    <div class="header-tip" style="margin-top:0;">Дата рождения</div>
+                    <div class="h-mini">31 Сентября 1990</div>
+                </div>
+                <div>
+                    <div class="header-tip">Основное занятие</div>
+                    <div class="h-mini">Студент МГТУ им. Баумана, Финансовый факультет, Специалист по финансовому менеджменту, Магистратура</div>
+                </div>
+
+            </div>
+{#    #}
+{#    <img src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg" style="width:200px;height:200px;border-radius:100px;float:left;margin-right:15px;">#}
+{##}
+{#    <div style="margin-left:230px;">#}
+{##}
+{#        <h3 style="margin:0 0 10px;border-bottom:1px solid #ddd;padding:0 0 10px 0;">Контакты</h3>#}
+{##}
+{#        <div style="height:40px;">#}
+{#            <div style="width:31.3%;float:left;margin-right:2%;height:40px;">#}
+{#                <div class="header-tip" style="margin-top:0;">Телефон</div>#}
+{#                <div class="h-mini">8 (800) 800 80 80</div>#}
+{#            </div>#}
+{#            <div style="width:31.3%;float:left;margin-right:2%;height:40px;">#}
+{#                <div class="header-tip" style="margin-top:0;">Email</div>#}
+{#                <div class="h-mini">maxim@koroteev.ru</div>#}
+{#            </div>#}
+{#            <div style="width:31.3%;float:left;margin-right:2%;height:40px;">#}
+{#                <div class="header-tip" style="margin-top:0;">Skype</div>#}
+{#                <div class="h-mini">maxim.koroteev</div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <h3 style="margin:0 0 10px;border-bottom:1px solid #ddd;padding:30px 0 10px 0;">Адреса</h3>#}
+{##}
+{#        <div>#}
+{#            <div class="h-mini" style="margin-top:0;">г. Москва, Ленинский проспект, дом 100, подъезд 1, этаж 3, квартира 10. (м. Юго-западная)</div>#}
+{#        </div>#}
+{##}
+{#        <h3 style="margin:0 0 10px;border-bottom:1px solid #ddd;padding:30px 0 10px 0;">Дополнительная информация</h3>#}
+{##}
+{#        <div>#}
+{#            <div class="header-tip" style="margin-top:0;">Дата рождения</div>#}
+{#            <div class="h-mini">31 Сентября 1990</div>#}
+{#        </div>#}
+{#        <div>#}
+{#            <div class="header-tip">Основное занятие</div>#}
+{#            <div class="h-mini">Студент МГТУ им. Баумана, Финансовый факультет, Специалист по финансовому менеджменту, Магистратура</div>#}
+{#        </div>#}
+{##}
+{#    </div>#}
+
+{% endblock %}
+
+{% block right %}{% endblock %}

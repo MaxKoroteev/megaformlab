@@ -1,0 +1,30 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+        <h1>
+            <button style="float:right;margin:0;" onClick="alert('Типа форма добавления')">Добавить факультет</button>
+            МГУ - №32
+        </h1>
+        <h4>Московский Государственный Университет, г. Москва</h4>
+        <table class="zebra">
+
+            <tr>
+                <th colspan="4"><button class="light" onClick="alert('Нельзя объединить факультеты с разными названиями.');">Объединить выбранные факультеты в один</button>
+                    <span style="font-weight:normal;">- используется для устранения дубликатов</span></th>
+            </tr>
+
+            <tr>
+                <th style="width:1px;"></th><th style="width:1px;">№</th><th>Название факультета</th><th style="width:1px;"></th>
+            </tr>
+
+            {% for i in '123456789' %}
+                <tr class="row">
+                    <td><input type="checkbox"></td>
+                    <td>{{ i }}</td>
+                    <td>Биологический</td>
+                    <td><a href="#" onClick="alert('Типа форма редактирования')">Редактировать</a></td>
+                </tr>
+            {% endfor %}
+
+        </table>
+{% endblock %}

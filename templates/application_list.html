@@ -1,0 +1,114 @@
+{% extends 'home.html' %}
+
+{% block headline %}
+    <div class="title">
+        <div class="wrapper">
+    Заявки на обучение
+</div>
+</div>
+{% endblock %}
+
+{% block left %}
+
+    <style>
+        .select .fa {color:#898989;line-height:45px;height:45px;font-size:20px;width:45px;text-align:center;margin-left:-15px;}
+        .select .fa-map-marker {font-size:27px;}
+        .select .fa-home {font-size:24px;}
+    </style>
+
+    {% spaceless %}
+
+    <div class="column-left">
+        <div class="column-block">
+            <div class="select"><i class="fa fa-list-ul"></i>ЕГЭ по математике</div>
+            <div class="select"><i class="fa fa-map-marker"></i>Москва</div>
+            <div class="select"><i class="fa fa-subway"></i>Бауманская</div>
+            <div class="select"><i class="fa fa-home"></i>У репетитора</div>
+            <div class="select"><i class="fa fa-group"></i>Не более 3-ёх</div>
+            <div style="height:45px;">
+                <div style="height:45px;line-height:45px;float:left;">от&nbsp;</div><div class="input" style="width:15%;float:left;"></div><div style="height:45px;line-height:45px;float:left;">&nbsp;до&nbsp;</div><div class="input" style="width:15%;float:left;"></div><div style="height:45px;line-height:45px;float:left;">&nbsp;р./час</div>
+            </div>
+        </div>
+
+
+        <div class="column-separator"></div>
+
+        <div class="column-block">
+            <h4>Статус ученика</h4>
+            <div class="select">Дошкольного возраста</div>
+        </div>
+        <div class="column-block">
+            <h4>Пол ученика</h4>
+            <div class="radio" style="float:left;">Мужской</div>
+            <div class="radio" style="margin-left:120px;">Женский</div>
+        </div>
+
+        <div class="column-separator"></div>
+
+        <div class="column-block">
+            <h4>Статус репетитора</h4>
+            <div class="select">Преподаватель в вузе</div>
+        </div>
+        <div class="column-block">
+            <h4>Стаж репетитора</h4>
+            <div class="select">Не имеет значения</div>
+        </div>
+        <div class="column-block">
+            <h4>Родной язык репетитора</h4>
+            <div class="select">Русский</div>
+        </div>
+        <div class="column-block">
+            <h4>Возраст репетитора</h4>
+            <div class="input" style="width:33.5%;float:left;margin-bottom:15px;"></div><div style="height:45px;line-height:45px;float:left;">&nbsp;-&nbsp;</div><div class="input" style="width:33.5%;float:left;margin-bottom:15px;"></div><div style="height:45px;line-height:45px;float:left;"></div>
+        </div>
+        <div class="column-block">
+            <h4>Пол репетитора</h4>
+            <div class="radio" style="float:left;">Мужской</div>
+            <div class="radio" style="margin-left:120px;">Женский</div>
+        </div>
+        <div class="column-block">
+            <h4>Дом. животные у репетитора</h4>
+            <div class="radio">Не допустимы</div>
+        </div>
+    </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block content %}
+    {% for application in applications %}
+        <div class="application">
+            <a href="{% url 'application_detail' %}" class="h3">{{ application.title }}</a>
+
+            <div style="color:#777;">15 часов назад</div>
+
+            <h4>{{ application.price }} руб./час</h4>
+            <div>{{ application.format }} - {{ application.group }}</div>
+
+            <h4>Об ученике</h4>
+            <div>{{ application.status }} (19 лет)</div>
+
+            <h4>Пожелания к репетитору</h4>
+            <div>Преподаватель в школе, жен., от 30 до 50 лет, опыт - от 2-ух лет, родной язык - русский</div>
+
+            <h4>Адрес</h4>
+            <div>Москва, М. Бауманская, ул. Генерала тюленева</div>
+
+            <div style="margin-top:15px;">
+                <a href="{% url 'application_detail' %}" class="button popup-open">Откликнуться</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="pagination">
+        {% spaceless %}
+            <span class="page active"> ←</span>
+            <span class="page"> 1</span>
+            <span class="page"> 2</span>
+            <span class="page"> 3</span>
+            <span class="page"> →</span>
+        {% endspaceless %}
+    </div>
+
+{% endblock %}
+
+{% block right %}{% endblock %}

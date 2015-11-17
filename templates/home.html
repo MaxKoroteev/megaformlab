@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>repetitx</title>
+
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    {% block style %}{% endblock %}
+
+</head>
+<body class="{{ screen }}">
+    {% block bg %}{% endblock %}
+    <div class="all">
+        <div class="header">
+            <div class="wrapper">
+                {% spaceless %}
+                    <div class="menu">
+                        <div class="menu-user">
+                            <a href="{% url 'dashboard2'  %}" class="menu-item{% active 'dashboard2'  %}">Занятия  <!--span class="counter" style="margin-left:10px;margin-right:-10px;">2</span--></a>
+                            <a href="{% url 'dialog_list' %}" class="menu-item{% active 'dialog_list' %}">Сообщения<span class="counter" style="margin-left:10px;margin-right:-10px;">4</span></a>
+                            <a href="{% url 'finances'    %}" class="menu-item{% active 'finances'    %}">Финансы</a>
+                            <a href="{% url 'profile' %}" class="menu-item menu-user">
+                                <img src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg">
+                                <span class="arrow-down"></span>
+                            </a>
+                        </div>
+                        <a href="{% url 'home' %}"             class="logo"><img src="/media/img/logo.svg" alt="repetitx" width="115" height="25"></a>
+                        <a href="{% url 'tutor_list' %}"       class="menu-item{% active 'tutor_list'       %}">Репетиторы</a>
+                        <a href="{% url 'application_list' %}" class="menu-item{% active 'application_list' %}">Заявки</a>
+                    </div>
+                {% endspaceless %}
+            </div>
+        </div>
+
+        {% block headline %}
+            {% spaceless %}
+                <div class="title">
+                    <div class="wrapper">
+                        Убойный лендинг
+                    </div>
+                </div>
+            {% endspaceless %}
+        {% endblock %}
+
+        <div class="container wrapper">
+
+            <div class="column-table">
+                <div class="tr">
+                    {% block left %}{# <div class="column-left"></div> #}{% endblock %}
+                    <div class="column-center">
+                        <div class="content">
+                            {% block header %}
+
+                            {% endblock %}
+                            {% block content %}
+{#                                <button class="p-call-dialog">dialog</button>#}
+                            {% endblock %}
+                        </div>
+                    </div>
+                    {% block right %}{# <div class="column-right"></div> #}{% endblock %}
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="wrapper">
+                <div class="screen">
+                    <a href="{{ request.path }}?screen=wide" class="{% if screen == 'wide' %}active{% endif %}">100%</a><a href="{{ request.path }}?screen=normal" class="{% if screen == 'normal' or screen == '' %}active{% endif %}">980px</a></a>
+                </div>
+                © repetitx.ru, 2007-{% now "Y" %} / <a href="{% url 'registration' %}">Регистрация</a>
+            </div>
+        </div>
+
+        <div class="p-bg" style="display:none;"></div>
+
+        {% spaceless %}
+            {% include 'popups/dialog.html' %}
+            {% include 'popups/lesson.html' %}
+            {% include 'popups/create.html' %}
+            {% include 'popups/bcreate.html' %}
+        {% endspaceless %}
+
+        {% block script %}{% endblock %}
+
+    </div>
+
+
+
+{##}
+{#    {% spaceless %}#}
+{#        {% include 'popups/lesson.html' %}#}
+{#        {% include 'popups/create_lesson.html' %}#}
+{#    {% endspaceless %}#}
+{##}
+{#    {% block popup %}#}
+{##}
+{#        <style>#}
+{#            .popup-wrapper, .popup-wrapper-lesson, .popup-wrapper-lesson-ok {display:none;}#}
+{#            .popup-bg {position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,0.5);z-index:1;}#}
+{#            .popup {z-index:2;background:#fff;position:fixed;top:50%;left:50%;margin-left:-300px;margin-top:-174px;width:600px;height:335px;box-shadow:0 0 5px rgba(0,0,0,0.5)}#}
+{#                .popup-header {height:90px;background:#f1f1f5;}#}
+{#                    .popup-close {float:right;font-size:30px;line-height:90px;width:90px;text-align:center;cursor:pointer;}#}
+{#                    .popup-person {}#}
+{#                        .popup-person-image {display:inline-block;width:60px;height:60px;margin:15px 15px 15px 15px;border-radius:30px;}#}
+{#                        .popup-person-name {display:inline-block;font-size:20px;line-height:90px;}#}
+{#                .popup-content {padding:15px;}#}
+{#                    .popup-dialog {margin:0 0 15px;}#}
+{#        </style>#}
+{##}
+{#        <div class="popup-wrapper">#}
+{#            <div class="popup-bg"></div>#}
+{#            <div class="popup">#}
+{#                {% spaceless %}#}
+{#                    <div class="popup-header">#}
+{#                        <div class="popup-close">Х</div>#}
+{#                        <div class="popup-person">#}
+{##}
+{#                            <img src="http://www.epigami.sg/images/tutor/3761/ashley-chin-tutor-epigami-L.jpg" class="popup-person-image">#}
+{##}
+{#                            <div class="popup-person-name">Макарова Тина Александровна</div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="popup-content">#}
+{#                        <a href="{% url 'dialog_detail' %}" class="popup-dialog">Перейти к диалогу →</a>#}
+{#                        <div class="textarea" style="color:#999;height:90px;">Сообщение ...</div>#}
+{#                        <div><span class="radio" style="margin-bottom:10px;margin-top:2px;">Открыть свои контакты</span></div>#}
+{#                        <a href="#" class="button">Отправить</a>#}
+{#                    </div>#}
+{#                {% endspaceless %}#}
+{#            </div>#}
+{##}
+{#        </div>#}
+{##}
+{#        <div class="popup-wrapper-lesson">#}
+{#            <div class="popup-bg"></div>#}
+{#            <div class="popup" style="width:795px;height:325px;margin-left:-395px;">#}
+{#                {% spaceless %}#}
+{#                    <div class="popup-header">#}
+{#                        <div class="popup-close">Х</div>#}
+{#                        <div class="popup-person">#}
+{#                            <div class="popup-person-name" style="padding-left:20px;font-size:25px;">#}
+{#                                <div style="font-size:25px;line-height:25px;padding-top:25px;">Занятие</div>#}
+{#                                <div style="font-size:15px;line-height:20px;color:#72c58e;">Оплачено</div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="popup-content">#}
+{##}
+{#                        <div class="input"  style="width:185px;float:left;margin-right:10px;">Дата</div>#}
+{#                        <div class="input"  style="width:185px;float:left;margin-right:10px;">Время</div>#}
+{#                        <div class="select" style="width:185px;float:left;">Адрес</div>#}
+{##}
+{#                        <div style="clear:both;"></div>#}
+{##}
+{#                        <div class="select" style="width:185px;float:left;margin-right:10px;">Дисциплина</div>#}
+{#                        <div class="select" style="width:185px;float:left;margin-right:10px;">Продолжительность</div>#}
+{#                        <div class="input"  style="width:185px;float:left;">Цена</div>#}
+{##}
+{#                        <div style="clear:both;"></div>#}
+{##}
+{#                        <div class="select" style="width:185px;"><img src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg" style="width:35px;height:35px;border-radius:20px;margin-top:5px;margin-left:-10px;">&nbsp;&nbsp;Иван Петров</div>#}
+{#                        <div class="select" style="width:185px;"><img src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg" style="width:35px;height:35px;border-radius:20px;margin-top:5px;margin-left:-10px;">&nbsp;&nbsp;Елена Петрова</div>#}
+{##}
+{#                        <div style="clear:both;"></div>#}
+{##}
+{##}
+{#                        <a href="#" class="button">Отправить</a>#}
+{##}
+{#                    </div>#}
+{#                {% endspaceless %}#}
+{#            </div>#}
+{##}
+{#        </div>#}
+{##}
+{#        <div class="popup-wrapper-lesson-ok">#}
+{#            <div class="popup-bg"></div>#}
+{#            <div class="popup" style="width:489px;height:459px;margin-left:-244px;margin-top:-250px;">#}
+{#                {% spaceless %}#}
+{#                    <img src="/media/img/lesson_ok.png">#}
+{#                {% endspaceless %}#}
+{#            </div>#}
+{##}
+{#        </div>#}
+{##}
+        <script>
+{#            $('.popup-open').click(function() {#}
+{#                $('.popup-wrapper').show();#}
+{#                return false;#}
+{#            });#}
+{##}
+{#            $('.popup-open-lesson-ok').click(function() {#}
+{#                $('.popup-wrapper-lesson-ok').show();#}
+{#                return false;#}
+{#            });#}
+{##}
+{#            $('.popup-close, .popup-bg, .p-close, .p-bg').click(function() {#}
+{#                $('.p-bg').hide();#}
+{#                $('.p').hide();#}
+{#                $('.popup-wrapper').hide();#}
+{#                $('.popup-wrapper-lesson').hide();#}
+{#                $('.popup-wrapper-lesson-ok').hide();#}
+{#            });#}
+{##}
+        // Минимизировать форму
+        $('.min').click(function(){
+            $('.min-hide').fadeToggle();
+        });
+{##}
+{#        $('.wide').click(function() {#}
+{#            $('body').toggleClass('wide');#}
+{#            return false;#}
+{#        })#}
+{##}
+
+{##}
+{#    // Popup#}
+{#    $('.p-lesson-call, .w-lesson').click(function(e) {#}
+{#        $('.p-lesson').show();#}
+{#        $('.p-bg').show();#}
+{#        e.stopPropagation()#}
+{#    });#}
+{##}
+{#    $('.tab').click(function() {#}
+{#        $('.s-status .s-price').show()#}
+{#        if($(this).data('tab')=='content-tab-4') {$('.s-status .s-price').hide()}#}
+{#    });#}
+{##}
+
+    // POPUP
+
+        // Открываем попап. По нажатию на .p-call-n откроет .p-n
+        $('[class^="p-call-"]').click(function() {
+            $('.p').hide();
+            var theClass = $(this).attr("class").match(/p-call-[\w-]*\b/)[0].replace('call-', '');
+            $('.container').css('min-height', $('.' + theClass).height());
+            $('.' + theClass + ', .p-bg').show();
+            return false;
+        });
+
+        // Скрываем попап по крестику и аутсайду.
+        $('.p-bg, .p-close').click(function() { $('.p-bg, .p').hide(); });
+
+    // Tabs
+
+    $('.tab').click(function() {
+
+        $(this).closest('.p').find('.tab').removeClass('active');
+        $(this).addClass('active');
+
+        var p = $(this).closest('.p')
+
+        $(this).closest('.p').find('.' + $(this).data('tab').slice(0,-2)).removeClass('active');
+        $(this).closest('.p').find('.' + $(this).data('tab')).addClass('active');
+
+        return false;
+    });
+
+    // Texarea - увеличиваем height для каждой новой строки
+
+    $("textarea").keyup(function(e) {
+        while($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
+            $(this).height($(this).height()+1);
+        };
+        while($(this).outerHeight() == this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
+            $(this).height($(this).height()-1);
+        };
+    });
+
+    </script>
+
+</body>
+</html>

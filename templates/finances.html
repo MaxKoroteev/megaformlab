@@ -1,0 +1,69 @@
+{% extends 'home.html' %}
+
+{% block style %}
+    <style>
+        .lessons {}
+            .lesson {border:1px solid #ddd;border-radius:2px;padding:15px;margin-bottom:20px;background:#fff;}
+                .lesson-subject {font-size:21px;text-decoration:none;}
+                .lesson-theme   {font-size:15px;color:#777;}
+
+                .lesson-title:hover {text-decoration:underline !important;}
+
+                .lesson-tutor {float:right;}
+                    .lesson-tutor-avatar {width:35px;height:35px;border-radius:30px;float:left;margin-right:10px;}
+                    .lesson-tutor-name   {font-size:18px;line-height:20px;white-space:nowrap;margin-left:45px;}
+                    .lesson-tutor-tutor  {font-size:15px;color:#777;margin-left:45px;}
+
+                .lesson-address {margin-top:20px;}
+                .lesson-students {margin-top:20px;border-left:1px solid #ddd;padding-left:20px;}
+                    .lesson-student {display:inline-block;margin-top:10px;}
+                    .lesson-student:first-child {margin-top:0;}
+
+                .lesson-footer {padding:15px;background:#f1f1f5;width:100%;margin:20px 0 -15px -15px;}
+                    .lesson-price {}
+
+    </style>
+{% endblock %}
+
+{% block bg %}{% endblock %}
+
+{% block headline %}
+    {% spaceless %}
+        <div class="title">
+            <div class="wrapper" style="position:relative;top:15px;">
+
+                <div style="height:35px;float:right;">
+                    <span style="line-height:20px;">
+                        <div style="font-size:15px;line-height:20px;color:rgba(0,0,0,0.33);">Бонусный счёт</div>
+                        <div style="font-size:20px;line-height:20px;">1209 бонусов</div>
+                    </span>
+                </div>
+
+                <div style="position:relative;top:-15px;">История платежей</div>
+
+                <!--div style="height:35px;text-align:right;float:right;">
+                    <span style="line-height:20px;">
+                        <div style="font-size:20px;line-height:20px;">8 (800) 800-80-80</div>
+                        <div style="font-size:15px;line-height:20px;color:rgba(0,0,0,0.33);">tina@makarova.ru, skype: tina.makarova</div>
+                    </span>
+                </div-->
+
+{#                <a href="{% url 'dialog_list' %}" class="back">Диалоги</a>#}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block left %}
+
+{% endblock %}
+
+{#{% block back %}<a href="{% url 'tutor_list' %}" class="back"><i class="fa fa-chevron-left"></i> Дашборд</a>{% endblock %}#}
+
+{% block content %}
+
+    <img src="/media/img/finances.png" style="margin:0 auto;display:block;">
+
+{% endblock %}
+
+{% block right %}{% endblock %}

@@ -1,0 +1,131 @@
+{% extends 'home.html' %}
+
+{% block left %}
+    <div class="column-left">
+
+        <img src="http://www.epigami.sg/images/tutor/3761/ashley-chin-tutor-epigami-L.jpg" style="width:230px;height:230px;border-radius:130px;">
+        <a href="#" class="button popup-open" style="margin:20px 0;padding:0;width:100%;text-align:center;">Связаться с репетитором</a>
+        <div>Стаж: 5</div>
+        <div>Возраст: 35 лет</div>
+
+    </div>
+{% endblock %}
+
+{% block headline %}
+    {% spaceless %}
+    <div class="title">
+        <div class="wrapper">
+{#        <div style="height:35px;text-align:right;float:right;">#}
+{#            <span style="line-height:20px;">#}
+{#                <div style="font-size:20px;line-height:20px;">8 (800) 800-80-80</div>#}
+{#                <div style="font-size:15px;line-height:20px;color:rgba(0,0,0,0.33);">tina@makarova.ru, skype: tina.makarova</div>#}
+{#            </span>#}
+{#        </div>#}
+
+        <a href="{% url 'tutor_list' %}" class="back" style="margin-top:15px;">Репетиторы</a>
+
+{#        <div style="margin-top:-5px;height:35px;">#}
+{#            <img src="http://www.epigami.sg/images/tutor/3761/ashley-chin-tutor-epigami-L.jpg" style="width:50px;height:50px;border-radius:30px;margin-right:10px;margin-top:-5px;">#}
+{#            <span style="line-height:20px;">#}
+{#                <div style="font-size:20px;line-height:20px;">Макарова Тина Александровна</div>#}
+{#                <div style="font-size:15px;line-height:20px;color:rgba(0,0,0,0.33);">Преподаватель МГУ им. Ломоносова</div>#}
+{#            </span>#}
+{#        </div>#}
+
+        Макарова Тина Александровна
+        </div>
+    </div>
+    {% endspaceless %}
+{% endblock %}
+
+
+{% block content %}
+
+    <style>
+        .service {line-height:25px;border-bottom:1px dotted #ccc;width:50%;}
+            .service-title {display:inline-block;background:#fff;position:relative;bottom:-9px;}
+            .service-price {display:inline-block;background:#fff;position:relative;bottom:-9px;float:right;}
+
+        .review {}
+        .review td {padding:20px 20px 20px 0;border-bottom:1px solid #ddd;}
+        .review td:first-child {white-space:nowrap;}
+    </style>
+
+    <h2>Услуги и цены</h2>
+
+    <div class="service">
+        <div class="service-price">от 1300 до 1500  / ч</div>
+        <div class="service-title">Литература</div>
+    </div>
+
+    <div class="service">
+        <div class="service-price">от 1300 до 1500  / ч</div>
+        <div class="service-title">Русский язык</div>
+    </div>
+
+    <div class="service">
+        <div class="service-price">от 1300 до 1500  / ч</div>
+        <div class="service-title"><b>ЕГЭ</b></div>
+    </div>
+
+    <div class="service">
+        <div class="service-price">от 1300 до 1500  / ч</div>
+        <div class="service-title">ЕГЭ по русскому языку</div>
+    </div>
+
+    <div class="service">
+        <div class="service-price">от 1300 до 1500  / ч</div>
+        <div class="service-title"><b>ГИА</b></div>
+    </div>
+
+    <div class="service">
+        <div class="service-price">от 1300 до 1500  / ч</div>
+        <div class="service-title">ГИА по русскому языку</div>
+    </div>
+
+    <h2 style="margin-top:30px;">Адрес</h2>
+    <p>Москва, М. Бауманская, ул. Генерала тюленева</p>
+
+    <h2>Образование</h2>
+
+    <p><a href="#">Московский педагогический государственный университет</a></p>
+    <p>2009 год физики и информационных технологий факультет специальность — учитель физики и информатики. Аспирантура МПГУ по специальности радиофизика (год окончания - 2013).</p>
+
+    <h2>Сертификаты</h2>
+
+    <img src="http://www.eureca.ru/edu/about/documentcompletion/MS_Certificate.jpg" style="height:100px;margin-right:20px;">
+
+    <h2>Обращение</h2>
+
+    <p>Приглашаю учеников 9-11 классов, настроенных на получение высоких результатов на экзаменах и на поступление в серьезные вузы, на занятия по подготовке к ГИА и ЕГЭ по русскому языку и к итоговому сочинению. Запись на подготовку по литературе на 2015-2016 учебный год прекращена.</p>
+    <p>О том, как мои ученики сдали ГИА и ЕГЭ – 2015, вы можете прочитать на моей страничке в разделе "Подробности".</p>
+    <p>Мои основные требования: регулярная посещаемость, неукоснительное соблюдение расписания, ответственное отношение к выполнению домашних заданий.</p>
+
+    <h2>Отзывы <span style="font-weight:normal;color:#999;">(4)</span></h2>
+
+    {% for i in '12345' %}
+        <table class="review">
+            <tr>
+                <td>
+                    <div style="color:#47b;font-weight:bold;">5+</div>
+                    Русский язык
+                    <div style="color:#999;">Подготовка к ЕГЭ</div>
+                </td>
+                <td>
+                Я хочу поделиться самым положительным мнением о нашем репетиторе по русскому языку Марине Викторовне. Ребенок ходит с удовольствием и очень доволен тем, как она организовывает и проводит занятия. Они никогда не бывают скучными, проходят методично - у репетитора своя система, свои наработки. Ребенку все очень нравится. Говорит, что Марина Викторовна работает профессионально. А мы посмотрим на результаты ЕГЭ. А сегодня готовы поставить высшую оценку.
+                <div style="color:#999;">— Елена</div>
+                <div style="color:#999;">18 сентября 2015</div>
+                </td>
+            </tr>
+        </table>
+    {% endfor %}
+
+    <div class="textarea" style="margin-top:15px;"></div>
+
+    <a href="#" class="button">Отправить</a>
+
+    <br><br><br><br><br>
+
+{% endblock %}
+
+{% block right %}{% endblock %}

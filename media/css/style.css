@@ -1,0 +1,252 @@
+/* reset */
+
+*                {margin:0;padding:0;vertical-align:top;}
+html             {height:100%;overflow-y:scroll;}
+body             {height:100%;text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-font-smoothing:antialiased;}
+table            {border-collapse:collapse;}
+button, .button  {cursor:pointer;}
+span, a, label   {display:inline-block;}
+input, textarea,
+button, select   {outline:0;}
+
+/* lib */
+
+.block                {display:block;}
+.inline               {display:inline;}
+.inline-block         {display:inline-block;}
+.inline-table         {display:inline-table;}
+.list-item            {display:list-item;}
+.none                 {display:none !important;}
+.run-in               {display:run-in;}
+.table                {display:table;}
+.table-caption        {display:table-caption;}
+.table-cell, .td, .th {display:table-cell;}
+.table-column-group   {display:table-column-group;}
+.table-column         {display:table-column;}
+.table-footer-group   {display:table-footer-group;}
+.table-header-group   {display:table-header-group;}
+.table-row, .tr       {display:table-row;}
+.table-row-group      {display:table-row-group;}
+
+/* fonts */
+
+body, input, textarea, select, button {font-family:arial, sans-serif;font-size:16px;}
+
+h1, .h1 {font-size:30px;line-height:30px;font-weight:normal;display:block;margin:0 0 20px;}
+h2, .h2 {font-size:26px;line-height:26px;font-weight:normal;display:block;margin:0 0 20px;}
+h3, .h3 {font-size:22px;line-height:22px;font-weight:normal;display:block;margin:0 0 20px;}
+h4, .h4 {font-size:18px;line-height:18px;font-weight:normal;display:block;margin:0 0  5px;}
+h5, .h5 {font-size:14px;line-height:14px;font-weight:normal;display:block;margin:0 0  5px;}
+h6, .h6 {font-size:10px;line-height:10px;font-weight:normal;display:block;margin:0 0  5px;}
+
+p {margin:10px 0;}
+
+a, .a {color:#47b;} a:hover, .a:hover {text-decoration:none;}
+
+/* fake */
+
+.l2 {font-size:15px;line-height:15px;margin-bottom:5px;color:#000;}
+.f2 {float:left;}
+.fb {clear:both;margin-bottom:15px;}
+
+.input {padding:0 10px;line-height:45px;height:45px;background:#ebecf1;border-radius:2px;margin-bottom:10px;font-size:17px;position:relative;}
+.i2 {padding:0 10px;line-height:40px;height:40px;background:#ebecf1;border-radius:2px;margin-bottom:10px;font-size:16px;position:relative;}
+.textarea {padding:0 10px;line-height:35px;height:90px;background:#ebecf1;border-radius:2px;margin-bottom:10px;font-size:17px;position:relative;}
+.t2 {padding:0 10px;line-height:45px;height:80px;background:#ebecf1;border-radius:2px;margin-bottom:10px;font-size:16px;position:relative;}
+
+.select {padding:0 10px;line-height:45px;height:45px;background:#ebecf1;border-radius:2px;margin-bottom:10px;font-size:17px;position:relative;}
+.select:after {content:'';position:absolute;top:20px;right:8px;color:#999;font-size:15px;border:6px solid transparent;border-top:8px solid rgba(0,0,0,0.25);border-bottom-width:0;}
+
+.s2 {padding:0 10px;line-height:40px;height:40px;background:#ebecf1;border-radius:3px;margin-bottom:10px;font-size:16px;position:relative;}
+.s2:after {content:'';position:absolute;top:18px;right:8px;color:#999;font-size:15px;border:6px solid transparent;border-top:8px solid rgba(0,0,0,0.25);border-bottom-width:0;}
+
+.radio {padding:0 10px;line-height:30px;padding-left:35px;border-radius:2px;font-size:15px;position:relative;}
+.radio:after {content:'';position:absolute;top:0;left:0;border-radius:2px;font-size:15px;width:30px;height:30px;background:#ebecf1;}
+.radio.checked:after {background:url(http://www.woodmerelivery.co.uk/communities/5/004/013/002/275//images/4618229050_20x20.png) 5px 5px no-repeat #3b99d8;}
+
+.radio-cool {width:45px;height:45px;text-align:center;line-height:45px;color:#3b3b3b;background:#ebedf1;font-size:16px;}
+.radio-cool.active {color:#fff;background:#3b99d8;}
+.radio-cool:first-child {border-radius:2px 0 0 2px;}
+.radio-cool:last-child  {border-radius:0 2px 2px 0;}
+
+/* forms */
+
+textarea {width:100%;font-size:15px;line-height:20px;height:20px;resize:none;padding:20px;}
+
+.button {font-size:18px;height:45px;line-height:45px;border-radius:2px;text-decoration:none;margin-right:0;width:auto;padding:0 20px;color:#fff;background:#3b99d8;}
+.button-light {color:#3b3b3b;background:#e4e4ea;}
+.button:hover {text-decoration:none !important;}
+
+/* misc */
+
+.fa {vertical-align:top;}
+
+/* layout */
+
+.all {min-height:100%;position:relative;}
+    .header {background:#343d46;line-height:60px;color:#fff;}
+    .container {padding-bottom:80px;}
+        .column-table   {display:table;margin-top:20px;width:100%;}
+            .column-left   {width:230px;padding-right:20px;display:table-cell;}
+            .column-center {display:table-cell;}
+                .content {background:#fff;/*padding:20px;*/}
+            .column-right  {width:230px;padding-left:20px;display:table-cell;}
+    .footer {position:absolute;bottom:0;left:0;right:0;line-height:60px;background:#343d46;color:rgba(255,255,255,1);} .footer a {color:#fff;}
+
+/* Временно */
+
+.wide .wrapper {width:auto;}
+
+.screen {float:right;color:rgba(255,255,255,0.5);}
+    .screen a {color:#fff;padding:0 20px;background:rgba(255,255,255,0.1);text-decoration:none;}
+    .screen a:hover {color:#fff;padding:0 20px;background:rgba(255,255,255,0.15)}
+    .screen a.active {background:#39d;}
+
+/* global */
+
+.wrapper    {width:980px;padding:0 20px;margin:0 auto;}
+.m .wrapper {width:320px;}
+
+.column-separator {height:1px;background:#ddd;margin:20px 0;}
+
+.pagination {margin:20px 0;}
+    .page {height:40px;width:40px;font-size:17px;line-height:40px;text-align:center;}
+    .page:hover {background:#f1f1f5;cursor:pointer;}
+    .page.active {background:#47b;border-radius:3px;color:#fff;}
+
+.counter {display:inline-block;width:20px;height:20px;font-size:12px;line-height:20px;text-align:center;border-radius:50%;box-shadow:0 0 0 5px rgba(215,246,217,.06);background-color:#72c58e;vertical-align:middle;-webkit-animation:luminescence 2.5s infinite;-o-animation:luminescence 2.5s infinite;animation:luminescence 2.5s infinite;color:#fff;}
+.arrow-down {display:inline-block;margin-top:25px;margin-left:10px;margin-right:-10px;border:6px solid transparent;border-top:8px solid rgba(255,255,255,.6);border-bottom-width:0;vertical-align:top;cursor:pointer;-webkit-transition:.3s all;-o-transition:.3s all;transition:.3s all;}
+
+.remove {position:absolute;right:-10px;top:-11px;width:21px;height:21px;line-height:20px;background-color:#455963;border-radius:50%;color:#fff;text-align:center;cursor:pointer;}
+
+.title {font-size:30px;line-height:70px;height:70px;padding:0;background:#f1f1f5;color:#3b3b3b;margin-bottom:20px;}
+    /*.title .wrapper {position:relative;}*/
+    .back {margin:0;margin-right:20px;background:#e4e4ea;float:left;width:230px;line-height:40px;font-size:18px;text-align:center;text-decoration:none;border-radius:2px;color:#3b3b3b;}
+        /*.back .fa {vertical-align:middle;}*/
+    /*.back:hover {opacity:0.8;}*/
+.title-content {border-bottom:1px solid #ddd;padding:20px 0;margin:0 0 20px 0;}
+.title-button {margin-top:-5px;margin-right:0;padding:0;width:90px;float:none;}
+.title-button.active {background:#343d46;color:#fff;}
+
+.messages {}
+    .message {box-shadow:0 0 0 1px #e4e4ea;background:#fff;min-height:40px;padding:20px;position:relative;}
+    .message-system {background:#f1f1f5;line-height:35px;height:35px;min-height:20px;padding:0 20px;margin:0;font-size:14px;color:#92929B;border:0;}
+    .message-system span {color:#333;}
+        .message-avatar {float:left;width:40px;height:40px;border-radius:25px;}
+        .message-time {font-size:15px;line-height:20px;color:#B2B2BB;float:right;margin-right:0;font-size:12px;margin-top:10px;margin-right:-10px;}
+            .message-system .message-time {font-size:15px;line-height:35px;color:#a2a2aB;float:right;margin-right:0;font-size:12px;margin-right:-10px;margin-top:0;}
+        .message-name {font-size:18px;line-height:22px;margin-left:50px;color:#74747a;}
+        .message-text {font-size:14px;line-height:18px;margin-left:50px;color:#34343a;}
+.message-warning {background:#feb;padding:15px;color:rgba(0,0,0,0.5);margin-bottom:20px;border-radius:2px;border:0;box-shadow:none;}
+
+/* widgets */
+
+.content-tab {display:none;position:relative;}
+.content-tab.active {display:block;}
+
+/* Блоки */
+
+.logo {float:left;padding:0 20px 0 0;}
+.logo img {vertical-align:middle;}
+
+.menu {}
+.menu-user {float:right;}
+    .menu-user img {margin-top:10px;width:40px;height:40px;border-radius:20px;}
+    .menu-item {color:#fff;text-decoration:none;padding:0 20px;font-size:17px;}
+    .menu-item:hover  {background:rgba(0,0,0,0.1);}
+    .menu-item:hover .arrow-down {border-top-color:rgba(255,255,255,1);}
+    .menu-item:active {background:rgba(0,0,0,0.2);}
+    .menu-item.active {background:rgba(0,0,0,0.3);}
+
+.column-menu-item {height:45px;line-height:45px;color:#3b3b3b;padding:0 15px;border-radius:2px 0 0 2px;display:block;text-decoration:none;}
+.column-menu-item:hover  {background:#f1f2f5;}
+.column-menu-item.active {background:#f1f2f5;}
+.column-left-separator {position:fixed;top:0;bottom:0;left:50%;background:#ddd;width:1px;margin-left:-260px;}
+.column-block h4 {font-size:17px;margin-top:15px;}
+
+.p-bg {display:none;content:'';position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,0.5);}
+.p {display:none;margin-left:-305px;position:absolute;left:50%;box-shadow:0 0 3px rgba(0,0,0,0.5);top:/*50%*/70px !important;margin-top:0 !important;}
+    .p-close {float:right;width:60px;padding:0 !important;text-align:center;font-size:25px !important;}
+    .p-header {height:60px;background:#f1f1f5;position:relative;}
+        .p-menu {}
+            .p-menu-item {padding:0 20px;line-height:60px;height:60px;font-size:17px;color:#777;text-decoration:none;}
+            .p-menu-item:hover {background:#e4e4ea;}
+            .p-menu-item.active {background:#fff;color:#333;}
+    .p-content {width:610px;background:#fff;padding:20px 20px 0;}
+    .p-footer {padding:20px;background:#f1f1f5;width:100%;margin:20px 0 -20px -20px;}
+
+.h {font-size:20px;line-height:20px;}
+.h-mini {font-size:16px;line-height:20px;}
+.tip {color:#999;font-size:15px;line-height:20px;}
+.header-tip {color:#999;font-size:15px;line-height:20px;margin-top:15px;}
+.grey {color:#999;}
+
+/* Список заявок */
+
+.application {border:1px solid #ddd;padding:20px;margin-bottom:20px;border-radius:3px;}
+    .application a {text-decoration:none;}
+    .application a:hover {text-decoration:underline;}
+
+/* Страница заявок */
+.time {table-layout:fixed;width:100%;margin-bottom:20px;}
+.time td {border:1px solid #ccc;text-align:center;padding:5px 0;}
+
+/* Дашборд репетитора */
+
+/*.week {width:100%;table-layout:fixed;}*/
+    /*.week-day    {border-bottom:1px solid #fff;border-right:1px solid #fff;display:block;height:20px;line-height:20px;font-size:14px;text-align:center;font-weight:bold;}*/
+    /*.week-label  {border-bottom:1px solid #fff;border-right:1px solid #fff;display:block;height:20px;line-height:20px;font-size:14px;text-align:center;color:#999;}*/
+    /*.week-hour   {border-bottom:1px solid #fff;border-right:1px solid #fff;display:block;height:20px;line-height:20px;font-size:14px;background:#f1f1f5;border-radius:2px;}*/
+    /*.week-lesson {border-bottom:1px solid #fff;border-right:1px solid #fff;display:block;height:20px;line-height:20px;font-size:14px;text-decoration:none;background:#72c58e;color:#fff;padding-left:5px;white-space:nowrap;border-radius:2px;}*/
+    /*.week-lesson:hover, .week-hour:hover {background:#3b99d8 !important;color:#fff !important;}*/
+
+/*.student {line-height:29px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;display:block;text-decoration:none;padding-left:10px;color:#000;}*/
+
+
+/* Страница диалогов */
+.dialogs {}
+    .dialog {border:1px solid #e4e4ea;border-top:0;padding:10px;display:block;cursor:pointer} .dialog:first-child {border-top:1px solid #e4e4ea;border-radius:2px 2px 0 0;}
+    .dialog:hover {background:#f9f9fb}
+        .dialog-user {width:290px;height:60px;float:left;display:block;}
+            .dialog-user-avatar {float:left;margin-right:10px;}
+                .dialog-user-avatar img {width:60px;height:60px;border-radius:30px;}
+            .dialog-user-name-time {padding-top:10px;display:block;}
+                .dialog-user-name {font-size:20px;line-height:20px;text-decoration:none;color:#3b3b3b;}
+                /*.dialog-user-name:hover {text-decoration:underline;}*/
+                .dialog-user-time {font-size:15px;line-height:20px;color:rgba(0,0,0,0.33);display:block;}
+        .dialog-message {padding:10px;margin:0 0 0 300px;border-radius:2px;display:block;line-height:40px;}
+        .dialog-message.unread {background:#f1f1f5;}
+            .dialog-message-avatar {float:left;}
+                .dialog-message-avatar img {width:40px;height:40px;border-radius:30px;margin-right:10px;}
+            .dialog-message-name-time {line-height:20px;}
+                .dialog-message-name {font-size:20px;line-height:20px;text-decoration:none;color:#3b3b3b;}
+                /*.dialog-message-name:hover {text-decoration:underline;}*/
+                .dialog-message-time {font-size:15px;line-height:20px;display:block;}
+
+.members {}
+    .member {clear:both;padding:5px;border-radius:2px;cursor:pointer;}
+    .member:hover {background:#f1f1f5;}
+        .member-name {font-size:18px;line-height:40px;padding-left:10px;}
+        .member.inactive .member-name {color:#999}
+        .member-avatar {width:40px;height:40px;border-radius:30px;float:left;margin-right:10px;}
+        .member .counter {float:right;margin-top:10px;}
+
+/* Поп-ап занятия */
+.l-avatar {width:30px;height:30px;border-radius:15px;margin-top:5px;margin-left:-5px;margin-right:5px;}
+
+.history-action {border-bottom:1px solid #ddd;padding:15px 0;color:#777;line-height:15px;}
+.history-action:first-child {border-top:1px solid #ddd;}
+    .history-action-name {color:#000;}
+    .history-action-time {float:right;font-size:15px;color:#999;}
+
+/* Snippets */
+
+/*.s-tutor {float:right}*/
+    /*.s-tutor-avatar {height:45px;width:45px;border-radius:30px;float:left;margin-top:-5px;}*/
+    /*.s-tutor-name {font-size:20px;line-height:20px;white-space:nowrap;margin-left:55px;}*/
+    /*.s-tutor-tutor {font-size:15px;line-height:15px;margin-left:55px;color:#999;}*/
+
+/*.s {width:33%;display:inline-block;margin-top:10px;}*/
+    /*.s-avatar {width:35px;height:35px;border-radius:20px;margin-right:5px;float:left;}*/
+    /*.s-name  {color:#000;text-decoration:none;font-size:17px;line-height:17px;}*/
+    /*.s-status  {white-space:nowrap;color:#999;font-size:15px;line-height:15px;}*/

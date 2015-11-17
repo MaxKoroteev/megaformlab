@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+
+{% block style %}
+    <style>
+        .tip {font-size:15px;color:#999;}
+        .photo-input {border:3px dashed #ccc;width:150px;height:150px;border-radius:100px;}
+    </style>
+{% endblock %}
+
+{% block bg %}<div class="column-left-separator"></div>{% endblock %}
+
+{% block headline %}{% endblock %}
+
+{% block left %}
+    <div class="column-left">
+        {% include 'blocks/client_menu.html' %}
+    </div>
+{% endblock %}
+
+{% block header %}<h1 class="title-content">Настройки аккаунта</h1>{% endblock %}
+
+{% block content %}
+
+    <img src="/media/img/cards.png" style="width:100%;">
+
+{% endblock %}
+
+{% block right %}{% endblock %}

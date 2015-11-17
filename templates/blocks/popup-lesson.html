@@ -1,0 +1,69 @@
+<style>
+    .s-tutor {float:right}
+        .s-tutor-avatar {height:45px;width:45px;border-radius:30px;float:left;margin-top:-5px;}
+        .s-tutor-name {font-size:20px;line-height:20px;white-space:nowrap;margin-left:55px;}
+        .s-tutor-tutor {font-size:15px;line-height:15px;margin-left:55px;color:#999;}
+
+    .s {width:33%;display:inline-block;margin-top:10px;}
+        .s-avatar {width:35px;height:35px;border-radius:20px;margin-right:5px;float:left;}
+        .s-name  {color:#000;text-decoration:none;font-size:17px;line-height:17px;}
+        .s-status  {white-space:nowrap;color:#999;font-size:15px;line-height:15px;}
+</style>
+
+{% include 'snippets/tutor.html' %}
+
+<div class="h">Базовый курс математики</div>
+<div class="tip" style="line-height:15px;">Дробные уравнения</div>
+
+<div style="height:1px;background:#ddd;margin:20px 0 0;"></div>
+
+<div class="header-tip">Дата и время занятия</div>
+<div class="h-mini">13 сентября '15, 12:00 — 13:30 <span class="grey">(1 час 30 минут)</span></div>
+
+<div class="header-tip">Место проведения занятия</div>
+<div class="h-mini">г. Москва, Ленинский проспект, дом 132, стр 20, кв. 10, м. Юго-западная <!--span class="grey">(у репетитора)</span--></div>
+
+<div class="header-tip">Ученики<!-- (группа из 8-и человек)--></div>
+
+{#<div class="s min-hide">#}
+{#    <img class="s-avatar" src="http://305hiphop.com/ckfinder/userfiles/images/jacki-o-shoots-goons.jpg">#}
+{#    <div style="float:left;">#}
+{#        <a class="s-name" href="{% url 'profile' %}">Кудрина С.Ю.</a>#}
+{#        <div class="s-status">Не оплачено <span class="s-price">(1500 р.)</span></div>#}
+{#    </div>#}
+{#</div>#}
+{#<div class="s">#}
+{#    <img class="s-avatar" src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg">#}
+{#    <div style="float:left;">#}
+{#        <a class="s-name" href="{% url 'profile' %}">Петров Ю.В.</a>#}
+{#        <div class="s-status" style="color:#3b99d8;">Назначен платёж <span class="s-price">(500 р.)</span></div>#}
+{#    </div>#}
+{#</div>#}
+<div class="s">
+    <img class="s-avatar" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">
+    <div style="float:left;">
+        <a class="s-name" href="{% url 'profile' %}">Петров И.Ю.</a>
+        <div class="s-status" style="color:#5dac78;">Оплачено <!--span class="s-price">(1500 р.)</span--></div>
+    </div>
+</div>
+{#<div class="s min-hide">#}
+{#    <img class="s-avatar" src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg">#}
+{#    <div style="float:left;">#}
+{#        <a class="s-name" href="{% url 'profile' %}">Петрова Е.Ю.</a>#}
+{#        <div class="s-status" style="color:#AC5D5D;">Сбой оплаты <span class="s-price">(1500 р.)</span></div>#}
+{#    </div>#}
+{#</div>#}
+{#<div class="s min-hide">#}
+{#    <img class="s-avatar" src="http://305hiphop.com/ckfinder/userfiles/images/jacki-o-shoots-goons.jpg">#}
+{#    <div style="float:left;">#}
+{#        <a class="s-name" href="{% url 'profile' %}">Кудрина С.Ю.</a>#}
+{#        <div class="s-status">Не оплачено <span class="s-price">(2500 р.)</span></div>#}
+{#    </div>#}
+{#</div>#}
+{#<div class="s min-hide">#}
+{#    <img class="s-avatar" src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg">#}
+{#    <div style="float:left;">#}
+{#        <a class="s-name" href="{% url 'profile' %}">Петров Ю.В.</a>#}
+{#        <div class="s-status" style="color:#3b99d8;">Назначен платёж <span class="s-price">(1500 р.)</span></div>#}
+{#    </div>#}
+{#</div>#}

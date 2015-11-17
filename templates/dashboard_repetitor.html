@@ -1,0 +1,166 @@
+{% extends 'home.html' %}
+
+{% block left %}{% endblock %}
+
+{% block headline %}
+    {% spaceless %}
+        <div class="title">
+            <div class="wrapper">
+
+                <a href="#" class="p-call-create back" style="margin-right:0;margin-top:15px;float:right;background:#3b99d8;color:#fff;width:200px;">+ Создать занятие</a>
+
+                <span>Занятия</span><a href="#" class="wide" style="font-size:13px;color:#999;margin-left:30px;">Широкий экран</a>
+
+                <div style="position:absolute;left:50%;margin-left:-210px;top:20px;">
+
+                    <a href="{% url 'dashboard_repetitor' %}"   class="title-button back {% active 'dashboard_repetitor' %}">GC-style</a>
+                    <a href="{% url 'lessons' %}"   class="title-button back {% active 'lessons'   %}" style="padding:0 10px;width:auto;">М</a>
+                    <a href="{% url 'lessons2' %}"   class="title-button back {% active 'lessons2'   %}" style="padding:0 10px;width:auto;">М2</a>
+                    <a href="{% url 'lessons3' %}"   class="title-button back {% active 'lessons3'   %}" style="padding:0 10px;width:auto;">М3</a>
+                    <a href="{% url 'dashboard' %}" class="title-button back {% active 'dashboard' %}">Неделя</a>
+
+                    <span style="text-align:center;margin-left:20px;">
+                        <span class="fa fa-angle-left"  style="cursor:pointer;width:40px;height:40px;line-height:40px;background:#e4e4ea;color:#343d46;margin-top:-5px;border-radius:2px;text-align:center;"></span>
+                        <span style="font-size:18px;padding:0 10px;line-height:30px;">Август '15</span>
+                        <span class="fa fa-angle-right" style="cursor:pointer;width:40px;height:40px;line-height:40px;background:#e4e4ea;color:#343d46;margin-top:-5px;border-radius:2px;text-align:center;"></span>
+                    </span>
+
+                </div>
+
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block content %}
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <span class="week-label">GMT+03</span>
+                        </td>
+                    </tr>
+                    {% for hour in full_hours %}
+                        <tr>
+                            <td>
+                                <span class="week-label">{{ hour }}</span>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>
+            <td>
+                <table class="week">
+                    <tr>
+                        {% for weekday in weekdays %}
+                            <td><span class="week-day">{{ weekday }}</span></td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        {% for weekday in weekdays %}
+                            <td class="p-create-lesson-call">
+                                {% for hour in full_hours %}
+                                    {% if hour == '08:00' and weekday == 'ПТ' %}
+                                        <a href="#" class="week-lesson p-lesson-call">Паписьмедова Ш.</a>
+                                    {% elif hour == '09:00' and weekday == 'СБ' %}
+                                        <a href="#" class="week-lesson p-lesson-call">Задерищенская В.</a>
+                                    {% elif hour == '09:00' and weekday == 'ВС' %}
+                                        <a href="#" class="week-lesson p-lesson-call" style="background:#C57272;">Тадеущук Н.С.</a>
+                                    {% elif hour == '09:00' and weekday == 'ПН' %}
+                                        <a href="#" class="week-lesson p-lesson-call" style="background:#e4e4ea;color:#3b3b3b;">Коротеев М.В.</a>
+                                    {% elif hour == '10:00' and weekday == 'ПН' %}
+                                        <a href="#" class="week-lesson p-lesson-call" style="background:#e4e4ea;color:#3b3b3b;">Безлихотнов П.С.</a>
+                                    {% elif hour == '11:00' and weekday == 'ПН' %}
+                                        <a href="#" class="week-lesson p-lesson-call">Стариков Л.П.</a>
+                                    {% elif hour == '17:00' and weekday == 'СР' %}
+                                        <a href="#" class="week-lesson p-lesson-call" style="background:#C57272;">Ситникова Е.В.</a>
+                                    {% elif hour == '18:00' and weekday == 'СР' %}
+                                        <a href="#" class="week-lesson p-lesson-call" style="background:#C57272;">Амчиславский И.И.</a>
+                                    {% else %}
+                                        <a href="#" class="week-hour"></a>
+                                    {% endif %}
+
+                                {% endfor %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+{% endblock %}
+
+{% block right %}
+{#    <div class="column-right">#}
+
+{#        <div class="member">#}
+{#            <span class="counter">1</span>#}
+{#            <img class="member-avatar" src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg">#}
+{#            <div class="member-name">Юрий Петров</div>#}
+{#        </div>#}
+
+{#        <div class="member active">#}
+{#            <span class="counter">3</span>#}
+{#            <img class="member-avatar" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">#}
+{#            <div class="member-name">Иван Петров</div>#}
+{#        </div>#}
+{##}
+{#        <div class="member inactive">#}
+{#            <img class="member-avatar" src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg?quality=0.6&height=200&width=200&">#}
+{#            <div class="member-name">Елена Петрова</div>#}
+{#        </div>#}
+{##}
+{#    </div>#}
+{% endblock %}
+
+{% block right2 %}
+    <div style="width:200px;padding-left:20px;" class="td members-list">
+
+        <div class="member">
+            <img class="member-avatar" src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg">
+            <div class="member-name">Петров Ю.М.</div>
+        </div>
+
+        <div class="member active">
+            <img class="member-avatar" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">
+            <div class="member-name">Петров И.Ю.</div>
+        </div>
+
+        <div class="member">
+            <img class="member-avatar" src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg?quality=0.6&height=200&width=200&">
+            <div class="member-name">Петрова А.И.</div>
+        </div>
+        <div class="member">
+            <img class="member-avatar" src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg">
+            <div class="member-name">Петров Ю.М.</div>
+        </div>
+
+        <div class="member">
+            <img class="member-avatar" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">
+            <div class="member-name">Петров И.Ю.</div>
+        </div>
+
+        <div class="member">
+            <img class="member-avatar" src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg?quality=0.6&height=200&width=200&">
+            <div class="member-name">Петрова А.И.</div>
+        </div>
+        <div class="member">
+            <img class="member-avatar" src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg">
+            <div class="member-name">Петров Ю.М.</div>
+        </div>
+
+        <div class="member">
+            <img class="member-avatar" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">
+            <div class="member-name">Петров И.Ю.</div>
+        </div>
+
+        <div class="member">
+            <img class="member-avatar" src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg?quality=0.6&height=200&width=200&">
+            <div class="member-name">Петрова А.И.</div>
+        </div>
+
+    </div>
+{% endblock %}

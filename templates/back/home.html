@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>BackOffice Repetit</title>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/media/css/back.css">
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico" type="image/x-icon" />
+
+</head>
+
+<body class="{{ screen }}">
+
+<table class="column-table">
+    <tr>
+        <td class="column-left">
+            <div class="column-menu">
+
+                <a href="{% url 'back' %}" class="column-item{% active 'back' %}">Главная</a>
+
+                <div class="column-group">Контент</div>
+
+                <a href="{% url 'areas' %}" class="column-item{% active 'areas' %}">Регионы РФ</a>
+                <a href="{% url 'colleges' %}" class="column-item{% active 'colleges' %}">Вузы</a>
+                <a href="{% url 'schools' %}" class="column-item{% active 'schools' %}">Школы</a>
+                <a href="{% url 'subjects2' %}" class="column-item{% active 'subjects2' %}">Предметы</a>
+                <a href="{% url 'divisions' %}" class="column-item{% active 'divisions' %}">Раздалы предметов</a>
+                <a href="{% url 'additions' %}" class="column-item{% active 'additions' %}">Дополнения предметов</a>
+
+                <div class="column-group">Сотрудники</div>
+                <a href="#" class="column-item">Для консультантов</a>
+                <a href="#" class="column-item">Зарплата из Excel</a>
+
+                <div class="column-group">Репетиторы</div>
+                <a href="{% url 'repetitor' %}" class="column-item{% active 'repetitor' %}">Анкета репетитора</a>
+                <a href="#" class="column-item">Загрузка паспортных данных</a>
+                <a href="#" class="column-item">Редактирование репетитора</a>
+
+                <div class="column-separator"></div>
+
+                <div class="column-group">Петров Константин</div>
+                <a href="#" class="column-item">Выйти</a>
+
+                <div class="screen">
+                    <a href="{{ request.path }}?screen=wide" class="{% if screen == 'wide' %}active{% endif %}">100%</a><a href="{{ request.path }}?screen=normal" class="{% if screen == 'normal' or screen == '' %}active{% endif %}" title="220px sidebar width + 20px scrollbar width + 40px content padding + 1000px content width">1280px</a></a>
+                </div>
+
+            </div>
+        </td>
+        <td class="column-center">
+            {% if url_name == 'back' %}
+                <style>
+                    .task {}
+                        .task-content {background:#fff;height:300px;display:none;}
+                        .task-footer {background:#e0e0e5;line-height:25px;color:#707075;text-align:center;cursor:pointer;}
+                </style>
+
+                <div class="task">
+                    <div class="task-content"></div>
+                    <div class="task-footer">Открыть текущую задачу</div>
+                </div>
+
+                <script>
+                    $('.task-footer').click(function(){
+                        $(this).siblings('.task-content').slideToggle(200);
+                    })
+                </script>
+            {% endif %}
+
+            <div class="content">
+                {% block content %}{% endblock %}
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div class="popup-bg"></div>
+{% block popup %}{% endblock %}
+
+<script>
+
+    // AUTO-RESIZE (textarea)
+
+    $('.js-auto-resize').each(function() { var self = this;
+
+        self.el = $(this);
+        self.height = self.el.prop('scrollHeight');
+
+        self.el.css('height', self.height);
+
+        self.el.keyup(function() {
+            self.el.css('height', self.height + 'px');
+            self.el.css('height', self.el.prop('scrollHeight') + 'px');
+        });
+
+    });
+
+    // TABS
+
+    $('.js-tabs .tab').click(function() {
+
+        this.el = $(this);
+
+        this.el.closest('.js-tabs').find('.tab').removeClass('active');
+        this.el.addClass('active');
+
+        $('.' + this.el.data('tab').slice(0,-2)).removeClass('active');
+        $('.' + this.el.data('tab')).addClass('active');
+
+        return false;
+    });
+
+    // POPUP
+
+    // Открываем попап. По нажатию на .popup-call-n откроет .popup-n
+    $('[class^="popup-call-"]').click(function() {
+        $('.poupup').hide();
+        var cssClass = $(this).attr("class").match(/popup-call-[\w-]*\b/)[0].replace('call-', '');
+        var popup = $('.'+cssClass)
+        popup.css({'margin-top': '-'+popup.height()/2+'px', 'margin-left': '-'+popup.width()/2+'px'});
+        $('.' + cssClass + ', .popup-bg').show();
+        return false;
+    });
+    // Скрываем попап по крестику и аутсайду.
+    $('.popup-bg, .popup-close').click(function() { $('.popup-bg, .popup').hide(); });
+
+    // ПОДКЛЮЧАЕМ БИБЛИОТЕКИ
+
+    $('.additions').select2();
+    $('.divisions').select2();
+
+</script>
+
+</body>
+</html>

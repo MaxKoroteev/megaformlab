@@ -1,0 +1,240 @@
+{% extends 'home.html' %}
+
+{% block style %}
+    <style>
+        .lessons {}
+            .lesson {border:1px solid #ddd;border-radius:2px;padding:15px;margin-bottom:20px;background:#fff;}
+                .lesson-subject {font-size:21px;text-decoration:none;}
+                .lesson-theme   {font-size:15px;color:#777;}
+
+                .lesson-title:hover {text-decoration:underline !important;}
+
+                .lesson-tutor {float:right;}
+                    .lesson-tutor-avatar {width:35px;height:35px;border-radius:30px;float:left;margin-right:10px;}
+                    .lesson-tutor-name   {font-size:18px;line-height:20px;white-space:nowrap;margin-left:45px;}
+                    .lesson-tutor-tutor  {font-size:15px;color:#777;margin-left:45px;}
+
+                .lesson-address {margin-top:20px;}
+                .lesson-students {margin-top:20px;border-left:1px solid #ddd;padding-left:20px;}
+                    .lesson-student {display:inline-block;margin-top:10px;}
+                    .lesson-student:first-child {margin-top:0;}
+
+                .lesson-footer {padding:15px;background:#f1f1f5;width:100%;margin:20px 0 -15px -15px;}
+                    .lesson-price {}
+
+    </style>
+{% endblock %}
+
+{% block bg %}<div class="column-left-separator" style="margin-left:-210px;"></div>{% endblock %}
+
+{% block headline %}
+    {% spaceless %}
+        <div class="title">
+            <div class="wrapper">
+
+                <a href="{% url 'dialog_list' %}" class="back" style="margin-top:15px;width:280px;">Вернуться к диалогам</a>
+
+                <div style="height:50px;padding-top:10px;">
+                    <img src="http://www.epigami.sg/images/tutor/3761/ashley-chin-tutor-epigami-L.jpg" style="width:50px;height:50px;border-radius:30px;margin-right:10px;">
+                    <span style="line-height:20px;">
+                        <div style="font-size:20px;line-height:20px;padding-top:5px;">Макарова Тина Александровна</div>
+                        <div style="font-size:15px;line-height:20px;color:rgba(0,0,0,0.33);">Преподаватель МГУ им. Ломоносова</div>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block left %}
+
+    <div class="column-left member-column" style="width:280px;">
+        <div class="member">
+            <span class="counter">1</span>
+            <img class="member-avatar" src="http://michaelgowin.com/blog/wp-content/uploads/2014/03/strauss.jpg">
+            <div class="member-name">Александр Викторович</div>
+        </div>
+
+        <div class="member">
+            <img class="member-avatar" src="http://www.joblo.com/newsimages1/cool-videos-django-sam-jackson.jpg">
+            <div class="member-name">Патрис Лумумба</div>
+        </div>
+
+        <div class="member">
+            <img class="member-avatar" src="http://305hiphop.com/ckfinder/userfiles/images/jacki-o-shoots-goons.jpg">
+            <div class="member-name">Снежанна Ивановна</div>
+        </div>
+
+        <div class="member active">
+            <span class="counter">3</span>
+            <img class="member-avatar" src="http://www.epigami.sg/images/tutor/3761/ashley-chin-tutor-epigami-L.jpg">
+            <div class="member-name">Тина Александровна</div>
+        </div>
+
+        <div class="member">
+            <img class="member-avatar" src="http://media.npr.org/programs/tmm/2007/05/serch_200-9b94d2072d0f776f126e7b86cf62cf8cdeb9c18f-s300-c85.jpg">
+            <div class="member-name">Тихон Олегович</div>
+        </div>
+
+        <div class="member">
+            <img class="member-avatar" src="http://partycity2.scene7.com/is/image/PartyCity/_ml_p2p_pc_badge_taller15?$_ml_p2p_pc_thumb_taller15$=&$product=PartyCity/451438_full&hei=200&wid=200">
+            <div class="member-name">Black Table</div>
+        </div>
+    </div>
+
+    <div class="column-left lessons-column" style="width:370px;display:none;">
+        <div class="dialogs">
+            <div style="background:#f1f1f5;cursor:pointer;">{% include 'blocks/lesson.html' %}</div>
+            <div style="background:#DAE8F9;cursor:pointer;">{% include 'blocks/lesson.html' %}</div>
+            <div style="background:#DDF9DA;cursor:pointer;">{% include 'blocks/lesson.html' %}</div>
+            <div style="margin:10px 0;"><a href="{% url 'lessons' %}">История занятий</a></div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+    <style>
+
+        .fas {font-size:15px;line-height:18px;}
+        .fas .fa {width:15px;line-height:18px;text-align:center;position:relative;top:1px;}
+
+    </style>
+
+{#        <span style="padding:18px 0;color:#000;" class="fas">#}
+{#            <i class="fa fa-phone" style="font-size:15px;color:#999;"></i> 8 (906) 609-09-09<br>#}
+{#            <i class="fa fa-envelope-o" style="font-size:15px;color:#999;"></i> petrov@ivan.ru<br>#}
+{#            <i class="fa fa-skype"         style="font-size:15px;color:#999;"></i> petrov.ivan#}
+{#        </span>#}
+
+    <style>
+
+        .dialog {border:1px solid #e4e4ea;border-top:0;padding:15px;}
+        .dialog:first-child {border-top:1px solid #e4e4ea;}
+
+        .dialog .counter {float:right;margin-top:10px;margin-right:5px;margin-left:15px;}
+
+        .dialog-buttons * {height:40px !important;line-height:40px !important;}
+
+    </style>
+    <div class="dialogs">
+
+    <div style="margin:-15px 0 5px;font-size:10px;">
+        <a href="#" class="member-column-call" style="color:#999">Участники диалогов</a> / <a href="#" style="color:#999" class="lessons-column-call">Занятия</a>
+    </div>
+
+    <script>
+        $('.member-column-call').click(function() {
+            $('.member-column').show();
+            $('.column-left-separator').show();
+            $('.lessons-column').hide();
+            return false;
+        });
+        $('.lessons-column-call').click(function() {
+            $('.member-column').hide();
+            $('.column-left-separator').hide();
+            $('.lessons-column').show();
+            return false;
+        });
+    </script>
+
+        <div>
+            <div class="textarea" style="color:#999;height:102px;margin-bottom:15px;">Сообщение ...</div>
+            <div class="dialog-buttons" style="margin-bottom:20px;">
+                <div style="float:right;"><!--a href="#" class="button button-light">Скрыть свои контакты</a--> <a href="#" class="button button-light">Создать ученика</a></div>
+                <a href="#" class="button">Отправить</a>
+            </div>
+        </div>
+
+        <style>
+            .messages {}
+                .message {clear:both;border-bottom:1px solid #ebecf1;min-height:50px;padding:20px 0;position:relative;}
+                    .message-avatar {float:left;width:50px;height:50px;border-radius:25px;}
+                    .message-name {font-size:20px;line-height:20px;margin-top:5px;margin-left:60px;}
+                    .message-time {font-size:15px;line-height:20px;color:#999;float:right;margin:-17px 20px 0 0 !important;position:absolute;top:32px;right:-5px;font-size:13px;}
+                    .message-text {margin-top:5px;font-size:14px;line-height:15px;margin-left:60px;}
+        </style>
+
+        <div class="messages">
+
+            <div class="message">
+                <img class="message-avatar" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">
+                <div class="message-time">Только что</div>
+                <div class="message-name">Иван Петров</div>
+                <div class="message-text">До завтра, Тина Александровна</div>
+            </div>
+
+            <div class="message" style="line-height:50px;height:50px;background:#f1f1f5;padding:0;min-height:auto;padding-left:10px;">
+                <div class="message-time">5 минут назад</div>
+                <div class="message-text" style="display:inline-block;vertical-align:middle;margin:0;line-height:50px;height:50px;">Тина Александровна создала занятие с Елена Петрова. <a href="#" class="p-lesson-call">Открыть занятие</a></div>
+            </div>
+
+            <div class="message">
+                <img class="message-avatar" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">
+                <div class="message-time">Только что</div>
+                <div class="message-name">Иван Петров</div>
+                <div class="message-text">
+                    <p>Обучение будет проходить</p>
+                    <div style="display:inline-block;padding:10px;background:#f1f1f5;border-radius:2px;">
+                        <img class="message-avatar" src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg?quality=0.6&height=200&width=200&" style="margin-right:10px;width:65px;height:65px;border-radius:35px;float:left;">
+                        <div class="message-name" style="margin-top:0;">Елена Петрова</div>
+                        <div class="message-name" style="margin-left:75px;">
+                            <a href="#" class="button" style="height:40px;line-height:40px;">+ Добавить в мои ученики</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message">
+                <img class="message-avatar" src="http://www.epigami.sg/images/tutor/3761/ashley-chin-tutor-epigami-L.jpg">
+                <div class="message-time">1 минуту назад</div>
+                <div class="message-name">Тина Александровна</div>
+                <div class="message-text">
+
+                    <p>Кто будет проходить обучение?</p>
+
+                    <div>
+                        <div style="display:inline-block;width:44%;text-align:left;" class="select">Другой член семьи</div>
+                        <div>
+                        <div style="display:inline-block;width:44%;margin-right:2%;text-align:left;" class="input">Имя</div>
+                        <div style="display:inline-block;width:44%;text-align:left;" class="input">Фамилия</div>
+                        </div>
+                    </div>
+                    <div class="dialog-buttons">
+                    <a href="#" class="button" style="padding:0 18px;margin-right:10px;">Отправить</a><a style="padding:0 18px;" href="#" class="button button-light">Отменить</a>
+                        </div>
+                </div>
+            </div>
+
+            <div class="message" style="line-height:50px;height:50px;background:#f1f1f5;padding:0;padding-left:10px;min-height:auto;">
+                <div class="message-time">5 минут назад</div>
+                <div class="message-text" style="display:inline-block;vertical-align:middle;margin:0;line-height:50px;height:50px;">Вы открыли контактные данные пользователю "Тина Александровна"</div>
+            </div>
+
+            <div class="message">
+                <img class="message-avatar" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">
+                <div class="message-time">5 минут назад</div>
+                <div class="message-name">Иван Петров</div>
+                <div class="message-text">Супер, что для этого нужно сделать?</div>
+            </div>
+
+            <div class="message" style="line-height:50px;height:50px;background:#f1f1f5;padding:0;padding-left:10px;min-height:auto;">
+                <div class="message-time">5 минут назад</div>
+                <div class="message-text" style="display:inline-block;vertical-align:middle;margin:0;line-height:50px;height:50px;">Вам открыты контактные данные пользователя "Тина Александровна"</div>
+            </div>
+
+            <div class="message">
+                <img class="message-avatar" src="http://www.epigami.sg/images/tutor/3761/ashley-chin-tutor-epigami-L.jpg">
+                <div class="message-time">5 минут назад</div>
+                <div class="message-name">Тина Александровна</div>
+                <div class="message-text">Здравствуйте, я готова позаниматься с Вами</div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block right %}{% endblock %}

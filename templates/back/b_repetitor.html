@@ -1,0 +1,19 @@
+<h1>
+    <div class="repetitor-checked">
+        <i class="fa fa-check"></i>
+        <div class="repetitor-checked-label">Анкета проверена</div>
+        <div class="repetitor-checked-date">Дата регистрации - 10.15.2010</div>
+    </div>
+    Иванова Виктория Павловна - №15
+</h1>
+
+{% spaceless %}
+    <div class="tabs tabs-wide">
+        <a href="{% url 'repetitor_view' %}" class="tab {% active 'repetitor_view' %}" style="float:right;margin-right:0;">Предварительный просмотр</a>
+        <a href="{% url 'repetitor' %}" class="tab {% active 'repetitor' %}">Редактировать</a>
+        <a href="{% url 'repetitor_tasks' %}" class="tab {% active 'repetitor_tasks' %}">Задачи <span>(3)</span></a>
+        <a href="{% url 'repetitor_orders' %}" class="tab {% active 'repetitor_orders' %}">Заявки</a>
+        <a href="{% url 'repetitor_history' %}" class="tab {% active 'repetitor_history' %}">История изменений</a>
+        <a href="{% url 'repetitor_calls' %}" class="tab {% active 'repetitor_calls' %}">Список звонков <span>(4)</span></a>
+    </div>
+{% endspaceless %}

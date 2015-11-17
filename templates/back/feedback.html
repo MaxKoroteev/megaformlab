@@ -1,0 +1,52 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+
+    <h1>Предложения и пожелания к работе бэк-офиса</h1>
+
+    <form>
+        <textarea rows="2" class="js-auto-resize auto-resize"></textarea>
+        <button class="button-big">Отправить</button>
+    </form>
+
+    <div class="post-list">
+        {% for i in '123' %}
+            <div class="post">
+                <div class="post-user">
+                    Юлия Криворукова
+                </div>
+                <div class="post-datetime">
+                    8 сентября 2014, 13:20
+                </div>
+                <div class="post-text">
+                    С заявкой работать совершенно невозможно! Я постоянно нечайно звоню клиенту. Наверное, просто, слишком мало полей.
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-user">
+                    Славик Кривоногов
+                </div>
+                <div class="post-datetime">
+                    7 августа 2014, 14:10
+                </div>
+                <div class="post-text">
+                    Почему в анкете всего четыре таба в табе?
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-user">
+                    Александр Горынин
+                </div>
+                <div class="post-datetime">
+                    6 августа 2014, 10:10
+                </div>
+                <div class="post-text">
+                    Слишком мало вложенных попапов в попапах.
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% include 'back/b_pagination.html' %}
+
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends 'home.html' %}
+
+{% block left %}{% endblock %}
+
+{% block headline %}
+    {% spaceless %}
+    <div class="title">
+        <div class="wrapper">
+
+{#        <div style="height:35px;text-align:right;float:right;">#}
+{#            <span style="line-height:20px;">#}
+{#                <div style="font-size:20px;line-height:20px;">8 (800) 800-80-80</div>#}
+{#                <div style="font-size:15px;line-height:20px;color:rgba(0,0,0,0.33);">tina@makarova.ru, skype: tina.makarova</div>#}
+{#            </span>#}
+{#        </div>#}
+
+        <a href="{% url 'application_list' %}" class="back" style="margin-top:15px;">Заявки</a>
+
+{#        <div style="margin-top:-5px;height:35px;">#}
+{#            <img src="http://www.epigami.sg/images/tutor/3761/ashley-chin-tutor-epigami-L.jpg" style="width:50px;height:50px;border-radius:30px;margin-right:10px;margin-top:-5px;">#}
+{#            <span style="line-height:20px;">#}
+{#                <div style="font-size:20px;line-height:20px;">Макарова Тина Александровна</div>#}
+{#                <div style="font-size:15px;line-height:20px;color:rgba(0,0,0,0.33);">Преподаватель МГУ им. Ломоносова</div>#}
+{#            </span>#}
+{#        </div>#}
+
+        10 класс — Курс школьной программы (9 месяцев)
+        </div>
+    </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block back %}<a href="{% url 'application_list' %}" class="back"><i class="fa fa-chevron-left"></i> Заявки</a>{% endblock %}
+
+{% block content %}
+
+    <a href="#" class="button popup-open" style="margin:0 0 20px;">Откликнуться</a>
+
+    <div style="color:#777;">15 часов назад</div>
+
+    <h4>1000 руб./час</h4>
+    <div>Удалённо - Индивидуальные занятия</div>
+
+    <h4 style="margin-bottom:10px;">Об ученике</h4>
+
+    <div>
+        <img src="http://repetit.csssr.ru/assets/images/ava.jpg" style="float:left;margin-right:5px;">
+        <div>Леонид Петров (19 лет)</div>
+        <div style="color:#777;">Студент МГУ (2 курс)</div>
+    </div>
+
+    <h4>Пожелания к репетитору</h4>
+    <div>Преподаватель в школе, жен., от 30 до 50 лет, опыт - от 2-ух лет, родной язык - русский</div>
+
+    <h4>Адрес</h4>
+    <div>Москва, М. Бауманская, ул. Генерала тюленева</div>
+
+    <h4>Доступное время</h4>
+    <p>По будням после 5-и</p>
+    <p>Готов заниматься 2 раза в неделю на протяжении 2-ух месяцев</p>
+
+    <h4>Цель занятий</h4>
+    <p>Подтянуть общую успеваемость</p>
+
+    <h4>Желаемая дата окончания</h4>
+    <p>12 декабря 2015</p>
+
+    <h4>Доступное время</h4>
+    <table class="time">
+        <tr>
+            <td></td>
+            {% for hour in hours %}
+                <td colspan="2"><b>{{ hour }}</b></td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td><b>ПН</b></td>
+            {% for hour in hours %}<td style="background:#e4e4ea;"></td>{% endfor %}
+            {% for hour in hours %}<td></td>{% endfor %}
+        </tr>
+        <tr>
+            <td><b>ВТ</b></td>
+            {% for hour in hours %}<td style="background:#e4e4ea;"></td>{% endfor %}
+            {% for hour in hours %}<td></td>{% endfor %}
+        </tr>
+        <tr>
+            <td><b>СР</b></td>
+            {% for hour in hours %}<td style="background:#e4e4ea;"></td>{% endfor %}
+            {% for hour in hours %}<td></td>{% endfor %}
+        </tr>
+        <tr>
+            <td><b>ЧТ</b></td>
+            {% for hour in hours %}<td></td>{% endfor %}
+            {% for hour in hours %}<td></td>{% endfor %}
+        </tr>
+        <tr>
+            <td><b>ПТ</b></td>
+            {% for hour in hours %}<td></td>{% endfor %}
+            {% for hour in hours %}<td></td>{% endfor %}
+        </tr>
+        <tr>
+            <td><b>СБ</b></td>
+            {% for hour in hours %}<td></td>{% endfor %}
+            {% for hour in hours %}<td style="background:#e4e4ea;"></td>{% endfor %}
+        </tr>
+        <tr>
+            <td><b>ВС</b></td>
+            {% for hour in hours %}<td></td>{% endfor %}
+            {% for hour in hours %}<td style="background:#e4e4ea;"></td>{% endfor %}
+        </tr>
+    </table>
+
+    <div style="padding:10px 20px;border:1px solid #ddd;">
+        <p>Раньше занимался со школьным учителем по английскому языку, но результат не тот, которого ожидали</p>
+        <p>Скажите пожалуйста, а есть какие-либо гаррантии, что в конце года я сдам экзамен?</p>
+    </div>
+
+{#    <div class="textarea" style="margin-top:20px;"></div>#}
+
+
+{#    &nbsp;&nbsp;&nbsp;&nbsp;<div class="radio" style="margin-bottom:10px;display:inline-block;margin-top:2px;">Открыть свои контактные данные</div>#}
+
+{#    <div style="line-height:45px;"><a href="#">Перейти к диалогу → </a></div>#}
+
+
+{% endblock %}
+
+{% block right %}{% endblock %}

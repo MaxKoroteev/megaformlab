@@ -1,0 +1,69 @@
+{% extends 'home.html' %}
+
+{% block style %}{% endblock %}
+
+{% block headline %}
+    {% spaceless %}
+        <div class="title">
+            <div class="wrapper">
+                Сообщения
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="dialogs">
+
+        {% for dialog in dialogs %}
+
+            <span class="dialog" data-url="{% url 'dialog_detail' %}">
+
+                <span class="dialog-user">
+                    <a href="#" class="dialog-user-avatar">
+                        <img src="{{ dialog.avatar }}">
+                    </a>
+                    <span class="dialog-user-name-time">
+                        <a href="#" class="dialog-user-name">{{ dialog.name }}</a>
+                        <span class="dialog-user-time">{{ dialog.time }}</span>
+                    </span>
+                </span>
+
+                <span class="dialog-message {{ dialog.class }}">
+
+                    {% if dialog.counter %}
+                        <span class="counter" style="float:right;margin-top:10px;">{{ dialog.counter }}</span>
+                    {% endif %}
+
+                    {% if dialog.my_message %}
+                        <a href="#" class="dialog-message-avatar">
+                            <img src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">
+                        </a>
+                    {% endif %}
+                    <span class="dialog-message-name-time" {% if not dialog.my_message %}style="display:inline-block;vertical-align:middle;"{% endif %}>
+                        {% if dialog.my_message %}
+                            <a href="#" class="dialog-message-name">Петров Иван</a>
+                        {% endif %}
+                        <span class="dialog-message-time" {% if not dialog.my_message %}style="display:inline-block;vertical-align:middle;"{% endif %}>{{ dialog.message }}</span>
+                    </span>
+                </span>
+
+            </span>
+
+        {% endfor %}
+
+    </div>
+
+    <script>
+        $('.dialog').click(function(e) {
+            window.location.href = $(this).data('url');
+        });
+        $('.dialog a').click(function(e) {
+            e.stopPropagation()
+        });
+    </script>
+
+{% endblock %}
+
+{% block right %}{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+
+{% block style %}
+    <style>
+        .tip {font-size:15px;color:#999;}
+        .photo-input {border:3px dashed #ccc;width:150px;height:150px;border-radius:100px;}
+    </style>
+{% endblock %}
+
+{% block bg %}<div class="column-left-separator"></div>{% endblock %}
+
+{% block headline %}{% endblock %}
+
+{% block left %}
+    <div class="column-left">
+        {% include 'blocks/client_menu.html' %}
+    </div>
+{% endblock %}
+
+{% block header %}<h1 class="title-content">Уведомления</h1>{% endblock %}
+
+{% block content %}
+
+    <p>Оповещения по электронной почте</p>
+
+
+    <p style="color:#999;margin-bottom:10px;margin-top:20px;">Система</p>
+    <div class="radio" style="margin-bottom:10px;">Новые занятия</div>
+    <div class="radio" style="margin-bottom:10px;">Новые сообщения</div>
+    <div class="radio" style="margin-bottom:10px;">Движения средств</div>
+
+    <p style="color:#999;margin-bottom:10px;margin-top:20px;">Материалы</p>
+    <div class="radio" style="margin-bottom:10px;">Новости проекта</div>
+    <div class="radio" style="margin-bottom:10px;">Интересные материалы</div>
+
+{% endblock %}
+
+{% block right %}{% endblock %}

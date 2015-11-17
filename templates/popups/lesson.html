@@ -1,0 +1,108 @@
+<div class="p p-lesson" style="display:none;">
+    <div class="p-header">
+        <a href="#" class="min" style="position: absolute;top:-20px;right: 20px;font-size: 11px;color: #fff;z-index: 100;">Минимизировать форму</a>
+        <div class="p-menu tabs">
+
+            <a href="#" class="p-menu-item p-close" style="float:right;width:60px;padding:0;text-align:center;font-size:30px;">✕</a>
+
+            <a href="#" data-tab="content-tab-1" class="tab p-menu-item active">Занятие</a>
+            <a href="#" data-tab="content-tab-6" class="tab p-menu-item">Ред.</a>
+            <a href="#" data-tab="content-tab-2" class="tab p-menu-item">История</a>
+            <a href="#" data-tab="content-tab-3" class="tab p-menu-item">Отменить</a>
+            <a href="#" data-tab="content-tab-4" class="tab p-menu-item">Оплатить</a>
+
+        </div>
+    </div>
+    <div class="p-content" style="padding-bottom:20px;">
+        <div class="content-tab content-tab-1 active">
+
+            {% include 'blocks/popup-lesson.html' %}
+
+            <div class="header-tip">Стоимость занятия</div>
+            <div class="h-mini">1 900 руб</div>
+
+            <div class="header-tip min-hide">Домашнее задание</div>
+            <div class="h-mini min-hide" style="margin-top:10px;">Учебник Басыгина за 9 класс: 1, 2, 5 задача в конце главы "Дробные уравнения"</div>
+            <div class="min-hide">
+                <div style="margin:10px 0 0;display:inline-block;margin-right:10px;background:#f1f1f5;padding:5px 10px;border-radius:2px;"><a href="#" style="text-decoration:none;color:#000;font-size:14px;"><i style="color:#999" class="fa fa-file-archive-o"></i> Архив          </a></div>
+                <div style="margin:10px 0 0;display:inline-block;margin-right:10px;background:#f1f1f5;padding:5px 10px;border-radius:2px;"><a href="#" style="text-decoration:none;color:#000;font-size:14px;"><i style="color:#999" class="fa fa-file-image-o"></i> Изображение      </a></div>
+                <div style="margin:10px 0 0;display:inline-block;margin-right:10px;background:#f1f1f5;padding:5px 10px;border-radius:2px;"><a href="#" style="text-decoration:none;color:#000;font-size:14px;"><i style="color:#999" class="fa fa-file-powerpoint-o"></i> Презентация </a></div>
+                <div style="margin:10px 0 0;display:inline-block;margin-right:10px;background:#f1f1f5;padding:5px 10px;border-radius:2px;"><a href="#" style="text-decoration:none;color:#000;font-size:14px;"><i style="color:#999" class="fa fa-file-excel-o"></i> Таблица          </a></div>
+                <div style="margin:10px 0 0;display:inline-block;margin-right:10px;background:#f1f1f5;padding:5px 10px;border-radius:2px;"><a href="#" style="text-decoration:none;color:#000;font-size:14px;"><i style="color:#999" class="fa fa-file-word-o"></i> Word документ     </a></div>
+                <div style="margin:10px 0 0;display:inline-block;margin-right:10px;background:#f1f1f5;padding:5px 10px;border-radius:2px;"><a href="#" style="text-decoration:none;color:#000;font-size:14px;"><i style="color:#999" class="fa fa-file-pdf-o"></i> PDF документ       </a></div>
+                <div style="margin:10px 0 0;display:inline-block;margin-right:10px;background:#f1f1f5;padding:5px 10px;border-radius:2px;"><a href="#" style="text-decoration:none;color:#000;font-size:14px;"><i style="color:#999" class="fa fa-file-text-o"></i> Текстовый файл    </a></div>
+            </div>
+        </div>
+        <div class="content-tab content-tab-2">
+            <div>
+                {% for action in actions %}
+                    <div class="history-action">{{ action|safe }}</div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="content-tab content-tab-3">
+            <div class="message message-warning min-hide" style="margin-bottom:0;margin-top:0px;width:100%;margin-left:-20px;margin-bottom:20px;padding:15px 20px;border-radius:0;">
+                Внимание! До начала занятия осталось менее 8-и часов. В этом случае, при отмене занятия, в соответствии с <a href="#">п.8 соглашения об оказании услуг</a>, Вам не будут возвращены деньги
+            </div>
+            <div class="textarea" style="color:rgba(0,0,0,0.33);">Опишите причину отмены занятия</div>
+
+            <div class="p-footer">
+                <span class="button">Отменить занятие</span>
+            </div>
+        </div>
+        <div class="content-tab content-tab-4">
+
+            <div class="message message-warning min-hide" style="margin-top:0px;margin-bottom:15px;width:100%;margin-left:-20px;padding:15px 20px;border-radius:0;">
+                <div style="font-size:16px;">Внимание! Время занятия истекло 25 сентября 2013 в 14:00.</div>
+                <div style="font-size:14px;">В случае оплаты, Вы подтверждаете, что занятие успешно пройдено. <a href="#">Подробнее</a></div>
+            </div>
+
+            {% include 'blocks/popup-lesson.html' %}
+
+            <div style="height:1px;background:#ddd;margin:15px 0 0;"></div>
+
+            <table style="table-layout:fixed;width:100%;">
+                <tr>
+                    <td>
+                        <div class="header-tip">Стоимость занятия</div>
+                        <div class="h-mini">1 900 руб</div>
+                    </td>
+                    <td>
+                        <div class="header-tip">Оплата бонусами</div>
+                        <div class="h-mini">- 800 руб</div>
+                    </td>
+                    <td>
+                <div class="header-tip" style="color:#7DB4D8;">Итого к оплате</div>
+                <div class="h-mini" style="color:#3b99d8">1 100 руб</div>
+                    </td>
+                </tr>
+            </table>
+
+            <div style="height:1px;background:#ddd;margin:15px 0 0;"></div>
+
+            <div class="fb" style="padding-top:15px;float:none;width:30%;">
+                <div class="l2" style="color:#000">Карта для оплаты</div>
+                <div class="s2">xxxx xxxx xxxx xx90</div>
+            </div>
+
+            <style>
+                .message-warning .radio:after {background:rgba(0,0,0,0.15) !important;}
+            </style>
+
+            <div class="message message-warning" style="margin-bottom:0;margin-top:20px;background:#DAE8F9;width:100%;margin-left:-20px;padding:15px 20px;border-radius:0;">
+                <div class="radio" style="font-size:16px;position:relative;float:left;"></div>
+                <div style="color:rgba(0,0,0,0.75);margin-left:45px;">Разрешить автоматическую оплату занятий с такими параметрами</div>
+                <div style="color:rgba(0,0,0,0.5);font-size:13px;margin-left:45px;">Вам не придётся каждый раз подтверждать занятие, оплата будет проходить автоматически. <a href="#">Подробнее</a></div>
+            </div>
+
+            <div class="p-footer" style="margin-top:0;">
+                <span class="button">Всё верно, завершить</span>
+            </div>
+
+        </div>
+
+        <div class="content-tab content-tab-6">
+            {% include 'blocks/lesson_form_new.html' %}
+        </div>
+    </div>
+</div>

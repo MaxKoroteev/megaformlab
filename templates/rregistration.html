@@ -1,0 +1,66 @@
+{% extends 'home.html' %}
+
+{% block style %}
+    <style>
+        .tip {font-size:15px;color:#999;}
+        .photo-input {border:3px dashed #ccc;width:150px;height:150px;border-radius:100px;}
+    </style>
+{% endblock %}
+
+{% block bg %}<div class="column-left-separator"></div>{% endblock %}
+
+{% block headline %}{% endblock %}
+
+{% block left %}
+    <div class="column-left">
+        {% include 'blocks/auth_menu.html' %}
+    </div>
+{% endblock %}
+
+{% block content-title %}<h1 class="title-content">Регистрация репетитора</h1>{% endblock %}
+
+{% block content %}
+
+    <div style="width:32%;float:left;margin-right:2%;">
+        <h4>Имя</h4>
+        <div class="input"></div>
+    </div>
+
+    <div style="width:32%;float:left;">
+        <h4>Фамилия</h4>
+        <div class="input"></div>
+    </div>
+
+    <div style="clear:both;"></div>
+
+    <div style="width:32%;float:left;margin-right:2%;">
+        <h4 style="color:#000;">E-mail</h4>
+        <div class="input"></div>
+    </div>
+
+    <div style="width:32%;float:left;">
+        <h4 style="color:#000;">Телефон</h4>
+        <div class="input"></div>
+    </div>
+
+    <div style="clear:both;"></div>
+
+    <div style="width:32%;float:left;margin-right:2%;">
+        <h4>Пароль</h4>
+        <div class="input"></div>
+    </div>
+
+    <div style="width:32%;float:left;">
+        <h4>Повторите пароль</h4>
+        <div class="input"></div>
+    </div>
+
+    <div style="clear:both;"></div>
+
+    <p>Нажимая на кнопку "Зарегистрироваться", Вы принимаете условия <a href="#">Пользовательского соглашения</a> и <a href="#">Политики конфиденциальности</a></p>
+
+    <span class="button" style="margin-top:5px;">Зарегистрироваться</span>
+
+{% endblock %}
+
+{% block right %}{% endblock %}

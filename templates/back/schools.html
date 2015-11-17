@@ -1,0 +1,27 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+    <h1>
+        <button style="float:right;margin:0;" onClick="alert('Типа форма добавления')">Добавить школу</button>
+        Школы
+    </h1>
+
+    <table class="zebra">
+        <tr>
+            <th colspan="6"><button class="light" onClick="alert('Нельзя объединить школы с разными названиями и номерами.');">Объединить выбранные факультеты в один</button>
+                <span style="font-weight:normal;">- используется для устранения дубликатов</span></th>
+        </tr>
+        <tr>
+            <th></th><th>ID</th><th>Название</th><th>№ школы</th><th>Город</th><th style="width:1px;"></th>
+        </tr>
+        <tr>
+            <th></th><th><input type="text"></th><th><input type="text"></th><th><input type="text"></th><th><select><option>Москва</option></select></th><th></th>
+        </tr>
+        {% for i in '123456789' %}
+            <tr>
+                <td><input type="checkbox"></td><td>{{ i }}</td><td>Школа №1255</td><td>1255</td><td>Москва</td><td><a href="#" onClick="alert('Типа форма редактирования')">Редактировать</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% include 'back/b_pagination.html' %}
+{% endblock %}

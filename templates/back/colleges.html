@@ -1,0 +1,19 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+    <h1>Вузы</h1>
+    <table class="zebra">
+        <tr>
+            <th>№</th><th>Название</th><th>Сокращённое название</th><th>Город</th><th></th>
+        </tr>
+        <tr>
+            <th><input type="text"></th><th><input type="text"></th><th><input type="text"></th><th><select><option selected>Москва</option><option>Санкт-Петербург</option><option>Новгород</option></select></th><th></th>
+        </tr>
+        {% for i in '123456789' %}
+            <tr>
+                <td>{{ i }}</td><td>Московский Государственный Университет</td><td>МГУ</td><td>Москва</td><td><a href="{% url 'college' %}">Подробнее</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% include 'back/b_pagination.html' %}
+{% endblock %}

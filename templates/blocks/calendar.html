@@ -1,0 +1,52 @@
+<style>
+    .calendar {table-layout:fixed;width:100%;}
+        .calendar td, .calendar th {border:1px solid #ddd;text-align:center;height:35px;line-height:35px;position:relative;padding:1px;}
+        .calendar th {color:#999;font-weight:normal;}
+        .calendar td {color:#000 !important;font-weight:normal;}
+        .calendar td:hover {background:#f1f1f5;cursor:pointer;}
+        .calendar-day2 {width:15px;height:37px;line-height:37px;border-radius:15px;color:#000;font-size:13px;}
+
+    .calendar-count {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        line-height: 14px;
+        height: 14px;
+        width: 14px;
+        text-align: center;
+        background: #72c58e;
+        color: #fff;
+        border-radius: 10px;
+        font-size: 12px;
+    }
+</style>
+
+<table class="calendar">
+    <tr>
+        {% for weekday in weekdays %}
+            <th>{{ weekday }}</th>
+        {% endfor %}
+    </tr>
+    {% for week in month %}
+        <tr>
+            {% for day in week %}
+                <td {% if day == 9 %}style="background:#3b99d8;color:#fff;"{% endif %}>
+                    {% if day != 6 and day != 7 and day != 12 and day != 14 %}
+
+                    {% endif %}
+
+                    {% if day == 2 %}
+                        <span class="calendar-count">2</span>
+                    {% elif day == 7 %}
+                        <span class="calendar-count" style="background:#C57272">1</span>
+                    {% elif day == 9 %}
+                        <span class="calendar-count" style="background:#C57272;">6</span>
+                    {% elif day == 15 %}
+                        <span class="calendar-count" style="background:#777">3</span>
+                    {% endif %}
+                    <span class="calendar-day2" {% if day == 9 %}style="color:#fff;"{% endif %}>{{ day }}</span>
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>

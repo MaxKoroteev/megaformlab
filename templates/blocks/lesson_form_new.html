@@ -1,0 +1,194 @@
+
+                                <style>
+                                    .i2, .s2 {cursor:pointer;}
+                                </style>
+                                <div class="fb" style="margin-top:0;margin-bottom:0;">
+                                    <div class="f2" style="width:250px;margin-right:20px;">
+                                        <div class="l2">Ученик</div>
+                                        <div class="s2 student-choose student-choosed2" style="display:none;">Выберите ученика</div>
+                                        <div class="s2 student-choosed student-choose2" style=""><img class="l-avatar" src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg">Иванов Юрий Петрович</div>
+                                    </div>
+                                    <div class="f2" style="width:160px;margin-right:20px;">
+                                        <div class="l2">Дата</div>
+                                        <div class="i2 date-choose"></div>
+                                    </div>
+                                    <div class="f2" style="width:160px;">
+                                        <div class="l2">Время</div>
+                                        <div class="i2 date-choose"></div>
+                                    </div>
+                                </div>
+
+                                <div style="clear:both;"></div>
+                                <div class="message message-warning min-hide date-choosed" style="display:none;min-height:0;margin-bottom:10px;margin-top:0;width:100%;margin-left:-20px;padding:10px 20px;border-radius:0;">
+                                    <div style="font-size:15px;line-height:15px;color:rgba(0,0,0,0.55)">Внимание! Вы указали время прошедшим числом. </div>
+                                    <div style="font-size:13px;line-height:13px;color:rgba(0,0,0,0.45);margin-top:5px;">Потребуется дополнительное подтверждение занятия от ученика. <a href="#">Подробнее</a></div>
+                                </div>
+
+                                <h4 class="student-choosed student-choosed2hide" style="clear:both;margin:0;padding:10px 0 10px;width:610px;font-size:20px;line-height:20px;border-bottom:1px solid #ddd;margin-bottom:10px;"><a href="#" style="text-decoration:none;float:right;color:#bbb;"><i style="" class="fa fa-times show-params"></i><!--i class="fa fa-pencil show-params-form"></i--></a> Параметры занятия</h4>
+
+{#                                <table style="clear:both;margin:0 0 0;width:610px;" class="student-choosed student-choosed2hide params">#}
+{#                                    <tr>#}
+{#                                        <td style="padding:0 0 10px;">#}
+{#                                            <div class="header-tip" style="padding:0;margin:0;">Курс и стоимость</div>#}
+{#                                            <div class="h-mini">Базовый курс математики, 1 500 р. (1 час 30 минут)</div>#}
+{#                                        </td>#}
+{#                                    </tr>#}
+{#                                    <tr>#}
+{#                                        <td style="padding:0 0 0;">#}
+{#                                            <div class="header-tip" style="padding:0;margin:0;">Адрес</div>#}
+{#                                            <div class="h-mini">г. Москва, Ленинский проспект, дом 132, стр 20, кв. 10</div>#}
+{#                                        </td>#}
+{#                                    </tr>#}
+{#                                </table>#}
+
+                                <div class="fb" style="margin-top:20px;">
+                                    <div class="params-form student-choosed2hide" style="">
+                                        <div class="f2" style="width:100%;">
+                                            <div class="l2">Курс</div>
+                                            <div class="s2 call-params-message"></div>
+                                        </div>
+                                        <div class="f2" style="width:250px;margin-right:20px;">
+                                            <div class="l2">Цена</div>
+                                            <div class="i2 call-params-message"></div>
+                                        </div>
+                                        <div class="f2" style="width:340px;">
+                                            <div class="l2">Продолжительность</div>
+                                            <div class="s2 call-params-message"></div>
+                                        </div>
+                                        <div style="clear:both;"></div>
+                                        <div class="f2" style="width:250px;margin-right:20px;">
+                                            <div class="l2">Формат</div>
+                                            <div class="s2 call-params-message"></div>
+                                        </div>
+                                        <div class="f2" style="width:340px;">
+                                            <div class="l2">Адрес</div>
+                                            <div class="s2 call-params-address"></div>
+                                        </div>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                        <div class="params-address student-choosed2hide" style="display:none;">
+                                            <div class="f2" style="width:250px;margin-right:20px;">
+                                                <div class="l2">Город</div>
+                                                <div class="s2"></div>
+                                            </div>
+                                            <div class="f2" style="width:340px;">
+                                                <div class="l2">Улица</div>
+                                                <div class="i2"></div>
+                                            </div>
+
+                                            <div style="clear:both;"></div>
+
+                                            <div class="f2" style="width:70px;margin-right:20px;">
+                                                <div class="l2">Дом</div>
+                                                <div class="i2"></div>
+                                            </div>
+                                            <div class="f2" style="width:70px;margin-right:20px;">
+                                                <div class="l2">Корпус</div>
+                                                <div class="i2"></div>
+                                            </div>
+                                            <div class="f2" style="width:70px;margin-right:20px;">
+                                                <div class="l2">Строение</div>
+                                                <div class="i2"></div>
+                                            </div>
+                                            <div class="f2" style="width:70px;margin-right:20px;">
+                                                <div class="l2">Подъезд</div>
+                                                <div class="i2"></div>
+                                            </div>
+                                            <div class="f2" style="width:70px;margin-right:20px;">
+                                                <div class="l2">Этаж</div>
+                                                <div class="i2"></div>
+                                            </div>
+                                            <div class="f2" style="width:70px;margin-right:20px;">
+                                                <div class="l2">Квартира</div>
+                                                <div class="i2"></div>
+                                            </div>
+                                            <div class="f2" style="width:70px;">
+                                                <div class="l2">Домофон</div>
+                                                <div class="i2"></div>
+                                            </div>
+                                            <div class="f2" style="width:250px;margin-right:20px;">
+                                                <div class="l2">Ближайшая станция метро</div>
+                                                <div class="s2"></div>
+                                            </div>
+                                            <div class="f2" style="width:340px;">
+                                                <div class="l2">Расстояние до метро (минут)</div>
+                                                <div class="i2" style="float:left;width:50px;margin-right:20px;"></div>
+                                                <div class="s2" style="float:left;width:230px;"></div>
+                                            </div>
+                                            <div style="clear:both;"></div>
+                                        </div>
+
+                                    <div style="clear:both;"></div>
+                                    <div class="message message-warning min-hide params-message student-choosed2hide" style="display:none;min-height:0;margin-bottom:10px;width:100%;margin-left:-20px;padding:10px 20px;border-radius:0;">
+                                        <div style="font-size:15px;line-height:15px;color:rgba(0,0,0,0.55)">Внимание! Вы изменили параметры занятия, на которые ученик назначил автоплатёж. </div>
+                                        <div style="font-size:13px;line-height:13px;color:rgba(0,0,0,0.45);margin-top:5px;">Потребуется дополнительное подтверждение занятия от ученика. <a href="#">Подробнее</a></div>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                    <h4 class="homework-title student-choosed student-choosed2hide" style="clear:both;margin:0;padding:10px 0 10px;width:610px;font-size:20px;line-height:20px;border-bottom:1px solid #ddd;margin-bottom:10px;cursor:pointer;"><a href="#" style="text-decoration:none;float:right;color:#bbb;"><i class="fa fa-chevron-down"></i></a> Дополнительная информация</h4>
+                                    <div class="homework student-choosed2hide" style="">
+                                        <div class="f2" style="width:100%;">
+                                            <div class="l2">Тема</div>
+                                            <div class="i2"></div>
+                                        </div>
+                                        <div class="f2" style="width:100%;">
+                                            <div class="l2">Домашнее задание</div>
+                                            <div class="t2"></div>
+                                        </div>
+                                        <div class="f2" style="display:inline-block;">
+                                            <div class="i2" style="font-size:15px;"><i class="fa fa-paperclip" style="line-height:40px;font-size:20px;color:#999;margin-right:7px;"></i>Прикрепить файлы</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+{#                                <script>#}
+{#                                    $('.student-choose').click(function() {#}
+{#                                        $(this).hide();#}
+{#                                        $('.student-choosed').show();#}
+{#                                    });#}
+{#                                    $('.student-choose2').click(function() {#}
+{#                                        $(this).hide();#}
+{#                                        $('.student-choosed2').show();#}
+{#                                        $('.student-choosed2hide').hide();#}
+{#                                        $('.show-params-form').show();#}
+{#                                        $('.show-params').hide();#}
+{#                                    });#}
+{#                                    $('.date-choose').click(function() {#}
+{#                                        $('.date-choosed').toggle();#}
+{#                                    });#}
+{#                                    $('.show-params-form').click(function() {#}
+{#                                        $(this).hide();#}
+{#                                        $('.params').hide();#}
+{#                                        $('.show-params').show();#}
+{#                                        $('.params-form').show();#}
+{#                                    });#}
+{#                                    $('.show-params').click(function() {#}
+{#                                        $(this).hide();#}
+{#                                        $('.params-form').hide();#}
+{#                                        $('.params-address').hide();#}
+{#                                        $('.show-params-form').show();#}
+{#                                        $('.params').show();#}
+{#                                        $('.params-message').hide();#}
+{#                                    });#}
+{#                                    $('.homework-title').click(function() {#}
+{#                                        $('.homework').toggle();#}
+{#                                    });#}
+{#                                    $('.call-params-message').click(function() {#}
+{#                                        $('.params-message').toggle()#}
+{#                                    });#}
+{#                                    $('.call-params-address').click(function() {#}
+{#                                        $('.params-address').toggle()#}
+{#                                    });#}
+{#                                </script>#}
+
+            <div style="clear:both;"></div>
+
+{#            <div class="message message-warning min-hide" style="margin-bottom:0;margin-top:20px;width:100%;margin-left:-20px;padding:15px 20px;border-radius:0;">#}
+{#                <div style="font-size:16px;">Внимание! Дата занятия назначена задним числом. </div>#}
+{#                <div style="font-size:16px;">Внимание! Вы изменили адрес занятия. </div>#}
+{#                <div style="font-size:14px;margin-top:10px;">Потребуется новое подтверждение занятия от учеников: Иванов И.Ю., Иванова А.Ю. <a href="#">Подробнее</a></div>#}
+{#            </div>#}
+
+            <div class="p-footer" style="margin-top:0;">
+                <span class="button">Создать</span>
+            </div>

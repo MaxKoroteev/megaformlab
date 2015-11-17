@@ -1,0 +1,34 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+
+        <h1>Регионы РФ</h1>
+
+        <table class="zebra">
+            <tr>
+                <th>№</th>
+                <th>Название</th>
+                <th>Домен</th>
+                <th>UTC+</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th><input type="text"></th>
+                <th><input type="text"></th>
+                <th><input type="text"></th>
+                <th><select><option selected>3</option><option>4</option><option>5</option></select></th>
+                <th></th>
+            </tr>
+            {% for i in '1234567890' %}
+                <tr>
+                    <td>{{ i }}</td>
+                    <td>Петропавловск-Камчатский и Камчатский край</td>
+                    <td>www.petropavlovsk-kamchatskij.repetit.ru</td>
+                    <td>12</td>
+                    <td><a href="{% url 'area' %}">Подробнее</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        {% include 'back/b_pagination.html' %}
+{% endblock %}

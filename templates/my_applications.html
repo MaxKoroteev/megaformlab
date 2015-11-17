@@ -1,0 +1,60 @@
+{% extends 'home.html' %}
+
+{% block style %}
+    <style>
+        .tip {font-size:15px;color:#999;}
+        .photo-input {border:3px dashed #ccc;width:150px;height:150px;border-radius:100px;}
+    </style>
+{% endblock %}
+
+{% block bg %}<div class="column-left-separator"></div>{% endblock %}
+
+{% block headline %}{% endblock %}
+
+{% block left %}
+    <div class="column-left">
+        {% include 'blocks/client_menu.html' %}
+    </div>
+{% endblock %}
+
+{% block header %}<h1 class="title-content">Мои заявки</h1>{% endblock %}
+
+{% block content %}
+
+    {% for application in applications %}
+        <div class="application">
+            <a href="{% url 'application_detail' %}" class="h3">{{ application.title }}</a>
+
+            <div style="color:#777;">15 часов назад</div>
+
+            <h4>{{ application.price }} руб./час</h4>
+            <div>{{ application.format }} - {{ application.group }}</div>
+
+            <h4>Об ученике</h4>
+            <div>{{ application.status }} (19 лет)</div>
+
+            <h4>Пожелания к репетитору</h4>
+            <div>Преподаватель в школе, жен., от 30 до 50 лет, опыт - от 2-ух лет, родной язык - русский</div>
+
+            <h4>Адрес</h4>
+            <div>Москва, М. Бауманская, ул. Генерала тюленева</div>
+
+            <div style="margin-top:15px;">
+                <a href="{% url 'application_detail' %}" class="button button-light popup-open">редактировать</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="pagination">
+        {% spaceless %}
+            <span class="page active"> ←</span>
+            <span class="page"> 1</span>
+            <span class="page"> 2</span>
+            <span class="page"> 3</span>
+            <span class="page"> →</span>
+        {% endspaceless %}
+    </div>
+
+{% endblock %}
+
+{% block right %}{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+
+    {% include 'back/b_repetitor.html' %}
+
+    <table class="zebra">
+        <tr>
+            <th>№</th>
+            <th>Назначена</th>
+            <th>Выполнить до</th>
+            <th>Название</th>
+            <th>Ответственный</th>
+            <th>Ранг</th>
+            <th>Приоритет</th>
+            <th>Статус</th>
+        </tr>
+        {% for i in '1234567890' %}
+            <tr>
+                <td>3254</td>
+                <td>21.11.1990</td>
+                <td>22.12.2090</td>
+                <td>Позвонить клиенту/преподавателю</td>
+                <td>Константинопольский К.К.</td>
+                <td>5</td>
+                <td>Очень выжно</td>
+                <td>Назначена</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

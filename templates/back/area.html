@@ -1,0 +1,143 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+
+    <style>
+
+        .tr {display:table-row;}
+        .td {display:table-cell;}
+
+        .info {margin-bottom:20px;table-layout:fixed;background:#f0f0f5;padding:10px;border-radius:2px;}
+        .info th {white-space:nowrap;text-align:left;padding-right:10px;}
+        .info td div {line-height:15px;}
+
+    </style>
+
+        <h1>Петропавловск-Камчатский и Камчатский край - №38</h1>
+
+        <div class="info">
+            <table>
+                <tr>
+                    <td style="padding-right:20px;">
+                        <table class="nowrap">
+                            <th>Регион </th>        <td>Камчатский край</td></tr>
+                            <th>Город </th>         <td>Петропавловск-Камчатский</td></tr>
+                            <th>Город в Р.п.</th>   <td>Петропавловск-Камчатского</td></tr>
+                            <th>Город в П.п.</th>   <td>Петропавловск-Камчатского</td></tr>
+                            <th>Временная зона</th> <td>3</td></tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <tr><th>Телефон</th>       <td>+78002009933</td></tr>
+                            <tr><th>Номер для SMS</th> <td>repetit.ru</td></tr>
+                            <tr><th>Домен</th>         <td>www.petropavlovsk-kamchatskij.repetit.ru</td></tr>
+                            <tr><th>Server Path</th>   <td>c:\inetpub\regions.repetit.ru</td></tr>
+                            <tr><th>Подвал E-mail</th> <td>C уважением, Ассоциация репетиторов Петропавловск-Камчатского http://www.petropavlovsk-kamchatskij.repetit.ru/ тел. 8 (800) 200-99-33</td></tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <style>
+    
+        .mega-tabs {border-bottom:1px solid #ccc;margin-bottom:20px;padding:0 20px;width:100%;margin-left:-20px;}
+            .mega-tabs table {width:100%;}
+
+                .mega-tabs td {line-height:0;padding:0;}
+                .mega-tabs td:first-child {padding-right:10px;}
+                .mega-tabs td:last-child {padding-left:10px;}
+
+                    .group-name {border-radius:3px 3px 0 0;border:1px solid #bbb;color:#777;border-bottom:0;font-size:12px;text-align:center;line-height:10px;margin-bottom:4px;white-space:nowrap;padding:0 5px;}
+                        .group-name span {background:#fff;position:relative;top:-7px;}
+
+                    .group-tabs {width:100%;position:relative;bottom:-1px;display:table;}
+
+                        .group-tabs a {font-size:14px;color:#39d;text-decoration:none;line-height:40px;}
+                            .group-tabs a span {border-top:1px solid #ccc;border-bottom:1px solid #ccc;display:block;padding:0 5px;text-align:center;}
+                            .group-tabs a:hover span {background:#f1f1f5;}
+                            .group-tabs a.active span {background:#fff;border-bottom-color:#fff !important;color:#000;}
+
+                            .group-tabs a:first-child span {border:1px solid #ccc;border-top-left-radius:2px;}
+                            .group-tabs a:last-child span {border:1px solid #ccc;border-top-right-radius:2px;}
+    </style>
+
+    {% spaceless %}
+        <div class="mega-tabs">
+            <table>
+                <tr>
+                    <td>
+                        <div class="group-name"><span>Используются для вузов и школ</span></div>
+                        <span class="group-tabs">
+                            <span class="tr">
+                                <a class="td active" href="#"><span>Все города Камчатского Края</span></a>
+                            </span>
+                        </span>
+                    </td>
+                    <td>
+                        <div class="group-name"><span>Используются для привязки репетиторов (metro_stations)</span></div>
+                        <span class="group-tabs">
+                            <span class="tr">
+                                <a class="td" href="#"><span>Районы Петропавловска-Камчатска</span></a>
+                                <a class="td" href="#"><span>Областные города</span></a>
+                                <a class="td" href="#"><span>Станции метро</span></a>
+                            </span>
+                        </span>
+                    </td>
+                    <td>
+                        <div class="group-name"><span>Метро</span></div>
+                        <span class="group-tabs">
+                            <span class="tr">
+                                <a class="td" href="#"><span>Линии</span></a>
+                                <a class="td" href="#"><span>Пересадки</span></a>
+                                <a class="td" href="#"><span>Расстояния</span></a>
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    {% endspaceless %}
+
+
+    <button style="margin:0 0 20px;" onClick="alert('Типа форма добавления')">Добавить город</button>
+
+    <table class="zebra">
+        <tr class="nowrap">
+            <th>№</th>
+            <th>Название</th>
+            <th>Название в П.п.</th>
+            <th>Широта</th>
+            <th>Долгота</th>
+            <th>Zoom</th>
+            <th>Уровень</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th><input type="text"></th>
+            <th><input type="text"></th>
+            <th><input type="text"></th>
+            <th><input type="text"></th>
+            <th><input type="text"></th>
+            <th><input type="text"></th>
+            <th><input type="text"></th>
+            <th></th>
+        </tr>
+        {% for i in '123456789' %}
+            <tr>
+                <td>{{ i }}</td>
+                <td>Архангельск</td>
+                <td>Архангельске</td>
+                <td>59.940979</td>
+                <td>30.092318</td>
+                <td>1</td>
+                <td>2</td>
+                <td><a href="#" onClick='alert("Типа форма для редактирования")'>Редактировать</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    {% include 'back/b_pagination.html' %}
+
+{% endblock %}

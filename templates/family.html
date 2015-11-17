@@ -1,0 +1,59 @@
+{% extends 'home.html' %}
+
+{% block style %}
+    <style>
+        .tip {font-size:15px;color:#999;}
+        .photo-input {border:3px dashed #ccc;width:150px;height:150px;border-radius:100px;}
+    </style>
+{% endblock %}
+
+{% block bg %}<div class="column-left-separator"></div>{% endblock %}
+
+{% block headline %}{% endblock %}
+
+{% block left %}
+    <div class="column-left">
+        {% include 'blocks/client_menu.html' %}
+    </div>
+{% endblock %}
+
+{% block header %}<h1 class="title-content">Члены семьи</h1>{% endblock %}
+
+{% block content %}
+
+    <div style="border-bottom:1px solid #ddd;height:100px;">
+
+        <a href="{% url 'profile_edit' %}" class="button button-light" style="float:right;margin-top:15px;">Редактировать</a>
+
+        <img src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg" style="width:80px;height:80px;border-radius:50px;float:left;margin-right:15px;">
+        <h2 style="padding-top:15px;"><a href="{% url 'profile' %}">Юрий Петров</a></h2>
+        <div style="color:#999;">Основной аккаунт</div>
+    </div>
+
+    <div style="clear:both;"></div>
+
+    <div style="border-bottom:1px solid #ddd;height:100px;">
+
+        <a href="{% url 'new_account' %}" class="button button-light" style="float:right;margin-top:15px;">Редактировать</a>
+
+        <img src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg" style="width:80px;height:80px;border-radius:50px;float:left;margin-right:15px;">
+        <h2 style="padding-top:15px;"><a href="{% url 'profile' %}">Иван Петров</a></h2>
+        <div style="color:#999;">Ученик</div>
+    </div>
+
+    <div style="border-bottom:1px solid #ddd;height:100px;">
+
+        <a href="{% url 'new_account' %}" class="button button-light" style="float:right;margin-top:15px;">Редактировать</a>
+
+        <img src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg" style="width:80px;height:80px;border-radius:50px;float:left;margin-right:15px;">
+        <h2 style="padding-top:15px;"><a href="{% url 'profile' %}">Елена Петрова</a></h2>
+        <div style="color:#999;">Ученик (без аккаунта)</div>
+    </div>
+
+    <div style="clear:both;"></div>
+
+    <a href="{% url 'new_account' %}" class="button" style="margin-left:95px;margin-top:30px;margin-right:2%;">+ Добавить ученика</a>
+
+{% endblock %}
+
+{% block right %}{% endblock %}

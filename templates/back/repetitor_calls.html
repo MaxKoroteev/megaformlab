@@ -1,0 +1,32 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+
+    {% include 'back/b_repetitor.html' %}
+
+    <table class="zebra">
+        <tr>
+            <th>Телефон</th>
+            <th>Дата</th>
+            <th>Сотрудник</th>
+            <th>Заявка</th>
+            <th>Запись</th>
+            <th>StopSide</th>
+            <th>ReasonStop</th>
+            <th>Тип</th>
+        </tr>
+        {% for i in '1234567890' %}
+            <tr>
+                <td>+79990079668</td>
+                <td>06.11.2015 15:37</td>
+                <td>Петров Константин (id=1)</td>
+                <td><a href="#">Английский язык</a></td>
+                <td><audio controls="" style="width:250px"><source src="/commonPages/getFileFtp.aspx?type=call&amp;id=1267648" type="audio/mpeg"></audio></td>
+                <td>сторона Б (при исходящих - клиент)</td>
+                <td>Абонент положил трубку</td>
+                <td>Какой бывает?</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

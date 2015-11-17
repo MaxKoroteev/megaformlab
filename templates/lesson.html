@@ -1,0 +1,121 @@
+{% extends 'home.html' %}
+
+{% block style %}
+    <style>
+        .lessons {}
+            .lesson {border:1px solid #ddd;border-radius:2px;padding:15px;margin-bottom:20px;}
+                .lesson-subject {font-size:21px;text-decoration:none;}
+                .lesson-theme   {font-size:15px;color:#777;}
+
+                .lesson-tutor {float:right;}
+                    .lesson-tutor-avatar {width:40px;height:40px;border-radius:30px;float:left;margin-right:10px;}
+                    .lesson-tutor-name   {font-size:21px;white-space:nowrap;margin-left:50px;}
+                    .lesson-tutor-tutor  {font-size:15px;color:#777;margin-left:50px;}
+
+                .lesson-address {margin-top:10px;}
+                .lesson-students {margin-top:20px;}
+                    .lesson-student {display:inline-block;margin-right:30px;}
+
+                .lesson-footer {padding:15px;background:#f1f1f5;width:100%;margin:20px 0 -15px -15px;}
+                    .lesson-price {}
+    </style>
+{% endblock %}
+
+{% block left %}{% endblock %}
+
+{% block headline %}
+        <div class="title">
+            <div class="wrapper">
+
+                <style>
+                    .lesson-menu {padding-top:10px;}
+                        .lesson-menu-item {padding:0 20px;line-height:60px;height:60px;font-size:20px;}
+                        .lesson-menu-ite:hover {background:#e4e4ea;}
+                        .lesson-menu-item.active {background:#fff;}
+                </style>
+
+                <div class="lesson-menu">
+                    <span class="lesson-menu-item active">Занятие</span>
+                    <span class="lesson-menu-item">История</span>
+                    <span class="lesson-menu-item">Отменить занятие</span>
+                    <span class="lesson-menu-item">Назначить платёж</span>
+                </div>
+
+            </div>
+        </div>
+{% endblock %}
+
+{% block content %}
+
+    {% spaceless %}
+
+        <div class="lesson-tutor" style="margin-right:20px;margin-top:0;float:right;margin-bottom:0;">
+            <img class="lesson-tutor-avatar" src="http://michaelgowin.com/blog/wp-content/uploads/2014/03/strauss.jpg">
+            <div class="lesson-tutor-name">Зюзькевич В.А</div>
+            <div class="lesson-tutor-tutor">Репетитор</div>
+        </div>
+
+        <h2 style="margin-top:0;margin-bottom:0;">Математика: Дробные уравнения</h2>
+        <div style="font-size:15px;line-height:20px;color:#999;">10 Сентября '16, 8:15 – 16:00</div>
+
+        <div class="lesson-price" style="font-size:21px;line-height:25px;margin-top:20px;">1500 р.</div>
+        <div class="lesson-duration" style="font-size:15px;color:#777;">1 час 30 минут</div>
+
+        <div class="lesson-address" style="margin-top:20px;"><i class="fa fa-map-marker" style="margin-right:5px;margin-top:-3px;color:#999;font-size:25px;"></i> г. Москва, Ленинский проспект, дом 132, стр 20, кв. 10, м. Юго-западная (у репетитора)</div>
+
+        <div class="lesson-students">
+
+            <div class="lesson-student">
+                <img src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg" style="width:40px;height:40px;border-radius:20px;float:left;margin-right:5px;">
+                <div style="float:left;">
+                    <h4 style="line-height:20px;margin:3px 0 0;"><a href="{% url 'profile' %}" style="color:#000;text-decoration:none;">Юрий Петров</a></h4>
+                    <div style="white-space:nowrap;color:#777;">Назначен автоплатёж</div>
+                </div>
+            </div>
+
+            <div class="lesson-student">
+                <img src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg" style="width:40px;height:40px;border-radius:20px;float:left;margin-right:5px;">
+                <div style="float:left;">
+                    <h4 style="line-height:20px;margin:3px 0 0;"><a href="{% url 'profile' %}" style="color:#000;text-decoration:none;">Иван Петров</a></h4>
+                    <div style="white-space:nowrap;color:#72c58e;">Оплачено</div>
+                </div>
+            </div>
+
+            <div class="lesson-student">
+                <img src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg" style="width:40px;height:40px;border-radius:20px;float:left;margin-right:5px;">
+                <div style="float:left;">
+                    <h4 style="line-height:20px;margin:3px 0 0;"><a href="{% url 'profile' %}" style="color:#000;text-decoration:none;">Елена Петрова</a></h4>
+                    <div style="white-space:nowrap;color:#C57272;">Сбой оплаты</div>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 style="margin-top:30px;">Домашнее задание</h2>
+
+        <h3 style="margin-top:25px;margin-bottom:5px;">Учебник Басыгина за 9 класс</h3>
+
+        <div>1, 2, 5 задача в конце главы "Дробные уравнения"</div>
+        <br>
+        <div style="margin:10px 0;display:inline-block;margin-right:10px;"><a href="#" style="text-decoration:none;"><i style="color:#000" class="fa fa-file-archive-o"></i> Архив          <i style="color:#999;" class="fa fa-arrow-circle-down"></i></a></div>
+        <div style="margin:10px 0;display:inline-block;margin-right:10px;"><a href="#" style="text-decoration:none;"><i style="color:#000" class="fa fa-file-image-o"></i> Изображение      <i style="color:#999;" class="fa fa-arrow-circle-down"></i></a></div>
+        <div style="margin:10px 0;display:inline-block;margin-right:10px;"><a href="#" style="text-decoration:none;"><i style="color:#000" class="fa fa-file-powerpoint-o"></i> Презентация <i style="color:#999;" class="fa fa-arrow-circle-down"></i></a></div>
+        <div style="margin:10px 0;display:inline-block;margin-right:10px;"><a href="#" style="text-decoration:none;"><i style="color:#000" class="fa fa-file-excel-o"></i> Таблица          <i style="color:#999;" class="fa fa-arrow-circle-down"></i></a></div>
+        <div style="margin:10px 0;display:inline-block;margin-right:10px;"><a href="#" style="text-decoration:none;"><i style="color:#000" class="fa fa-file-word-o"></i> Word документ     <i style="color:#999;" class="fa fa-arrow-circle-down"></i></a></div>
+        <div style="margin:10px 0;display:inline-block;margin-right:10px;"><a href="#" style="text-decoration:none;"><i style="color:#000" class="fa fa-file-pdf-o"></i> PDF документ       <i style="color:#999;" class="fa fa-arrow-circle-down"></i></a></div>
+        <div style="margin:10px 0;display:inline-block;margin-right:10px;"><a href="#" style="text-decoration:none;"><i style="color:#000" class="fa fa-file-text-o"></i> Текстовый файл    <i style="color:#999;" class="fa fa-arrow-circle-down"></i></a></div>
+
+        <h2 style="margin-top:30px;margin-bottom:20px;">История</h2>
+
+        <div>
+            {% for action in actions %}
+                <div class="history-action">{{ action|safe }}</div>
+            {% endfor %}
+        </div>
+
+    {% endspaceless %}
+{% endblock %}
+
+{% block right %}
+
+{% endblock %}

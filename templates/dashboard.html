@@ -1,0 +1,282 @@
+{% extends 'home.html' %}
+
+{% block left %}{% endblock %}
+
+{% block headline %}
+    {% spaceless %}
+        <div class="title">
+            <div class="wrapper">
+
+                <a href="#" class="p-call-create back" style="margin-right:0;margin-top:15px;float:right;background:#3b99d8;color:#fff;width:200px;">+ Создать занятие</a>
+
+                <span>Занятия</span><a href="#" class="wide" style="font-size:13px;color:#999;margin-left:30px;">Широкий экран</a>
+
+                <div style="position:absolute;left:50%;margin-left:-210px;top:20px;">
+
+                    <a href="{% url 'dashboard_repetitor' %}"   class="title-button back {% active 'dashboard_repetitor' %}">GC-style</a>
+                    <a href="{% url 'lessons' %}"   class="title-button back {% active 'lessons'   %}" style="padding:0 10px;width:auto;">М</a>
+                    <a href="{% url 'lessons2' %}"   class="title-button back {% active 'lessons2'   %}" style="padding:0 10px;width:auto;">М2</a>
+                    <a href="{% url 'lessons3' %}"   class="title-button back {% active 'lessons3'   %}" style="padding:0 10px;width:auto;">М3</a>
+                    <a href="{% url 'dashboard' %}" class="title-button back {% active 'dashboard' %}">Неделя</a>
+
+                    <span style="text-align:center;margin-left:20px;">
+                        <span class="fa fa-angle-left"  style="cursor:pointer;width:40px;height:40px;line-height:40px;background:#e4e4ea;color:#343d46;margin-top:-5px;border-radius:2px;text-align:center;"></span>
+                        <span style="font-size:18px;padding:0 10px;line-height:30px;">Август '15</span>
+                        <span class="fa fa-angle-right" style="cursor:pointer;width:40px;height:40px;line-height:40px;background:#e4e4ea;color:#343d46;margin-top:-5px;border-radius:2px;text-align:center;"></span>
+                    </span>
+
+                </div>
+
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block content %}
+
+    <style>
+        .ws {background:#f1f1f5;border-bottom:1px solid #ddd;}
+            .w {border-right:1px solid #ddd;width:139px;text-align:center;min-height:337px;}
+            .w:first-child {border-left:1px solid #ddd;width:138px;}
+                .w-label {border-top:1px solid #ddd;border-bottom:1px solid #ddd;display:block;line-height:25px;}
+                .w-lesson {background:#fff;display:block;line-height:25px;text-align:left;padding:0 5px 5px;border-bottom:1px solid #ddd;cursor:pointer;}
+                .w-lesson:hover {background:#f1f1f5;}
+                    .w-time {color:#999;font-size:14px;}
+                    .w-students {display:block;}
+                        .w-student {padding:0 5px;margin-top:1px;display:block;}
+                        .w-student:first-child {margin-top:0;}
+    </style>
+    {% spaceless %}
+        <div class="ws">
+            <span class="w">
+                <span class="w-label">ПН</span>
+
+                <span class="w-lesson">
+                    <span class="w-time">8:15 - 16:00</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#72c58e;color:#fff;">Коротеев М.В.</span>
+                        <span class="w-student" style="background:#72c58e;color:#fff;">Петрова С.Е.</span>
+                        <span class="w-student" style="background:#C57272;color:#fff;">Сидоров К.В.</span>
+                    </span>
+                </span>
+
+                <span class="w-lesson">
+                    <span class="w-time">16:45 - 18:00</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Иванов С.Е.</span>
+                    </span>
+                </span>
+
+            </span>
+            <span class="w">
+                <span class="w-label">ВТ</span>
+
+                <span class="w-lesson">
+                    <span class="w-time">16:45 - 18:00</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#72c58e;color:#fff;">Иванов С.Е.</span>
+                        <span class="w-student" style="background:#72c58e;color:#fff;">Волкова М.И.</span>
+                    </span>
+                </span>
+
+                <span class="w-lesson">
+                    <span class="w-time">18:0 - 19:00</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#C57272;color:#fff;">Иванов С.Е.</span>
+                    </span>
+                </span>
+
+                <span class="w-lesson">
+                    <span class="w-time">19:00 - 19:45</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Сидоров П.И.</span>
+                    </span>
+                </span>
+
+                <span class="w-lesson">
+                    <span class="w-time">20:00 - 20:45</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Ломов Т.У.</span>
+                    </span>
+                </span>
+
+            </span>
+            <span class="w">
+                <span class="w-label">СР</span>
+
+                <span class="w-lesson">
+                    <span class="w-time">11:00 - 12:00</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Сидоров П.И.</span>
+                    </span>
+                </span>
+
+                <span class="w-lesson">
+                    <span class="w-time">16:45 - 18:00</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Коротеев М.В.</span>
+                        <span class="w-student" style="background:#72c58e;color:#fff;">Петрова С.Е.</span>
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Сидоров К.В.</span>
+                    </span>
+                </span>
+
+            </span>
+            <span class="w">
+                <span class="w-label">ЧТ</span>
+
+                <span class="w-lesson">
+                    <span class="w-time">16:45 - 18:00</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Иванов С.Е.</span>
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Волкова М.И.</span>
+                    </span>
+                </span>
+
+                <span class="w-lesson">
+                    <span class="w-time">18:0 - 19:00</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Иванов С.Е.</span>
+                    </span>
+                </span>
+
+                <span class="w-lesson">
+                    <span class="w-time">19:00 - 19:45</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#3b99d8;color:#fff;">Сидоров П.И.</span>
+                    </span>
+                </span>
+
+                <span class="w-lesson">
+                    <span class="w-time">20:00 - 20:45</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Ломов Т.У.</span>
+                    </span>
+                </span>
+
+                <span class="w-lesson">
+                    <span class="w-time">20:45 - 21:45</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Сидоров П.И.</span>
+                    </span>
+                </span>
+
+            </span>
+            <span class="w">
+                <span class="w-label">ПТ</span>
+
+                <span class="w-lesson">
+                    <span class="w-time">11:00 - 12:00</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Сидоров П.И.</span>
+                    </span>
+                </span>
+
+                <span class="w-lesson">
+                    <span class="w-time">12:00 - 13:30</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#3b99d8;color:#fff;">Ломов Т.У.</span>
+                    </span>
+                </span>
+
+            </span>
+            <span class="w">
+                <span class="w-label">СБ</span>
+
+                <span class="w-lesson">
+                    <span class="w-time">16:45 - 18:00</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Иванов С.Е.</span>
+                        <span class="w-student" style="background:#3b99d8;color:#fff;">Волкова М.И.</span>
+                    </span>
+                </span>
+
+                <span class="w-lesson">
+                    <span class="w-time">18:0 - 19:00</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Иванов С.Е.</span>
+                    </span>
+                </span>
+
+                <span class="w-lesson">
+                    <span class="w-time">19:00 - 19:45</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Сидоров П.И.</span>
+                    </span>
+                </span>
+
+            </span>
+            <span class="w">
+                <span class="w-label">ВС</span>
+
+                <span class="w-lesson">
+                    <span class="w-time">19:00 - 20:00</span>
+                    <span class="w-students">
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Иванов С.Е.</span>
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Волкова М.И.</span>
+                        <span class="w-student" style="background:#e4e4ea;color:#3b3b3b;">Сидоров П.И.</span>
+                    </span>
+                </span>
+
+            </span>
+        </div>
+        <div style="margin-top:20px;">
+            <span style="width:25px;height:25px;margin-right:5px;background:#e4e4ea;border-radius:15px;"></span> <span style="line-height:25px;margin-right:25px;">Не оплачено</span>
+            <span style="width:25px;height:25px;margin-right:5px;background:#3b99d8;border-radius:15px;"></span> <span style="line-height:25px;margin-right:25px;">Назначен платёж</span>
+            <span style="width:25px;height:25px;margin-right:5px;background:#5dac78;border-radius:15px;"></span> <span style="line-height:25px;margin-right:25px;">Оплачено</span>
+            <span style="width:25px;height:25px;margin-right:5px;background:#AC5D5D;border-radius:15px;"></span> <span style="line-height:25px;margin-right:25px;">Сбой оплаты</span>
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block right %}
+
+{% endblock %}
+
+{% block right2 %}
+    <div style="width:200px;padding-left:20px;" class="td members-list">
+
+        <div class="member">
+            <img class="member-avatar" src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg">
+            <div class="member-name">Петров Ю.М.</div>
+        </div>
+
+        <div class="member active">
+            <img class="member-avatar" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">
+            <div class="member-name">Петров И.Ю.</div>
+        </div>
+
+        <div class="member">
+            <img class="member-avatar" src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg?quality=0.6&height=200&width=200&">
+            <div class="member-name">Петрова А.И.</div>
+        </div>
+        <div class="member">
+            <img class="member-avatar" src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg">
+            <div class="member-name">Петров Ю.М.</div>
+        </div>
+
+        <div class="member">
+            <img class="member-avatar" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">
+            <div class="member-name">Петров И.Ю.</div>
+        </div>
+
+        <div class="member">
+            <img class="member-avatar" src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg?quality=0.6&height=200&width=200&">
+            <div class="member-name">Петрова А.И.</div>
+        </div>
+        <div class="member">
+            <img class="member-avatar" src="https://pbs.twimg.com/profile_images/536059871050100736/yGe_N7Te.jpeg">
+            <div class="member-name">Петров Ю.М.</div>
+        </div>
+
+        <div class="member">
+            <img class="member-avatar" src="http://blog.etailz.com/wp-content/uploads/2013/09/kid-yucky-face.jpg">
+            <div class="member-name">Петров И.Ю.</div>
+        </div>
+
+        <div class="member">
+            <img class="member-avatar" src="http://images3.parentsconnect.com/editorial_images/6/little-girl-using-smartphone-280x280.jpg?quality=0.6&height=200&width=200&">
+            <div class="member-name">Петрова А.И.</div>
+        </div>
+
+    </div>
+{% endblock %}

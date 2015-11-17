@@ -1,0 +1,35 @@
+{% extends 'home.html' %}
+
+{% block style %}
+    <style>
+        .tip {font-size:15px;color:#999;}
+        .photo-input {border:3px dashed #ccc;width:150px;height:150px;border-radius:100px;}
+    </style>
+{% endblock %}
+
+{% block bg %}<div class="column-left-separator"></div>{% endblock %}
+
+{% block headline %}{% endblock %}
+
+{% block left %}
+    <div class="column-left">
+        {% include 'blocks/client_menu.html' %}
+    </div>
+{% endblock %}
+
+{% block header %}<h1 class="title-content">Адреса</h1>{% endblock %}
+
+{% block content %}
+
+    {% for i in '12' %}
+        <div style="margin-top:30px;padding:15px 15px 5px 15px;border:1px solid #ddd;border-radius:2px;position:relative;">
+            <div class="remove">x</div>
+            {% include 'snippets/address.html' %}
+        </div>
+    {% endfor %}
+
+    <span class="button" style="margin-top:15px;margin-right:2%;">Сохранить адреса</span><span class="button button-light" style="margin-top:15px;">+ Добавить ещё адрес</span>
+
+{% endblock %}
+
+{% block right %}{% endblock %}
