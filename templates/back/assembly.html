@@ -1,0 +1,210 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+    <style>
+
+        .dynamic {display:none;}
+
+        .da {width:100%;}
+            .da .icon {text-align:center;width:20px;}
+            .da .icon:hover {color:#5ad;background:#fff;cursor:pointer;}
+            .da .fa {line-height:20px;}
+            .da table {width:100%;}
+
+        .da td, .da th {border:1px solid #a0a0a5;padding:5px;line-height:20px;text-align:left;}
+
+        .da th {font-weight:normal;color:#777;background:rgba(255,255,255,0.5);}
+        .da td {font-weight:normal;color:#000;background:rgba(255,255,255,0.25);}
+
+    </style>
+
+    <div class="dynamic">
+
+        <h1><button style="margin:0;float:right;">Создать Dynamic Assembly</button>Dynamic Assembly</h1>
+
+        <div style="height:1px;background:#ddd;margin:30px 0;"></div>
+
+
+        {# Dynamic Assembly #}
+
+        <table class="da">
+
+            <tr>
+                <th></th>
+                <th>id</th>
+                <th>name</th>
+                <th>description</th>
+                <th>referenced_assemblies</th>
+                <th>date_compiled</th>
+                <th>date_updated</th>
+                <th></th>
+            </tr>
+
+            {% for a in '123456789012345678901234567890' %}
+                <tr>
+                    <td class="icon"><i class="fa fa-chevron-down"></i></td>
+                    <td>{{ a }}</td>
+                    <td>Test.Assembly</td>
+                    <td>Description</td>
+                    <td>Prod.Assembly, Deploy.Assembly</td>
+                    <td>2015-12-04 20:15:58.000</td>
+                    <td>2015-12-04 20:15:58.000</td>
+                    <td style="width:1px;white-space:nowrap;"><a href="#">Изменить</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="8" style="background:#f0f0f5;">
+
+                        {# Dynamic Class #}
+
+                        <h3 style="margin-bottom:5px;font-size:14px;">Классы / <a href="#">Создать класс</a></h3>
+
+                        <table>
+
+                            <tr>
+                                <th></th>
+                                <th>id</th>
+                                <th>name</th>
+                                <th>description</th>
+                                <th>included_namespaces</th>
+                                <th>Изменить</th>
+                            </tr>
+
+                            {% for c in '123' %}
+                                <tr>
+                                    <td class="icon"><i class="fa fa-chevron-down"></i></td>
+                                    <td>{{ c }}</td>
+                                    <td>TestClass</td>
+                                    <td>Description</td>
+                                    <td>using System ...</td>
+                                    <td style="width:1px;white-space:nowrap;"><a href="#">Изменить</a></td>
+                                </tr>
+                                <tr>
+
+                                    <td></td>
+                                    <td colspan="5" style="background:#e0e0e5;">
+
+                                        <table style="margin-bottom:5px;">
+                                            <tr>
+                                                <th>included_namespaces</th>
+                                            </tr>
+                                            <tr>
+                                                <td>using System;</td>
+                                            </tr>
+                                        </table>
+
+                                        {# Dynamic Method #}
+
+                                        <h3 style="margin-bottom:5px;font-size:14px;">Методы / <a href="#">Создать метод</a></h3>
+
+                                        <table>
+
+                                            <tr>
+                                                <th></th>
+                                                <th>id</th>
+                                                <th>name</th>
+                                                <th>description</th>
+                                                <th>is_static</th>
+                                                <th>is_private</th>
+                                                <th>is_constructor</th>
+                                                <th>return_type</th>
+                                                <th>method_body</th>
+                                                <th>Изменить</th>
+                                            </tr>
+
+                                            {% for c in '123' %}
+                                                <tr>
+                                                    <td class="icon"><i class="fa fa-chevron-down"></i></td>
+                                                    <td>{{ c }}</td>
+                                                    <td>TestMethod</td>
+                                                    <td>Description</td>
+                                                    <td>1</td>
+                                                    <td>0</td>
+                                                    <td>0</td>
+                                                    <td>void</td>
+                                                    <td>int i=0 ...</td>
+                                                    <td style="width:1px;white-space:nowrap;"><a href="#">Изменить</a></td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td></td>
+                                                    <td colspan="9" style="background:#d0d0d5;">
+
+                                                        <table style="margin-bottom:5px;">
+                                                            <tr>
+                                                                <th>method_body</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>int i=0;</td>
+                                                            </tr>
+                                                        </table>
+
+                                                        {# Dynamic Method Param #}
+
+                                                        <h3 style="margin-bottom:5px;font-size:14px;">Параметры / <a href="#">Создать параметр</a></h3>
+
+                                                        <table class="params">
+
+                                                            <tr>
+                                                                <th>id</th>
+                                                                <th>name</th>
+                                                                <th>type</th>
+                                                                <th>order</th>
+                                                                <th>Изменить</th>
+                                                            </tr>
+
+                                                            {% for c in '123' %}
+                                                                <tr>
+                                                                    <td>{{ c }}</td>
+                                                                    <td>TestMethodParam</td>
+                                                                    <td>int</td>
+                                                                    <td>c</td>
+                                                                    <td style="width:1px;white-space:nowrap;"><a href="#">Изменить</a></td>
+                                                                </tr>
+                                                            {% endfor %}
+
+                                                        </table>
+
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+
+                                        </table>
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+                        </table>
+
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+    <script>
+
+        $(function() {
+            $('.dynamic').show()
+        });
+
+        $('.dynamic a, .dynamic button').click(function() {
+            alert('Типа форма в попапе');
+            return false;
+        });
+
+        $('.icon').each(function() {
+            $(this).closest('tr').next('tr').hide();
+            $(this).on('click', function() {
+                $(this).closest('tr').next('tr').fadeToggle(0);
+                $(this).find('.fa').toggleClass('fa-chevron-up');
+                $(this).find('.fa').toggleClass('fa-chevron-down');
+            });
+        })
+
+    </script>
+
+{% endblock %}

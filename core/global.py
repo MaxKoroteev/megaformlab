@@ -243,4 +243,5 @@ Goldman Sachs ! 81,883.6"""
         'screen': request.session['screen'],
         'subs': subs,
         'url_name': request.resolver_match.url_name,
+        'form_range': xrange(0, 100)
     }

@@ -1,0 +1,35 @@
+<div class="popup-content">
+
+    <div class="form">
+
+        <h2>
+            {% if create %}
+                Создать Dynamic Assembly
+            {% else %}
+                Test.Assembly
+            {% endif %}
+        </h2>
+
+        <div class="label">Name</div>
+        <input type="text">
+
+        <div class="label">Description</div>
+        <input type="text">
+
+        <div class="label">Referenced Assemblies</div>
+
+        {% for i in '123' %}
+            <div style="margin-bottom:10px;">
+                <input type="text" value="Test.Assembly1" style="width:auto;">
+                <button class="light fa fa-times" style="margin:0;height:25px;line-height:22px;"></button>
+            </div>
+        {% endfor %}
+        <button class="light fa fa-plus" style="margin:0;height:25px;line-height:22px;"> Referenced Assembly</button>
+
+        <div class="save">
+            <button>Сохранить</button>
+        </div>
+
+    </div>
+
+</div>

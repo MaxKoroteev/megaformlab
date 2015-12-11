@@ -12,3 +12,8 @@ def active(context, url_name, *url_params):
     if not url_params and reverse(url_name) == context['request'].path:
         return ' active'
     return ''
+
+
+@register.filter
+def space(value):
+    return value.replace(' ', '&nbsp').replace('\n', '<br>')

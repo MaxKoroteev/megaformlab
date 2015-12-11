@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title></title>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    {% comment %}
+
+    Табличка документации.
+
+     - Формат JSON
+     - Запись типа !minimal_lesson_price - Означает, что колонка minimal_lesson_price не используется
+     - Поле type:
+        1 - Обычная таблица
+        2 - Вспомогательная таблица (m2m и т.д.)
+        3 - Таблица больше не используется
+
+    {% endcomment %}
+
+    <style>
+
+        * {margin:0;padding:0;}
+
+        html, body {min-height:100%;font-family:tahoma, sans-serif;font-size:13px;}
+
+        body {overflow:auto;}
+
+        h4 {font-size:15px;padding-top:20px;}
+            h4 span {font-weight:normal;}
+
+        p {margin:10px 0;}
+
+        a {color:#39d;}
+        a:hover {text-decoration:none;}
+
+        .main {width:100%;border-collapse:collapse;}
+
+            .column  {width:275px;vertical-align:top;}
+                .menu  {width:275px;background:#f0f0f5;position:fixed;top:0;left:0;overflow-y:scroll;height:100%;}
+                    .menu a {display:block;color:#000;font-size:13px;text-decoration:none;padding:2px 10px;border-bottom:1px solid rgba(0,0,0,0.1);}
+                    .menu a:hover  {background:#e0e0e5;}
+                    .menu a.active {background:#39d;color:#fff;}
+                        .menu span:first-child {display:block;font-size:13px;line-height:14px;font-weight:bold;}
+                        .menu span:last-child  {display:block;font-size:11px;line-height:10px;}
+
+            .content {padding:0 20px;vertical-align:top;}
+
+                .item {border-bottom:1px solid #ccc;padding:0 0 20px;}
+
+                .item table {border-collapse:collapse;}
+                    .item table td, .item table th {border: 1px solid #ccc;padding:5px;text-align:left;}
+
+        .stop-scrolling {height:100%;overflow:hidden;}
+    </style>
+
+</head>
+<body>
+
+    <table class="main">
+        <tr>
+            <td class="column">
+                <div class="menu">
+
+                </div>
+            </td>
+            <td class="content">
+
+            </td>
+        </tr>
+    </table>
+
+    <script>
+
+        // Подтягиваем .json
+        $.getJSON('/media/tables.json', function(data) {
+
+            // Проходимся по массиву таблиц
+            data['tables'].map(function(table) {
+
+                // Формируем меню
+                $('.menu').append('<a href="#' + table['name'] + '"><span>' + table['name'] + '</span><span>' + table['title'] + '</span></a>');
+
+                // Формируем контент
+
+                var fields = table['fields'];
+                var fields_html = '';
+
+                for (var field in fields) { if (fields.hasOwnProperty(field)) {
+
+                    var label = field;
+                    var value = fields[field];
+
+                    fields[field] = fields[field].replace(/(#\w+\\s)/g, '<a href="$1">$1</a>');
+
+                    fields_html += '<tr><th>' + label + '</th><td>' + value + '</td></tr>';
+
+                }}
+
+                table['descr'] = table['descr'].replace(/(#\w+\\s)/g, '<a href="$1">$1</a>');
+                table['footer'] = table['footer'].replace(/(#\w+)/g, '<a href="$1">$1</a>');
+
+                $('.content').append(
+                        '<div class="item">' +
+                        '<h4 id="' + table['name'] + '">' + table['name'] + '<span> - ' + table['title'] + '</span></h4>'+
+                        '<p>' + table['descr'] + '</p>' +
+                        '<table>' + fields_html + '</table>' +
+                        '<p>' + table['footer'] + '</p>' +
+                        '</div>'
+                );
+            });
+        });
+
+        $(document).on('click', 'a', function() {
+            $('.menu a').removeClass('active');
+            $(this).addClass('active');
+            $('html, body').animate({
+                scrollTop: $( $.attr(this, 'href') ).offset().top
+            }, 500);
+            return false;
+        });
+
+        $('.menu').hover(function() {
+            $('body').toggleClass('stop-scrolling');
+        });
+    </script>
+
+</body>
+</html>

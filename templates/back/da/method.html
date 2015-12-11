@@ -1,0 +1,65 @@
+<div class="popup-content">
+
+    <div class="form" style="width:1250px;">
+
+        <h2>
+            {% if create %}
+                Создать Method для Test.Class
+            {% else %}
+                Test.Method
+            {% endif %}
+        </h2>
+
+        <table style="width:100%;">
+            <tr>
+                <td>
+
+                    <div class="label">Name</div>
+                    <input type="text">
+
+                    <div class="label">Description</div>
+                    <textarea></textarea>
+
+                    <div style="line-height:25px;margin-top:15px;">
+                        <label><input type="checkbox">is_static </label>
+                        <label><input type="checkbox">is_private </label>
+                        <label><input type="checkbox">is_constructor</label>
+                    </div>
+
+                    <div class="label">Return type</div>
+                    <input type="text">
+
+                    <h3 style="margin:20px 0 10px;">Method params</h3>
+
+                    <table>
+                        <tr>
+                            <td style="padding:5px 5px 5px 0;">Name</td>
+                            <td style="padding:5px 5px 5px 0;">Type</td>
+                            <td style="padding:5px 5px 5px 0;"></td>
+                        </tr>
+                        {% for i in '123' %}
+                            <tr>
+                                <td style="padding:5px 5px 5px 0;"><input type="text" value="Name"></td>
+                                <td style="padding:5px 5px 5px 0;"><input type="text" value="Type"></td>
+                                <td style="padding:5px 5px 5px 0;"><button class="light fa fa-times" style="margin:0;margin:0;height:25px;line-height:22px;"></button></td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+
+                    <button class="light fa fa-plus" style="margin-top:10px;"> Добавить Method</button>
+
+                </td>
+                <td style="width:800px;padding-left:30px;">
+                    <div class="label">Method Body</div>
+                    <textarea rows="35" style="font-size:12px;"></textarea>
+                </td>
+            </tr>
+        </table>
+
+        <div class="save">
+            <button>Сохранить</button>
+        </div>
+
+    </div>
+
+</div>

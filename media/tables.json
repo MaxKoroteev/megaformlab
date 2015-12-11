@@ -1,0 +1,1641 @@
+{
+	"tables": [
+		{
+			"name": "activity_log",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "additions",
+			"title": "Дополнения к предметам",
+			"descr": "Используются как экзамены, к которым может подготовить репетитор",
+			"type": "1",
+			"fields": {
+				"id": "id",
+				"name": "Название",
+				"order": "Порядок вывода",
+				"name_prep": "Название в Дательном падеже",
+				"name_gen": "Название в Родительном падеже",
+				"link_required": "Выводить ли в карточке репетитора дополнения в виде ссылки, дав возможность сделать выборку репетиторов по конкретному дополнению"
+		  	},
+		  	"footer": "Дополнения связаны с предметами (m2m #Subjects - subject_addition)"
+		},
+		{
+			"name": "adm_districts",
+			"title": "Административные районы",
+			"descr": "-",
+			"type": "3",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "area",
+			"title": "Регионы РФ",
+			"descr": "Базовая сущность в геолокации",
+			"type": "1",
+			"fields": {
+				"id": "id",
+				"name": "Название центрального города и региона",
+				"name_prep": "Название в предложном падежа",
+				"name_gen": "Название в родительном падеже",
+				"region_name": "Название региона",
+				"city_name": "Название города",
+				"phone_number": "Номер телефона для клиентов и репетиторов",
+				"sms_sender_number": "Номер телефона, с которого отправляются sms",
+				"email_footer": "Подвал в письме с подстановкой номера телефона",
+				"minimal_lesson_price!": "Минимальная цена на занятие",
+				"registration_price!": "Цена за регистрацию на сайте",
+				"main_domain": "Домен региона",
+				"server_path":"Путь к папке на сервере, т.к. у регионов разные ресурсы, конфигурации и т.д.",
+				"consultant_schedule_id-schedule": "Ссылка на запись в таблице #schedule",
+				"registrar_schedule_id-schedule": "Ссылка на запись в таблице #schedule",
+				"time_zone": "Временная зона "
+		  	},
+		  	"footer": "На регионы РФ ссылаются записи из таблиц #metro_stations, #metro_lines, #regions через поле area_id"
+		},
+		{
+			"name": "area_domain",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "area_geolocation",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "articles",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "Audition",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "AuditionAnswers",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "AuditionQuestion",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "AuditionTaskInfo",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "avito",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "away_conditions",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "browser_type",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "call_log",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "call_result",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "call_stop_side",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "call_types",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "cancel_order_status",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "cellphones",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "channel",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "channel_partner_id",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "cancel_payments",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "cities_on_map",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "clg",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "client_device",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "client_review",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "clients",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "colleges",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "consultants",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "contact_client",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "countries",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "currencies",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "current_schedule",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "divisions",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "education",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "EmailReport",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "emails",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "emails_test",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "employee_hierarchy",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "employee_status",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "error_log",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "event_status",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "events",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "explosure_type",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "exposures",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "extern_subjects",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "faculties",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "fed_regions",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "filter_words",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "heard_from_options",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "internal_cache",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "knowledge_level",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "log",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "log_entry_type",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "mail_templates",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "message_types",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "mesages",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "metro_distances",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "metro_distances_copy",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "metro_lines",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "metro_stations",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "metro_transfers",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "nauchi_teachers_edited",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "newcities",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "news",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "news_area",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "news_forbidden_group",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "news_groups",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "notifications",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "order_prefered_teachers",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "order_pupil_category",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "order_source",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "order_status",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "order_status_additional",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "order_subject_additions",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "order_subject_divisions",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "order_suitable_teachers",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "order_teacher_status",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "orders",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "partner_website",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "partners",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "payment_type",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "payment_way",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "payments",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "podgotovka",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "podgotovka_edited",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "pupil_category",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "pupil_category_new",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "query_filter",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "query_statistics",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "region_codes",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "regions",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "reports",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "reviews_2",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "russian_language_level",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "rw1",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "rw2",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "schedule",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "schedule_interval",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "schedule_leave",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "schools",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "service_type",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "short_links",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "similar_teachers",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "sites",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "sms_templates",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "string_queries",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "subject_addition",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "subject_division",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "Subjects",
+			"title": "Предметы",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": "Предметы связаны с разделами (таблица #divisions) и с дополнениями (таблица #additions) через m2m - #subject_addition и #subject_division <br> В будущем выяснить кто ссылается на Subjects, есть подозрение, что как минимум репетиторы и заявки"
+		},
+		{
+			"name": "subscribes",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "suitable_teachers",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "surveys",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "task_priority",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "task_status",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "task_templates",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "tasks",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teacher_balance____",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teacher_certificates",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teacher_filter_shuffle",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teacher_info",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teacher_rating",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teacher_requests",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teacher_service",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teacher_status",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teaching_places",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teaching_subject_addition",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teaching_subject_division",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teaching_subject_knowledge_level",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teaching_subject_level",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teaching_subject_pupil_category",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teaching_subject_pupil_category_new",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "teaching_subjects",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "ticket",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "ticket_attachment",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "ticket_employee",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "ticket_message",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "ticket_status",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "ticket_task",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "Time",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "timesheet",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "unsuitable_teachers",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "url_references",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "user_group",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "user_login",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "user_right",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "user_right_relations",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "user_user_rights",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "Users",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "verification_status",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "word_prev_word",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "work_tasks",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "workday_type",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "write_off",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		},
+		{
+			"name": "write_off_type",
+			"title": "-",
+			"descr": "-",
+			"type": "-",
+			"fields": {
+				"-": "-"
+		  	},
+		  	"footer": ""
+		}
+
+	]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

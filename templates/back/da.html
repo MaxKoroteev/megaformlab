@@ -1,0 +1,327 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+
+    <style>
+
+        button.light:hover {background:#f0f0f5;}
+
+        .td-min {width:1px;white-space:nowrap;}
+
+        .da                        {border-top:1px solid #ddd;border-right:1px solid #ddd;display:none;}
+        .da table                  {border-left:1px solid #ddd;width:100%;}
+        .da table            tr td {border-bottom:1px solid #ddd;padding:5px;}
+        .da table:last-child tr td {border-bottom:0;}
+
+        .da table td .name {font-size:18px;line-height:20px;}
+        .da table td .desc {font-size:12px;line-height:15px;color:#999;}
+
+        .arrow {width:34px;border-right:1px solid #ddd;text-align:center;line-height:34px;vertical-align:middle;cursor:pointer;}
+            .arrow .fa {vertical-align:middle;font-size:15px;margin-top:-2px;}
+
+        .delete {width:34px;border-left:1px solid #ddd;text-align:center;line-height:34px;vertical-align:middle;cursor:pointer;}
+            .delete .fa {vertical-align:middle;font-size:15px;margin-top:-2px;}
+
+        .hover {background:#f0f0f5;}
+
+        .td-create {border-left:1px solid #ddd;cursor:pointer;padding:0 10px;text-align:center;font-size:14px;width:120px;}
+
+{#        .create {border:1px solid #ddd;line-height:33px;width:120px;text-align:center;background:#fff;border-radius:2px;color:#000;font-size:14px;}#}
+{#        .create:hover {background:#f0f0f5;text-decoration:none;}#}
+
+        .popup-call {cursor:pointer;}
+        .popup-content {padding:20px;min-width:500px;}
+
+        .save {border-top:1px solid #ccc;margin:0 0 0 -20px;padding:0 20px;width:100%;margin-top:15px;}
+        .save button {margin:20px 0 0;}
+
+        .light:hover {background:#f0f0f5 !important;}
+
+        .label {margin:10px 0 3px;}
+
+    </style>
+
+    <h1>
+
+        <div class="light popup-call" style="margin:0;float:right;height:33px;line-height:33px;padding:0 20px;border:1px solid #ddd;font-size:16px;">
+
+            Создать Dynamic Assembly
+
+
+            <div class="popup-content">
+                <h1>Создать Dynamic Assembly</h1>
+
+                <div class="label">Name</div>
+                <input type="text">
+
+                <div class="label">Description</div>
+                <textarea class="js-auto-resize"></textarea>
+
+                <div class="label">Referenced Assemblies</div>
+                <input type="text" value="Test.Assembly1" style="margin-bottom:5px;">
+                <input type="text" value="Test.Assembly2">
+
+                <button class="light">+ Добавить Referenced Assemblies</button>
+
+                <div class="save">
+                    <button>Сохранить</button>
+                </div>
+            </div>
+
+        </div>
+
+        Dynamic Assembly
+
+    </h1>
+
+    <div class="da">
+        {% for i in '123456789' %}
+            <table>
+                <tr>
+                    <td class="arrow">
+                        <i class="fa fa-chevron-down"></i>
+                    </td>
+                    <td class="popup-call">
+
+                        <div class="name">Test.Assembly <span class="desc"> - Изменено 02.08.1990 13:00</span></div>
+                        <div class="desc">This Dynamic Assembly is made for doing awesome things</div>
+
+                        <div class="popup-content">
+
+                            <h1>Test.Assembly</h1>
+
+                            <div class="label">Name</div>
+                            <input type="text">
+
+                            <div class="label">Description</div>
+                            <textarea class="js-auto-resize"></textarea>
+
+                            <div class="label">Referenced Assemblies</div>
+                            <input type="text" value="Test.Assembly1" style="margin-bottom:5px;">
+                            <input type="text" value="Test.Assembly2">
+
+                            <button class="light">+ Добавить Referenced Assemblies</button>
+
+                            <div class="save">
+                                <button>Сохранить</button>
+                            </div>
+                        </div>
+
+                    </td>
+                    <td class="td-create popup-call" style="line-height:35px;">
+
+                        Создать Class
+
+                        <div class="popup-content">
+                            <h1>Создать Class для Test.Assembly</h1>
+
+                            <div class="label">Name</div>
+                            <input type="text">
+
+                            <div class="label">Description</div>
+                            <textarea class="js-auto-resize"></textarea>
+
+                            <div class="label">Included Namespaces</div>
+                            <textarea class="js-auto-resize"></textarea>
+
+                            <div class="save">
+                                <button>Сохранить</button>
+                            </div>
+                        </div>
+
+                    </td>
+                    <td class="delete">
+                        <i class="fa fa-times"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="empty"></td>
+                    <td colspan="3" style="padding:0;">
+                        {% for i in '123' %}
+                            <table>
+                                <tr>
+                                    <td class="arrow">
+                                        <i class="fa fa-chevron-down"></i>
+                                    </td>
+                                    <td class="popup-call">
+
+                                        <div class="name" style="font-size:16px;">TestClass</div>
+                                        <div class="desc">This TestClass is made for doing awesome things</div>
+
+                                            <div class="popup-content">
+
+                                                <h1>TestClass</h1>
+
+                                                <div class="label">Name</div>
+                                                <input type="text">
+
+                                                <div class="label">Description</div>
+                                                <textarea class="js-auto-resize"></textarea>
+
+                                                <div class="label">Included Namespaces</div>
+                                                <textarea class="js-auto-resize"></textarea>
+
+                                                <div class="save">
+                                                    <button>Сохранить</button>
+                                                </div>
+
+                                            </div>
+
+                                    </td>
+                                    <td class="td-create popup-call" style="line-height:35px;">
+
+                                        Создать Method
+
+                                        <div class="popup-content">
+
+                                            <h1>Создать Method для TestClass</h1>
+
+                                            <div class="label">Name</div>
+                                            <input type="text">
+
+                                            <div class="label">Description</div>
+                                            <textarea class="js-auto-resize"></textarea>
+
+                                            <div><input type="checkbox"> is_static</div>
+                                            <div><input type="checkbox"> is_private</div>
+                                            <div><input type="checkbox"> is_constructor</div>
+
+                                            <div class="label">Return type</div>
+                                            <input type="text">
+
+                                            <div class="label">Method Body</div>
+                                            <textarea class="js-auto-resize"></textarea>
+
+                                            <div class="save">
+                                                <button>Сохранить</button>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                    <td class="delete">
+                                        <i class="fa fa-times"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="empty"></td>
+                                    <td colspan="3" style="padding:0;">
+                                        {% for i in '123' %}
+                                            <table>
+                                                <tr>
+                                                    <td class="popup-call">
+
+                                                        <div class="name" style="font-size:14px;">TestMethod</div>
+                                                        <div class="desc">This TestMethod is made for doing awesome things</div>
+
+                                                        <div class="popup-content">
+
+                                                            <h1>TestMethod</h1>
+
+                                                            <div class="label">Name</div>
+                                                            <input type="text">
+
+                                                            <div class="label">Description</div>
+                                                            <textarea class="js-auto-resize"></textarea>
+
+                                                            <div style="line-height:25px;"><input type="checkbox"> is_static</div>
+                                                            <div style="line-height:25px;"><input type="checkbox"> is_private</div>
+                                                            <div style="line-height:25px;"><input type="checkbox"> is_constructor</div>
+
+                                                            <div class="label">Return type</div>
+                                                            <input type="text">
+
+                                                            <div class="label">Method Body</div>
+                                                            <textarea class="js-auto-resize"></textarea>
+
+                                                            <div class="save">
+
+                                                                <h3 style="margin:20px 0 10px;">Method params</h3>
+
+                                                                {% for i in '123' %}
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td style="padding-left:5px;">Name</td>
+                                                                            <td style="padding-left:5px;">Type</td>
+                                                                            <td style="padding-left:5px;">Ordinal</td>
+                                                                            <td style="padding-left:5px;"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="padding:5px;"><input type="text" value="Name"></td>
+                                                                            <td style="padding:5px;"><input type="text" value="Type"></td>
+                                                                            <td style="padding:5px;"><input type="text" value="Ordinal"></td>
+                                                                            <td style="padding:5px;"><button class="light fa fa-times" style="margin:0;"></button></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                {% endfor %}
+
+                                                                <button class="light">+ Добавить Method</button>
+
+                                                            </div>
+
+                                                            <div class="save">
+                                                                <button>Сохранить</button>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </td>
+                                                    <td class="delete">
+                                                        <i class="fa fa-times"></i>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                            </table>
+                        {% endfor %}
+                    </td>
+                </tr>
+            </table>
+        {% endfor %}
+    </div>
+
+    <script>
+
+        $('.da td').not('.empty').mouseover(function(e){
+            $(e.target).closest('td').not('.empty').addClass('hover');
+        }).mouseout(function(e) {
+            $(this).removeClass('hover');
+        });
+
+        $('.arrow').each(function() {
+            $(this).closest('tr').next('tr').hide();
+            $(this).on('click', function() {
+                $(this).closest('tr').next('tr').fadeToggle(0);
+                $(this).find('.fa').toggleClass('fa-chevron-up');
+                $(this).find('.fa').toggleClass('fa-chevron-down');
+            });
+
+            // Когда схлопываем родителя - схлопываем всех детей
+
+        });
+
+    $('.js-auto-resize').each(function() { var self = this;
+
+        self.el = $(this);
+        self.height = self.el.prop('scrollHeight');
+
+        self.el.css('height', self.height);
+
+        self.el.keyup(function() {
+            self.el.css('height', self.height + 'px');
+            self.el.css('height', self.el.prop('scrollHeight') + 'px');
+        });
+
+    });
+
+    $('.delete').click(function() {alert('Точно удалить?')});
+
+    $(function() {
+        $('.da').show()
+    });
+
+    </script>
+
+{% endblock %}

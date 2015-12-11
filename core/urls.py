@@ -50,6 +50,8 @@ urlpatterns = [
 
     url(r'^test/$',              TemplateView.as_view(template_name='test.html'),              name='test'),
 
+    url(r'^db_docs/$',              TemplateView.as_view(template_name='back/db_docs.html'),              name='db_docs'),
+
     # back
     url(r'^b/$',                 TemplateView.as_view(template_name='back/feedback.html'),          name='back'),
     url(r'^colleges/$',          TemplateView.as_view(template_name='back/colleges.html'),          name='colleges'),
@@ -68,6 +70,18 @@ urlpatterns = [
     url(r'^repetitor_history/$', TemplateView.as_view(template_name='back/repetitor_history.html'), name='repetitor_history'),
     url(r'^repetitor_calls/$',   TemplateView.as_view(template_name='back/repetitor_calls.html'),   name='repetitor_calls'),
     url(r'^repetitor_view/$',    TemplateView.as_view(template_name='back/repetitor_view.html'),    name='repetitor_view'),
+    url(r'^compare/$',           TemplateView.as_view(template_name='back/compare.html'),           name='compare'),
+    # url(r'^assembly/$',          TemplateView.as_view(template_name='back/assembly.html'),          name='assembly'),
+
+    url(r'^da/$',                TemplateView.as_view(template_name='back/da/da.html'),                name='da'),
+
+    url(r'^new/$',           TemplateView.as_view(template_name='back/new.html'),           name='new'),
+
+    url(r'^rp/$',           TemplateView.as_view(template_name='rp/rp.html'),           name='rp'),
+    url(r'^my/$',           TemplateView.as_view(template_name='rp/my.html'),           name='my'),
+    url(r'^task/$',           TemplateView.as_view(template_name='rp/task.html'),           name='task'),
+    url(r'^db/$',           TemplateView.as_view(template_name='rp/db.html'),           name='db'),
+    url(r'^menu/$',           TemplateView.as_view(template_name='rp/menu.html'),           name='menu'),
 ]
 
 from django.conf import settings

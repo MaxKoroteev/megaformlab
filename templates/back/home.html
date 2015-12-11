@@ -15,6 +15,14 @@
 
     <link rel="shortcut icon" href="/media/img/favicon.ico" type="image/x-icon" />
 
+    <style>
+        .popup {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.65);display:none;}
+            .popup-close {text-shadow: 0 0 5px rgba(0,0,0,0.5);position:absolute;color:#fff;font-size:30px;cursor:pointer;height:30px;text-align:center;line-height:30px;margin-top:-30px;display:inline-block;width:30px;}
+            .popup-close:hover {color:#5ad;}
+            .popup-window {background:#fff;position:absolute;border-radius:2px;box-shadow: 0 0 5px rgba(0,0,0,0.5);}
+                .popup-content {display:none;}
+    </style>
+
 </head>
 
 <body class="{{ screen }}">
@@ -41,8 +49,11 @@
 
                 <div class="column-group">Репетиторы</div>
                 <a href="{% url 'repetitor' %}" class="column-item{% active 'repetitor' %}">Анкета репетитора</a>
-                <a href="#" class="column-item">Загрузка паспортных данных</a>
-                <a href="#" class="column-item">Редактирование репетитора</a>
+                <a href="{% url 'compare' %}" class="column-item{% active 'compare' %}">Сравнение репетиторов</a>
+                <a href="{% url 'da'  %}" class="column-item{% active 'da' %}">Dynamic Assemblies</a>
+
+{#                <a href="#" class="column-item">Загрузка паспортных данных</a>#}
+{#                <a href="#" class="column-item">Редактирование репетитора</a>#}
 
                 <div class="column-separator"></div>
 
@@ -56,6 +67,7 @@
             </div>
         </td>
         <td class="column-center">
+
             {% if url_name == 'back' %}
                 <style>
                     .task {}
@@ -84,7 +96,6 @@
 
 <div class="popup-bg"></div>
 {% block popup %}{% endblock %}
-
 <script>
 
     // AUTO-RESIZE (textarea)
@@ -130,12 +141,80 @@
         return false;
     });
     // Скрываем попап по крестику и аутсайду.
-    $('.popup-bg, .popup-close').click(function() { $('.popup-bg, .popup').hide(); });
+    $('.popup-bg, .popup-c').click(function() { $('.popup-bg, .popup').hide(); });
 
     // ПОДКЛЮЧАЕМ БИБЛИОТЕКИ
 
     $('.additions').select2();
-    $('.divisions').select2();
+    $('.divisions').select2({closeOnSelect: false});
+
+    /*
+
+        CSS:
+
+        .popup {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.65);display:none;}
+            .popup-c {text-shadow: 0 0 5px rgba(0,0,0,0.5);position:absolute;color:#fff;font-size:30px;cursor:pointer;height:30px;text-align:center;line-height:30px;margin-top:-30px;display:inline-block;width:30px;}
+            .popup-c:hover {color:#5ad;}
+            .popup-window {background:#fff;position:absolute;border-radius:2px;box-shadow: 0 0 5px rgba(0,0,0,0.5);}
+                .popup-content {display:none;}
+
+        HTML:
+
+        <div class="popup-call">
+
+            Открыть попап
+
+            <div class="popup-content">
+                Содержание попапа
+            </div>
+
+        </div>
+
+     */
+
+    new function Popup() { var self = this;
+
+        $('body').append('<div class="popup"> \
+                              <div class="popup-window"></div> \
+                              <i class="fa fa-times popup-close"></i> \
+                          </div>');
+
+        self.popup  = $('.popup');
+        self.window = $('.popup-window');
+        self.close  = $('.popup-close');
+
+        self.position = function() {
+
+            self.window.css({
+                left : (self.window.width()  >= $(window).width())  ? '0px' : ($(window).width()  - self.window.width())  / 2 + 'px',
+                top  : (self.window.height() >= $(window).height()) ? '0px' : ($(window).height() - self.window.height()) / 2 + 'px'
+            });
+
+            self.close.css({
+                left : (self.window.width()  >= $(window).width())  ? '0px' : ($(window).width()  - self.window.width())  / 2 + self.window.width() + 'px',
+                top  : (self.window.height() >= $(window).height()) ? '0px' : ($(window).height() - self.window.height()) / 2 + 'px'
+            });
+
+        };
+
+        $('.popup-call').on('click', function() {
+            self.window.html($(this).children('.popup-content').clone().show());
+            self.popup.show();
+            self.position();
+        });
+
+        $(window).on('resize', function(){
+            self.position();
+        });
+
+        self.popup.on('click', function(e) {
+            self.popup.hide();
+        });
+        self.window.on('click', function(e) {
+            e.stopPropagation();
+        });
+
+    };
 
 </script>
 

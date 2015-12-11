@@ -11,6 +11,18 @@
     {% block style %}{% endblock %}
 
 </head>
+
+{% comment %}
+git add .
+git commit -m "first commit"
+git push -u origin master
+
+rm -rf repetitx
+git clone https://github.com/MaxKoroteev/megaformlab
+mv megaformlab repetitx
+
+{% endcomment %}
+
 <body class="{{ screen }}">
     {% block bg %}{% endblock %}
     <div class="all">
@@ -102,7 +114,7 @@
 {#            .popup-bg {position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,0.5);z-index:1;}#}
 {#            .popup {z-index:2;background:#fff;position:fixed;top:50%;left:50%;margin-left:-300px;margin-top:-174px;width:600px;height:335px;box-shadow:0 0 5px rgba(0,0,0,0.5)}#}
 {#                .popup-header {height:90px;background:#f1f1f5;}#}
-{#                    .popup-close {float:right;font-size:30px;line-height:90px;width:90px;text-align:center;cursor:pointer;}#}
+{#                    .popup-c {float:right;font-size:30px;line-height:90px;width:90px;text-align:center;cursor:pointer;}#}
 {#                    .popup-person {}#}
 {#                        .popup-person-image {display:inline-block;width:60px;height:60px;margin:15px 15px 15px 15px;border-radius:30px;}#}
 {#                        .popup-person-name {display:inline-block;font-size:20px;line-height:90px;}#}
@@ -115,7 +127,7 @@
 {#            <div class="popup">#}
 {#                {% spaceless %}#}
 {#                    <div class="popup-header">#}
-{#                        <div class="popup-close">Х</div>#}
+{#                        <div class="popup-c">Х</div>#}
 {#                        <div class="popup-person">#}
 {##}
 {#                            <img src="http://www.epigami.sg/images/tutor/3761/ashley-chin-tutor-epigami-L.jpg" class="popup-person-image">#}
@@ -139,7 +151,7 @@
 {#            <div class="popup" style="width:795px;height:325px;margin-left:-395px;">#}
 {#                {% spaceless %}#}
 {#                    <div class="popup-header">#}
-{#                        <div class="popup-close">Х</div>#}
+{#                        <div class="popup-c">Х</div>#}
 {#                        <div class="popup-person">#}
 {#                            <div class="popup-person-name" style="padding-left:20px;font-size:25px;">#}
 {#                                <div style="font-size:25px;line-height:25px;padding-top:25px;">Занятие</div>#}
@@ -196,7 +208,7 @@
 {#                return false;#}
 {#            });#}
 {##}
-{#            $('.popup-close, .popup-bg, .p-close, .p-bg').click(function() {#}
+{#            $('.popup-c, .popup-bg, .p-close, .p-bg').click(function() {#}
 {#                $('.p-bg').hide();#}
 {#                $('.p').hide();#}
 {#                $('.popup-wrapper').hide();#}

@@ -1,0 +1,30 @@
+<div class="popup-content">
+
+    <div class="form">
+
+        <h2>
+
+            {% if create %}
+                Создать Class для Test.Assembly
+            {% else %}
+                Test.Class
+            {% endif %}
+
+        </h2>
+
+        <div class="label">Name</div>
+        <input type="text">
+
+        <div class="label">Description</div>
+        <input type="text">
+
+        <div class="label">Included Namespaces</div>
+        <textarea rows="5"></textarea>
+
+        <div class="save">
+            <button>Сохранить</button>
+        </div>
+
+    </div>
+
+</div>

@@ -4,348 +4,630 @@
 
     {% include 'back/b_repetitor.html' %}
 
-        <table style="width:100%;">
-            <tr>
-                <td style="padding-right:20px;width:200px;">
-                    <table>
-                        <tr>
-                            <td colspan="2" style="padding-bottom:20px;">
-                                <div style="width:200px;height:320px;overflow:hidden;position:relative;">
+    <style>
+
+        .add-price {display:none;}
+        .add-price.active {display:inline-block;}
+        .show-add-price:before {content:'Указать дополнительные цены';}
+        .show-add-price.active:before {content:'Свернуть дополнительные цены';}
+
+    </style>
+
+    <table style="width:100%;">
+        <tr>
+            <td style="width:450px;">
+                <table class="form-table">
+
+                    <tr><th>Регистратор         </th><td><select><option>Петрова Елена Викторовна</option></select></td></tr>
+                    <tr><th>Рейтинг             </th><td><select><option>Не дозвонились при регистрации/не указан номер телефона/указан неверный номер</option></select></td></tr>
+                    <tr><th>Ученики не нужны до </th><td><input type="text"></td></tr>
+
+                    <tr><td colspan="2" style="padding:5px 0 10px;"><div style="height:1px;background:#ccc;"></div></td></tr>
+                    <tr><th>Зона                </th><td><select><option>Москва и Московская область</option></select></td></tr>
+                    <tr><th>Фамилия            </th><td><input type="text"></td></tr>
+                    <tr><th>Имя                </th><td><input type="text"></td></tr>
+                    <tr><th>Отчество           </th><td><input type="text"></td></tr>
+                    <tr><th>Дата рождения      </th><td><input type="text"></td></tr>
+
+                    <tr><th>Пол                </th><td><label><input type="radio" name="gender" checked>Не известно</label> <label><input type="radio" name="gender">Муж.</label> <label><input type="radio" name="gender">Жен.</label></td></tr>
+
+                    <tr><th>Репетиторский стаж </th><td style="padding-right:41px;"><input type="text" style="border-right:0;border-radius:2px 0 0 2px;"><span class="input-tip" style="margin-right:-41px;width:40px;">Лет</span></td></tr>
+                    <tr><th>ИП                 </th><td><label><input type="radio" name="ip" checked>Не известно</label> <label><input type="radio" name="ip">Да</label> <label><input type="radio" name="ip">Нет</label></td></tr>
+                    <tr><th>Статус                 </th><td><select><option>Школьный преподаватель</option></select></td></tr>
+                    <tr><th>Номер уч. заведения    </th><td><input type="text"></td></tr>
+                    <tr><th>Название уч. заведения </th><td><input type="text"></td></tr>
+                    <tr><th>                       </th><td><label style="line-height:25px;"><input type="checkbox">Отображать статус на сайте</label></td></tr>
+
+                    <tr><td colspan="2" style="padding:5px 0 10px;"><div style="height:1px;background:#ccc;"></div></td></tr>
+
+                    <tr><th>Мобильный телефон  </th><td style="padding-right:120px;"><input type="text"><span style="margin-right:-120px;"><i class="fa fa-user-secret form-icon" title="Убрать маску" style="color:#fff;line-height:27px !important;background:rgba(0,0,0,0.3);"></i><i title="Телефон не подтверждён" class="fa fa-exclamation-circle form-icon" style="background:#f0f0f5;color:#c00;"></i><i title="Позвонить репетитору" class="fa fa-phone form-icon"></i><i title="Отправить SMS репетитору" class="fa fa-comment form-icon"></i></span></td></tr>
+{#                                <tr><th>Другие телефоны    </th><td style="padding-right:120px;"><input type="text"><span style="margin-right:-120px;"><i class="fa fa-user-secret form-icon" title="Убрать маску" style="color:#fff;line-height:27px !important;background:rgba(0,0,0,0.3);"></i><i title="Телефон не подтверждён" class="fa fa-exclamation-circle form-icon" style="background:#f0f0f5;color:#c00;"></i><i title="Позвонить репетитору" class="fa fa-phone form-icon"></i><i title="Отправить SMS репетитору" class="fa fa-comment form-icon"></i></span></td></tr>#}
+
+                    <tr><th>E-mail             </th><td style="padding-right:90px;"><input type="text"><span style="margin-right:-90px;"><i title="E-mail не подтверждён" class="fa fa-exclamation-circle form-icon" style="background:#f0f0f5;color:#c00;"></i><i title="Написать письмо" class="fa fa-envelope form-icon"></i><i title="Отправить письмо активации" class="fa fa-paper-plane form-icon"></i></span></td>
+                    </tr>
+                    <tr><th>Skype              </th><td><input type="text"></td></tr>
+
+
+                </table>
+            </td>
+            <td style="padding-left:20px;">
+                <div style="padding:10px;background:#f0f0f5;border-radius:2px;">
+                <table>
+                    <tr>
+                        <td style="vertical-align:top;padding-right:10px;">
+                            <div style="margin-bottom:10px;"><b>Фото</b><br>Оригинал</div>
+                        </td>
+                        <td colspan="2" style="padding-bottom:10px;padding-right:10px;">
+                            <span style="position:relative;">
+                                <img src="/media/img/girl_original.jpg" style="max-width:360px;max-height:260px;">
+                                <span style="width:100%;padding:5px 0;text-align:center;font-size:11px;line-height:11px;position:absolute;bottom:0;right:0;color:#fff;background:rgba(0,0,0,0.5);">641x961</span>
+                            </span>
+                        </td>
+                    </tr>
+{#                    <tr>#}
+{#                        <td style="vertical-align:top;padding-right:10px;">#}
+{#                            <div style="margin-bottom:10px;margin-top:8px;"><b>Фото 3 к 2</b></div>#}
+{#                            <a href="#" class="button light mini" style="margin:0;line-height:23px;height:23px;font-weight:normal;">Изменить</a>#}
+{#                        </td>#}
+{#                        <td style="padding-bottom:10px;">#}
+{#                            <span style="margin-right:10px;position:relative;width:90px;height:90px;background:#fff;text-align:center;">#}
+{#                                <img src="/media/img/girl_original.jpg" style="max-width:90px;max-height:90px;">#}
+{#                                <span style="width:100%;padding:5px 0;text-align:center;font-size:11px;line-height:11px;position:absolute;bottom:0;right:0;color:#fff;background:rgba(0,0,0,0.5);">100x100</span>#}
+{#                            </span>#}
+{#                        </td>#}
+{#                    </tr>#}
+                    <tr>
+                        <td style="vertical-align:top;padding-right:10px;">
+                            <div style="margin-bottom:10px;"><b>Фото 2 к 3</b></div>
+                            <a href="#" class="button light mini" style="margin:0;line-height:23px;height:23px;font-weight:normal;padding:0 5px;">Изменить</a>
+                        </td>
+                        <td colspan="2" style="padding-bottom:10px;">
+                            <span style="margin-right:10px;position:relative;width:90px;height:90px;background:#e0e0e5;text-align:center;">
+                                <img src="/media/img/girl_original.jpg" style="max-width:90px;max-height:90px;">
+                                <span style="width:100%;padding:5px 0;text-align:center;font-size:11px;line-height:11px;position:absolute;bottom:0;right:0;color:#fff;background:rgba(0,0,0,0.5);">200x320</span>
+                            </span>
+                            <span style="margin-right:10px;position:relative;width:90px;height:90px;background:#e0e0e5;text-align:center;">
+                                <img src="/media/img/girl_original.jpg" style="max-width:90px;max-height:90px;">
+                                <span style="width:100%;padding:5px 0;text-align:center;font-size:11px;line-height:11px;position:absolute;bottom:0;right:0;color:#fff;background:rgba(0,0,0,0.5);">90x145</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:top;padding-right:10px;">
+                            <div style="margin-bottom:10px;"><b>Фото 1 к 1</b></div>
+                            <a href="#" class="button light mini" style="margin:0;line-height:23px;height:23px;font-weight:normal;padding:0 5px;">Изменить</a>
+                        </td>
+                        <td colspan="2" style="padding-bottom:10px;">
+                            <span style="margin-right:10px;position:relative;width:90px;height:90px;background:#fff;text-align:center;">
+                                <img src="/media/img/girl_original.jpg" style="width:90px;height:90px;">
+                                <span style="width:100%;padding:5px 0;text-align:center;font-size:11px;line-height:11px;position:absolute;bottom:0;right:0;color:#fff;background:rgba(0,0,0,0.5);">641x641</span>
+                            </span>
+                            <span style="margin-right:10px;position:relative;width:90px;height:90px;background:#fff;text-align:center;">
+                                <img src="/media/img/girl_original.jpg" style="width:90px;height:90px;">
+                                <span style="width:100%;padding:5px 0;text-align:center;font-size:11px;line-height:11px;position:absolute;bottom:0;right:0;color:#fff;background:rgba(0,0,0,0.5);">200x200</span>
+                            </span>
+                            <span style="margin-right:10px;position:relative;width:90px;height:90px;background:#fff;text-align:center;">
+                                <img src="/media/img/girl_original.jpg" style="width:90px;height:90px;">
+                                <span style="width:100%;padding:5px 0;text-align:center;font-size:11px;line-height:11px;position:absolute;bottom:0;right:0;color:#fff;background:rgba(0,0,0,0.5);">90x90</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:top;padding-right:10px;">
+                            <div style="margin-bottom:10px;margin-top:5px;"><b>Изменить</b></div>
+                        </td>
+                        <td colspan="2" style="padding-bottom:10px;">
+                            <input type="file" style="margin:0 0 0;float:left;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:top;padding-right:10px;">
+                            <div style="margin-bottom:5px;margin-top:5px;"><b>Удалить</b></div>
+                        </td>
+                        <td colspan="2">
+                            <a href="#" class="button light mini" style="margin:0;line-height:23px;height:23px;">Удалить все фото</a>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div style="height:1px;background:#ccc;margin:10px 0 15px;"></div>
+
+    <textarea rows="3" placeholder="О себе" style="margin-bottom:5px;"></textarea>
+
+    <div style="padding:0;"><label><input type="checkbox"> Отображать анкету на сайте</label></div>
+    <div style="padding:0;"><label><input type="checkbox"> Отображать фото в анкете на сайте</label></div>
+
+    <div style="margin-top:5px;color:#666;background:#f0f0f5;display:inline-block;padding:5px 10px;">Занятия проводятся у себя</div>
+    <div style="margin-top:5px;color:#666;background:#f0f0f5;display:inline-block;padding:5px 10px;">Проводится выезд к ученику</div>
+
+    {# Начало табов #}
+{#    <table class="horizontal">#}
+{#        <tr>#}
+{#            <td style="width:144px;">#}
+{#                {% spaceless %}#}
+{#                    <div class="js-tabs tabs">#}
+{#                        <a href="#" data-tab="content-tab-1" class="tab active">Общее</a>#}
+{#                        <a href="#" data-tab="content-tab-2" class="tab">Адреса <span>(3)</span></a>#}
+{#                        <a href="#" data-tab="content-tab-3" class="tab">Предметы <span>(4)</span></a>#}
+{#                        <a href="#" data-tab="content-tab-4" class="tab">Образование <span>(2)</span></a>#}
+{#                        <a href="#" data-tab="content-tab-5" class="tab">Документы <span>(5)</span></a>#}
+{#                    </div>#}
+{#                {% endspaceless %}#}
+{#            </td>#}
+{#            <td>#}
+{#                <div class="content-tab content-tab-1 active">#}
+{##}
+{#                </div>#}
+{##}
+{#                <div class="content-tab content-tab-2">#}
+{##}
+{#                    {% for i in '123' %}#}
+{#                        <div class="inline-form">#}
+{#                            <table class="form-table">#}
+{#                                <tr>#}
+{#                                    <th>Город/район</th>#}
+{#                                    <td><i class="fa fa-times form-remove"></i> <select style="width:auto;"><option>м. Царицино</option></select> <label><input type="checkbox">С этого адреса осуществляется только выезд к ученику</label> </td>#}
+{#                                </tr>#}
+{##}
+{#                                <tr>#}
+{#                                    <th>Выезд</th>#}
+{#                                    <td>#}
+{#                                        <select style="width:auto;"><option>С условиями</option></select> не более <input type="text" style="width:40px;"> минут от своего района#}
+{#                                    </td>#}
+{#                                </tr>#}
+{##}
+{#                                <tr><th>Расстояние до метро</th><td><input type="text" style="width:100px;"> минут <select style="width:auto;"><option>Транспортом</option><option>Пешком</option></select></td></tr>#}
+{##}
+{#                                <tr>#}
+{#                                    <th>Улица</th>#}
+{#                                    <td><input type="text" style="width:300px;"> Дом <input type="text" style="width:40px;"> Корпус <input type="text" style="width:40px;"> Строение <input type="text" style="width:40px;"></td>#}
+{#                                </tr>#}
+{##}
+{#                                <tr>#}
+{#                                    <th>Широта</th>#}
+{#                                    <td>#}
+{#                                        <input type="text" style="width:auto;">#}
+{#                                        Долгота <input type="text" style="width:auto;">#}
+{#                                        <a href="#" class="popup-call-map">Подобрать кооринаты</a>#}
+{#                                    </td>#}
+{#                                </tr>#}
+{#                                <tr><th>Комментарий</th><td><textarea class="js-auto-resize auto-resize-mini"></textarea></td></tr>#}
+{#                            </table>#}
+{#                        </div>#}
+{#                    {% endfor %}#}
+{#                    <button class="mini" style="margin-top:0;">Добавить ещё адрес</button>#}
+{#                    <div style="padding: 15px 5px 5px;border-top: 1px solid #ddd;margin: 5px 0 0;">#}
+{#                        <button class="button" style="margin:0;">Сохранить адреса</button>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="content-tab content-tab-3">#}
+{#                    {% for i in '1234' %}#}
+{#                        <div class="inline-form">#}
+{#                            <table class="form-table">#}
+{#                            <tr><th>Предмет          </th><td>#}
+{#                                <i class="fa fa-times form-remove"></i>#}
+{#                                <select style="width:auto"><option>Английский Язык</option></select>#}
+{#                            </td></tr>#}
+{#                            <tr><th>Разделы</th><td style="line-height:0;">#}
+{#                                <button style="float:right;margin:0;" class="light mini" onclick="alert('Типа форма создания раздела с единственным полем - имя')">Создать раздел</button>#}
+{#                                <select multiple class="divisions">#}
+{#                                    <option>Общий курс</option>#}
+{#                                    <option>Грамматика</option>#}
+{#                                    <option>Разговорный</option>#}
+{#                                </select>#}
+{#                            </td></tr>#}
+{#                            <tr><th>Ученики        </th><td>#}
+{#                                Дошкольники#}
+{#                                <label><input type="checkbox" name="age">1-3</label>#}
+{#                                <label><input type="checkbox" name="age">4-5</label>#}
+{#                                <label><input type="checkbox" name="age">6-7</label> лет#}
+{##}
+{#                                <span style="color:#999;">|</span>#}
+{##}
+{#                                Школьники#}
+{#                                <label><input type="checkbox" name="age">1</label>#}
+{#                                <label><input type="checkbox" name="age">2</label>#}
+{#                                <label><input type="checkbox" name="age">3</label>#}
+{#                                <label><input type="checkbox" name="age">4</label>#}
+{#                                <label><input type="checkbox" name="age">5</label>#}
+{#                                <label><input type="checkbox" name="age">6</label>#}
+{#                                <label><input type="checkbox" name="age">7</label>#}
+{#                                <label><input type="checkbox" name="age">8</label>#}
+{#                                <label><input type="checkbox" name="age">9</label>#}
+{#                                <label><input type="checkbox" name="age">10</label>#}
+{#                                <label><input type="checkbox" name="age">11</label> класс#}
+{##}
+{#                                <span style="color:#999;">|</span>#}
+{##}
+{#                                <label><input type="checkbox" name="age">Студенты</label>#}
+{#                                <label><input type="checkbox" name="age">Взрослые</label>#}
+{#                            </td></tr>#}
+{#                            <tr><th>Уровень    </th><td>#}
+{##}
+{#                                <label><input type="checkbox" name="age">С нуля</label>#}
+{#                                <label><input type="checkbox" name="age">Начальный</label>#}
+{#                                <label><input type="checkbox" name="age">Средний</label>#}
+{#                                <label><input type="checkbox" name="age">Продвинутый</label>#}
+{##}
+{#                            </td></tr>#}
+{#                            <tr><th>Дополнения    </th><td>#}
+{##}
+{#                                <label><input type="checkbox" name="age">A-Level</label>#}
+{#                                <label><input type="checkbox" name="age">BEC</label>#}
+{#                                <label><input type="checkbox" name="age">CAE</label>#}
+{#                                <label><input type="checkbox" name="age">CPE</label>#}
+{#                                <label><input type="checkbox" name="age">ESOL Pitman</label>#}
+{#                                <label><input type="checkbox" name="age">FCE</label>#}
+{#                                <label><input type="checkbox" name="age">GMAT</label>#}
+{#                                <label><input type="checkbox" name="age">GRE</label>#}
+{#                                <label><input type="checkbox" name="age">IELTS</label>#}
+{#                                <label><input type="checkbox" name="age">ILEC</label>#}
+{#                                <label><input type="checkbox" name="age">KET</label>#}
+{#                                <label><input type="checkbox" name="age">PET</label>#}
+{#                                <label><input type="checkbox" name="age">SAT</label>#}
+{#                                <label><input type="checkbox" name="age">TKT</label>#}
+{#                                <label><input type="checkbox" name="age">TOEFL</label>#}
+{#                                <label><input type="checkbox" name="age">TOEIC</label>#}
+{#                                <label><input type="checkbox" name="age">YLE</label>#}
+{#                                <label><input type="checkbox" name="age">бизнес-курс</label>#}
+{#                                <label><input type="checkbox" name="age">ЕГЭ</label>#}
+{#                                <label><input type="checkbox" name="age">ОГА (ГИА)</label>#}
+{#                                <label><input type="checkbox" name="age">подготовка к олимпиадам</label>#}
+{##}
+{#                            </td></tr>#}
+{#                            <tr><th>Цена занятия    </th><td>У себя: <input type="text" style="width:100px;" value="1990"> <span class="add-price">На выезде: <input type="text" style="width:100px;" value="1990"> Удалённо: <input type="text" style="width:100px;" value="1990"></span> <a href="#" class="show-add-price"></a></td></tr>#}
+{#                            <tr><th>Комментарий</th><td><textarea rows="3"></textarea></td></tr>#}
+{#                        </table>#}
+{#                    </div>#}
+{#                    {% endfor %}#}
+{#                        <script>#}
+{#                            $('.show-add-price').click(function() {#}
+{#                                $(this).prev('.add-price').toggleClass('active');#}
+{#                                $(this).toggleClass('active');#}
+{#                                return false;#}
+{#                            })#}
+{#                        </script>#}
+{#                    <button class="mini" style="margin-top:0;">Добавить ещё предмет</button>#}
+{#                    <div style="padding: 15px 5px 5px;border-top: 1px solid #ddd;margin: 5px 0 0;">#}
+{#                        <button class="button" style="margin:0;">Сохранить предметы</button>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="content-tab content-tab-4">#}
+{#                    {% for i in '12' %}#}
+{#                        <div class="inline-form">#}
+{#                            <table class="form-table">#}
+{#                                <tr><td colspan="2">#}
+{#                                    <i class="fa fa-times form-remove"></i>#}
+{#                                    <div class="tabs mini">#}
+{#                                        <span class="tab active">Выбрать ВУЗ из списка</span>#}
+{#                                        <span class="tab">Указать другой ВУЗ</span>#}
+{#                                    </div>#}
+{#                                </td></tr>#}
+{#                                <tr><th>Город            </th><td><select style="width:auto;"><option>Москва</option></select></td></tr>#}
+{#                                <tr><th>Учебное заведение</th><td><select><option>Московский государственный институт международных отношений</option></select></td></tr>#}
+{#                                <tr><th>Факультет        </th><td><select><option>Международных экономических отношений</option></select></td></tr>#}
+{#                                <tr><th>Специальность    </th><td><input type="text" value="Экономист международник со знанием"></td></tr>#}
+{#                                <tr><th>Год окончания    </th><td><input type="text" style="width:100px;" value="1990"></td></tr>#}
+{#                                <tr><td colspan="2"><textarea class="js-auto-resize auto-resize-mini"></textarea></td></tr>#}
+{#                            </table>#}
+{#                        </div>#}
+{#                    {% endfor %}#}
+{#                    <button class="mini" style="margin-top:0;">Добавить ещё образование</button>#}
+{#                    <div style="padding: 15px 5px 5px;border-top: 1px solid #ddd;margin: 5px 0 0;">#}
+{#                        <button class="button" style="margin:0;">Сохранить образование</button>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="content-tab content-tab-5">#}
+{##}
+{#                    {% for i in '123' %}#}
+{#                        <div style="width:225px;padding:10px;margin-right:10px;margin-bottom:20px;background:#fff;display:inline-block;">#}
+{#                            <div style="width:225px;height:225px;position:relative;">#}
+{#                                <div style="position:absolute;top:10px;right:10px;">#}
+{#                                    <a href="#" class="fa fa-pencil" style="text-align:center;font-size:20px;color:#fff;background:rgba(0,0,0,0.5);border-radius:2px;margin-left:10px;width:30px;height:30px;line-height:30px;"></a>#}
+{#                                    <a href="#" class="fa fa-times"  style="text-align:center;font-size:20px;color:#fff;background:rgba(0,0,0,0.5);border-radius:2px;margin-left:10px;width:30px;height:30px;line-height:30px;"></a>#}
+{#                                </div>#}
+{#                                <a href="#" style="position:absolute;bottom:0;left:0;">#}
+{#                                    <img style="max-width:225px;max-height:225px;" src="https://www.edx.org/sites/all/themes/atedx/images/example-certificate-verified.png">#}
+{#                                </a>#}
+{#                            </div>#}
+{#                            <div style="margin:10px 0;">#}
+{#                                <input type="file">#}
+{#                            </div>#}
+{##}
+{#                            <div>#}
+{#                                <input type="text">#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    {% endfor %}#}
+{#                    <div style="clear:both;"></div>#}
+{#                    <button class="mini" style="margin-top:0;">Добавить ещё документ</button>#}
+{#                    <div style="padding: 15px 5px 5px;border-top: 1px solid #ddd;margin: 5px 0 0;">#}
+{#                        <button class="button" style="margin:0;">Сохранить Документы</button>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </td>#}
+{#        </tr>#}
+{#    </table>#}
+
+        {# Конец табов #}
+
+            <style>
+                .accordion {border-top:1px solid #ccc;margin-top:10px;}
+                    .accordion-block {border:1px solid #ccc;border-top:0;}
+                        .accordion-header  {line-height:35px;padding:0 10px 0 30px;font-size:14px;color:#fff;background:#aaa;cursor:pointer;position:relative;}
+                        .accordion-header:hover  {box-shadow:inset 0 50px 0 rgba(0,0,0,0.1)}
+
+                        .accordion-footer  {display:none;border-top:1px solid #ccc;height:35px;line-height:35px;padding:0 10px 0 10px;width:100%;font-size:12px;color:#000;background:#f9f9fb;cursor:pointer;position:relative;margin:0 0 -10px -10px;}
+                        .accordion-footer:hover  {background: #f0f0f5;}
+                        .accordion-block.active .accordion-footer:before {content:'▲';color:#999;font-size:10px;line-height:37px;position:absolute;left:10px;top:0;}
+
+                        .accordion-content {line-height:20px;padding:10px;display:none;background:#f0f0f5;}
+
+                    .accordion-block.active .accordion-content {display:block;}
+
+                    .accordion-header:before {content:'▼';color:#fff;font-size:10px;line-height:37px;position:absolute;left:10px;top:0;}
+                    .accordion-block.active .accordion-header:before {content:'▲';}
+
+                    .accordion-header:after {content:'Открыть';color:rgba(255,255,255,0.5);font-size:12px;line-height:35px;position:absolute;right:10px;top:0;}
+                    .accordion-block.active .accordion-header:after {content:'Свернуть';}
+            </style>
+
+            <div class="accordion">
+                <div class="accordion-block">
+                    <div class="accordion-header">
+                        Адреса
+                    </div>
+                    <div class="accordion-content">
+
+                        {% for i in '123' %}
+                            <div class="inline-form">
+                                <table class="form-table">
+
+                                    <tr>
+                                        <th>По этому адресу</th>
+                                        <td>
+                                            <i class="fa fa-times form-remove"></i>
+
+                                            <label><input type="radio" name="place_type_{{ i }}" checked>Проводятся занятия</label>
+                                            <label><input type="radio" name="place_type_{{ i }}">Осуществляется выезд</label>
+                                            <label><input type="radio" name="place_type_{{ i }}">Проводятся занятия и осуществляется выезд</label>
+                                            <label><input type="radio" name="place_type_{{ i }}">Не известно</label>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Город/район</th>
+                                        <td>
+                                            <select style="width:auto;"><option>м. Площадь александра невского 2</option></select>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Адрес</th>
+                                        <td>
+
+                                            Улица <input type="text" style="width:300px;"> Дом <input type="text" style="width:40px;"> Корпус <input type="text" style="width:40px;"> Строение <input type="text" style="width:40px;">
+
+                                        </td>
+                                    </tr>
+
+                                    <tr><th>Расстояние до метро</th><td><input type="text" style="width:40px;"> минут <select style="width:auto;"><option>Транспортом</option><option>Пешком</option></select></td></tr>
+
+                                    <tr>
+                                        <th>Условия выезда</th>
+                                        <td>
+                                            <select style="width:auto;"><option>С условиями</option></select> не более <input type="text" style="width:40px;"> минут от своего района
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th><a href="#" class="popup-call-map">Подобрать координаты</a></th>
+                                        <td>
+                                            Широта  <input type="text" style="width:auto;">
+                                            Долгота <input type="text" style="width:auto;">
+                                        </td>
+                                    </tr>
+                                    <tr><th>Комментарий</th><td><textarea class="js-auto-resize auto-resize-mini"></textarea></td></tr>
+                                </table>
+                            </div>
+                        {% endfor %}
+                        <button class="mini" style="margin-top:0;">Добавить ещё адрес</button>
+                        <div class="accordion-footer">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-block">
+                    <div class="accordion-header">
+                        Предметы
+                    </div>
+                    <div class="accordion-content">
+
+                        <div style="padding:0;background:none;border:0;margin:0;" class="mini-form"><label style="line-height:25px;">Минимальная продолжительность занятия <input type="text" style="width:40px;"> мин.</label></div>
+                        <div style="padding:0;"><label><input checked type="checkbox"> Проводятся удалённые занятия</label></div>
+                        <textarea rows="1" class="js-auto-resize auto-resize-mini" placeholder="Комментарии к удалённым занятиям" style="margin:5px 0 10px;"></textarea>
+
+                        {% for i in '1234' %}
+                            <div class="inline-form">
+                                <table class="form-table">
+                                <tr><th>Предмет          </th><td>
+                                    <i class="fa fa-times form-remove"></i>
+                                    <select style="width:auto"><option>Английский Язык</option></select>
+                                </td></tr>
+                                <tr><th>Разделы</th><td style="line-height:0;">
+                                    <button style="float:right;margin:0;" class="light mini" onclick="alert('Типа форма создания раздела с единственным полем - имя')">Создать раздел</button>
+                                    <select multiple class="divisions">
+                                        <option>Общий курс</option>
+                                        <option>Грамматика</option>
+                                        <option>Разговорный</option>
+                                    </select>
+                                </td></tr>
+                                <tr><th>Ученики        </th><td>
+                                    Дошкольники
+                                    <label><input type="checkbox" name="age">1-3</label>
+                                    <label><input type="checkbox" name="age">4-5</label>
+                                    <label><input type="checkbox" name="age">6-7</label> лет
+
+                                    <span style="color:#999;">|</span>
+
+                                    Школьники
+                                    <label><input type="checkbox" name="age">1</label>
+                                    <label><input type="checkbox" name="age">2</label>
+                                    <label><input type="checkbox" name="age">3</label>
+                                    <label><input type="checkbox" name="age">4</label>
+                                    <label><input type="checkbox" name="age">5</label>
+                                    <label><input type="checkbox" name="age">6</label>
+                                    <label><input type="checkbox" name="age">7</label>
+                                    <label><input type="checkbox" name="age">8</label>
+                                    <label><input type="checkbox" name="age">9</label>
+                                    <label><input type="checkbox" name="age">10</label>
+                                    <label><input type="checkbox" name="age">11</label> класс
+
+                                    <span style="color:#999;">|</span>
+
+                                    <label><input type="checkbox" name="age">Студенты</label>
+                                    <label><input type="checkbox" name="age">Взрослые</label>
+                                </td></tr>
+                                <tr><th>Уровень    </th><td>
+
+                                    <label><input type="checkbox" name="age">С нуля</label>
+                                    <label><input type="checkbox" name="age">Начальный</label>
+                                    <label><input type="checkbox" name="age">Средний</label>
+                                    <label><input type="checkbox" name="age">Продвинутый</label>
+
+                                </td></tr>
+                                <tr><th>Дополнения    </th><td>
+
+                                    <label><input type="checkbox" name="age">A-Level</label>
+                                    <label><input type="checkbox" name="age">BEC</label>
+                                    <label><input type="checkbox" name="age">CAE</label>
+                                    <label><input type="checkbox" name="age">CPE</label>
+                                    <label><input type="checkbox" name="age">ESOL Pitman</label>
+                                    <label><input type="checkbox" name="age">FCE</label>
+                                    <label><input type="checkbox" name="age">GMAT</label>
+                                    <label><input type="checkbox" name="age">GRE</label>
+                                    <label><input type="checkbox" name="age">IELTS</label>
+                                    <label><input type="checkbox" name="age">ILEC</label>
+                                    <label><input type="checkbox" name="age">KET</label>
+                                    <label><input type="checkbox" name="age">PET</label>
+                                    <label><input type="checkbox" name="age">SAT</label>
+                                    <label><input type="checkbox" name="age">TKT</label>
+                                    <label><input type="checkbox" name="age">TOEFL</label>
+                                    <label><input type="checkbox" name="age">TOEIC</label>
+                                    <label><input type="checkbox" name="age">YLE</label>
+                                    <label><input type="checkbox" name="age">бизнес-курс</label>
+                                    <label><input type="checkbox" name="age">ЕГЭ</label>
+                                    <label><input type="checkbox" name="age">ОГА (ГИА)</label>
+                                    <label><input type="checkbox" name="age">подготовка к олимпиадам</label>
+
+                                </td></tr>
+                                <tr><th>Цена занятия    </th><td>У себя: <input type="text" style="width:100px;" value="1990"> На выезде: <input type="text" style="width:100px;" value="1990"> Удалённо: <input type="text" style="width:100px;" value="1990"> </td></tr>
+                                <tr><th>Комментарий</th><td><textarea class="js-auto-resize auto-resize-mini"></textarea></td></tr>
+                            </table>
+                        </div>
+                        {% endfor %}
+                        <button class="mini" style="margin-top:0;">Добавить ещё предмет</button>
+
+                        <div class="accordion-footer">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-block">
+                    <div class="accordion-header">
+                        Образование
+                    </div>
+                    <div class="accordion-content">
+                        {% for i in '12' %}
+                            <div class="inline-form">
+                                <table class="form-table">
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <i class="fa fa-times form-remove"></i>
+                                            <label><input type="checkbox"> Выбрать ВУЗ из списка</label>
+                                        </td>
+                                    </tr>
+                                    <tr><th>Город            </th><td><select style="width:auto;"><option>Москва</option></select></td></tr>
+                                    <tr><th>Учебное заведение</th><td><select><option>Московский государственный институт международных отношений</option></select></td></tr>
+                                    <tr><th>Факультет        </th><td><select><option>Международных экономических отношений</option></select></td></tr>
+                                    <tr><th>Специальность    </th><td><input type="text" value="Экономист международник со знанием"></td></tr>
+                                    <tr><th>Год окончания    </th><td><input type="text" style="width:100px;" value="1990"></td></tr>
+                                    <tr><th>Комментарий</th><td><textarea class="js-auto-resize auto-resize-mini"></textarea></td></tr>
+                                </table>
+                            </div>
+                        {% endfor %}
+                        <button class="mini" style="margin-top:0;">Добавить ещё образование</button>
+                        <div class="accordion-footer">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-block">
+                    <div class="accordion-header">
+                        Документы
+                    </div>
+                    <div class="accordion-content">
+                        {% for i in '123' %}
+                            <div style="width:225px;padding:10px;margin-right:10px;margin-bottom:20px;background:#fff;display:inline-block;">
+                                <div style="width:225px;height:225px;position:relative;">
                                     <div style="position:absolute;top:10px;right:10px;">
                                         <a href="#" class="fa fa-pencil" style="text-align:center;font-size:20px;color:#fff;background:rgba(0,0,0,0.5);border-radius:2px;margin-left:10px;width:30px;height:30px;line-height:30px;"></a>
                                         <a href="#" class="fa fa-times"  style="text-align:center;font-size:20px;color:#fff;background:rgba(0,0,0,0.5);border-radius:2px;margin-left:10px;width:30px;height:30px;line-height:30px;"></a>
                                     </div>
-                                    <img style="width:220px;height:330px;margin-left:-10px;" src="http://drmedinasoptical.com/yahoo_site_admin/assets/images/girl_with_glasses.181122051_std.jpg">
+                                    <a href="#" style="position:absolute;bottom:0;left:0;">
+                                        <img style="max-width:225px;max-height:225px;" src="https://www.edx.org/sites/all/themes/atedx/images/example-certificate-verified.png">
+                                    </a>
                                 </div>
-                                <div style="margin-top:10px;height:100px;">
-                                    <table class="images-table">
-                                        <tr>
-                                            <td>
-                                                <span>
-                                                    <a href="#" style="width:60px;">
-                                                        <img style="width:60px;margin:-20px 0 0 0;" src="http://drmedinasoptical.com/yahoo_site_admin/assets/images/girl_with_glasses.181122051_std.jpg">
-                                                    </a>
-                                                    <b>600x800</b>
-                                                </span>
-                                                <span style="margin-bottom:0;">
-                                                    <a href="#">
-                                                        <img style="width:45px;margin:-10px 0 0 0;" src="http://drmedinasoptical.com/yahoo_site_admin/assets/images/girl_with_glasses.181122051_std.jpg">
-                                                    </a>
-                                                    <b>600x600</b>
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span>
-                                                    <a href="#" style="width:35px;">
-                                                        <img style="width:35px;margin:-5px 0 0 0;" src="http://drmedinasoptical.com/yahoo_site_admin/assets/images/girl_with_glasses.181122051_std.jpg">
-                                                    </a>
-                                                    <b>200x320</b>
-                                                </span>
-                                                <span style="margin-bottom:0;">
-                                                    <a href="#">
-                                                        <img style="width:45px;margin:-10px 0 0 0;" src="http://drmedinasoptical.com/yahoo_site_admin/assets/images/girl_with_glasses.181122051_std.jpg">
-                                                    </a>
-                                                    <b>200x200</b>
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span style="margin-right:0;">
-                                                    <a href="#" style="width:35px;">
-                                                        <img style="width:35px;margin:-5px 0 0 0;" src="http://drmedinasoptical.com/yahoo_site_admin/assets/images/girl_with_glasses.181122051_std.jpg">
-                                                    </a>
-                                                    <b>90x145</b>
-                                                </span>
-                                                <span style="margin-bottom:0;margin-right:0;">
-                                                    <a href="#">
-                                                        <img style="width:45px;margin:-10px 0 0 0;" src="http://drmedinasoptical.com/yahoo_site_admin/assets/images/girl_with_glasses.181122051_std.jpg">
-                                                    </a>
-                                                    <b>90x90</b>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <div style="margin:10px 0;">
+                                    <input type="file">
                                 </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td style="padding-right:0;">
-                    <table>
-                    <tr>
-                        <td>
-                            <table class="form-table">
 
-                                <tr>
-                                    <th>Фамилия            </th><td><input type="text"></td>
-                                </tr>
-
-                                <tr><th>Имя                </th><td><input type="text"></td></tr>
-                                <tr><th>Отчество           </th><td><input type="text"></td></tr>
-                                <tr><th>Дата рождения      </th><td><select style="width:24%;margin-right:2%;"><option>31</option></select><select style="width:40%;margin-right:2%;"><option>Сентября</option></select><select  style="width:32%;"><option>1990</option></select></td></tr>
-                                <tr><th>Пол                </th><td><label><input type="radio" name="gender" checked>Не известно</label> <label><input type="radio" name="gender">Муж.</label> <label><input type="radio" name="gender">Жен.</label></td></tr>
-
-                                <tr><th>Репетиторский стаж </th><td style="padding-right:41px;"><input type="text" style="border-right:0;border-radius:2px 0 0 2px;"><span class="input-tip" style="margin-right:-41px;width:40px;">Лет</span></td></tr>
-                                <tr><th>ИП                 </th><td><label><input type="radio" name="ip" checked>Не известно</label> <label><input type="radio" name="ip">Да</label> <label><input type="radio" name="ip">Нет</label></td></tr>
-
-                                <tr><td colspan="2" style="padding:5px 0 10px;"><div style="height:1px;background:#ccc;"></div></td></tr>
-
-                                <tr><th>Телефон            </th><td style="padding-right:120px;"><input type="text"><span style="margin-right:-120px;"><i class="fa fa-user-secret form-icon" title="Убрать маску" style="color:#fff;line-height:27px !important;background:rgba(0,0,0,0.3);"></i><i title="Телефон не подтверждён" class="fa fa-exclamation-circle form-icon" style="background:#f0f0f5;color:#c00;"></i><i title="Позвонить репетитору" class="fa fa-phone form-icon"></i><i title="Отправить SMS репетитору" class="fa fa-comment form-icon"></i></span></td>
-                                </tr>
-                                <tr><th>E-mail             </th><td style="padding-right:90px;"><input type="text"><span style="margin-right:-90px;"><i title="E-mail не подтверждён" class="fa fa-exclamation-circle form-icon" style="background:#f0f0f5;color:#c00;"></i><i title="Написать письмо" class="fa fa-envelope form-icon"></i><i title="Отправить письмо активации" class="fa fa-paper-plane form-icon"></i></span></td>
-                                </tr>
-                                <tr><th>Skype              </th><td><input type="text"></td></tr>
-
-                                <tr><td colspan="2" style="padding:5px 0 10px;"><div style="height:1px;background:#ccc;"></div></td></tr>
-
-                                <tr><th>Статус                 </th><td><select><option>Школьный преподаватель</option></select></td></tr>
-                                <tr><th>Номер уч. заведения    </th><td><input type="text"></td></tr>
-                                <tr><th>Название уч. заведения </th><td><input type="text"></td></tr>
-                                <tr><th>                       </th><td><label style="line-height:25px;"><input type="checkbox">Отображать статус на сайте</label></td></tr>
-
-                            </table>
-                        </td>
-                        <td style="width:330px;border-left:20px solid #fff;">
-                            <form style="margin-bottom:0;padding-bottom:10px;">
-{#                                <div style="color:rgba(0,0,0,0.5);font-size:20px;margin:0 0 10px 0;line-height:20px;">Создать задачу</div>#}
-                                <select><option>Позвонить репетитору</option></select>
-                                <textarea style="margin-top:10px;margin-bottom:10px;" rows="3" placeholder="Комментарий"></textarea>
-                                <button class="mini">Создать задачу</button>
-                            </form>
-
-                            <div style="padding:10px;background:#f0f0f5;margin-top:10px;border-radius:2px;">
-                                <table>
-                                    <tr><th style="padding:1px 10px 2px 0;line-height:11px;font-weight:normal;text-align:left;">Зона</th></tr><tr><td style="padding-right:35px;"><select><option>Москва и Московская область</option></select><span style="margin-right:-70px;"><i title="Сменить" class="fa fa-check form-icon"></i></span></td></tr>
-                                    <tr><th style="padding:8px 10px 2px 0;line-height:11px;font-weight:normal;text-align:left;">Регистратор</th></tr><tr><td><select><option>Петрова Елена Викторовна</option></select></td></tr>
-                                    <tr><th style="padding:8px 10px 2px 0;line-height:11px;font-weight:normal;text-align:left;">Рейтинг</th></tr><tr><td colspan="2"><select><option>Не дозвонились при регистрации/не указан номер телефона/указан неверный номер</option></select></td></tr>
-                                    <tr><th style="padding:8px 10px 2px 0;line-height:11px;font-weight:normal;text-align:left;">Ученики не нужны до</th></tr><tr><td><input type="text"></td></tr>
-                                </table>
+                                <div>
+                                    <input type="text">
+                                </div>
                             </div>
-                        </td>
-                    </tr>
-                    </table>
-{#                    <div style="padding:10px;border:1px solid #ccc;border-radius:2px;margin-top:20px;">#}
-{#                        <table>#}
-{#                            <tr><td style="padding-right:20px;width:1px;">  <label style="padding-bottom:1px;line-height:15px;">Статус</label>                 <select style="width:auto;"><option>Преподаватель школы</option></select></td>#}
-{#                                <td style="padding-right:20px;width:1px;">  <label style="padding-bottom:1px;line-height:15px;">Номер уч. заведения</label>    <input style="width:160px;" type="text"></td>#}
-{#                                <td style="padding-right:10px;width:150px;"><label style="padding-bottom:1px;line-height:15px;">Название уч. заведения</label> <select><option>Школа №315</option></select></td>#}
-{#                                <td style="padding-right:5px;"><div style="padding-bottom:1px;line-height:15px;"></div><br><label style="line-height:25px;"><input type="checkbox">Отображать на сайте</label></td>#}
-{#                            </tr>#}
-{#                        </table>#}
-{#                    </div>#}
-                </td>
-            </tr>
-        </table>
+                        {% endfor %}
+                        <div style="clear:both;"></div>
+                        <button class="mini" style="margin-top:0;">Добавить ещё документ</button>
+                        <div class="accordion-footer">
 
-        {% spaceless %}
-            <div class="js-tabs tabs" style="margin-top:10px;">
-                <a href="#" data-tab="content-tab-1" class="tab active">Общее</a>
-                <a href="#" data-tab="content-tab-2" class="tab">Адреса <span>(3)</span></a>
-                <a href="#" data-tab="content-tab-3" class="tab">Предметы <span>(4)</span></a>
-                <a href="#" data-tab="content-tab-4" class="tab">Образование <span>(2)</span></a>
-                <a href="#" data-tab="content-tab-5" class="tab">Документы <span>(5)</span></a>
-            </div>
-        {% endspaceless %}
-
-        {# Начало табов #}
-
-        <div class="content-tab content-tab-1 active">
-
-            <textarea rows="2" placeholder="О себе" style="margin-bottom:5px;"></textarea>
-            <div style="padding:0;"><label><input type="checkbox"> Отображать анкету на сайте</label></div>
-            <div style="padding:0;background:none;border:0;margin:5px 0 10px" class="mini-form"><label>Минимальная продолжительность занятия <input type="text" style="width:40px;"> мин.</label></div>
-            <div style="padding:0;"><label><input type="checkbox"> Занятия проводятся у себя</label></div>
-            <div style="padding:0;"><label><input type="checkbox"> Проводится выезд к ученику</label></div>
-            <div style="padding:0;"><label><input checked type="checkbox"> Проводятся удалённые занятия</label></div>
-            <textarea rows="1" class="js-auto-resize auto-resize-mini" placeholder="Комментарии к удалённым занятиям" style="margin:5px 0 10px;"></textarea>
-
-            <div style="padding:10px 10px 5px;background:#f0f0f5;margin:0 0 20px;border-radius:2px;">
-                <div style="margin-bottom:5px;"><textarea rows="2" placeholder="Комментарий к анкете"></textarea></div>
-                <label><input type="checkbox"> Подтвердить анкету</label>
-            </div>
-        </div>
-
-        <div class="content-tab content-tab-2">
-            {% for i in '123' %}
-                <div class="inline-form">
-                    <table class="form-table">
-                        <tr>
-                            <th>Город/район</th>
-                            <td><i class="fa fa-times form-remove"></i> <select style="width:auto;"><option>м. Царицино</option></select> Улица <input type="text" style="width:300px;"> Дом <input type="text" style="width:40px;"> Корпус <input type="text" style="width:40px;"> Строение <input type="text" style="width:40px;"></td>
-                        </tr>
-
-                        <tr>
-                            <th>Выезд</th>
-                            <td>
-                                <select style="width:auto;"><option>Любой район</option></select>
-                                <label><input type="checkbox">С этого адреса осуществляется только выезд к ученику</label>
-                            </td>
-                        </tr>
-
-                        <tr><th>Расстояние</th><td><input type="text" style="width:100px;"> минут <select style="width:auto;"><option>Пешком</option></select></td></tr>
-
-                        <tr>
-                            <th>Координаты</th>
-                            <td>
-                                Широта <input type="text" style="width:auto;">
-                                Долгота <input type="text" style="width:auto;">
-                                <a href="#" class="popup-call-map">Подобрать кооринаты</a>
-                            </td>
-                        </tr>
-                        <tr><th>Комментарий</th><td><textarea class="js-auto-resize auto-resize-mini"></textarea></td></tr>
-                    </table>
-                </div>
-            {% endfor %}
-            <button class="light" style="margin-top:0;">Добавить ещё адрес</button>
-            <div style="padding:20px;border-top:1px solid #ddd;margin:10px 0 0 -20px;width:100%;">
-                <button class="button" style="margin:0;">Сохранить адреса</button>
-            </div>
-        </div>
-        <div class="content-tab content-tab-3">
-            {% for i in '1234' %}
-                <div class="inline-form">
-                    <table class="form-table">
-                    <tr><th>Предмет          </th><td>
-                        <i class="fa fa-times form-remove"></i>
-                        <select style="width:auto"><option>Английский Язык</option></select>
-                    </td></tr>
-                    <tr><th>Разделы</th><td style="line-height:0;">
-                        <select multiple class="divisions">
-                            <option>Общий курс</option>
-                            <option>Грамматика</option>
-                            <option>Разговорный</option>
-                        </select>
-                    </td></tr>
-                    <tr><th>Ученики        </th><td>
-                        Дошкольники
-                        <label><input type="checkbox" name="age">1-3</label>
-                        <label><input type="checkbox" name="age">4-5</label>
-                        <label><input type="checkbox" name="age">6-7</label> лет
-
-                        <span style="color:#999;">|</span>
-
-                        Школьники
-                        <label><input type="checkbox" name="age">1</label>
-                        <label><input type="checkbox" name="age">2</label>
-                        <label><input type="checkbox" name="age">3</label>
-                        <label><input type="checkbox" name="age">4</label>
-                        <label><input type="checkbox" name="age">5</label>
-                        <label><input type="checkbox" name="age">6</label>
-                        <label><input type="checkbox" name="age">7</label>
-                        <label><input type="checkbox" name="age">8</label>
-                        <label><input type="checkbox" name="age">9</label>
-                        <label><input type="checkbox" name="age">10</label>
-                        <label><input type="checkbox" name="age">11</label> класс
-
-                        <span style="color:#999;">|</span>
-
-                        <label><input type="checkbox" name="age">Студенты</label>
-                        <label><input type="checkbox" name="age">Взрослые</label>
-                    </td></tr>
-                    <tr><th>Уровень знаний    </th><td>
-
-                        <label><input type="checkbox" name="age">С нуля</label>
-                        <label><input type="checkbox" name="age">Начальный</label>
-                        <label><input type="checkbox" name="age">Средний</label>
-                        <label><input type="checkbox" name="age">Продвинутый</label>
-
-                    </td></tr>
-                    <tr><th>Дополнения    </th><td>
-
-                        <label><input type="checkbox" name="age">A-Level</label>
-                        <label><input type="checkbox" name="age">BEC</label>
-                        <label><input type="checkbox" name="age">CAE</label>
-                        <label><input type="checkbox" name="age">CPE</label>
-                        <label><input type="checkbox" name="age">ESOL Pitman</label>
-                        <label><input type="checkbox" name="age">FCE</label>
-                        <label><input type="checkbox" name="age">GMAT</label>
-                        <label><input type="checkbox" name="age">GRE</label>
-                        <label><input type="checkbox" name="age">IELTS</label>
-                        <label><input type="checkbox" name="age">ILEC</label>
-                        <label><input type="checkbox" name="age">KET</label>
-                        <label><input type="checkbox" name="age">PET</label>
-                        <label><input type="checkbox" name="age">SAT</label>
-                        <label><input type="checkbox" name="age">TKT</label>
-                        <label><input type="checkbox" name="age">TOEFL</label>
-                        <label><input type="checkbox" name="age">TOEIC</label>
-                        <label><input type="checkbox" name="age">YLE</label>
-                        <label><input type="checkbox" name="age">бизнес-курс</label>
-                        <label><input type="checkbox" name="age">ЕГЭ</label>
-                        <label><input type="checkbox" name="age">ОГА (ГИА)</label>
-                        <label><input type="checkbox" name="age">подготовка к олимпиадам</label>
-
-                    </td></tr>
-                    <tr><th>Цена занятия    </th><td>У себя: <input type="text" style="width:100px;" value="1990"> На выезде: <input type="text" style="width:100px;" value="1990"> Удалённо: <input type="text" style="width:100px;" value="1990"></td></tr>
-                    <tr><th>Комментарий</th><td><textarea rows="1" class="js-auto-resize auto-resize-mini"></textarea></td></tr>
-                </table>
-            </div>
-            {% endfor %}
-            <button class="light" style="margin-top:0;">Добавить ещё предмет</button>
-            <div style="padding:20px;border-top:1px solid #ddd;margin:10px 0 0 -20px;width:100%;">
-                <button class="button" style="margin:0;">Сохранить предметы</button>
-            </div>
-        </div>
-        <div class="content-tab content-tab-4">
-            {% for i in '12' %}
-                <div class="inline-form">
-                    <table class="form-table">
-                        <tr><th>                 </th><td>
-                            <i class="fa fa-times form-remove"></i>
-                            <label><input type="checkbox"> Выбрать ВУЗ из списка</label>
-                        </td></tr>
-                        <tr><th>Город            </th><td><select style="width:auto;"><option>Москва</option></select></td></tr>
-                        <tr><th>Учебное заведение</th><td><select><option>Московский государственный институт международных отношений</option></select></td></tr>
-                        <tr><th>Факультет        </th><td><select><option>Международных экономических отношений</option></select></td></tr>
-                        <tr><th>Специальность    </th><td><input type="text" value="Экономист международник со знанием"></td></tr>
-                        <tr><th>Год окончания    </th><td><input type="text" style="width:100px;" value="1990"></td></tr>
-                        <tr><th>Комментарий</th><td><textarea class="js-auto-resize auto-resize-mini"></textarea></td></tr>
-                    </table>
-                </div>
-            {% endfor %}
-            <button class="light" style="margin-top:0;">Добавить ещё образование</button>
-            <div style="padding:20px;border-top:1px solid #ddd;margin:10px 0 0 -20px;width:100%;">
-                <button class="button" style="margin:0;">Сохранить образование</button>
-            </div>
-        </div>
-        <div class="content-tab content-tab-5">
-
-            {% for i in '123' %}
-                <div style="width:250px;padding:10px;margin-right:20px;margin-bottom:20px;background:#f0f0f5;display:inline-block;">
-                    <div style="width:250px;height:250px;position:relative;">
-                        <div style="position:absolute;top:10px;right:10px;">
-                            <a href="#" class="fa fa-pencil" style="text-align:center;font-size:20px;color:#fff;background:rgba(0,0,0,0.5);border-radius:2px;margin-left:10px;width:30px;height:30px;line-height:30px;"></a>
-                            <a href="#" class="fa fa-times"  style="text-align:center;font-size:20px;color:#fff;background:rgba(0,0,0,0.5);border-radius:2px;margin-left:10px;width:30px;height:30px;line-height:30px;"></a>
                         </div>
-                        <a href="#" style="position:absolute;bottom:0;left:0;">
-                            <img style="max-width:250px;max-height:250px;" src="https://www.edx.org/sites/all/themes/atedx/images/example-certificate-verified.png">
-                        </a>
-                    </div>
-                    <div style="margin:10px 0;">
-                        <input type="file">
-                    </div>
-
-                    <div>
-                        <input type="text">
                     </div>
                 </div>
-            {% endfor %}
-            <div style="clear:both;"></div>
-            <button class="light" style="margin-top:0;">Добавить ещё документ</button>
-            <div style="padding:20px;border-top:1px solid #ddd;margin:10px 0 0 -20px;width:100%;">
-                <button class="button" style="margin:0;">Сохранить Документы</button>
             </div>
+            <script>
+                $('.accordion-header').on('click', function() {
+                    $(this).closest('.accordion-block').toggleClass('active');
+                });
+                $('.accordion-footer').on('click', function() {
+                    $(this).closest('.accordion-block').toggleClass('active');
+                });
+            </script>
+
+        <div style="padding:10px 10px 5px;background:#f0f0f5;margin:20px 0 20px;border-radius:2px;">
+            <div style="margin-bottom:5px;"><textarea rows="2" placeholder="Комментарий к анкете"></textarea></div>
+            <label><input type="checkbox"> Подтвердить анкету</label>
         </div>
-
-        {# Конец табов #}
-
-        <div style="padding:20px;border-top:1px solid #ddd;margin:0 0 -20px -20px;width:100%;">
-            <button class="button" style="margin:0;background:#7c7;text-transform:uppercase;">Сохранить анкету</button>
+        <div style="height:60px;"></div>
+        <div style="padding:20px;border-top:1px solid #999;margin:0 0 0 -20px;width:960px;position:fixed;left:240px;bottom:0;background:rgba(255,255,255,0.5);">
+            <button class="button" style="margin:0;background:#23c13d">Сохранить анкету</button>
         </div>
-
+        <script>
+            $('.fatality').on('click', function() {
+                $('.pizdec').slideToggle()
+            });
+        </script>
 {% endblock %}
 
 {% block popup %}
     <div class="popup popup-map">
-        <div class="popup-close">x</div>
+        <div class="popup-c">x</div>
         <img src="/media/img/cords.jpg">
     </div>
 {% endblock %}

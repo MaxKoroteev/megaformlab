@@ -1,0 +1,160 @@
+{% extends 'rp/rp.html' %}
+
+{% block h1 %}<h1>Задача №5</h1>{% endblock %}
+
+{% block content %}
+
+    <div class="tasks table">
+
+        <div class="tr">
+            <span class="th">№</span>
+            <span class="th">Имя клиента</span>
+            <span class="th">Время создания</span>
+            <span class="th">Проект</span>
+            <span class="th">Тип анкеты</span>
+            <span class="th">Ответственный</span>
+            <span class="th">Назначил</span>
+            <span class="th">Статус</span>
+        </div>
+
+        {% for i in '5' %}
+            <span class="tr">
+                <span class="td">{{ i }}</span>
+                <span class="td">Екатерина Ивановна</span>
+                <span class="td">15 минут назад</span>
+                <span class="td">repetit.ru</span>
+                <span class="td">Репетитор</span>
+                <span class="td">Петрова А.В.</span>
+                <span class="td">Иванова Е.О.</span>
+                <span class="td">В работе</span>
+            </span>
+        {% endfor %}
+
+    </div>
+
+    <div class="table orders">
+        <div class="tr">
+            <div class="th">
+                <h2>Детальная заявка</h2>
+            </div>
+            <div class="th">
+                <h2>Заявка</h2>
+            </div>
+        </div>
+        <div class="tr">
+            <div class="td">
+                <div class="order-form table">
+                    {% for i in '12345' %}
+                        <div class="tr">
+                            <label class="td">Параметр {{ i }}</label>
+                            <span class="td"><input type="text"></span>
+                        </div>
+                    {% endfor %}
+                    {% for i in '6789' %}
+                        <div class="tr">
+                            <label class="td">Параметр {{ i }}</label>
+                            <span class="td"><span class="select"><select><option>Параметр {{ i }}</option></select></span></span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="td">
+                <div class="order-form table">
+                    <div class="tr">
+                        <label class="td">Имя</label>
+                        <span class="td"><input type="text" value="Екатерина Ивановна"></span>
+                    </div>
+                    <div class="tr">
+                        <label class="td">Телефон</label>
+                        <span class="td"><input type="text" value="8 800 235-35-35"></span>
+                    </div>
+                    <div class="tr">
+                        <label class="td">Пожелания</label>
+                        <span class="td"><textarea>Обязательно преподаватель вуза!</textarea></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tr">
+            <div class="th">
+                <button class="light">Сохранить детальную заявку</button>
+            </div>
+            <div class="th">
+                <button class="light">Сохранить заявку</button>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center;margin-top:30px;">
+
+    <button>Подобрать подходящие анкеты</button>
+
+    <h1 style="margin-top:30px;">Подходящие анкеты</h1>
+
+    </div>
+
+    <div class="table" style="margin:20px auto;">
+        {% for i in '123' %}
+            <div class="tr">
+                <div class="td" style="padding:20px 20px 20px 0;border-bottom:1px solid #ddd;">
+                    <img src="/media/img/girl_original.jpg" style="width:150px;">
+                </div>
+                <div class="td" style="border-bottom:1px solid #ddd;padding:20px 0;">
+                    <h2>Сидорова Виктория Евгеньевна</h2>
+
+                    {% for i in '12345' %}
+                        <h3 style="padding-top:10px;">Параметр {{ i }}</h3>
+                        <div>Значение параметра {{ i }}</div>
+                    {% endfor %}
+
+                    <div style="margin-top:20px;">
+
+                        <button class="popup-call light">
+
+                            Подробнее
+
+                            <div class="popup-content">
+
+                                <div style="padding:5px 25px;">
+
+                                    <div class="table" style="margin:0 auto;">
+                                        <div class="tr">
+                                            <div class="td" style="padding:20px 20px 20px 0;">
+                                                <img src="/media/img/girl_original.jpg" style="width:150px;">
+                                            </div>
+                                            <div class="td" style="padding:20px 0;">
+                                                <h2>Сидорова Виктория Евгеньевна</h2>
+
+                                                {% for i in '123456789' %}
+                                                    <h3 style="padding-top:10px;">Параметр {{ i }}</h3>
+                                                    <div>Значение параметра {{ i }}</div>
+                                                {% endfor %}
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </button>
+
+                        <button class="popup-call">
+
+                            Назначить
+
+                            <div class="popup-content">
+                                <div style="padding:30px">Честно, говоря, ещё не в курсе процессов и не знаю, что тут должно происходить</div>
+                            </div>
+
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

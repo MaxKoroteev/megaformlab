@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>New</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+
+    <style>
+
+        table {border-collapse:collapse;}
+
+        * {margin:0;padding:0;font-family:arial, sans-serif;font-family: 'Open Sans', sans-serif;vertical-align:top;}
+
+        a, span {display:inline-block;}
+
+        a {color:#39d;text-decoration:none;}
+        a:hover {color:#000;border-color:#000;}
+
+        h2 {font-weight:normal;color:rgba(0,0,0,0.75);font-size:15px;}
+
+        .wrapper {padding:0 20px;max-width:980px;margin:0 auto;position:relative;}
+
+        body {background:#f1f1f5;font-size:15px;}
+        .header {background:#2F4B61;height:60px;}
+            .logo   {color:#fff;line-height:60px;font-size:30px;text-decoration:none;padding:0 10px;}
+            .city   {color:#fff;line-height:60px;}
+
+        input, textarea, select {border:1px solid #ccc;padding:0 5px;border-radius:2px;font-size:12px;background:#fff;}
+        input, select {height:35px;}
+        input {height:33px;}
+        textarea {line-height:15px;padding:10px;}
+
+        select {-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+
+        .login {position:absolute;right:0;top:5px;padding:10px;;color:#fff;border-radius:2px;}
+
+        .menu {width:200px;}
+            .menu a {display:block;line-height:35px;padding:0 15px;font-weight:bold;color:#4e5e6a;font-size:13px;}
+            .menu a.active {background:#4e5e6a;color:#fff;}
+
+
+        .repetitor {padding:20px;background:#fff;margin-bottom:1px;}
+
+            /*
+::-webkit-input-placeholder {
+   color: #C9D3DA;
+}
+
+:-moz-placeholder {
+   color: #C9D3DA;
+}
+
+::-moz-placeholder {
+   color: #C9D3DA;
+}
+
+:-ms-input-placeholder {
+   color: #C9D3DA;
+}
+        */
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="header">
+    <div class="wrapper">
+        <a href="#" class="login">Вход для репетиторов</a>
+
+        <span>
+            <a href="#" class="logo">pepetit<span style="color:rgba(255,255,255,0.5)">x</span></a>
+        </span>
+        <a class="city" href="#">Москва</a>
+    </div>
+</div>
+
+{% spaceless %}
+<div style="margin: 0 0 20px;background:#fff;">
+    <div class="wrapper">
+        <h2 style="padding:10px 10px 0;font-size:16px;">Бесплатно подберём лучшего репетитора по вашим пожеланиям</h2>
+        <div style="padding-bottom:10px;border-radius:2px;">
+            <input type="text" style="width:172px;margin-right:11px ;margin-top:10px;" placeholder="Имя">
+            <input type="text" style="width:172px;margin-right:10px ;margin-top:10px;" placeholder="Телефон">
+            <input type="text" style="width:375px;margin-right:10px;margin-top:10px;" placeholder="Пожелания">
+            <button style="background:#39d;color:#fff;height:35px;border:0;vertical-align:top;margin-top:10px;padding:0 10px;font-size:15px;border-radius:2px;">Отправить заявку</button>
+        </div>
+    </div>
+</div>
+{% endspaceless %}
+
+<div>
+    <div class="wrapper">
+        <table style="margin-top:10px;width:100%;">
+            <tr>
+                <td style="vertical-align:top;width:200px;">
+                    <div class="menu" style="margin-top:45px;background:rgba(255,255,255,1);padding:5px 0;margin-right:10px;">
+
+{#                    <a href="#" class="active">Все предметы</a>#}
+
+
+                        <a href="#">Математика</a>
+                        <a href="#">Химия</a>
+                        <a href="#" class="active">Информатика</a>
+                        <div class="active" style="background:#4e5e6a">
+                            <a style="color:#fff;font-weight:normal;margin-left:10px;line-height:30px;" href="#">Физика</a>
+                            <a style="color:#fff;font-weight:normal;margin-left:10px;line-height:30px;" href="#">Биология</a>
+                            <a style="color:#fff;font-weight:normal;margin-left:10px;line-height:30px;" href="#">Программирование</a>
+                            <a style="color:#fff;font-weight:normal;margin-left:10px;line-height:30px;" href="#">Русский язык</a>
+                            <a style="color:#fff;font-weight:normal;margin-left:10px;line-height:30px;" href="#">Обществознание</a>
+                            <a style="color:#fff;font-weight:normal;margin-left:10px;line-height:30px;" href="#">Музыка</a>
+                            <a style="color:#fff;font-weight:normal;margin-left:10px;line-height:30px;" href="#">Литература</a>
+                            <a style="color:#fff;font-weight:normal;margin-left:10px;line-height:30px;" href="#">История</a>
+                        </div>
+                        <a href="#">Физика</a>
+                        <a href="#">Биология</a>
+                        <a href="#">Программирование</a>
+                        <a href="#">Русский язык</a>
+                        <a href="#">Обществознание</a>
+                        <a href="#">Музыка</a>
+                        <a href="#">Литература</a>
+                        <a href="#">История</a>
+
+                    </div>
+                </td>
+                <td style="vertical-align:top;">
+
+                    {% spaceless %}
+                        <div style="height:35px;padding:10px;background:#fff;">
+                            <select style="max-width:130px;"><option>м. Китай Город (калужско-рижская)</option></select>
+                            <select><option>Цель обучения</option></select>
+                            <select><option>Категория ученика</option></select>
+                            <select><option>Стутус репетитора</option></select>
+                            <select><option>Формат занятий</option></select>
+                            <input type="text" style="width:50px;" placeholder="Цена от">
+                            <input type="text" style="width:50px;" placeholder="Цена до">
+                        </div>
+                    {% endspaceless %}
+
+                    {% for i in '1234567890' %}
+                        <div class="repetitor">
+                            <img src="http://40.media.tumblr.com/165e9502584e9fea57a143cd6981a58b/tumblr_navoyyl2Mk1twtouro1_500.jpg" style="width:150px;height:150px;">
+                        </div>
+                    {% endfor %}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

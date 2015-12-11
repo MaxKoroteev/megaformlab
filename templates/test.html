@@ -1,3 +1,20 @@
+<style>
+
+    body {background:#f6f8fa;font-family:helvetica;font-size:15px;}
+
+    .items {width:900px;margin:0 auto;border-top:1px solid #e3e7ed;}
+        .item {border:1px solid #e3e7ed;height:50px;line-height:50px;padding:0 20px;background:#fff;border-top:0;}
+
+</style>
+
+<div class="items">
+    {% for i in '12345678901234567890' %}
+        <div class="item">
+            Сделать страницу, отображающую список задач {{ i }}
+        </div>
+    {% endfor %}
+</div>
+
 {#<!DOCTYPE html>#}
 {#<html lang="ru">#}
 {#<head>#}

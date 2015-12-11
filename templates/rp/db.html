@@ -1,0 +1,99 @@
+{% extends 'rp/rp.html' %}
+
+{% block h1 %}<h1>О проекте</h1>{% endblock %}
+
+{% block content %}
+
+<div style="text-align:center;">
+    <span style="text-align:left;">
+        Проект представляет из себя единый интерфейс для работы с заявками с различных проектов с разными типами анкет<br>
+        Схема базы данных - иерархическая (Предполагается / MongoDB) и строится на основании загружаемых данных через API
+    </span>
+</div>
+
+<h1 style="margin-top:20px;">API</h1>
+
+<p style="text-align:center;">Стороние проекты могут выгружать данные при помощи 3-ёх методов, реализованных на Process Request</p>
+<br>
+<br>
+<div style="text-align:center;">
+    <span style="text-align:left;">
+        <h3>add_orders</h3>
+        <h4>Принимает массив заявок</h4>
+        <br>
+        <h3>add_objects</h3>
+        <h4>Принимает массив объектов</h4>
+        <br>
+        <h3>delete_objects</h3>
+        <h4>Принимает массив id-шников для удаления</h4>
+    </span>
+</div>
+
+<h1 style="margin-top:30px;">Структура базы данных</h1>
+
+<div style="text-align:center;">
+<span style="font-family:consolas, monospace;font-size:16px;text-align:left;">
+
+    {% filter space %}
+
+            projects: [
+                {
+                    name      : repetit,
+                    url       : repetit.ru,
+                    objects   : [
+                        {
+                            type   : teacher,
+                            name   : Иванова Елизвавета Сергеевна,
+                            image  : http://repetit.ru/avatar.jpg,
+                            param1 : Значение параметра,
+                            param2 : Значение параметра,
+                            ...
+                        },
+                        ...
+                    ]
+                },
+                ...
+            ],
+            tasks: [
+                {
+                    №        : 1,
+                    date     : 20.10.2015 00:30:40,
+                    project  : repetit,
+                    type     : teacher,
+                    employee : Петрова А.В.,
+                    author   : Иванова Е.О.,
+                    status   : В работе,
+                    order    : 2,
+                }
+                ...
+            ],
+            orders: [
+                {
+                    order : {
+                        name  : Екатерина Ивановна
+                        phone : 8 800 235-35-35
+                        text  : Обязательно преподаватель вуза!
+                    },
+                    details : {
+                        param1 : Значение параметра,
+                        param2 : Значение параметра,
+                        param3 : Значение параметра,
+                        ...
+                    }
+                }
+                ...
+            ],
+            users: [
+                {
+                    name  : Петрова А.В.,
+                    group : redactors,
+                },
+                ...
+            ]
+
+    {% endfilter %}
+
+</span>
+</div>
+
+{% endblock %}

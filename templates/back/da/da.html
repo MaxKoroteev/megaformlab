@@ -1,0 +1,143 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+
+    <style>
+
+        /* Все сборки, классы и методы - стилистически, одинаковые таблицы */
+        .da table {width:100%;margin-bottom:5px;}
+            .da td {border:1px solid #ddd;background:rgba(255,255,255,0.5);padding:5px;}
+
+                /* Стилизуем колонку с названием и описанием */
+                .da .name {line-height:20px;font-size:14px;cursor:pointer;}
+                .da .date {line-height:20px;font-size:14px;color:rgba(0,0,0,.5);float:right;padding-right:5px;}
+                .da .desc {line-height:15px;font-size:14px;color:rgba(0,0,0,.5);}
+
+                /* Стилизуем название под ссылку, т.к. по нажатию - будет открываться попап */
+                .da .name:hover {text-decoration:underline;}
+
+                /* Название должно быть разного размера в зависимости от уровня вложенности */
+                .da .assembly .name {font-size:20px;}
+                .da .class    .name {font-size:17px;}
+                .da .method   .name {font-size:14px;}
+
+            /* Стилизуем колонки со стрелочкой и удалением */
+            .da .expand, .da .delete {width:35px;text-align:center;}
+                .da .fa {line-height:35px;font-size:17px;}
+
+            /* Стилизуем колонки с созданием */
+            .da .create {width:1px;white-space:nowrap;line-height:35px;padding:5px 15px;font-size:16px;}
+
+            /* Стрелочка, создание и удаление должны при наведении подсвечиваться */
+            .da .expand, .da .create, .da .delete {cursor:pointer;}
+            .da .expand:hover, .da .create:hover, .da .delete:hover {color:#39d;background:rgba(240,240,245,.5);}
+
+            /* Стилизуем блок с детьми */
+            .da .assembly .nested {display:none;padding:5px 45px 0;background:rgba(240,240,245,.5);}
+            .da .class    .nested {display:none;padding:5px 45px 0;background:rgba(240,240,245,10);}
+
+        /* ЧАСТНОСТИ */
+
+        /* Кнопка создания сборки */
+        .da-create {float:right;padding:0 15px;border:1px solid #ddd;height:43px;line-height:43px;font-size:16px;margin-top:-5px;cursor:pointer;border-radius:2px;}
+        .da-create:hover {background:#f0f0f5;}
+
+        /* Формы */
+
+        .form {padding:20px;width:700px;}
+            .label {margin:10px 0 5px;}
+            .light:hover {background:#f0f0f5 !important;}
+            .save {border-top:1px solid #ccc;margin:0 0 0 -20px;padding:0 20px;width:100%;margin-top:15px;}
+            .save button {margin:20px 0 0;}
+
+    </style>
+
+
+    <div class="da-create popup-call">Создать Assembly {% include 'back/da/assembly.html' with create=True %}</div>
+
+    <h1>Dynamic Assemblies</h1>
+
+    <div class="da">
+        <!-- Итерируем сборки -->
+        {% for i in '123456789' %}
+            <table class="assembly">
+                <tr>
+                    <td class="expand">
+                        <i class="fa fa-chevron-down"></i>
+                    </td>
+                    <td>
+                        <span class="date">Изменено 02.08.1990 13:00</span>
+                        <span class="name popup-call">Test.Assembly {% include 'back/da/assembly.html' %}</span>
+                        <div class="desc">This Dynamic Assembly is made for doing awesome things</div>
+                    </td>
+                    <td class="create popup-call">
+                        Создать Class
+                        {% include 'back/da/class.html' with create=True %}
+                    </td>
+                    <td class="delete">
+                        <i class="fa fa-times"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="nested">
+
+                        <!-- Итерируем классы -->
+                        {% for i in '123' %}
+                            <table class="class">
+                                <tr>
+                                    <td class="expand">
+                                        <i class="fa fa-chevron-down"></i>
+                                    </td>
+                                    <td>
+                                        <span class="name popup-call">Test.Class {% include 'back/da/class.html' %}</span>
+                                        <div class="desc">This Dynamic Class is made for doing awesome things</div>
+                                    </td>
+                                    <td class="create popup-call">
+                                        Создать Method
+                                        {% include 'back/da/method.html' with create=True %}
+                                    </td>
+                                    <td class="delete">
+                                        <i class="fa fa-times"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" class="nested">
+
+                                        <!-- Итерируем методы -->
+                                        {% for i in '123' %}
+                                            <table class="method">
+                                                <tr>
+                                                    <td>
+                                                        <span class="name popup-call">Test.Method {% include 'back/da/method.html' %}</span>
+                                                        <div class="desc">This Dynamic Method is made for doing awesome things</div>
+                                                    </td>
+                                                    <td class="delete">
+                                                        <i class="fa fa-times"></i>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        {% endfor %}
+
+                                    </td>
+                                </tr>
+                            </table>
+                        {% endfor %}
+                    </td>
+                </tr>
+            </table>
+        {% endfor %}
+
+    </div>
+
+    <script>
+
+        $('.delete').on('click', function() { alert('Точно удалить?')} );
+
+        $('.expand').on('click', function() {
+            $(this).closest('table').find('.nested').first().toggle();
+            $(this).find('.fa').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+        });
+
+    </script>
+
+{% endblock %}
