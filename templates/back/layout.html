@@ -12,9 +12,9 @@
     <script>
         $(function() {
             $('.column-menu-toggle').on('click', function() {
-                var columnLeft = $('.column-menu');
-                columnLeft.toggleClass('collapsed');
-                if (columnLeft.hasClass('collapsed')) {
+                var $body = $('body');
+                $body.toggleClass('collapsed');
+                if ($body.hasClass('collapsed')) {
                     // Пишем в сессию о том, что у данного пользователя колонка свёрнута
                 } else {
                     // Пишем в сессию о том, что у данного пользователя колонка раскрыта
@@ -55,14 +55,15 @@
 
                 .column-menu-toggle {}
                 .column-menu-toggle-expand {display:none;}
-                .column-menu.collapsed .column-menu-toggle-collapse {display:none;}
-                .column-menu.collapsed .column-menu-toggle-expand {display:block;}
 
-                .column-menu.collapsed,
-                .column-menu.collapsed .column-menu-toggle {width:30px;}
+                body.collapsed .column-menu-toggle-collapse {display:none;}
+                body.collapsed .column-menu-toggle-expand {display:block;}
 
-                .column-menu.collapsed .column-menu-item-text,
-                .column-menu.collapsed .column-menu-group-title-text {display:none;}
+                body.collapsed .column-menu,
+                body.collapsed .column-menu .column-menu-toggle {width:30px;}
+
+                body.collapsed .column-menu-item-text,
+                body.collapsed .column-menu-group-title-text {display:none;}
 
             .column-content {background:#fff;padding:15px;}
 
@@ -123,6 +124,7 @@
 
             </td>
             <td class="column-content">
+                {% block content %}{% endblock %}
                 {% for i in '1234567890123456789012345678901234567890123456789012345678901234567890' %}
                     <p>{{ i }} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                 {% endfor %}
