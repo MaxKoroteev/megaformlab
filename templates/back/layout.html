@@ -13,8 +13,8 @@
         $(function() {
             $('.column-menu-toggle').on('click', function() {
                 var $body = $('body');
-                $body.toggleClass('collapsed');
-                if ($body.hasClass('collapsed')) {
+                $body.toggleClass('menu-collapsed');
+                if ($body.hasClass('menu-collapsed')) {
                     // Пишем в сессию о том, что у данного пользователя колонка свёрнута
                 } else {
                     // Пишем в сессию о том, что у данного пользователя колонка раскрыта
@@ -56,14 +56,14 @@
                 .column-menu-toggle {}
                 .column-menu-toggle-expand {display:none;}
 
-                body.collapsed .column-menu-toggle-collapse {display:none;}
-                body.collapsed .column-menu-toggle-expand {display:block;}
+                body.menu-collapsed .column-menu-toggle-collapse {display:none;}
+                body.menu-collapsed .column-menu-toggle-expand {display:block;}
 
-                body.collapsed .column-menu,
-                body.collapsed .column-menu .column-menu-toggle {width:30px;}
+                body.menu-collapsed .column-menu,
+                body.menu-collapsed .column-menu .column-menu-toggle {width:30px;}
 
-                body.collapsed .column-menu-item-text,
-                body.collapsed .column-menu-group-title-text {display:none;}
+                body.menu-collapsed .column-menu-item-text,
+                body.menu-collapsed .column-menu-group-title-text {display:none;}
 
             .column-content {background:#fff;padding:15px;}
 
