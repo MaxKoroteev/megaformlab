@@ -1,0 +1,49 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+
+    {% include 'back/b_repetitor.html' %}
+
+    <h2>Похожие анкеты</h2>
+
+    <table class="zebra">
+
+        <tr>
+            <th>ID репетитора</th>
+            <th>Фото</th>
+            <th>ФИО</th>
+            <th>Статус</th>
+            <th>Комментатий</th>
+        </tr>
+
+        <tr>
+            <td style="vertical-align:middle"><a href="{% url 'repetitor_compare' %}" style="white-space:nowrap;">567</a></td>
+            <td style="padding:10px;vertical-align:middle;">
+                <a href="{% url 'repetitor_compare' %}" style="white-space:nowrap;">
+                    <img src="http://cllctr.com/image/b4f5c5cbcffa8126a76d45531fe0f9bf/576" style="width:50px;">
+                </a>
+            </td>
+            <td style="vertical-align:middle;">
+                <a href="{% url 'repetitor_compare' %}" style="white-space:nowrap;">Петров Пётр Петрович</a>
+            </td>
+            <td style="white-space:nowrap;vertical-align:middle;">Точно не дубль</td>
+            <td style="vertical-align:middle;">Я позвонила обоим репетиторам, и вроде у них голоса похожие, а вроде и нет.</td>
+        </tr>
+
+        <tr>
+            <td style="vertical-align:middle"><a href="{% url 'repetitor_compare' %}" style="white-space:nowrap;">765</a></td>
+            <td style="padding:10px;vertical-align:middle;">
+                <a href="{% url 'repetitor_compare' %}" style="white-space:nowrap;">
+                    <img src="http://psm.suny.edu/images/man.png" style="width:50px;">
+                </a>
+            </td>
+            <td style="vertical-align:middle;">
+                <a href="{% url 'repetitor_compare' %}" style="white-space:nowrap;">Иванов Иван Иванович - №765</a>
+            </td>
+            <td style="white-space:nowrap;vertical-align:middle;">Точно не дубль</td>
+            <td style="vertical-align:middle;">Я позвонила обоим репетиторам, и вроде у них голоса похожие, а вроде и нет.</td>
+        </tr>
+
+    </table>
+
+{% endblock %}

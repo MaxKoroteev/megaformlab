@@ -6,9 +6,9 @@
     <title>BackOffice Repetit</title>
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
 
-    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="/media/css/back.css">
@@ -23,6 +23,8 @@
                 .popup-content {display:none;}
     </style>
 
+    {% block head %}{% endblock %}
+
 </head>
 
 <body class="{{ screen }}">
@@ -32,7 +34,9 @@
         <td class="column-left">
             <div class="column-menu">
 
-                <a href="{% url 'back' %}" class="column-item{% active 'back' %}">Главная</a>
+{#                <a href="{% url 'order' %}" class="column-item{% active 'order' %}">Заявка</a>#}
+{#                <a href="{% url 'tasks' %}" class="column-item{% active 'tasks' %}">Задачи</a>#}
+                <a href="{% url 'back'  %}" class="column-item{% active 'back'  %}">Главная</a>
 
                 <div class="column-group">Контент</div>
 
@@ -42,6 +46,7 @@
                 <a href="{% url 'subjects2' %}" class="column-item{% active 'subjects2' %}">Предметы</a>
                 <a href="{% url 'divisions' %}" class="column-item{% active 'divisions' %}">Раздалы предметов</a>
                 <a href="{% url 'additions' %}" class="column-item{% active 'additions' %}">Дополнения предметов</a>
+                <a href="{% url 'da'  %}" class="column-item{% active 'da' %}">Dynamic Assemblies</a>
 
                 <div class="column-group">Сотрудники</div>
                 <a href="#" class="column-item">Для консультантов</a>
@@ -49,8 +54,7 @@
 
                 <div class="column-group">Репетиторы</div>
                 <a href="{% url 'repetitor' %}" class="column-item{% active 'repetitor' %}">Анкета репетитора</a>
-                <a href="{% url 'compare' %}" class="column-item{% active 'compare' %}">Сравнение репетиторов</a>
-                <a href="{% url 'da'  %}" class="column-item{% active 'da' %}">Dynamic Assemblies</a>
+{#                <a href="{% url 'duplicates' %}" class="column-item{% active 'duplicates' %}">Дубли анкет</a>#}
 
 {#                <a href="#" class="column-item">Загрузка паспортных данных</a>#}
 {#                <a href="#" class="column-item">Редактирование репетитора</a>#}
@@ -68,7 +72,8 @@
         </td>
         <td class="column-center">
 
-            {% if url_name == 'back' %}
+{#            {% if url_name == 'back' %}#}
+
                 <style>
                     .task {}
                         .task-content {background:#fff;height:300px;display:none;}
@@ -85,7 +90,8 @@
                         $(this).siblings('.task-content').slideToggle(200);
                     })
                 </script>
-            {% endif %}
+
+{#            {% endif %}#}
 
             <div class="content">
                 {% block content %}{% endblock %}
@@ -210,6 +216,7 @@
         self.popup.on('click', function(e) {
             self.popup.hide();
         });
+
         self.window.on('click', function(e) {
             e.stopPropagation();
         });

@@ -21,15 +21,31 @@
 
         .button.light.mini:hover {background:#f0f0f5;}
 
+        .history-table .zebra td {background:#fff !important;}
+        .history-table .zebra .empty-td td {background:#f0f0f5 !important;}
+        .history-table .zebra td.good {background:#C4E4C0 !important;}
+
     </style>
 
-    <h2><a href="{% url 'repetitor' %}">№123 Иванов Иван Иванович</a> и <a href="{% url 'repetitor' %}">№321 Петров Пётр Петрович</a></h2>
+    {% include 'back/b_repetitor.html' %}
+
+    <h2>Похожие анкеты</h2>
 
     <div style="margin-bottom:20px;">
         <a href="{% url 'repetitor_compares' %}">← Вернуться к списку дублей</a>
     </div>
 
+{#    {% spaceless %}#}
+{#        <div class="tabs tabs-wide">#}
+{##}
+{#            <a href="{% url 'repetitor_compare' %}" class="tab {% active 'repetitor_compare' %}">Сравнение анкет</a>#}
+{#            <a href="{% url 'compare_history'   %}" class="tab {% active 'compare_history'   %}">Истории посещений</a>#}
+{##}
+{#        </div>#}
+{#    {% endspaceless %}#}
+
     <div>
+
         <form>
 
             <h3 style="margin-bottom:10px;">Результат сравнения</h3>
@@ -45,43 +61,33 @@
 
             <button>Изменить статус</button>
         </form>
+
     </div>
-
-{#    {% spaceless %}#}
-{#        <div class="tabs tabs-wide">#}
-{##}
-{#            <a href="{% url 'compare'         %}" class="tab {% active 'compare'         %}">Анкеты</a>#}
-{#            <a href="{% url 'compare_history' %}" class="tab {% active 'compare_history' %}">Истории посещений</a>#}
-{##}
-{#        </div>#}
-{#    {% endspaceless %}#}
-
-    <h2>Данные анкеты</h2>
 
     <table class="compare-table">
         <tr>
             <td>id</td>
-            <td>123</td>
+            <td>15</td>
             <td>312</td>
         </tr>
         <tr>
             <td>Фото</td>
-            <td><img style="height:100px;" src="http://cllctr.com/image/b4f5c5cbcffa8126a76d45531fe0f9bf/576"></td>
+            <td><img style="height:100px;" src="/media/img/girl_original.jpg"></td>
             <td><img style="height:100px;" src="http://cllctr.com/image/b4f5c5cbcffa8126a76d45531fe0f9bf/576"></td>
         </tr>
         <tr>
             <td>Фамилия</td>
-            <td>Иванов</td>
+            <td>Иванова</td>
             <td>Петров</td>
         </tr>
         <tr>
             <td>Имя</td>
-            <td>Иван</td>
+            <td>Виктория</td>
             <td>Пётр</td>
         </tr>
         <tr>
             <td>Отчество</td>
-            <td>Иванович</td>
+            <td>Павловна</td>
             <td>Петрович</td>
         </tr>
         <tr class="good">
@@ -422,6 +428,205 @@
                 </div>
             </td>
         </tr>
+
+        {# Начало истории посещений #}
+
+        <tr class="history-table">
+            <td>История посещений</td>
+            <td class="related" style="padding-right:5px !important;">
+                <div class="related-wrapper">
+
+                    <table class="zebra">
+                        <tr>
+                            <th>Дата</th>
+                            <th>Время</th>
+                            <th>IP address</th>
+                            <th>Device ID</th>
+                        </tr>
+                        <tr>
+                            <td>20.03.2015</td>
+                            <td>19:06:24</td>
+                            <td>46.138.67.123</td>
+                            <td class="good">520699904.1427393230</td>
+                        </tr>
+                        {% for i in '123' %}
+                        <tr class="empty-td">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td>20.03.2015</td>
+                            <td>19:06:24</td>
+                            <td class="good">46.138.67.150</td>
+                            <td>520699904.1427393279</td>
+                        </tr>
+                        <tr>
+                            <td>20.03.2015</td>
+                            <td>19:06:24</td>
+                            <td>46.138.67.123</td>
+                            <td>520699904.1427393279</td>
+                        </tr>
+                        {% for i in '12' %}
+                        <tr class="empty-td">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+
+                </div>
+            </td>
+            <td class="related" style="padding-right:5px !important;">
+                <div class="related-wrapper">
+
+                    <table class="zebra">
+                        <tr>
+                            <th>Дата</th>
+                            <th>Время</th>
+                            <th>IP address</th>
+                            <th>Device ID</th>
+                        </tr>
+                        <tr class="empty-td">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>20.03.2015</td>
+                            <td>19:06:24</td>
+                            <td>46.138.67.123</td>
+                            <td>520699904.1427393279</td>
+                        </tr>
+                        <tr>
+                            <td>20.03.2015</td>
+                            <td>19:06:24</td>
+                            <td class="good">46.138.67.150</td>
+                            <td>520699904.1427393279</td>
+                        </tr>
+                        <tr>
+                            <td>20.03.2015</td>
+                            <td>19:06:24</td>
+                            <td>46.138.67.123</td>
+                            <td class="good">520699904.14273932730</td>
+                        </tr>
+                        {% for i in '12' %}
+                        <tr class="empty-td">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td>20.03.2015</td>
+                            <td>19:06:24</td>
+                            <td class="good">46.138.67.150</td>
+                            <td>520699904.1427393279</td>
+                        </tr>
+                        <tr>
+                            <td>20.03.2015</td>
+                            <td>19:06:24</td>
+                            <td>46.138.67.123</td>
+                            <td>520699904.1427393279</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </td>
+        </tr>
+
+        {# Конец истории посещений #}
+
+        {# Начало звонков #}
+
+        <tr class="history-table">
+            <td>История звонков</td>
+            <td class="related" style="padding-right:5px !important;">
+                <div class="related-wrapper">
+
+                    <table class="zebra">
+                        <tr>
+                            <th>Дата</th>
+                            <th>Время</th>
+                            <th>Телефон</th>
+                            <th>Запись</th>
+                        </tr>
+                        {% for i in '12345' %}
+                                {% if i == '1' or i == '3' %}
+                                    <tr class="empty-td">
+                                        <td>&nbsp;<br>&nbsp;</td>
+                                        <td>&nbsp;<br>&nbsp;</td>
+                                        <td>&nbsp;<br>&nbsp;</td>
+                                        <td>&nbsp;<br>&nbsp;</td>
+                                    </tr>
+                                {% else %}
+                            <tr>
+
+                                <td>06.11.2015</td>
+                                <td>15:37</td>
+
+                                {% if i == '2' or i == '3' %}
+                                    <td class="good">+79990079670</td>
+                                {% else %}
+                                    <td>+79990079668</td>
+                                {% endif %}
+
+                                <td><audio controls="" style="width:150px"><source src="/commonPages/getFileFtp.aspx?type=call&amp;id=1267648" type="audio/mpeg"></audio></td>
+
+                            </tr>
+                                {% endif %}
+                        {% endfor %}
+                    </table>
+
+                </div>
+            </td>
+            <td class="related" style="padding-right:5px !important;">
+                <div class="related-wrapper">
+
+                    <table class="zebra">
+                        <tr>
+                            <th>Дата</th>
+                            <th>Время</th>
+                            <th>Телефон</th>
+                            <th>Запись</th>
+                        </tr>
+                        {% for i in '12345' %}
+                                {% if i == '2' or i == '4' or i == '5' %}
+                                    <tr class="empty-td">
+                                        <td>&nbsp;<br>&nbsp;</td>
+                                        <td>&nbsp;<br>&nbsp;</td>
+                                        <td>&nbsp;<br>&nbsp;</td>
+                                        <td>&nbsp;<br>&nbsp;</td>
+                                    </tr>
+                                {% else %}
+                            <tr>
+                                <td>06.11.2015</td>
+                                <td>15:37</td>
+
+                                {% if i == '1' or i == '4' %}
+                                    <td class="good">+79990079670</td>
+                                {% else %}
+                                    <td>+79990079668</td>
+                                {% endif %}
+
+                                <td><audio controls="" style="width:150px"><source src="/commonPages/getFileFtp.aspx?type=call&amp;id=1267648" type="audio/mpeg"></audio></td>
+
+                            </tr>
+                                {% endif %}
+                        {% endfor %}
+                    </table>
+
+                </div>
+            </td>
+        </tr>
+
+        {# Конец звонков #}
 
     </table>
 

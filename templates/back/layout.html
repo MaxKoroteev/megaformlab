@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script>
+        $(function() {
+            $('.column-menu-toggle').on('click', function() {
+                var columnLeft = $('.column-menu');
+                columnLeft.toggleClass('collapsed');
+                if (columnLeft.hasClass('collapsed')) {
+                    // Пишем в сессию о том, что у данного пользователя колонка свёрнута
+                } else {
+                    // Пишем в сессию о том, что у данного пользователя колонка раскрыта
+                }
+            });
+        });
+    </script>
+
+    <style>
+
+        /* reset */
+
+        td, th {vertical-align:top;}
+
+        /* base */
+
+        body {background:#f1f1f5;font-size:12px;font-family:tahoma, sans-serif;}
+
+        /* global */
+
+        .columns {width:1250px;min-height:100%;}
+            .column-menu {width:200px;background:#333;}
+
+                .column-menu-group {margin:0 0 10px;}
+                    .column-menu-group-title {line-height:30px;background:#333;}
+                    .column-menu-group-title:hover, .column-menu-group-title:hover * {background:#333;}
+                    .column-menu-group-title.active, .column-menu-group-title.active * {background:#39d;}
+                        .column-menu-group-title .fa {width:30px;height:30px;line-height:30px;text-align:center;color:#999;font-size:14px;}
+                        .column-menu-group-title-text {font-size:11px;text-transform:uppercase;color:#999;width:170px;position:absolute;background:#333;}
+                        .column-menu-group-title:hover .column-menu-group-title-text {display:inline !important;}
+
+                    .column-menu-item {line-height:30px;display:block;text-decoration:none;cursor:pointer;position:relative;}
+                    .column-menu-item:hover, .column-menu-item:hover * {background:#666;}
+                    .column-menu-item.active, .column-menu-item.active * {background:#39d;}
+                        .column-menu-item .fa {width:30px;height:30px;line-height:30px;text-align:center;color:#fff;font-size:14px;}
+                        .column-menu-item-text {color:#fff;width:170px;position:absolute;}
+                        .column-menu-item:hover .column-menu-item-text {display:inline !important;}
+
+                .column-menu-toggle {}
+                .column-menu-toggle-expand {display:none;}
+                .column-menu.collapsed .column-menu-toggle-collapse {display:none;}
+                .column-menu.collapsed .column-menu-toggle-expand {display:block;}
+
+                .column-menu.collapsed,
+                .column-menu.collapsed .column-menu-toggle {width:30px;}
+
+                .column-menu.collapsed .column-menu-item-text,
+                .column-menu.collapsed .column-menu-group-title-text {display:none;}
+
+            .column-content {background:#fff;padding:15px;}
+
+    </style>
+</head>
+<body>
+    <table class="columns">
+        <tr>
+            <td class="column-menu">
+
+                <div class="column-menu-group">
+                    <div class="column-menu-group-title"><i class="fa fa-cogs"></i><span class="column-menu-group-title-text">Администрирование</span></div>
+                    <a href="#" class="column-menu-item"><i class="fa fa-gavel"></i><span class="column-menu-item-text">Редактирование прав</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-user-md"></i><span class="column-menu-item-text">Редактирование ролей</span></a>
+                    <a href="#" class="column-menu-item active"><i class="fa fa-unlock-alt"></i><span class="column-menu-item-text">Редактирование доступа</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-sliders"></i><span class="column-menu-item-text">Управление проектами</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-cubes"></i><span class="column-menu-item-text">Динамические сборки</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-database"></i><span class="column-menu-item-text">Документация SQL</span></a>
+                </div>
+
+                <div class="column-menu-group">
+                    <div class="column-menu-group-title"><i class="fa fa-file-text"></i><span class="column-menu-group-title-text">Контент</span></div>
+                    <a href="#" class="column-menu-item"><i class="fa fa-globe"></i><span class="column-menu-item-text">Регионы</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-institution"></i><span class="column-menu-item-text">Вузы</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-home"></i><span class="column-menu-item-text">Школы</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-book"></i><span class="column-menu-item-text">Предметы</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-sitemap"></i><span class="column-menu-item-text">Разделы</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-puzzle-piece"></i><span class="column-menu-item-text">Дополнения</span></a>
+                </div>
+
+                <div class="column-menu-group">
+                    <div class="column-menu-group-title"><i class="fa fa-users"></i><span class="column-menu-group-title-text">Сотрудники</span></div>
+                    <a href="#" class="column-menu-item"><i class="fa fa-users"></i><span class="column-menu-item-text">Сотрудники</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-birthday-cake"></i><span class="column-menu-item-text">Дни рождения сотрудников</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-black-tie"></i><span class="column-menu-item-text">Для консультантов</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-file-excel-o"></i><span class="column-menu-item-text">Зарплата из Excel</span></a>
+                </div>
+
+                <div class="column-menu-group">
+                    <div class="column-menu-group-title"><i class="fa fa-mortar-board"></i><span class="column-menu-group-title-text">Репетиторы</span></div>
+                    <a href="#" class="column-menu-item"><i class="fa fa-mortar-board"></i><span class="column-menu-item-text">Репетиторы</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-upload"></i><span class="column-menu-item-text">Загрузка паспортных данных</span></a>
+                </div>
+
+                <div class="column-menu-group">
+                    <div class="column-menu-group-title"><i class="fa fa-phone"></i><span class="column-menu-group-title-text">Звонки</span></div>
+                    <a href="#" class="column-menu-item"><i class="fa fa-microphone"></i><span class="column-menu-item-text">Прослушка разговоров</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-fax"></i><span class="column-menu-item-text">Автоматические обзвоны</span></a>
+                </div>
+
+                <div class="column-menu-group">
+                    <div class="column-menu-group-title"><i class="fa fa-user"></i><span class="column-menu-group-title-text">Петров константин</span></div>
+                    <a href="#" class="column-menu-item"><i class="fa fa-sign-out"></i><span class="column-menu-item-text">Выйти</span></a>
+                </div>
+
+                <span class="column-menu-item column-menu-toggle column-menu-toggle-collapse"><i class="fa fa-chevron-left"></i><span class="column-menu-item-text">Свернуть колонку</span></span>
+                <span class="column-menu-item column-menu-toggle column-menu-toggle-expand"><i class="fa fa-chevron-right"></i><span class="column-menu-item-text">Развернуть колонку</span></span>
+
+            </td>
+            <td class="column-content">
+                {% for i in '1234567890123456789012345678901234567890123456789012345678901234567890' %}
+                    <p>{{ i }} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                {% endfor %}
+            </td>
+            <td class="column-right">
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

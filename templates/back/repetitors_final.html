@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.full.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/css/tooltipster.min.css" />
+
+    <style>
+
+        body {font-family:tahoma;}
+
+        .task {position:fixed;top:0;left:0;right:0;text-align:center;}
+            .task .wrapper {padding:5px 0;width:940px;margin:0 auto;background:rgba(255,255,255,0.8);border:1px solid rgba(0,0,0,0.3);border-top:0;border-radius:0 0 2px 2px;}
+        .footer {position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.8);border-top:1px solid rgba(0,0,0,0.3)}
+            .footer .wrapper {padding:5px 0;width:940px;margin:0 auto;}
+
+        .all {width:980px;padding:20px;margin:0 auto;}
+
+        .teacher-row {padding:10px 0;border-bottom:1px solid #aaa;font-size:12px;}
+        .teacher-row:first-child {padding-top:0;}
+            .teacher-row * {vertical-align:top;}
+            .teacher-row .fa {color:rgba(0,0,0,0.5);vertical-align:middle;}
+            .teacher-table {width:100%;}
+                .teacher-photo-cell {padding-right:10px;width:1%;}
+                    .teacher-photo {height:100px;}
+                .teacher-info-cell {padding-right:10px;}
+                    .teacher-header {line-height:17px;margin-bottom:3px;}
+                        .teacher-header .fa-check-square {color:#595;font-size:15px;}
+                        .teacher-labels {display:inline-block;}
+                            .teacher-label {display:inline-block;line-height:17px;padding:0 5px;margin-right:5px;background:#f0f0f5;border-radius:2px;}
+                            .teacher-label-preferred {background:#cef;}
+                            .teacher-label-request {background:#ddf;}
+                            .teacher-label-suit {background:#dfd;}
+                        .teacher-name {font-weight:bold;}
+                        .teacher-coef {font-weight:bold;}
+                    .teacher-stats {line-height:19px;border-top:1px solid #eee;}
+                        .teacher-stats .fa-star,
+                        .teacher-stats .fa-star-o,
+                        .teacher-stats .fa-star-half-o  {color:#fc1;font-size:15px;}
+                        .teacher-stats .fa-check-circle {color:#489;font-size:15px;}
+                    .teacher-subjects {line-height:19px;border-top:1px solid #eee;}
+                    .teacher-places   {line-height:19px;border-top:1px solid #eee;}
+                        .teacher-metro-dot {width:5px;height:5px;border-radius:5px;margin:8px 2px 5px 0;background:#e00;display:inline-block;}
+                    .teacher-comments {line-height:19px;border-top:1px solid #eee;}
+                        .teacher-subjects .fa-book           {width:16px;text-align:center;}
+                        .teacher-places   .fa-map-marker     {width:16px;text-align:center;}
+                        .teacher-comments .fa-graduation-cap {width:16px;text-align:center;}
+                .teacher-actions-cell {width:130px;}
+
+                    .teacher-spread {text-align:right;margin-bottom:5px;}
+                        .teacher-spread .fa-check   {cursor:pointer;color:#fff;background:#5c5;width:40px;height:20px;line-height:20px;text-align:center;border-radius:2px;font-size:15px;}
+                        .teacher-spread .fa-comment {cursor:pointer;color:#fff;background:#55c;width:40px;height:20px;line-height:20px;text-align:center;border-radius:2px;font-size:15px;margin-left:5px;}
+                        .teacher-spread .fa-ban     {cursor:pointer;color:#fff;background:#c55;width:40px;height:20px;line-height:20px;text-align:center;border-radius:2px;font-size:15px;margin-left:5px;}
+
+                    .teacher-call {display:block;cursor:pointer;color:#fff;background:#494;height:20px;line-height:19px;border-radius:2px;margin:8px 0 4px;width:85px;}
+                        .teacher-call .fa-phone {font-size:14px;color:#fff;width:20px;text-align:center;vertical-align:top;line-height:20px;}
+
+                    .teacher-call-result {margin:0 0 8px;line-height:10px;}
+                        .teacher-call-result-link {}
+
+                    .teacher-assign-group {line-height:20px;}
+                        .teacher-assign      {cursor:pointer;width:65px;text-align:center;background:#337ab7;line-height:20px;display:inline-block;border-radius:0 2px 2px 0;padding:0 5px;color:#fff;}
+                        .teacher-auto-assign {cursor:pointer;width:65px;text-align:center;background:#f0f0f5;line-height:18px;display:inline-block;border-radius:2px 0 0 2px;padding:0 5px 0 4px;color:#337ab7;border:1px solid #ccc;border-right:0;}
+                            .teacher-auto-assign .fa {line-height:18px;vertical-align:top;}
+
+        .tabs {border-bottom:1px solid #ddd;margin-bottom:20px;width:100%;}
+        .tabs-wide {width:100%;margin-left:-20px;padding:0 20px;}
+        .tabs.mini {border-bottom-color:#ccc;margin-bottom:5px;}
+
+            .tab {font-size:14px;border:1px solid transparent;padding:10px 10px;line-height:20px;margin-right:5px;position:relative;top:1px;text-decoration:none;display:inline-block;border-radius:2px 2px 0 0;}
+            .tab:hover {background:#f0f0f5;border-bottom-color:#ddd;text-decoration:none;}
+            .tab.active {border-color:#ddd;border-bottom-color:#fff;color:rgba(0,0,0,0.9);background:#fff;}
+            .tab span {color:#999;}
+
+            .tabs.mini .tab {padding:5px 10px;cursor:pointer;}
+            .tabs.mini .tab:hover  {background:#fff;border-color:#ccc;}
+            .tabs.mini .tab.active {background:#f0f0f5;border-color:#ccc;border-bottom-color:#f0f0f5;}
+
+        .pagination {margin-top:20px;}
+            .pagination .page {display:inline-block;width:40px;height:40px;line-height:40px;text-align:center;margin-right:5px;border-radius:2px;}
+            .pagination .page:hover {background:#f0f0f5;text-decoration:none;}
+            .pagination .page.active {color:#fff;background:#39d;}
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="all">
+
+        <h1 style="font-size:25px;margin-bottom:0;margin-top:20px;">Заявка №346512</h1>
+        <div style="color:#999;margin-bottom:15px;">10.02.2016 14:32</div>
+
+
+        <div class="tabs">
+
+            <a href="{% url 'repetitors_final' %}" class="tab {% active 'repetitors_final'    %}">Заявка</a>
+            <a href="#" class="tab">Список звонков <span>(7)</span></a>
+            <a href="#" class="tab">История заявки <span>(3)</span></a>
+            <a href="#" class="tab">События по заявке <span>(13)</span></a>
+
+        </div>
+
+        <!-- Сюда пойдёт крутая таблица -->
+        <table style="width:100%;margin-bottom:20px;">
+            <tr>
+                <td style="width:50%;padding-right:10px;vertical-align:top;">
+                    <div style="background:#f0f0f5;color:#ccc;font-size:30px;text-align:center;padding:20px;height:576px;">
+                        Требования и пожелания клиента
+                        <table style="margin-top:20px;">
+                            {% for i in '1234567890' %}
+                                <tr>
+                                    <td style="padding-right:10px;">Параметр 1</td>
+                                    <td><input type="text" class="form-control"></td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </td>
+                <td style="vertical-align:top;">
+                    <div style="background:#f0f0f5;color:#ccc;font-size:25px;text-align:center;line-height:150px;height:150px;margin-bottom:10px;">
+                        Похожие заявки
+                    </div>
+                    <div style="background:#f0f0f5;color:#ccc;font-size:25px;text-align:center;padding:20px 0;margin-bottom:10px;">
+                        <div style="margin-bottom:20px;">Действия, может что-то ещё</div>
+                        <div><button class="btn btn-primary">Позвонить клиенту</button></div>
+                        <div><button class="btn btn-primary">Отправить SMS клиенту</button></div>
+                        <div><button class="btn btn-primary">Отправить письмо клиенту</button></div>
+                    </div>
+                    <div style="background:#f0f0f5;color:#ccc;font-size:18px;text-align:center;height:200px;padding:20px 20px;">
+                        <span style="line-height:20px;display:inline-block;">Информация по заявке для сотрудников (стутус заявки, ответственный, сколько денег должны и т.д.)</span>
+                        <table style="margin-top:20px;">
+                            <tr>
+                                <td style="padding-right:10px;">Статус</td>
+                                <td><select class="form-control"><option>Всё хорошо</option></select></td>
+                                <td><button class="btn btn-primary" style="margin-left:10px;">Изменить стутус</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Нижняя панель -->
+
+        <div class="tabs">
+
+            <a href="{% url 'repetitors_final' %}" class="tab {% active 'repetitors_final'    %}">Репетиторы по параметрам <span>(54)</span></a>
+            <a href="#" class="tab">Подходящие <span>(8)</span></a>
+            <a href="#" class="tab">Желаемые <span>(3)</span></a>
+            <a href="#" class="tab">Запросы <span>(43)</span></a>
+
+        </div>
+        <table style="width:100%;">
+            <tr>
+                <td style="vertical-align:top;width:130px;">
+                    <div style="background:#f0f0f5;color:#ccc;font-size:30px;text-align:center;padding:50px 0;height:1075px;">Фильтр</div>
+                </td>
+                <td style="padding-left:10px;vertical-align:top;">
+
+
+        {% for i in '123456789' %}
+            <div class="teacher-row" {% if i == '5' %}style="opacity:0.25"{% endif %}>
+                <table class="teacher-table">
+                    <tr>
+                        <td class="teacher-photo-cell">
+                            <a href="#">
+                                <img src="http://www.img.repetit.ru/photo/teacher_5399.jpg" class="teacher-photo">
+                            </a>
+                        </td>
+                        <td class="teacher-info-cell">
+                            <div class="teacher-header">
+                                <a href="#" class="teacher-name">Константинова Клавдия Владимировна</a>
+                                <i class="fa fa-check-square" title="Можно оставлять заявки"></i>
+                                <span class="teacher-coef">Коэф=1,85</span>
+                                <span class="teacher-labels">
+                                    <span class="teacher-label teacher-label-preferred">Желаемый</span>
+                                    <span class="teacher-label teacher-label-request">Запрос</span>
+                                    <span class="teacher-label teacher-label-suit">Подходящий</span>
+                                </span>
+                            </div>
+                            <div class="teacher-stats">
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i>
+                                3 |
+                                <i class="fa fa-comment"></i> 10 |
+                                Р: 40,6 |
+                                Б: +5950 |
+                                П/б: +5950 |
+                                <a href="#">Заявки</a> |
+                                <i class="fa fa-check-circle" title="Верификация пройдена"></i> |
+                                Частный преподаватель |
+                                35 лет
+                            </div>
+                            <div class="teacher-subjects">
+
+                                <i class="fa fa-book" title="Предметы"></i>
+
+                                <b>Математика</b>
+                                <i class="fa fa-home" title="У себя"></i> 1200,
+                                <i class="fa fa-car" title="У ученика"></i> 2000,
+                                <i class="fa fa-skype" title="Online"></i> 1000 |
+
+                                <b>Русский язык</b>
+                                <i class="fa fa-home" title="У себя"></i> 1200,
+                                <i class="fa fa-car" title="У ученика"></i> 2000,
+                                <i class="fa fa-skype" title="Online"></i> 1000
+
+                            </div>
+                            <div class="teacher-places">
+                                <i class="fa fa-map-marker" title="Адреса"></i> <span class="teacher-metro-dot"></span><b>Юго-Западная</b>, Ленинский пр., 156 <i class="fa fa-home" title="Проводятся занятие у репетитора"></i> <i class="fa fa-car" title="Проводится выезд"></i> | <span class="teacher-metro-dot"></span><b>Тёплый Стан</b>, Ленинский пр., 156 <i class="fa fa-car" title="Проводится выезд"></i>
+                            </div>
+                            <div class="teacher-comments">
+                                <i class="fa fa-graduation-cap" title="Комментарий репетитора"></i> Я бы взял эту заявку, но только если на выходные |
+                                <i class="fa fa-comment" title="Комментарий сотрудника"></i> На выходные не получится
+                            </div>
+                        </td>
+                        <td class="teacher-actions-cell">
+                            <div class="teacher-spread">
+                                   <span class="fa fa-check" title="Подходящий репетитор"></span><!--
+                                --><span class="fa fa-comment" title="Подходящий с условиями"></span><!--
+                                --><span class="fa fa-ban" title="Не подходящий репетитор"></span>
+                            </div>
+                            <span class="teacher-call">
+                                <span class="fa fa-phone"></span>Позвонить
+                            </span>
+                            <div class="teacher-call-result">
+                                <a href="#" class="teacher-call-result-link">Репетитор согласился с доп. условиями</a>
+                            </div>
+                            <div class="teacher-assign-group">
+                                <span class="teacher-auto-assign"><i class="fa fa-toggle-off"></i> Авто</span><!--
+                                --><span class="teacher-assign">Назначить</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        {% endfor %}
+
+                {% include 'back/b_pagination.html' %}
+
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script>
+
+        $('[title]').tooltipster({delay:50});
+
+    </script>
+
+    <div class="task">
+        <div class="wrapper">Развернуть задачу</div>
+    </div>
+    <div class="footer">
+        <div class="wrapper">
+            <button class="btn btn-primary" style="float:right;">Создать задачу</button>
+            <button class="btn btn-success" style="margin-right:10px;">Подтвердить заявку</button>
+            <button class="btn btn-default" style="margin-right:10px;">Сделать дубль</button>
+            <button class="btn btn-default" style="margin-right:10px;">Сделать копию</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

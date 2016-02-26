@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <style>
+        body {background:#f0f0f5;}
+        .all {width:960px;padding:20px;background:#fff;margin:0 auto;}
+    </style>
+
+    {# TODO: ГРУППИРОВАТЬ в одну строку эллементы форм! #}
+
+</head>
+
+<body>
+<div class="all">
+    <div style="float:right;">
+        <span class="btn btn-default" onclick="$('#createTask').modal('show')">Создать задачу</span>
+        <span class="btn btn-primary" onclick="$('#createFastTask').modal('show')">Быстро создать задачу</span>
+    </div>
+
+    <h1 style="margin-top:0;">Заявка № 3241</h1>
+
+    <div class="modal fade" id="createTask" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Создать задачу</h4>
+                </div>
+                <div class="modal-body">
+
+                    <label class="control-label">Исполнитель</label>
+                    <select class="form-control">
+                        <option value="1">Определить из какой таблицы брать и как группировать</option>
+                    </select>
+
+                    <label class="control-label">Исполнитель(группа)</label>
+                    <select class="form-control">
+                        <option value="1">Совершенно не понятно зачем всё это</option>
+                    </select>
+
+                    <label class="control-label">Приоритет</label>
+                    <select class="form-control">
+                        <option value="1">Очень важно</option>
+                        <option value="2">Важно</option>
+                        <option value="3">Неизвестно</option>
+                        <option value="4">Маловажно</option>
+                    </select>
+
+                    <label class="control-label">Название</label> <input class="form-control">
+                    <label class="control-label">Дата начала</label> <input class="form-control">
+                    <label class="control-label">Дата окончания</label> <input class="form-control">
+                    <label class="control-label">Id заявки</label> <input class="form-control">
+                    <label class="control-label">Id преподавателя</label> <input class="form-control">
+                    <label class="control-label">Ранг</label> <input class="form-control" value="Выяснить: Что это и зачем?">
+                    <label class="control-label">Ссылка (Например ~$folder$/fullorder.aspx?id=123)</label> <input class="form-control" value="Выяснить: Ничего страшного, что она так сложно формируется?">
+
+                    <label class="control-label">Описание</label>
+                    <textarea class="form-control"></textarea>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="createFastTask" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Быстро создать задачу</h4>
+                </div>
+                <div class="modal-body">
+
+                    <select class="form-control">
+                        <option value="4">Позвонить репетитору</option>
+                        <option value="5">Позвонить клиенту</option>
+                        <option value="33">Письмо от клиента</option>
+                        <option value="40">Уточнить и распределить заявку</option>
+                        <option value="42">Наилю (Был ли такой платёж)</option>
+                        <option value="43">Перепроверить письменный отзыв</option>
+                        <option value="59">Ошибка по снятию</option>
+                        <option value="60">Внести изменения в анкету преподавателя</option>
+                        <option value="64">Ошибка в заполнении</option>
+                    </select>
+
+                    <label class="control-label">Описание</label>
+                    <textarea class="form-control"></textarea>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

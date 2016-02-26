@@ -1,0 +1,72 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+
+    <style>
+        .zebra th, .zebra td {padding:5px;}
+    </style>
+
+    <table class="zebra" style="width:auto;">
+
+        <tr>
+            <th>№</th>
+            <th>Название</th>
+            <th>Создана</th>
+            <th>Завершить</th>
+            <th>Выполнена</th>
+            <th>Приоритет</th>
+            <th>Статус</th>
+            <th>Исполнитель</th>
+            <th>Последний комментарий</th>
+        </tr>
+
+        <tr>
+            <th style="width:1px;vertical-align:bottom;padding:5px;">
+                <input type="text">
+            </th>
+            <th style="vertical-align:bottom;">
+                <input type="text">
+            </th>
+            <th style="width:1px;vertical-align:bottom;padding:5px;">
+                <input type="text" placeholder="с"  style="width:75px;margin-bottom:5px;">
+                <input type="text" placeholder="по" style="width:75px;">
+            </th>
+            <th style="width:1px;vertical-align:bottom;padding:5px;">
+                <input type="text" placeholder="с"  style="width:75px;margin-bottom:5px;">
+                <input type="text" placeholder="по" style="width:75px;">
+            </th>
+            <th style="width:1px;vertical-align:bottom;padding:5px;">
+                <input type="text" placeholder="с"  style="width:75px;margin-bottom:5px;">
+                <input type="text" placeholder="по" style="width:75px;">
+            </th>
+            <th style="vertical-align:bottom;">
+                <input type="text">
+            </th>
+            <th style="vertical-align:bottom;">
+                <input type="text">
+            </th>
+            <th style="vertical-align:bottom;">
+                <input type="text">
+            </th>
+            <th><input type="text"></th>
+        </tr>
+
+        {% for i in '123456789' %}
+            <tr>
+                <td><a href="#">170033{{ i }}</a></td>
+                <td style="width:1px;"><a href="#">Новый преподаватель</a></td>
+                <td style="width:1px;">20.07.2011</td>
+                <td style="width:1px;">20.08.2011</td>
+                <td style="width:1px;">20.08.2011</td>
+                <td style="width:1px;">Очень важно</td>
+                <td style="width:1px;">Открыта заново</td>
+                <td style="width:1px;">Иванов Иван</td>
+                <td>
+                    <div>Томилова Екатерина 26.02.2014 17:44 Невозможно выполнить задачу: "не дост"</div>
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}

@@ -1,19 +1,32 @@
 <h1>
+
+    <img src="/media/img/girl_original.jpg" style="height:50px;float:left;margin-right:10px;">
+
     <div class="repetitor-checked">
         <div class="repetitor-checked-label"><i class="fa fa-check"></i> Анкета проверена</div>
         <div class="repetitor-checked-date">Дата регистрации - 10.15.2010</div>
     </div>
-    Иванова Виктория Павловна - №15
+
+    <div style="padding-top:7px;">
+        Иванова Виктория Павловна - №15
+    </div>
+
 </h1>
 
 {% spaceless %}
+
     <div class="tabs tabs-wide">
+
         <a href="#" class="button mini" onclick="alert('Типа форма создания задачи')" style="float:right;margin:5px 0 0;padding:0 10px;line-height:30px;height:30px;">Создать задачу</a>
-        <a href="{% url 'repetitor' %}" class="tab {% active 'repetitor' %}">Редактировать</a>
-        <a href="{% url 'repetitor_view' %}" class="tab {% active 'repetitor_view' %}">Предв. просмотр</a>
-        <a href="{% url 'repetitor_tasks' %}" class="tab {% active 'repetitor_tasks' %}">Задачи <span>(3)</span></a>
-        <a href="{% url 'repetitor_orders' %}" class="tab {% active 'repetitor_orders' %}">Заявки</a>
-        <a href="{% url 'repetitor_history' %}" class="tab {% active 'repetitor_history' %}">История изменений</a>
-        <a href="{% url 'repetitor_calls' %}" class="tab {% active 'repetitor_calls' %}">Список звонков <span>(4)</span></a>
+
+        <a href="{% url 'repetitor'          %}" class="tab {% active 'repetitor'          %}">Редактировать</a>
+        <a href="{% url 'repetitor_view'     %}" class="tab {% active 'repetitor_view'     %}">Предв. просмотр</a>
+        <a href="{% url 'repetitor_tasks'    %}" class="tab {% active 'repetitor_tasks'    %}">Задачи <span>(3)</span></a>
+        <a href="{% url 'repetitor_orders'   %}" class="tab {% active 'repetitor_orders'   %}">Заявки</a>
+        <a href="{% url 'repetitor_history'  %}" class="tab {% active 'repetitor_history'  %}">История изменений</a>
+        <a href="{% url 'repetitor_calls'    %}" class="tab {% active 'repetitor_calls'    %}">Список звонков <span>(4)</span></a>
+        <a href="{% url 'repetitor_compares' %}" class="tab {% active 'repetitor_compares' %}">Дубли <span>(3)</span></a>
+
     </div>
+
 {% endspaceless %}

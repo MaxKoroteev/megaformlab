@@ -1,0 +1,74 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+
+    <h1>
+        <button style="float:right;margin:0;" onClick="alert('Типа форма создания')">Создать задачу</button>
+        Задачи
+    </h1>
+
+    <style>
+
+        body, input, textarea, select, button {font-family:arial, sans-serif;font-size:12px !important;}
+        input {padding:1px !important;}
+
+        .tasks {width:100%;border:1px solid #ccc;}
+            .tasks th {border-right:1px solid #eee;border-bottom:1px solid #ccc;padding:5px;position:relative;vertical-align:bottom;}
+            .tasks th input:last-child {margin-top:5px;}
+            .tasks th:last-child {border-right:0;}
+            .tasks > * > tr:nth-child(odd) > td {background:#f0f0f5;}
+            .tasks td {padding:6px;width:1px;white-space:nowrap;vertical-align:middle;}
+                .tasks td.auto-width {width:auto;white-space:normal;}
+
+    </style>
+
+    <table class="tasks">
+        <tr>
+            <th>№</th>
+            <th>Название</th>
+            <th>Создана</th>
+            <th>Завершить</th>
+            <th>Выполнена</th>
+            <th>Приоритет</th>
+            <th>Статус</th>
+            <th>Исполнитель</th>
+            <th>Последний комментарий</th>
+        </tr>
+        <tr>
+            <th><input type="text"></th>
+            <th><input type="text"></th>
+            <th>
+                <input type="text" placeholder="с"><br>
+                <input type="text" placeholder="по">
+            </th>
+            <th>
+                <input type="text" placeholder="с"><br>
+                <input type="text" placeholder="по">
+            </th>
+            <th>
+                <input type="text" placeholder="с"><br>
+                <input type="text" placeholder="по">
+            </th>
+            <th><select><option>Очень важно</option></select></th>
+            <th><select><option>Открыта заново</option></select></th>
+            <th><select><option>Петров Константин</option></select></th>
+            <th><input type="text"></th>
+        </tr>
+
+        {% for i in '1234567890' %}
+            <tr>
+                <td><a href="#">100000{{ i }}</a></td>
+                <td class="auto-width"><a href="#">Найти координаты репетитора</a></td>
+                <td>13.10.2012</td>
+                <td>13.10.2012</td>
+                <td>13.10.2012</td>
+                <td style="color:#e00;">Очень важно</td>
+                <td>Открыта заново</td>
+                <td>Петров Константин</td>
+                <td class="auto-width"><span style="color:rgba(0,0,0,0.5);">09.10.2012 13:33</span> - "Заявка уточнена с клиентом." (Швачко Рита)</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}

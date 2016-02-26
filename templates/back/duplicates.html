@@ -1,0 +1,70 @@
+{% extends 'back/home.html' %}
+
+{% block content %}
+
+    <h1>Дубли анкет</h1>
+
+    <table class="zebra">
+
+        <tr>
+            <th>ID</th>
+            <th>Анкета 1</th>
+            <th>Анкета 2</th>
+            <th>Статус</th>
+            <th>Комментатий</th>
+        </tr>
+
+        <tr>
+            <th><input type="text"></th>
+            <th><input type="text" placeholder="Поиск по ФИО анкеты 1"></th>
+            <th><input type="text" placeholder="Поиск по ФИО анкеты 2"></th>
+            <th>
+                <select>
+                    <option>Не проверено   </option>
+                    <option>Не понятно     </option>
+                    <option>Точно дубль    </option>
+                    <option>Точно не дубль </option>
+                </select>
+            </th>
+            <th><input type="text" placeholder="Поиск по комментарию"></th>
+        </tr>
+
+        {% for i in '123456789' %}
+            <tr>
+                <td>
+                    <a href="{% url 'compare' %}">{{ i }}</a>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td style="padding:0 10px 0 0;">
+                                <img src="http://cllctr.com/image/b4f5c5cbcffa8126a76d45531fe0f9bf/576" style="width:50px;">
+                            </td>
+                            <td style="padding:0;">
+                                №123<div style="white-space:nowrap;">Иванов Иван Иванович</div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td style="padding:0 10px 0 0;">
+                                <img src="http://cllctr.com/image/b4f5c5cbcffa8126a76d45531fe0f9bf/576" style="width:50px;">
+                            </td>
+                            <td style="padding:0;">
+                                №321<div style="white-space:nowrap;">Петров Пётр Петрович</div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="white-space:nowrap;">Точно не дубль</td>
+                <td>Я позвонила обоим репетиторам, и вроде у них голоса похожие, а вроде и нет.</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+    {% include 'back/b_pagination.html' %}
+
+{% endblock %}

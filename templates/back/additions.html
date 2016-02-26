@@ -1,45 +1,47 @@
 {% extends 'back/home.html' %}
 
 {% block content %}
-        <h1>
-            <button style="float:right;margin:0;" onClick="alert('Типа форма добавления')">Добавить дополнение</button>
-            Дополнения предметов
-        </h1>
-        <table class="zebra">
 
+    <h1>
+        <button style="float:right;margin:0;" onClick="alert('Типа форма добавления')">Добавить дополнение</button>
+        Дополнения предметов
+    </h1>
+
+    <table class="zebra">
+
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Название в дательном падеже</th>
+            <th>Название в родительном падеже</th>
+            <th>Порядок сортировки</th>
+            <th>Ссылка</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th><input type="text"></th>
+            <th><input type="text"></th>
+            <th><input type="text"></th>
+            <th><input type="text"></th>
+            <th><input type="text"></th>
+            <th><input type="checkbox"></th>
+            <th style="width:1px;"></th>
+        </tr>
+
+        {% for i in '123456789' %}
             <tr>
-                <th>ID</th>
-                <th>Название</th>
-                <th>Название в дательном падеже</th>
-                <th>Название в родительном падеже</th>
-                <th>Порядок сортировки</th>
-                <th>Ссылка</th>
-                <th></th>
+                <td>{{ i }}</td>
+                <td>Экзамен</td>
+                <td>Экзамену</td>
+                <td>Экзамена</td>
+                <td>10</td>
+                <td>Нет</td>
+                <td><a href="#" onClick="alert('Типа форма редактирования')">Редактировать</a></td>
             </tr>
-            <tr>
-                <th><input type="text"></th>
-                <th><input type="text"></th>
-                <th><input type="text"></th>
-                <th><input type="text"></th>
-                <th><input type="text"></th>
-                <th><input type="checkbox"></th>
-                <th style="width:1px;"></th>
-            </tr>
+        {% endfor %}
 
-            {% for i in '123456789' %}
-                <tr>
-                    <td>{{ i }}</td>
-                    <td>Экзамен</td>
-                    <td>Экзамену</td>
-                    <td>Экзамена</td>
-                    <td>10</td>
-                    <td>Нет</td>
-                    <td><a href="#" onClick="alert('Типа форма редактирования')">Редактировать</a></td>
-                </tr>
-            {% endfor %}
+    </table>
 
-        </table>
-
-        {% include 'back/b_pagination.html' %}
+    {% include 'back/b_pagination.html' %}
 
 {% endblock %}

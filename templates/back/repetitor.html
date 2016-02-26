@@ -426,7 +426,12 @@
                                     </tr>
 
                                     <tr>
-                                        <th><a href="#" class="popup-call-map">Подобрать координаты</a></th>
+                                        <th><a href="#" class="popup-call">
+                                            Подобрать координаты
+                                            <div class="popup-content">
+                                                <img src="/media/img/cords.jpg">
+                                            </div>
+                                        </a></th>
                                         <td>
                                             Широта  <input type="text" style="width:auto;">
                                             Долгота <input type="text" style="width:auto;">
@@ -625,9 +630,9 @@
         </script>
 {% endblock %}
 
-{% block popup %}
-    <div class="popup popup-map">
-        <div class="popup-c">x</div>
-        <img src="/media/img/cords.jpg">
-    </div>
-{% endblock %}
+{#{% block popup %}#}
+{#    <div class="popup popup-map">#}
+{#        <div class="popup-c">x</div>#}
+{#        <img src="/media/img/cords.jpg">#}
+{#    </div>#}
+{#{% endblock %}#}
