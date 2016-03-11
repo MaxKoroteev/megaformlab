@@ -1,0 +1,521 @@
+{% extends 'nb/home.html' %}
+
+{% block content %}
+
+    <style>
+
+        .order-duplicates {float:right;position:relative;}
+
+            .order-duplicates-24  {font-weight:bold;padding:0 4px;border-radius:10px;font-size:11px;color:#fff;min-width:15px;display:inline-block;height:15px;background:#337ab7;}
+            .order-duplicates-all {font-weight:bold;padding:0 4px;border-radius:10px;font-size:11px;color:#fff;min-width:15px;display:inline-block;height:15px;background:#999;}
+
+            .order-duplicates-label {display:inline-block;line-height:30px;}
+            .order-duplicates-block {display:inline-block;line-height:30px;}
+
+                .order-duplicates-block .dropdown-menu {padding:0;right:0;left:auto;white-space:nowrap;border-top:0;}
+                .order-duplicates-block table {margin:0;}
+
+        .order-table {width:100%;}
+            .order-left-cell {}
+                .order-form-left {width:100%;}
+                    .order-form-left th {width:200px;}
+                    .order-form-left td {width:270px;}
+                    .order-form-left td.order-form-comment {width:auto;}
+            .order-right-cell {width:34%;padding-left:1%;}
+                .order-form-right {width:100%;}
+                    .order-form-right th {width:150px;}
+                    .order-form-right td {}
+
+        .order-form {width:100%;margin:3px 0 2px;}
+            .order-form th, .order-form td {padding:2px 0 3px;line-height:13px;vertical-align:middle;}
+            .order-form th {vertical-align:middle;text-align:right;}
+            .order-form td {padding-left:10px;}
+                .order-form td > label {font-weight:normal;margin:0 5px 0 0;height:15px;line-height:15px;}
+                .order-form td > label input[type="radio"],
+                .order-form td > label input[type="checkbox"] {margin:0;}
+
+        .order-form-multiselect .btn.multiselect {width:100%;}
+        .order-form-multiselect .multiselect-selected-text {overflow:hidden;display:block;text-overflow:ellipsis;}
+        .order-form-multiselect .btn-group {width:100%;}
+            .order-form-multiselect .btn {width:100%;}
+
+        .order-table-price-time {width:100%;}
+            .order-table-price-time td {padding:0 5px 0 0;}
+            .order-table-price-time td:last-child {padding:0;}
+            .order-table-price-time .input-group-addon {padding:0 5px;}
+            .order-table-price-time select {width:80px !important;}
+
+        .order-table-price-time .order-table-price-for {background:none;border:0;padding-left:0;}
+
+        .order-form-buttons {border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding:10px 0;margin-top:10px;font-size:0;}
+            .order-form-buttons-right {float:right;font-size:0;}
+                .order-form-buttons-right .btn-task {margin-left:15px;}
+            .order-form-buttons .btn-save {margin-right:15px;}
+            .order-form-buttons .btn-consult {margin-right:15px;}
+
+            .order-form-change-status {display:inline-block;}
+            .order-form-change-status select {display:inline-block;width:280px;}
+            .order-form-change-status .btn-save {display:inline-block;margin-left:1px;}
+
+        .order-tabs-buttons {position:relative;margin:15px 0;}
+            .order-tabs-buttons .btn-group {float:right;}
+    
+    </style>
+
+    <div class="order-duplicates">
+
+        <div class="order-duplicates-label">Похожие заявки</div>
+
+        <div class="order-duplicates-block">
+            <button class="btn btn-default btn-sm" data-toggle="dropdown">
+                <span class="order-duplicates-24">7</span> за 24 часа <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-menu">
+                <table class="table table-condensed table-striped">
+                    <tr>
+                        <th>Номер</th>
+                        <th>Дата/время</th>
+                        <th>Имя</th>
+                        <th>Телефон</th>
+                        <th>Предмет</th>
+                        <th>Статус</th>
+                    </tr>
+                    {% for i in '1234567' %}
+                        <tr>
+                            <td><a href="#">{{ i }}124312</a></td>
+                            <td>02.08.2016 2{{ i }}:00</td>
+                            <td>Елена</td>
+                            <td>89636090993</td>
+                            <td>Математика</td>
+                            <td>Контактный телефон отдан преподавателю</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+        <div class="order-duplicates-block">
+            <button class="btn btn-default btn-sm" data-toggle="dropdown">
+                <span class="order-duplicates-all">30</span> за всё время <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-menu">
+                <table class="table table-condensed table-striped">
+                    <tr>
+                        <th>Номер</th>
+                        <th>Дата/время</th>
+                        <th>Имя</th>
+                        <th>Телефон</th>
+                        <th>Предмет</th>
+                        <th>Статус</th>
+                    </tr>
+                    {% for i in '123456789012345678901234567890' %}
+                        <tr>
+                            <td><a href="#">{{ i }}124312</a></td>
+                            <td>02.08.2016 2{{ i }}:00</td>
+                            <td>Елена</td>
+                            <td>89636090993</td>
+                            <td>Математика</td>
+                            <td>Контактный телефон отдан преподавателю</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><span>Заявка № 34524</span></li>
+        <li role="presentation"><a href="#">Звонки <span class="tip">(3)</span></a></li>
+        <li role="presentation"><a href="#">История заявки <span class="tip">(5)</span></a></li>
+        <li role="presentation"><a href="#">События по заявке <span class="tip">(7)</span></a></li>
+    </ul>
+
+    <table class="order-table">
+        <tr>
+            <td class="order-left-cell">
+                <table class="order-form order-form-left">
+                    <tr>
+                        <th>Имя ученика</th>
+                        <td><input type="text" class="form-control"></td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Предмет</th>
+                        <td>
+                            <select class="form-control">
+                                <option value="0">Не выбран</option>
+                                <option value="1">Русский язык</option>
+                                <option value="2">Английский язык</option>
+                                <option selected="selected" value="3">Немецкий язык</option>
+                                <option value="4">Французский язык</option>
+                                <option value="5">Итальянский язык</option>
+                                <option value="6">Испанский язык</option>
+                                <option value="7">Китайский язык</option>
+                                <option value="25">Японский язык</option>
+                                <option value="23">Русский как иностранный</option>
+                                <option value="8">Математика</option>
+                                <option value="9">Физика</option>
+                                <option value="10">Информатика / программирование</option>
+                                <option value="11">Химия</option>
+                                <option value="12">Биология</option>
+                                <option value="13">История</option>
+                                <option value="14">Обществознание</option>
+                                <option value="15">Литература</option>
+                                <option value="16">География</option>
+                                <option value="17">Экономика</option>
+                                <option value="29">Подготовка к школе</option>
+                                <option value="18">Начальная школа</option>
+                                <option value="20">Логопед</option>
+                                <option value="27">Изобразительное искусство</option>
+                                <option value="19">Музыка</option>
+                                <option value="21">Другой</option>
+                                <option value="33">Редкие иностранные языки</option>
+                                <option value="36">Спорт и фитнес</option>
+                            </select>
+                        </td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Разделы</th>
+                        <td class="order-form-multiselect">
+                            <select multiple="multiple" class="multiselect-tag">
+                                <option>Общий курс</option>
+                                <option>Школьный курс</option>
+                            </select>
+                        </td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Дополнения</th>
+                        <td class="order-form-multiselect">
+                            <select multiple="multiple" class="multiselect-tag">
+                                <option>Дополнения</option>
+                                <option>DSD</option>
+                                <option>DSH</option>
+                                <option>Goethe-Zertifikat</option>
+                                <option>C2</option>
+                                <option>KDS</option>
+                                <option>TestDAF</option>
+                                <option>ZDaF</option>
+                                <option>ZMP</option>
+                                <option>бизнес-курс</option>
+                                <option>ЕГЭ</option>
+                                <option>ОГЭ (ГИА)</option>
+                            </select>
+                        </td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Категория ученика</th>
+                        <td><select class="form-control">
+
+                            <option value="0">Не указано</option>
+                            <option value="17">Дети 1-3 года</option>
+                            <option value="16">Дети 4-5 лет</option>
+                            <option value="1">Дети 6-7 лет</option>
+                            <option value="2">Школьники 1 класса</option>
+                            <option value="3">Школьники 2 класса</option>
+                            <option value="4">Школьники 3 класса</option>
+                            <option value="5">Школьники 4 класса</option>
+                            <option value="6">Школьники 5 класса</option>
+                            <option value="7">Школьники 6 класса</option>
+                            <option value="8">Школьники 7 класса</option>
+                            <option value="9">Школьники 8 класса</option>
+                            <option selected="selected" value="10">Школьники 9 класса</option>
+                            <option value="11">Школьники 10 класса</option>
+                            <option value="12">Школьники 11 класса</option>
+                            <option value="14">Студенты</option>
+                            <option value="15">Взрослые</option>
+
+                        </select></td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Уровень знаний</th>
+                        <td><select class="form-control">
+                            <option value="0">Не указан</option>
+                            <option value="1">С нуля</option>
+                            <option value="2">Начальный</option>
+                            <option value="3">Средний</option>
+                            <option value="4">Продвинутый</option>
+                        </select></td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Желаемая стоимость и продолжительность занятия</th>
+                        <td>
+                            <table class="order-table-price-time">
+                                <tr>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">от</div>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">до</div>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-addon order-table-price-for">за</div>
+                                            <select class="form-control">
+                                                <option value="0">60 мин.</option>
+                                                <option value="1">90 мин.</option>
+                                                <option value="2">120 мин.</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Желаемый формат занятий</th>
+                        <td>
+                            <label><input type="checkbox"> У ученика</label>
+                            <label><input type="checkbox"> У репетитора</label>
+                            <label><input type="checkbox"> Online (Skype)</label>
+                        </td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Предполагаемое число занятий</th>
+                        <td><select class="form-control"><option>Больше 10-и занятий</option></select></td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Число занятий в неделю</th>
+                        <td><select class="form-control"><option>2-3</option></select></td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Район/город проведения занятий</th>
+                        <td>
+                            <select class="form-control select-search">
+                                <option>Балашиха</option>
+                                <option>Юго-западная</option>
+                                <option>Тропарёво</option>
+                            </select>
+                        </td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Пол репетитора</th>
+                        <td>
+                            <label><input name="gender" type="radio"> Не важно</label>
+                            <label><input name="gender" type="radio"> Мужской</label>
+                            <label><input name="gender" type="radio"> Женский</label>
+                        </td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Опыт репетитора</th>
+                        <td>
+                            <table class="order-table-price-time">
+                                <tr>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">от</div>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">до</div>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Возраст репетитора</th>
+                        <td>
+                            <table class="order-table-price-time">
+                                <tr>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">от</div>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">до</div>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Статус репетитора</th>
+                        <td class="order-form-multiselect">
+                            <select multiple="multiple" class="multiselect-tag">
+                                <option>Студент</option>
+                                <option>Аспирант</option>
+                                <option>Школьный преподаватель</option>
+                                <option>Преподаватель вуза</option>
+                                <option>Частный преподаватель</option>
+                                <option>Носитель языка</option>
+                            </select>
+                        </td>
+                        <td class="order-form-comment"><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Только выбранные репетиторы</th>
+                        <td><label><input type="radio" name="only"> Да</label> <label><input type="radio" name="only"> Нет</label></td>
+                        <td class="order-form-comment"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="order-right-cell">
+                <table class="order-form order-form-right">
+                    <tr>
+                        <th>Оставлена</th>
+                        <td>12.08.2016 21:30</td>
+                    </tr>
+                    <tr>
+                        <th>Откуда была создана</th>
+                        <td>Телефон</td>
+                    </tr>
+                    <tr>
+                        <th>Зона</th>
+                        <td><select class="form-control"><option>Москва и Московская область</option></select></td>
+                    </tr>
+                    <tr>
+                        <th>Имя контактного лица</th>
+                        <td><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Телефон</th>
+                        <td class="input-group">
+                            <input type="text" class="form-control">
+                            <div class="input-group-btn">
+                                <button title="Позвонить клиенту" class="btn btn-default btn-sm"><i class="fa fa-phone"></i></button>
+                                <button title="Отправить SMS Клиенту" class="btn btn-default btn-sm">SMS</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>E-mail</th>
+                        <td class="input-group">
+                            <input type="text" class="form-control">
+                            <div class="input-group-btn">
+                                <button title="Отправить письмо клиенту" class="btn btn-default btn-sm"><i class="fa fa-envelope"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Сумма к оплате</th>
+                        <td><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Органический коэффициент</th>
+                        <td><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Оплачено</th>
+                        <td><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Id оригинальной заявки</th>
+                        <td><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>№ дубля</th>
+                        <td><input type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Следующее событие</th>
+                        <td><input type="text" disabled class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Оценка заявки администратором</th>
+                        <td><select class="form-control"><option>Отзыв не собран</option></select></td>
+                    </tr>
+                    <tr>
+                        <th>Оценка заявки клиентом</th>
+                        <td><select class="form-control"><option>Отзыв не собран</option></select></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><textarea rows="2" class="form-control" placeholder="Отзыв клиента"></textarea></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <div class="order-form-buttons">
+
+        <div class="order-form-buttons-right">
+            <div class="btn-group">
+                <button class="btn btn-sm btn-default">Сделать копию</button>
+                <button class="btn btn-sm btn-default">Сделать дубль</button>
+            </div>
+            <button class="btn btn-sm btn-default btn-task">Создать задачу</button>
+        </div>
+
+        <button class="btn btn-sm btn-primary btn-save">Сохранить</button>
+
+        <button class="btn btn-sm btn-default btn-consult">Назначить консультанта</button>
+
+        <span class="order-form-change-status">
+            <select class="form-control"><option>Контактный телефон отдан преподавателю</option></select>
+            <button class="btn btn-sm btn-default btn-save">Изменить статус</button>
+        </span>
+
+    </div>
+    
+    <div class="order-tabs-buttons">
+
+        <span class="more-data" style="position:absolute;left:100%;top:5px;margin-left:20px;white-space:nowrap;border-radius:2px;cursor:pointer;color:#aaa;">
+            Много данных
+        </span>
+
+        <div class="btn-group">
+            <a href="#" class="btn btn-default btn-sm active"><i class="fa fa-list"></i> Списком</a>
+            <a href="#" class="btn btn-default btn-sm"><i class="fa fa-map-marker"></i> На карте</a>
+        </div>
+
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">Подобрать репетиторов</a></li>
+            <li role="presentation"><a href="#">Желаемые <span class="tip">(3)</span> </a></li>
+            <li role="presentation"><a href="#">Запросы <span class="tip">(43)</span></a></li>
+            <li role="presentation"><a href="#">Подходящие <span class="tip">(8)</span> </a></li>
+            <li role="presentation"><a href="#">Неподходящие <span class="tip">(8)</span> </a></li>
+        </ul>
+
+    </div>
+
+    {% include 'nb/b_teachers.html' %}
+
+    <script>
+
+        $('.multiselect-tag').multiselect({
+            nonSelectedText: 'Выберите',
+            allSelectedText: 'Все',
+            nSelectedText: 'знаений'
+        });
+
+        /* Эмулирует увеличение данных для репетиторов. Не для продакшена. */
+        $('.more-data').click(function() {
+
+            $('.hide-data').toggle();
+            $(this).toggleText('Мало данных', 'Много данных');
+
+        });
+
+    </script>
+
+{% endblock %}

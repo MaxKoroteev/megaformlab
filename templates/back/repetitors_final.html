@@ -25,52 +25,57 @@
 
         .all {width:980px;padding:20px;margin:0 auto;}
 
-        .teacher-row {padding:10px 0;border-bottom:1px solid #aaa;font-size:12px;}
-        .teacher-row:first-child {padding-top:0;}
-            .teacher-row * {vertical-align:top;}
-            .teacher-row .fa {color:rgba(0,0,0,0.5);vertical-align:middle;}
-            .teacher-table {width:100%;}
-                .teacher-photo-cell {padding-right:10px;width:1%;}
-                    .teacher-photo {height:100px;}
-                .teacher-info-cell {padding-right:10px;}
-                    .teacher-header {line-height:17px;margin-bottom:3px;}
-                        .teacher-header .fa-check-square {color:#595;font-size:15px;}
-                        .teacher-labels {display:inline-block;}
-                            .teacher-label {display:inline-block;line-height:17px;padding:0 5px;margin-right:5px;background:#f0f0f5;border-radius:2px;}
-                            .teacher-label-preferred {background:#cef;}
-                            .teacher-label-request {background:#ddf;}
-                            .teacher-label-suit {background:#dfd;}
-                        .teacher-name {font-weight:bold;}
-                        .teacher-coef {font-weight:bold;}
-                    .teacher-stats {line-height:19px;border-top:1px solid #eee;}
-                        .teacher-stats .fa-star,
-                        .teacher-stats .fa-star-o,
-                        .teacher-stats .fa-star-half-o  {color:#fc1;font-size:15px;}
-                        .teacher-stats .fa-check-circle {color:#489;font-size:15px;}
-                    .teacher-subjects {line-height:19px;border-top:1px solid #eee;}
-                    .teacher-places   {line-height:19px;border-top:1px solid #eee;}
-                        .teacher-metro-dot {width:5px;height:5px;border-radius:5px;margin:8px 2px 5px 0;background:#e00;display:inline-block;}
-                    .teacher-comments {line-height:19px;border-top:1px solid #eee;}
-                        .teacher-subjects .fa-book           {width:16px;text-align:center;}
-                        .teacher-places   .fa-map-marker     {width:16px;text-align:center;}
-                        .teacher-comments .fa-graduation-cap {width:16px;text-align:center;}
-                .teacher-actions-cell {width:130px;}
+        .teachers-table {width:100%;}
+            .teachers-filter {width:130px;background:#f0f0f5;}
+            .teachers-list {padding-left:10px;}
+                .teacher-row {padding:10px 0;border-bottom:1px solid #aaa;font-size:12px;}
+                .teacher-row:first-child {padding-top:0;}
+                    .teacher-row * {vertical-align:top;}
+                    .teacher-row .fa {color:rgba(0,0,0,0.5);vertical-align:middle;}
+                    .teacher-table {width:100%;}
+                        .teacher-photo-cell {padding-right:10px;width:1%;}
+                            .teacher-photo {height:100px;}
+                        .teacher-info-cell {padding-right:10px;}
+                            .teacher-header {line-height:17px;margin-bottom:3px;}
+                                .teacher-header .fa-check-square {color:#595;font-size:15px;}
+                                .teacher-labels {display:inline-block;}
+                                    .teacher-label {display:inline-block;line-height:17px;padding:0 5px;margin-right:5px;background:#f0f0f5;border-radius:2px;}
+                                    .teacher-label-preferred {background:#cef;}
+                                    .teacher-label-request {background:#ddf;}
+                                    .teacher-label-suit {background:#dfd;}
+                                .teacher-name {font-weight:bold;}
+                                .teacher-coef {font-weight:bold;}
+                            .teacher-stats {line-height:19px;border-top:1px solid #eee;}
+                                .teacher-stats .fa-star,
+                                .teacher-stats .fa-star-o,
+                                .teacher-stats .fa-star-half-o  {color:#fc1;font-size:15px;}
+                                .teacher-stats .fa-check-circle {color:#489;font-size:15px;}
+                                .teacher-stats .fa-smile-o {font-size:15px;color:#595;margin-top:-2px;}
+                            .teacher-subjects {line-height:19px;border-top:1px solid #eee;}
+                            .teacher-places   {line-height:19px;border-top:1px solid #eee;}
+                                .teacher-metro-dot {width:5px;height:5px;border-radius:5px;margin:8px 2px 5px 0;background:#e00;display:inline-block;}
+                            .teacher-comments {line-height:19px;border-top:1px solid #eee;}
+                                .teacher-subjects .fa-book           {width:16px;text-align:center;}
+                                .teacher-places   .fa-map-marker     {width:16px;text-align:center;}
+                                .teacher-comments .fa-graduation-cap {width:16px;text-align:center;}
 
-                    .teacher-spread {text-align:right;margin-bottom:5px;}
-                        .teacher-spread .fa-check   {cursor:pointer;color:#fff;background:#5c5;width:40px;height:20px;line-height:20px;text-align:center;border-radius:2px;font-size:15px;}
-                        .teacher-spread .fa-comment {cursor:pointer;color:#fff;background:#55c;width:40px;height:20px;line-height:20px;text-align:center;border-radius:2px;font-size:15px;margin-left:5px;}
-                        .teacher-spread .fa-ban     {cursor:pointer;color:#fff;background:#c55;width:40px;height:20px;line-height:20px;text-align:center;border-radius:2px;font-size:15px;margin-left:5px;}
+                        .teacher-actions-cell {width:130px;}
 
-                    .teacher-call {display:block;cursor:pointer;color:#fff;background:#494;height:20px;line-height:19px;border-radius:2px;margin:8px 0 4px;width:85px;}
-                        .teacher-call .fa-phone {font-size:14px;color:#fff;width:20px;text-align:center;vertical-align:top;line-height:20px;}
+                            .teacher-spread {text-align:right;margin-bottom:5px;}
+                                .teacher-spread .fa-check   {cursor:pointer;color:#fff;background:#5c5;width:40px;height:20px;line-height:20px;text-align:center;border-radius:2px;font-size:15px;}
+                                .teacher-spread .fa-comment {cursor:pointer;color:#fff;background:#55c;width:40px;height:20px;line-height:20px;text-align:center;border-radius:2px;font-size:15px;margin-left:5px;}
+                                .teacher-spread .fa-ban     {cursor:pointer;color:#fff;background:#c55;width:40px;height:20px;line-height:20px;text-align:center;border-radius:2px;font-size:15px;margin-left:5px;}
 
-                    .teacher-call-result {margin:0 0 8px;line-height:10px;}
-                        .teacher-call-result-link {}
+                            .teacher-call {display:block;cursor:pointer;color:#fff;background:#494;height:20px;line-height:19px;border-radius:2px;margin:8px 0 4px;width:85px;}
+                                .teacher-call .fa-phone {font-size:14px;color:#fff;width:20px;text-align:center;vertical-align:top;line-height:20px;}
 
-                    .teacher-assign-group {line-height:20px;}
-                        .teacher-assign      {cursor:pointer;width:65px;text-align:center;background:#337ab7;line-height:20px;display:inline-block;border-radius:0 2px 2px 0;padding:0 5px;color:#fff;}
-                        .teacher-auto-assign {cursor:pointer;width:65px;text-align:center;background:#f0f0f5;line-height:18px;display:inline-block;border-radius:2px 0 0 2px;padding:0 5px 0 4px;color:#337ab7;border:1px solid #ccc;border-right:0;}
-                            .teacher-auto-assign .fa {line-height:18px;vertical-align:top;}
+                            .teacher-call-result {margin:0 0 8px;line-height:10px;}
+                                .teacher-call-result-link {}
+
+                            .teacher-assign-group {line-height:20px;}
+                                .teacher-assign      {cursor:pointer;width:65px;text-align:center;background:#337ab7;line-height:20px;display:inline-block;border-radius:0 2px 2px 0;padding:0 5px;color:#fff;}
+                                .teacher-auto-assign {cursor:pointer;width:65px;text-align:center;background:#f0f0f5;line-height:18px;display:inline-block;border-radius:2px 0 0 2px;padding:0 5px 0 4px;color:#337ab7;border:1px solid #ccc;border-right:0;}
+                                    .teacher-auto-assign .fa {line-height:18px;vertical-align:top;}
 
         .tabs {border-bottom:1px solid #ddd;margin-bottom:20px;width:100%;}
         .tabs-wide {width:100%;margin-left:-20px;padding:0 20px;}
@@ -159,92 +164,93 @@
             <a href="#" class="tab">Подходящие <span>(8)</span></a>
             <a href="#" class="tab">Желаемые <span>(3)</span></a>
             <a href="#" class="tab">Запросы <span>(43)</span></a>
+            <a href="#" class="tab">Не подходящие <span>(21)</span></a>
 
         </div>
-        <table style="width:100%;">
+
+        <table class="teachers-table">
             <tr>
-                <td style="vertical-align:top;width:130px;">
-                    <div style="background:#f0f0f5;color:#ccc;font-size:30px;text-align:center;padding:50px 0;height:1075px;">Фильтр</div>
+                <td class="teachers-filter">
+                    Фильтр
                 </td>
-                <td style="padding-left:10px;vertical-align:top;">
+                <td class="teachers-list">
 
+                {% for i in '123456789' %}
+                    <div class="teacher-row" {% if i == '5' %}style="opacity:0.25"{% endif %}>
+                        <table class="teacher-table">
+                            <tr>
+                                <td class="teacher-photo-cell">
+                                    <a href="#">
+                                        <img src="http://www.img.repetit.ru/photo/teacher_5399.jpg" class="teacher-photo">
+                                    </a>
+                                </td>
+                                <td class="teacher-info-cell">
+                                    <div class="teacher-header">
+                                        <a href="#" class="teacher-name">Константинова Клавдия Владимировна</a>
+                                        <i class="fa fa-check-square" title="Можно оставлять заявки"></i>
+                                        <span class="teacher-coef">Коэф=1,85</span>
+                                        <span class="teacher-labels">
+                                            <span class="teacher-label teacher-label-preferred">Желаемый</span>
+                                            <span class="teacher-label teacher-label-request">Запрос</span>
+                                            <span class="teacher-label teacher-label-suit">Подходящий</span>
+                                        </span>
+                                    </div>
+                                    <div class="teacher-stats">
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i>
+                                        3 |
+                                        <i class="fa fa-comment"></i> 10 |
+                                        <i class="fa fa-smile-o"></i> 40,6 |
+                                        Б: +5950 |
+                                        П/б: +5950 |
+                                        <a href="#">Заявки</a> |
+                                        <i class="fa fa-check-circle" title="Верификация пройдена"></i> |
+                                        Частный преподаватель |
+                                        35 лет
+                                    </div>
+                                    <div class="teacher-subjects">
 
-        {% for i in '123456789' %}
-            <div class="teacher-row" {% if i == '5' %}style="opacity:0.25"{% endif %}>
-                <table class="teacher-table">
-                    <tr>
-                        <td class="teacher-photo-cell">
-                            <a href="#">
-                                <img src="http://www.img.repetit.ru/photo/teacher_5399.jpg" class="teacher-photo">
-                            </a>
-                        </td>
-                        <td class="teacher-info-cell">
-                            <div class="teacher-header">
-                                <a href="#" class="teacher-name">Константинова Клавдия Владимировна</a>
-                                <i class="fa fa-check-square" title="Можно оставлять заявки"></i>
-                                <span class="teacher-coef">Коэф=1,85</span>
-                                <span class="teacher-labels">
-                                    <span class="teacher-label teacher-label-preferred">Желаемый</span>
-                                    <span class="teacher-label teacher-label-request">Запрос</span>
-                                    <span class="teacher-label teacher-label-suit">Подходящий</span>
-                                </span>
-                            </div>
-                            <div class="teacher-stats">
-                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i>
-                                3 |
-                                <i class="fa fa-comment"></i> 10 |
-                                Р: 40,6 |
-                                Б: +5950 |
-                                П/б: +5950 |
-                                <a href="#">Заявки</a> |
-                                <i class="fa fa-check-circle" title="Верификация пройдена"></i> |
-                                Частный преподаватель |
-                                35 лет
-                            </div>
-                            <div class="teacher-subjects">
+                                        <i class="fa fa-book" title="Предметы"></i>
 
-                                <i class="fa fa-book" title="Предметы"></i>
+                                        <b>Математика</b>
+                                        <i class="fa fa-home" title="У себя"></i> 1200,
+                                        <i class="fa fa-car" title="У ученика"></i> 2000,
+                                        <i class="fa fa-skype" title="Online"></i> 1000 |
 
-                                <b>Математика</b>
-                                <i class="fa fa-home" title="У себя"></i> 1200,
-                                <i class="fa fa-car" title="У ученика"></i> 2000,
-                                <i class="fa fa-skype" title="Online"></i> 1000 |
+                                        <b>Русский язык</b>
+                                        <i class="fa fa-home" title="У себя"></i> 1200,
+                                        <i class="fa fa-car" title="У ученика"></i> 2000,
+                                        <i class="fa fa-skype" title="Online"></i> 1000
 
-                                <b>Русский язык</b>
-                                <i class="fa fa-home" title="У себя"></i> 1200,
-                                <i class="fa fa-car" title="У ученика"></i> 2000,
-                                <i class="fa fa-skype" title="Online"></i> 1000
-
-                            </div>
-                            <div class="teacher-places">
-                                <i class="fa fa-map-marker" title="Адреса"></i> <span class="teacher-metro-dot"></span><b>Юго-Западная</b>, Ленинский пр., 156 <i class="fa fa-home" title="Проводятся занятие у репетитора"></i> <i class="fa fa-car" title="Проводится выезд"></i> | <span class="teacher-metro-dot"></span><b>Тёплый Стан</b>, Ленинский пр., 156 <i class="fa fa-car" title="Проводится выезд"></i>
-                            </div>
-                            <div class="teacher-comments">
-                                <i class="fa fa-graduation-cap" title="Комментарий репетитора"></i> Я бы взял эту заявку, но только если на выходные |
-                                <i class="fa fa-comment" title="Комментарий сотрудника"></i> На выходные не получится
-                            </div>
-                        </td>
-                        <td class="teacher-actions-cell">
-                            <div class="teacher-spread">
-                                   <span class="fa fa-check" title="Подходящий репетитор"></span><!--
-                                --><span class="fa fa-comment" title="Подходящий с условиями"></span><!--
-                                --><span class="fa fa-ban" title="Не подходящий репетитор"></span>
-                            </div>
-                            <span class="teacher-call">
-                                <span class="fa fa-phone"></span>Позвонить
-                            </span>
-                            <div class="teacher-call-result">
-                                <a href="#" class="teacher-call-result-link">Репетитор согласился с доп. условиями</a>
-                            </div>
-                            <div class="teacher-assign-group">
-                                <span class="teacher-auto-assign"><i class="fa fa-toggle-off"></i> Авто</span><!--
-                                --><span class="teacher-assign">Назначить</span>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        {% endfor %}
+                                    </div>
+                                    <div class="teacher-places">
+                                        <i class="fa fa-map-marker" title="Адреса"></i> <span class="teacher-metro-dot"></span><b>Юго-Западная</b>, Ленинский пр., 156 <i class="fa fa-home" title="Проводятся занятия (15 минут от метро)"></i> <i class="fa fa-car" title="Проводится выезд (не более 40 минут от своего района)"></i> | <span class="teacher-metro-dot"></span><b>Тёплый Стан</b>, Ленинский пр., 156 <i class="fa fa-car" title="Проводится выезд (не более 40 минут от своего района)"></i>
+                                    </div>
+                                    <div class="teacher-comments">
+                                        <i class="fa fa-graduation-cap" title="Комментарий репетитора"></i> Я бы взял эту заявку, но только если на выходные |
+                                        <i class="fa fa-comment" title="Комментарий сотрудника"></i> На выходные не получится
+                                    </div>
+                                </td>
+                                <td class="teacher-actions-cell">
+                                    <div class="teacher-spread">
+                                           <span class="fa fa-check" title="Подходящий репетитор"></span><!--
+                                        --><span class="fa fa-comment" title="Подходящий с условиями"></span><!--
+                                        --><span class="fa fa-ban" title="Не подходящий репетитор"></span>
+                                    </div>
+                                    <span class="teacher-call">
+                                        <span class="fa fa-phone"></span>Позвонить
+                                    </span>
+                                    <div class="teacher-call-result">
+                                        <a href="#" class="teacher-call-result-link">Репетитор согласился с доп. условиями</a>
+                                    </div>
+                                    <div class="teacher-assign-group">
+                                        <span class="teacher-auto-assign"><i class="fa fa-toggle-off"></i> Авто</span><!--
+                                        --><span class="teacher-assign">Назначить</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                {% endfor %}
 
                 {% include 'back/b_pagination.html' %}
 

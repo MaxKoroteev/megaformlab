@@ -1,0 +1,617 @@
+    <style>
+        .teachers-table {width:100%;}
+
+            .teachers-list {padding-left:15px;}
+                .teacher-row {padding:15px 0;border-bottom:1px solid #ccc;font-size:12px;}
+                .teacher-row:first-child {padding-top:0;}
+                    .teacher-row * {vertical-align:top;}
+                    .teacher-row .fa {font-size:14px;color:#999;height:14px;}
+                    .teacher-row a.fa, .teacher-row a .fa {color:#337ab7;}
+                    .teacher-item {width:100%;}
+
+                        .teacher-item .dropdown {display:inline;}
+                            .teacher-item .dropdown-menu  {margin-left:-200px;width:400px;padding:10px;}
+                            .teacher-item .dropdown-map   {width:auto;padding:0;margin:0;right:0;left:auto;}
+                            .teacher-item .dropdown-table {margin-left:-200px;width:400px;padding:0;border-top:0;}
+                                .teacher-item .dropdown-table table {margin:0;}
+
+                        .teacher-photo-cell {width:75px;padding-right:10px;}
+                            .teacher-photo-cell a {display:block;position:relative;width:65px;height:105px;}
+                                .teacher-photo {height:105px;}
+                                .teacher-photo-cell.zoomed .teacher-photo {position:absolute;width:90px;height:145px;right:0;bottom:0;box-shadow:0 0 5px rgba(0,0,0,0.25);}
+                                .teacher-photo-cell .fa.teacher-zoom-photo {position:absolute;bottom:0;right:0;color:#999;background:#fff;font-size:10px;text-align:center;line-height:15px;width:14px;height:14px;border-radius:2px 0 0 0;}
+                                .teacher-photo-cell.zoomed .fa.teacher-zoom-photo {background:transparent;color:transparent;}
+                        .teacher-info-cell {}
+                            .teacher-header {line-height:14px;margin-bottom:4px;}
+                                .teacher-header .fa-map-marker {font-size:15px;}
+                                .teacher-name {font-weight:bold;}
+                                .teacher-education {color:#337ab7;cursor:default;}
+                            .teacher-stats {line-height:14px;margin-bottom:4px;}
+
+                                .teacher-stars {margin-right:2px;font-size:0;} /* STARS */
+                                .teacher-stats .fa {}
+                                .teacher-stats .fa-star,
+                                .teacher-stats .fa-star-o,
+                                .teacher-stats .fa-star-half-o  {color:#fa4;}
+                                .teacher-stats .fa-comment      {}
+                                .teacher-stats .fa-check-circle {color:#5cb85c;margin-right:2px;}
+                                .teacher-stats .fa-thumbs-up    {color:#5cb85c;margin-right:2px;}
+                                .teacher-stats .fa-thumbs-down  {color:#d9534f;margin-right:2px;}
+
+                                .teacher-stats .fa-money        {margin-right:2px;}
+                                .teacher-stats .fa-credit-card  {margin-right:2px;}
+                                .teacher-stats .fa-fa-table     {margin-right:2px;}
+
+                                .teacher-stats .fa-clock-o      {color:#d9534f;}
+                                .teacher-stats .fa-ban          {color:#d9534f;}
+                                .teacher-stats .fa-info         {color:#5bc0de;}
+
+                            .teacher-subjects-table {margin-bottom:5px;width:589px;border:1px solid #ccc;border-bottom:0;}
+
+                                .teacher-subjects-table .fa {margin-top:2px;color:#999;}
+                                .teacher-subjects-table .fa-skype {margin-top:3px;color:#5bc0de;}
+                                .teacher-subjects-table th, .teacher-subjects-table td {line-height:19px;border-bottom:1px solid #ccc;}
+                                .teacher-subjects-table td {width:1px;white-space:nowrap;padding:0 10px 0 5px;}
+                                .teacher-subjects-table th {padding-left:5px;}
+
+                                .teacher-subject-header th,
+                                .teacher-subject-header td {background:#f9f9fa;cursor:default;}
+                                .teacher-subject-header:hover th,
+                                .teacher-subject-header:hover td {background:#f1f1f5;}
+
+                                    .teacher-subject-time {margin-top:2px;padding:0 3px;height:15px;line-height:15px;background:#999;color:#fff;text-align:center;font-weight:bold;font-size:10px;border-radius:10px;display:inline-block;cursor:default;}
+
+                                .teacher-subject-body {display:none;}
+                                .teacher-subject-body.expanded {display:table-row;}
+                                    .teacher-subject-body span {color:#999;}
+
+                            .teacher-places {margin-bottom:5px;width:589px;border:1px solid #ccc;border-bottom:0;}
+                                .teacher-places .fa {margin-top:2px;}
+                            .teacher-places th, .teacher-places td {line-height:19px;border-bottom:1px solid #ccc;width:1px;white-space:nowrap;padding:0 5px;}
+                            .teacher-places td {}
+                                .teacher-metro-dot {width:4px;height:4px;border-radius:5px;margin:8px 2px 0 0;background:#e00;display:inline-block;}
+
+                                td.teacher-places-home {padding-left:10px;}
+                                td.teacher-places-map {padding-left:10px;}
+                                td.teacher-place-address {width:auto;white-space:normal;}
+
+                            .teacher-order-info {line-height:14px;}
+
+                                .teacher-order-info .fa {margin-top:1px;}
+
+                                .teacher-order-comment {display:inline-block;}
+
+                                .teacher-order-info .fa-gift {color:#337ab7;}
+                                .teacher-order-info .fa-info-circle {color:#5bc0de;}
+                                .teacher-order-info .fa-check-square {color:#5cb85c;}
+                                .teacher-order-info .fa-asterisk {color:#000;}
+
+
+                        .teacher-actions-cell {width:140px;padding-left:10px;}
+
+                            .teacher-suit {font-size:0;}
+                            .teacher-suit .btn {cursor:pointer;width:40px;height:22px;line-height:20px;text-align:center;border-radius:2px;padding:0;font-size:14px;margin-left:5px;}
+                            .teacher-suit .btn:first-child {margin-left:0;}
+                            .teacher-suit .btn .fa {vertical-align:top;margin-top:3px;}
+
+                            .teacher-call-result {font-size:12px;line-height:12px;display:inline-block;margin:5px 0 5px;}
+                            .teacher-actions-cell .btn-wide {width:100%;text-align:left;margin-top:5px;}
+                            .teacher-actions-cell .btn-wide .fa {width:14px;vertical-align:top;margin-top:2px;text-align:center;font-size:14px;margin-right:2px;}
+
+                            .teacher-actions-cell .fa-toggle-off {margin-top:2px;}
+                            .teacher-actions-cell .fa-toggle-on {margin-top:2px;}
+
+                            .teacher-actions-cell .btn-group {width:100%;}
+                                .btn-auto {width:45%;}
+                                .btn-assign {width:55%;}
+    </style>
+
+    <table class="teachers-table">
+        <tr>
+            <td class="filter">
+
+                <div class="filter-block">
+                    <div><label><input name="common" type="checkbox"> С фото</label></div>
+                    <div><label><input name="common" type="checkbox"> Верифицированные</label></div>
+                    <div><label><input name="common" type="checkbox"> Можно отдавать заявки</label></div>
+                    <div><label><input name="common" type="checkbox"> Нуждается в учениках</label></div>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Зона</div>
+                    <select class="form-control select-search">
+                        <option>Москва и Московская область</option>
+                    </select>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Район</div>
+                    <select class="form-control select-search">
+                        <option>Балашиха</option>
+                        <option>Юго-западная</option>
+                        <option>Тропарёво</option>
+                    </select>
+                </div>
+
+                <div class="filter-subject-block">
+
+                    <div class="filter-block">
+                        <div class="filter-title">Предмет 1</div>
+                        <select class="form-control">
+                            <option>Математика</option>
+                            <option selected>Русский язык</option>
+                            <option>Литература</option>
+                        </select>
+                    </div>
+
+
+                    <div class="filter-block">
+                        <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Разделы</div>
+                        <div class="filter-content">
+                            <label><input type="checkbox"> Школьный курс</label>
+                            <label><input type="checkbox"> Вузовский курс</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-block">
+                        <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Дополнения</div>
+                        <div class="filter-content">
+                            <label><input type="checkbox"> ЕГЭ</label>
+                            <label><input type="checkbox"> ГИА</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="filter-subject-block">
+
+                    <i title="Убрать предмет" class="fa fa-times filter-subject-close"></i>
+
+                    <div class="filter-block">
+                        <div class="filter-title">Предмет 2</div>
+                        <select class="form-control">
+                            <option>Математика</option>
+                            <option>Русский язык</option>
+                            <option>Литература</option>
+                        </select>
+                    </div>
+
+
+                    <div class="filter-block">
+                        <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Разделы</div>
+                        <div class="filter-content">
+                            <label><input type="checkbox"> Школьный курс</label>
+                            <label><input type="checkbox"> Вузовский курс</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-block">
+                        <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Дополнения</div>
+                        <div class="filter-content">
+                            <label><input type="checkbox"> ЕГЭ</label>
+                            <label><input type="checkbox"> ГИА</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="btn btn-primary btn-xs btn-add-subject"><i class="fa fa-plus"></i> Указать ещё предмет</button>
+
+                <div class="filter-block">
+                    <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Формат</div>
+                    <div class="filter-content">
+                        <label><input type="checkbox"> У репетитора</label>
+                        <label><input type="checkbox"> У ученика</label>
+                        <label><input type="checkbox"> Online (Skype)</label>
+                    </div>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Категория ученика</div>
+                    <div class="filter-content">
+
+                            <div class="filter-title">Дошкольники (Лет)</div>
+                            <label><input type="checkbox"> 1-3</label>
+                            <label><input type="checkbox"> 4-5</label>
+                            <label><input type="checkbox"> 6-7</label>
+
+                            <div class="filter-title">Школьники (класс)</div>
+                            <label><input type="checkbox"> 1</label>
+                            <label><input type="checkbox"> 2</label>
+                            <label><input type="checkbox"> 3</label>
+                            <label><input type="checkbox"> 4</label>
+                            <label><input type="checkbox"> 5</label>
+                            <label><input type="checkbox"> 6</label>
+                            <label><input type="checkbox"> 7</label>
+                            <label><input type="checkbox"> 8</label>
+                            <label><input type="checkbox"> 9</label>
+                            <label><input type="checkbox"> 10</label>
+                            <label><input type="checkbox"> 11</label>
+
+                            <div class="filter-title">Студенты и взрослые</div>
+                            <label><input type="checkbox"> Студенты</label>
+                            <label><input type="checkbox"> Взрослые</label>
+
+                    </div>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Статус репетитора</div>
+                    <div class="filter-content">
+                        <div><label><input type="checkbox"> Студент</label></div>
+                        <div><label><input type="checkbox"> Аспирант</label></div>
+                        <div><label><input type="checkbox"> Школьный преподаватель</label></div>
+                        <div><label><input type="checkbox"> Преподаватель вуза</label></div>
+                        <div><label><input type="checkbox"> Частный преподаватель</label></div>
+                        <div><label><input type="checkbox"> Носитель языка</label></div>
+                    </div>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Пол репетитора</div>
+                    <div class="filter-content">
+                        <div><label><input type="radio" name="gender"> Любой</label></div>
+                        <div><label><input type="radio" name="gender"> Мужской</label></div>
+                        <div><label><input type="radio" name="gender"> Женский</label></div>
+                    </div>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Цена</div>
+                    <table class="filter-range">
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="от"></td>
+                            <td>&nbsp;-&nbsp;</td>
+                            <td><input type="text" class="form-control" placeholder="до"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Возраст</div>
+                    <table class="filter-range">
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="от"></td>
+                            <td>&nbsp;-&nbsp;</td>
+                            <td><input type="text" class="form-control" placeholder="до"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Опыт</div>
+                    <table class="filter-range">
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="от"></td>
+                            <td>&nbsp;-&nbsp;</td>
+                            <td><input type="text" class="form-control" placeholder="до"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Вуз</div>
+                    <select class="form-control select-search">
+                        <option>МГУ</option>
+                        <option>МГТУ</option>
+                        <option>РГАИС</option>
+                    </select>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">ID</div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">ФИО</div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Телефон</div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Email</div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Ключевое слово</div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Анкеты</div>
+                    <select class="form-control">
+                        <option>Все</option>
+                        <option>Подтверждённые</option>
+                        <option>Неподтверждённые</option>
+                    </select>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Регистратор</div>
+                    <select class="form-control select-search">
+                        <option>Иванов</option>
+                        <option>Петров</option>
+                        <option>Сидоров</option>
+                    </select>
+                </div>
+
+                <div class="filter-float-submit"><button class="btn btn-primary btn-sm">Показать задачи</button></div>
+
+                <button class="btn btn-primary btn-sm btn-filter-submit">Показать задачи</button>
+
+            </td>
+            <td class="teachers-list">
+
+            {% for i in '123456789' %}
+                <div class="teacher-row" {% if i == '5' %}style="opacity:0.25"{% endif %}>
+                    <table class="teacher-item">
+                        <tr>
+                            <td class="teacher-photo-cell">
+                                <a href="#">
+                                    <img src="http://www.img.repetit.ru/photo/teacher_5399.jpg" class="teacher-photo">
+                                    <i class="fa fa-plus teacher-zoom-photo"></i>
+                                </a>
+                            </td>
+                            <td class="teacher-info-cell">
+                                <div class="teacher-header">
+
+                                    <a href="#" class="teacher-name">Константинова Клавдия Владимировна</a>
+
+                                    <i class="sep"></i>
+
+                                    <i class="fa fa-birthday-cake" title="Возраст"></i> 35
+
+                                    <i class="sep"></i>
+
+                                    <i class="fa fa-graduation-cap" title="Опыт (лет)"></i> 10
+
+                                    <i class="sep"></i>
+
+                                    <span class="teacher-education" title="МГУ им. Ломоносова">Преподаватель вуза</span>
+
+                                    <i class="sep"></i>
+
+                                    <div class="dropdown">
+                                        <a href="#" class="fa fa-graduation-cap dropdown-toggle" data-toggle="dropdown" title="Показать образование репетитора"></a>
+                                        <div class="dropdown-menu dropdown-table">
+                                            <table class="table table-condensed table-striped">
+                                                <tr>
+                                                    <th>Вуз</th>
+                                                    <th>Год</th>
+                                                    <th>Факультет</th>
+                                                    <th>Специальность</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>МГУ</td>
+                                                    <td>'85</td>
+                                                    <td>юридический факультет</td>
+                                                    <td>юрист-международник</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>МГУ</td>
+                                                    <td>'90</td>
+                                                    <td>факультет экономики</td>
+                                                    <td>экономис</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <i class="sep"></i>
+
+                                    <div class="dropdown">
+                                        <a href="#" class="fa fa-file-text-o" data-toggle="dropdown" title="Показать о себе"></a>
+                                        <div class="dropdown-menu">
+                                            Я математику люблю
+                                        </div>
+                                    </div>
+
+                                    <i class="sep"></i>
+
+                                    <i class="fa fa-venus" title="Жен."></i>
+
+                                    <i class="sep"></i>
+
+                                    <i class="fa fa-map-marker" title="Москва и Московская область"></i>
+
+                                </div>
+                                <div class="teacher-stats">
+                                    <span class="teacher-stars" title="Оценки">
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i>
+                                    </span>300 <i class="sep"></i>
+                                    <i class="fa fa-comment" title="Отзывы"></i>100 <i class="sep"></i>
+                                    <i class="fa fa-thumbs-up" title="Рейтинг"></i>40,6 <i class="sep"></i>
+                                    <i class="fa fa-money" title="Баланс"></i>+15950 <i class="sep"></i>
+                                    <i class="fa fa-credit-card" title="Предположительный баланс"></i>+15950 <i class="sep"></i>
+
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Показать историю заявок"><i class="fa fa-table"></i>+102/-500</a>
+                                        <div class="dropdown-menu dropdown-table">
+                                            <table class="table table-condensed table-striped">
+                                                <tr>
+                                                    <th>Заявка</th>
+                                                    <th>Статус</th>
+                                                    <th>Коэф.</th>
+                                                    <th>Оценка</th>
+                                                </tr>
+                                                {% for i in '1234567890' %}
+                                                <tr>
+                                                    <td><a href="#">Заявка № 350487</a></td>
+                                                    <td>Оплачена</td>
+                                                    <td>2,15</td>
+                                                    <td>-2+1</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <i class="sep"></i>
+                                    <i class="fa fa-check-circle" title="Верификация пройдена"></i>
+                                    <i class="sep"></i>
+                                    <i class="fa fa-clock-o" title="Не нуждается в учениках до 02.08.2020"></i>
+                                    <i class="sep"></i>
+                                    <i class="fa fa-ban" title="Запрещено отдавать заявки"></i>
+                                    <i class="sep"></i>
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Показать комментарий сотрудника"><i class="fa fa-info"></i></a>
+                                        <div class="dropdown-menu">
+                                            Аллергия на кошек и собак.
+                                        </div>
+                                    </div>
+                                    <i class="sep"></i> <span title="ID">23675432</span>
+
+                                </div>
+
+                                <table class="teacher-subjects-table">
+                                    <tr class="teacher-subject-header">
+                                        <th><i class="fa fa-chevron fa-chevron-down"></i> Математика</th>
+                                        <td><span class="teacher-subject-time" title="Минимальная предолжительность одного занятия">120</span></td>
+                                        <td><i class="fa fa-graduation-cap" title="У репетитора"></i> от <b>1200</b> р/ч</td>
+                                        <td><i class="fa fa-user" title="У ученика"></i> от <b>2000</b> р/ч</td>
+                                        <td><i class="fa fa-skype" title="Комментарий к удалённым занятиям"></i> от <b>1000</b> р/ч</td>
+                                    </tr>
+                                    <tr class="teacher-subject-body">
+                                        <td colspan="5">
+                                            <i class="fa fa-sitemap" title="Разделы"></i>  школьный курс <i class="sep"></i>
+                                            <i class="fa fa-puzzle-piece" title="Дополнения"></i> ОГЭ (ГИА) ЕГЭ <i class="sep"></i>
+                                            <i class="fa fa-users" title="Категории учеников"></i> школьники 5-11 классов <i class="sep"></i>
+                                            <i class="fa fa-graduation-cap" title="Уровень знаний"></i> начальный
+                                        </td>
+                                    </tr>
+
+                                    {# HIDDEN #}
+                                    <tr class="teacher-subject-header hide-data" style="display:none;">
+                                        <th><i class="fa fa-chevron fa-chevron-down"></i> Математика</th>
+                                        <td><span class="teacher-subject-time" title="Минимальная предолжительность одного занятия">120</span></td>
+                                        <td><i class="fa fa-graduation-cap" title="У репетитора"></i> от <b>1200</b> р/ч</td>
+                                        <td><i class="fa fa-user" title="У ученика"></i> от <b>2000</b> р/ч</td>
+                                        <td><i class="fa fa-skype" title="Комментарий к удалённым занятиям"></i> от <b>1000</b> р/ч</td>
+                                    </tr>
+                                    <tr class="teacher-subject-body">
+                                        <td colspan="5">
+                                            <i class="fa fa-sitemap" title="Разделы"></i>  школьный курс <i class="sep"></i>
+                                            <i class="fa fa-puzzle-piece" title="Дополнения"></i> ОГЭ (ГИА) ЕГЭ <i class="sep"></i>
+                                            <i class="fa fa-users" title="Категории учеников"></i> школьники 5-11 классов
+                                        </td>
+                                    </tr>
+
+                                    <tr class="teacher-subject-header hide-data" style="display:none;">
+                                        <th><i class="fa fa-chevron fa-chevron-down"></i> Математика</th>
+                                        <td><span class="teacher-subject-time" title="Минимальная предолжительность одного занятия">120</span></td>
+                                        <td><i class="fa fa-graduation-cap" title="У репетитора"></i> от <b>1200</b> р/ч</td>
+                                        <td><i class="fa fa-user" title="У ученика"></i> от <b>2000</b> р/ч</td>
+                                        <td><i class="fa fa-skype" title="Комментарий к удалённым занятиям"></i> от <b>1000</b> р/ч</td>
+                                    </tr>
+                                    <tr class="teacher-subject-body">
+                                        <td colspan="5">
+                                            <i class="fa fa-sitemap" title="Разделы"></i>  школьный курс <i class="sep"></i>
+                                            <i class="fa fa-puzzle-piece" title="Дополнения"></i> ОГЭ (ГИА) ЕГЭ <i class="sep"></i>
+                                            <i class="fa fa-users" title="Категории учеников"></i> школьники 5-11 классов
+                                        </td>
+                                    </tr>
+                                    {# ENDHIDDEN #}
+
+                                </table>
+
+
+
+                                <table class="teacher-places">
+                                    <tr>
+                                        <th><span class="teacher-metro-dot"></span><b>Юго-Западная</b></th>
+                                        <td class="teacher-place-address">Ленинский проспект, 150/3</td>
+                                        <td><i class="fa fa-car" title="Проводится выезд"></i> не более 40 мин. от своего района</td>
+                                        <td class="teacher-places-home"><i class="fa fa-home" title="Проводится занятия (15 мин. от метро)"></i> </td>
+                                        <td class="teacher-places-map">
+                                            <div class="dropdown">
+                                                <a href="#" class="fa fa-map-marker dropdown-toggle" data-toggle="dropdown" title="Показать карту"></a>
+                                                <div class="dropdown-menu dropdown-map">
+                                                    <img src="http://itc.ua/wp-content/uploads/narodnayakarta.png">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    {# HIDDEN #}
+                                    <tr class="hide-data" style="display:none;">
+                                        <th><span class="teacher-metro-dot"></span><b>Юго-Западная</b></th>
+                                        <td class="teacher-place-address">Ленинский проспект, 150/3</td>
+                                        <td><i class="fa fa-car" title="Проводится выезд"></i> не более 40 мин. от своего района</td>
+                                        <td class="teacher-places-home"><i class="fa fa-home" title="Проводится занятия (15 мин. от метро)"></i> </td>
+                                        <td class="teacher-places-map">
+                                            <div class="dropdown">
+                                                <a href="#" class="fa fa-map-marker dropdown-toggle" data-toggle="dropdown" title="Показать карту"></a>
+                                                <div class="dropdown-menu dropdown-map">
+                                                    <img src="http://itc.ua/wp-content/uploads/narodnayakarta.png">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {# ENDHIDDEN #}
+
+                                </table>
+
+                                <div class="teacher-order-info">
+                                    <i class="fa fa-gift" title="Желаемый"></i>
+                                    <i class="fa fa-info-circle" title="Запрос"></i>
+                                    <i class="fa fa-check-square" title="Подходящий"></i>
+                                    <i class="sep"></i>
+                                    <b><i class="fa fa-asterisk" title="Коэффициент"></i> 1.25</b>
+                                    <span class="teacher-order-comment"><i class="sep"></i> <i class="fa fa-graduation-cap" title="Запрос репетитора"></i> Возьму, если договоримся о формате</span>
+                                    <span class="teacher-order-comment"><i class="sep"></i> <i class="fa fa-black-tie" title="Комментарий сотрудника"></i> По формальным критериям</span>
+                                </div>
+                            </td>
+                            <td class="teacher-actions-cell">
+
+                                <div class="teacher-suit">
+                                    <span class="btn btn-default btn-xs" title="Подходящий репетитор"><i class="fa fa-check"></i></span>
+                                    {% if i == '3' %}
+                                        <span class="btn btn-default btn-xs active" title="Только если получится по выходным, и без кошек в доме."><i class="fa fa-comment"></i></span>
+                                    {% else %}
+                                        <span class="btn btn-default btn-xs" title="Подходящий с условиями"><i class="fa fa-comment"></i></span>
+                                    {% endif %}
+                                    <span class="btn btn-default btn-xs" title="Неподходящий репетитор"><i class="fa fa-ban"></i></span>
+                                </div>
+
+                                <button class="btn btn-default btn-xs btn-wide"><i class="fa fa-phone"></i> Позвонить</button>
+
+                                <a href="#" class="teacher-call-result">Репетитор согласился с доп. условиями</a>
+
+                                <div class="btn-group">
+                                    <button class="btn btn-default btn-auto   btn-xs active"><i class="fa fa-toggle-on"></i> Авто</button>
+                                    <button class="btn btn-default btn-assign btn-xs"><!--i class="fa fa-certificate"></i--> Назначить</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            {% endfor %}
+
+            </td>
+        </tr>
+    </table>
+
+    <script>
+
+    /* Увеличиваем фоточку */
+    $('.teacher-photo-cell').click(function(e){
+        $('.teacher-photo-cell.zoomed').not($(this).closest('.teacher-photo-cell.zoomed')).removeClass('zoomed');
+        $(this).closest('.teacher-photo-cell').toggleClass('zoomed');
+        e.preventDefault();
+        e.stopPropagation();
+    });
+    $('body').click(function(){$('.teacher-photo-cell.zoomed').removeClass('zoomed');});
+
+    /* Гармошка для предметов */
+    $('.teacher-subject-header').on('click', function() {
+        $(this).next('.teacher-subject-body').toggleClass('expanded');
+        $(this).find('.fa-chevron').toggleClass('fa-chevron-down').toggleClass('fa-chevron-up');
+    });
+
+    </script>

@@ -1,0 +1,154 @@
+{% extends 'nb/home.html' %}
+
+{% block content %}
+
+    <style>
+
+        .tasks-main-table {width:100%;margin-top:15px;}
+
+            .tasks-main-table .filter {border-right:0;padding-top:2px;width:205px;}
+
+            .tasks-table {}
+
+                .tasks-table th,
+                .tasks-table td {white-space:nowrap;width:1%;vertical-align:middle;line-height:15px;padding:5px 10px;border-bottom:1px solid #ccc;}
+
+                .tasks-table td:first-child {border-left:1px solid #ccc;}
+                .tasks-table td:last-child {border-right:1px solid #ccc;}
+
+                .tasks-table th {color:#999;padding:0 10px 5px;}
+
+                .tasks-table th.tasks-table-title,
+                .tasks-table td.tasks-table-title,
+                .tasks-table th.tasks-table-comment,
+                .tasks-table td.tasks-table-comment {white-space:normal;width:auto;}
+
+    </style>
+
+
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><span>Задачи</span></li>
+        <li role="presentation"><a href="#">Мои задачи</a></li>
+    </ul>
+
+    <table class="tasks-main-table">
+        <tr>
+            <td class="filter">
+
+                <div class="filter-block">
+                    <div class="filter-title">ID задачи</div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Название</div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Сотрудник</div>
+                    <select class="form-control select-search">
+                        <option>Коротеев М.В.</option>
+                        <option>Иванов М.В.</option>
+                    </select>
+                </div>
+
+                <div class="filter-block active">
+                    <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Статус</div>
+                    <div class="filter-content">
+                        <div><label><input type="checkbox"> Назначена</label></div>
+                        <div><label><input type="checkbox"> В работе</label></div>
+                        <div><label><input type="checkbox"> Выполнена</label></div>
+                        <div><label><input type="checkbox"> Отменена</label></div>
+                        <div><label><input type="checkbox"> Открыта заново</label></div>
+                        <div><label><input type="checkbox"> Трудности при выполнении</label></div>
+                    </div>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Дата создания</div>
+                    <table class="filter-range">
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="с"></td>
+                            <td>&nbsp;-&nbsp;</td>
+                            <td><input type="text" class="form-control" placeholder="по"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Дата начала</div>
+                    <table class="filter-range">
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="с"></td>
+                            <td>&nbsp;-&nbsp;</td>
+                            <td><input type="text" class="form-control" placeholder="по"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Выполнить до</div>
+                    <table class="filter-range">
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="с"></td>
+                            <td>&nbsp;-&nbsp;</td>
+                            <td><input type="text" class="form-control" placeholder="по"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Завершена</div>
+                    <table class="filter-range">
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="с"></td>
+                            <td>&nbsp;-&nbsp;</td>
+                            <td><input type="text" class="form-control" placeholder="по"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="filter-float-submit"><button class="btn btn-primary btn-sm">Показать задачи</button></div>
+
+                <button class="btn btn-primary btn-sm btn-filter-submit">Показать задачи</button>
+
+            </td>
+            <td>
+                <table class="tasks-table">
+                    <tr>
+                        <th>№</th>
+                        <th class="tasks-table-title">Название</th>
+                        <th>Выполнить до</th>
+                        <th>Осталось</th>
+                        <th>Приоритет</th>
+                        <th>Статус</th>
+                        <th class="tasks-table-comment">Последний комментарий</th>
+                        <th>Исполнитель</th>
+                    </tr>
+                    {% for i in '1234567890' %}
+                        <tr>
+                            <td>1700497{{ i }}</td>
+                            <td class="tasks-table-title">
+                                <a href="#"><b>Позвонить репетитору</b></a>
+                            </td>
+                            <td>
+                                02.05.2000 15:00
+                            </td>
+                            <td>
+                                <b>69 дней 21 час</b>
+                            </td>
+                            <td><b>Неизвестно</b></td>
+                            <td>В работе</td>
+                            <td class="tasks-table-comment">
+                                19.09.2011 16:34 - Невозможно выполнить задачу: "Отказалась от регистрации" ((рег) Цепилова Анна)
+                            </td>
+                            <td>Коротеев М.В.</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+    </table>
+
+{% endblock %}

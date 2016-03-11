@@ -1,0 +1,805 @@
+{% extends 'nb/home.html' %}
+
+{% block content %}
+
+    <style>
+
+        .teacher-page {}
+
+            .teacher-page th {color:#999;}
+            .teacher-page .required {color:#000;}
+
+            .teacher-page .select2 {width:100% !important;}
+
+            .teacher-page input[type="checkbox"], input[type="radio"] {margin:0;vertical-align:middle;}
+
+            .teacher-page .nav-tabs .fa {font-size:15px;}
+
+            .teacher-page label {margin:0 5px 0 0;font-weight:normal;}
+
+            .teacher-page .fa-check-circle       {color:#5cb85c;}
+            .teacher-page .fa-exclamation-circle {color:#d9534f;}
+
+            .btn-teacher-on-site {float:right;}
+
+            .teacher-table {width:100%;margin-top:7px;}
+
+                .teacher-table-left  {vertical-align:top;}
+                .teacher-table-left th {width:155px;white-space:nowrap;}
+                    .teacher-table-left .fa {font-size:15px;}
+
+                .teacher-table-right {vertical-align:top;width:49%;padding-left:2%;}
+
+                    .teacher-form {width:100%;margin:3px 0 2px;}
+
+                        .teacher-form th {text-align:right;padding-right:10px;}
+                        .teacher-form th, .teacher-form td {padding:2px 0 3px;vertical-align:middle;line-height:13px;}
+                        .teacher-form td {padding-left:10px;}
+                            .teacher-form td > label {font-weight:normal;margin:0 5px 0 0;height:15px;line-height:15px;}
+                            .teacher-form td > label input[type="radio"],
+                            .teacher-form td > label input[type="checkbox"] {margin:0;}
+
+                            .teacher-form .input-group {width:100%;}
+                            .teacher-form .input-group .input-group-addon {border-left:0;}
+
+                            .teacher-form-date {font-size:0;}
+                                .teacher-form-day   {width:50px;float:left;margin-right:5px;}
+                                .teacher-form-month {width:95px;float:left;margin-right:5px;}
+                                .teacher-form-year  {width:65px;float:left;}
+
+                    .teacher-form-data {width:auto;}
+
+                    .teacher-form-photo {}
+
+                        .teacher-form-photo th {color:#000;width:1%;white-space:nowrap;}
+                        .teacher-form-photo td {}
+
+                            .teacher-photo-size {display:block;position:absolute;bottom:0;left:0;right:0;line-height:15px;color:#fff;background:rgba(0,0,0,.5);text-align:center;font-size:12px;}
+
+                            .teacher-resize-button {margin-top:5px;}
+
+                            .teacher-photo-original {position:relative;display:inline-block;}
+                                .teacher-photo-original img {max-height:145px;}
+
+                            .teacher-photo-2-3 {font-size:0;}
+                                .teacher-photo-2-3 .teacher-photo-resize {display:inline-block;margin-right:5px;position:relative;}
+                                    .teacher-photo-2-3 img {height:145px;}
+
+            .teacher-lesson-duration {display:inline-block;width:100px;}
+
+            .teacher-accordion {}
+                .teacher-accordion-block {}
+                    .teacher-accordion-header {line-height:25px;border-bottom:1px solid #eee;padding:0 0 5px;margin:20px 0 15px;}
+                        .teacher-accordion-toggle {font-size:25px;cursor:pointer;display:inline-block;}
+                        .teacher-accordion-toggle:hover {color:#337ab7;}
+                        .teacher-accordion-toggle .fa {font-size:20px;vertical-align:top;margin-top:2px;}
+                    .teacher-accordion-body {}
+
+            .teacher-inline-form {padding:10px;border:1px solid #ccc;border-radius:2px;position:relative;background:#f9f9fa;margin:15px 0;}
+
+                .teacher-inline-form .fa-times {position:absolute;top:-10px;right:-10px;width:20px;height:20px;line-height:20px;border-radius:10px;background:#333;color:#fff;text-align:center;cursor:pointer;}
+                .teacher-inline-form .fa-times:hover {background:#d9534f;}
+
+                .teacher-inline-table {width:100%;}
+                .teacher-inline-address {width:50%;margin-bottom:10px;}
+                    .teacher-inline-table th,
+                    .teacher-inline-table td {line-height:13px;vertical-align:middle;padding-bottom:5px;}
+
+                    .teacher-inline-table tr:last-child th,
+                    .teacher-inline-table tr:last-child td {padding-bottom:0;}
+
+                    .teacher-inline-table th {white-space:nowrap;width:1%;padding-right:10px;text-align:right;}
+
+                        .teacher-inline-table .sep {margin-right:5px;}
+
+                    .teacher-price-table {}
+                        .teacher-price-table td {padding-right:10px;}
+                        .teacher-price-table .form-control {width:100px;}
+
+                .teacher-education-table {width:100%;}
+
+                    .teacher-education-table th {width:auto;}
+                    .teacher-education-table th,
+                    .teacher-education-table td {padding-left:10px;text-align:left;}
+                    .teacher-education-table th:first-child,
+                    .teacher-education-table td:first-child {padding-left:0;}
+
+                        .teacher-education-table .teacher-form-year {width:100%;}
+
+                    .teacher-form-year-cell {width:100px !important;}
+                    .teacher-education-list {width:1px;}
+                        .teacher-education-list .fa {font-size:14px;}
+
+                .teacher-address-label {padding-top:17px;}
+                .teacher-address-table {width:100%;}
+
+                    .teacher-address-table th {width:auto;}
+
+                    .teacher-address-table th,
+                    .teacher-address-table td {padding-left:10px;text-align:left;}
+                    .teacher-address-table th:first-child,
+                    .teacher-address-table td:first-child {padding-left:0;}
+
+                    .teacher-address-min {width:100px;}
+
+                     label.lessons-depart {width:145px;margin:0;font-weight:bold;text-align:left;}
+                    .teacher-address-inline-input {width:100px;display:inline-block;}
+                    .teacher-address-inline-select {width:150px;display:inline-block;}
+
+                    .teacher-cords-table {}
+                        .teacher-cords-table td {padding-right:10px;}
+                        .teacher-cords-table .form-control {width:200px;}
+
+
+            .teacher-documents {font-size:0;}
+                .teacher-documents .teacher-inline-form {display:inline-block;width:280px;margin:5px 15px 10px 0;font-size:12px;}
+                    .teacher-documents img {width:258px;margin-bottom:10px;}
+
+                .teacher-documents .btn {margin-bottom:20px;}
+
+    </style>
+    
+    <div class="teacher-page">
+    
+        <a href="#" target="_blank" class="btn btn-default btn-sm btn-teacher-on-site" title="Смотреть на сайте"><i class="fa fa-external-link"></i></a>
+    
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><span><i class="fa fa-check-circle" title="Анкета проверена"></i> Константинопольский Константин Константинович - № 33</span></li>
+            <li role="presentation"><a href="#">Просмотр</a></li>
+            <li role="presentation"><a href="#">Задачи</a></li>
+            <li role="presentation"><a href="#">Заявки</a></li>
+            <li role="presentation"><a href="#">История изменений</a></li>
+            <li role="presentation"><a href="#">Звонки</a></li>
+            <li role="presentation"><a href="#">Дубли</a></li>
+        </ul>
+    
+        <table class="teacher-table">
+            <tr>
+                <td class="teacher-table-left">
+                    <table class="teacher-form">
+                        <tr>
+                            <th class="required">Фамилия</th>
+                            <td><input type="text" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th class="required">Имя</th>
+                            <td><input type="text" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th>Отчество</th>
+                            <td><input type="text" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th class="required">Дата рождения</th>
+                            <td class="teacher-form-date">
+                                <select class="form-control teacher-form-day"><option>30</option></select>
+                                <select class="form-control teacher-form-month"><option>Сентября</option></select>
+                                <select class="form-control teacher-form-year"><option>1990</option></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="required">Репетиторский стаж</th>
+                            <td>
+                                <div class="input-group form-control-half">
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-addon">Лет</div>
+                                </div>
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <th class="required">Пол</th>
+                            <td>
+                                <label><input type="radio" name="gender"> Не известно</label>
+                                <label><input type="radio" name="gender"> Мужской</label>
+                                <label><input type="radio" name="gender"> Женский</label>
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <th class="required">ИП</th>
+                            <td>
+                                <label><input type="radio" name="ip"> Не известно</label>
+                                <label><input type="radio" name="ip"> Да</label>
+                                <label><input type="radio" name="ip"> Нет</label>
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <th class="required">Статус</th>
+                            <td><select class="form-control"><option>Школьный преподаватель</option></select></td>
+                        </tr>
+    
+                        <tr>
+                            <th class="required">№ уч. заведения</th>
+                            <td><input type="text" class="form-control"></td>
+                        </tr>
+    
+                        <tr>
+                            <th>Название уч. заведения</th>
+                            <td><input type="text" class="form-control"></td>
+                        </tr>
+    
+                        <tr>
+                            <th></th>
+                            <td><input type="checkbox"> Отображать место работы на сайте</td>
+                        </tr>
+    
+                        <tr>
+                            <th class="required">Мобильный телефон</th>
+                            <td>
+                                <div class="input-group">
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-addon" title="Подтверждён"><i class="fa fa-check-circle"></i></div>
+                                    <div class="input-group-btn">
+                                        <div class="btn btn-default btn-sm" title="Убрать маску"><i class="fa fa-user-secret"></i></div>
+                                        <div class="btn btn-default btn-sm" title="Позвонить"><i class="fa fa-phone"></i></div>
+                                        <div class="btn btn-default btn-sm" title="Отправить SMS"><i class="fa fa-comment"></i></div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <th class="required">E-mail</th>
+                            <td>
+                                <div class="input-group">
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-addon" title="Не подтверждён"><i class="fa fa-exclamation-circle"></i></div>
+                                    <div class="input-group-btn">
+                                        <div class="btn btn-default btn-sm" title="Отправить письмо подтверждения e-mail"><i class="fa fa-paper-plane"></i></div>
+                                        <div class="btn btn-default btn-sm" title="Отправить письмо"><i class="fa fa-envelope"></i></div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <th>Skype</th>
+                            <td><input type="text" class="form-control"></td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td class="teacher-table-right">
+
+                    <table class="teacher-form teacher-form-photo">
+                        <tr>
+                            <th>Загрузить</th>
+                            <td>
+                                <input type="file">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Оригинал</th>
+                            <td>
+                                <a href="#" class="teacher-photo-original">
+                                    <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg">
+                                    <span class="teacher-photo-size">641x961</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Фото 2:3
+                                <div class="teacher-resize-button">
+                                    <button class="btn btn-default btn-xs">Изменить</button>
+                                </div>
+                            </th>
+                            <td class="teacher-photo-2-3">
+                                <a href="#" class="teacher-photo-resize">
+                                    <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg">
+                                    <span class="teacher-photo-size">200x320</span>
+                                </a>
+                                <a href="#" class="teacher-photo-resize">
+                                    <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg">
+                                    <span class="teacher-photo-size">90x145</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Фото 1:1
+                                <div class="teacher-resize-button">
+                                    <button class="btn btn-default btn-xs">Изменить</button>
+                                </div>
+                            </th>
+                            <td class="teacher-photo-2-3">
+                                <a href="#" class="teacher-photo-resize">
+                                    <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg" style="width:90px;height:90px;">
+                                    <span class="teacher-photo-size">200x200</span>
+                                </a>
+                                <a href="#" class="teacher-photo-resize">
+                                    <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg" style="width:90px;height:90px;">
+                                    <span class="teacher-photo-size">90x90</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Удалить</th>
+                            <td><button class="btn btn-default btn-xs">Удалить все фото, кроме оригинала</button></td>
+                        </tr>
+                    </table>
+    
+                </td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <table class="teacher-table">
+            <tr>
+                <td class="teacher-table-left">
+                    <table class="teacher-form">
+                        <tr>
+                            <th class="required">Регистратор</th>
+                            <td><select class="form-control"><option>Иванов Иван Иванович</option></select></td>
+                        </tr>
+                        <tr>
+                            <th class="required">Рейтинг</th>
+                            <td><select class="form-control"><option>Добавлена фотография или какой-либо документ</option></select></td>
+                        </tr>
+                        <tr>
+                            <th class="required">Ученики</th>
+                            <td>
+
+                                <span style="float:left;" class="field-tip">
+                                    <label class="teacher-puplis-needed"><input type="radio" name="puplis_needed" value="needed" checked> Нужны</label>
+                                    <label class="teacher-puplis-not-needed">
+                                        <input type="radio" name="puplis_needed" value="not_needed"> Не нужны
+                                        <span class="teacher-puplis-needed-label">до</span>
+                                    </label>
+                                </span>
+                                <span class="teacher-form-date teacher-puplis-needed-date">
+                                    <select class="form-control teacher-form-day"><option>30</option></select>
+                                    <select class="form-control teacher-form-month"><option>Сентября</option></select>
+                                    <select class="form-control teacher-form-year"><option>1990</option></select>
+                                </span>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="teacher-table-right">
+
+                    <table class="teacher-form teacher-form-data">
+                        <tr>
+                            <th>Дата последнего посещения</th>
+                            <td>08.03.2016</td>
+                        </tr>
+                        <tr>
+                            <th>Дата подписания договора</th>
+                            <td>19.08.2014</td>
+                        </tr>
+                        <tr>
+                            <th>Анекета отображатеся на сайте</th>
+                            <td>5.5 дней</td>
+                        </tr>
+                        <tr>
+                            <th>Рейтинг для пользователей</th>
+                            <td>+18.6</td>
+                        </tr>
+                        <tr>
+                            <th>Рейтинг для сотрудников</th>
+                            <td>-3.3</td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <p>
+            <b>О себе</b>
+            <textarea class="form-control"></textarea>
+        </p>
+
+        <p>
+            <input type="checkbox"> Отображать анкету на сайте
+        </p>
+
+        <div class="teacher-accordion">
+
+            <div class="teacher-accordion-block">
+
+                <div class="teacher-accordion-header">
+                    <span class="teacher-accordion-toggle"><i class="fa fa-chevron-up"></i> Адреса <span class="tip">(1)</span></span>
+                </div>
+
+                <div class="teacher-accordion-body">
+
+                    <table class="teacher-inline-table teacher-inline-address">
+                        <tr>
+                            <th class="required">Зона</th>
+                            <td><select class="form-control select-search"><option>Москва и Московская область</option></select></td>
+                        </tr>
+                    </table>
+
+                    <p>
+                        <label><input type="checkbox"> Отображать адреса на карте</label>
+                    </p>
+
+                    <div class="teacher-inline-form">
+                        <i class="fa fa-times"></i>
+                        <table class="teacher-inline-table">
+                            <tr>
+                                <th class="teacher-address-label required">Адрес</th>
+                                <td>
+                                    <table class="teacher-address-table">
+                                        <tr>
+                                            <th class="required">Город/район</th>
+                                            <th class="required">Улица</th>
+                                            <th class="required">Дом</th>
+                                            <th>Корпус</th>
+                                            <th>Строение</th>
+                                        </tr>
+                                        <tr>
+                                            <td><select class="form-control select-search"><option>м. Домодедовская</option></select></td>
+                                            <td><input class="form-control" type="text"></td>
+                                            <td class="teacher-address-min"><input class="form-control" type="text"></td>
+                                            <td class="teacher-address-min"><input class="form-control" type="text"></td>
+                                            <td class="teacher-address-min"><input class="form-control" type="text"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="required">По этому адресу</th>
+                                <td>
+                                    <label><input name="place_type" type="radio"> Проводятся занятия</label>
+                                    <label><input name="place_type" type="radio"> Проводится выезд</label>
+                                    <label><input name="place_type" type="radio"> Проводится занятия и выезд</label>
+                                    <label><input name="place_type" type="radio"> Не известно</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Расстояние от метро</th>
+                                <td>
+                                    <input type="text" class="form-control teacher-address-inline-input">
+                                    <span class="field-tip">минут</span>
+                                    <select class="form-control teacher-lesson-duration teacher-address-inline-select">
+                                        <option>Транспортом</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Проводится выезд</th>
+                                <td>
+                                    <select class="form-control teacher-lesson-duration teacher-address-inline-select">
+                                        <option>С условиями</option>
+                                    </select>
+                                    <span class="field-tip">не более</span>
+                                    <input type="text" class="form-control teacher-address-inline-input">
+                                    <span class="field-tip">минут от своего района</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="#">Подобрать координаты</a></th>
+                                <td>
+                                    <table class="teacher-cords-table">
+                                        <tr>
+                                            <td>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">Широта</div>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">Долгота</div>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><textarea rows="1" class="form-control" placeholder="Комментарий"></textarea></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Добавить адрес</button>
+                </div>
+
+            </div>
+        
+            <div class="teacher-accordion-block">
+
+                <div class="teacher-accordion-header">
+                    <span class="teacher-accordion-toggle"><i class="fa fa-chevron-up"></i> Предметы <span class="tip">(1)</span></span>
+                </div>
+
+                <div class="teacher-accordion-body">
+
+                    <span class="field-tip">Минимальная продолжительность одного занятия</span>
+                    <select class="form-control teacher-lesson-duration">
+                        <option>60</option>
+                        <option>90</option>
+                        <option>120</option>
+                    </select>
+                    <span class="field-tip">минут</span>
+
+                    <p>
+                        <label><input type="checkbox"> Проводятся удалённые занятия</label>
+                    </p>
+
+                    <textarea rows="1" class="form-control" placeholder="Комментарий к удалённым занятиям"></textarea>
+
+                    <div class="teacher-inline-form">
+                        <i class="fa fa-times"></i>
+                        <table class="teacher-inline-table">
+                            <tr>
+                                <th class="required">Предмет</th>
+                                <td>
+                                    <select class="form-control form-control-half"><option label="Русский язык" value="1">Русский язык</option><option label="Английский язык" value="2" selected="selected">Английский язык</option><option label="Немецкий язык" value="3">Немецкий язык</option><option label="Французский язык" value="4">Французский язык</option><option label="Итальянский язык" value="5">Итальянский язык</option><option label="Испанский язык" value="6">Испанский язык</option><option label="Китайский язык" value="7">Китайский язык</option><option label="Математика" value="8">Математика</option><option label="Физика" value="9">Физика</option><option label="Информатика / программирование" value="10">Информатика / программирование</option><option label="Химия" value="11">Химия</option><option label="Биология" value="12">Биология</option><option label="История" value="13">История</option><option label="Обществознание" value="14">Обществознание</option><option label="Литература" value="15">Литература</option><option label="География" value="16">География</option><option label="Экономика" value="17">Экономика</option><option label="Начальная школа" value="18">Начальная школа</option><option label="Музыка" value="19">Музыка</option><option label="Логопед" value="20">Логопед</option><option label="Другой" value="21">Другой</option><option label="Русский как иностранный" value="23">Русский как иностранный</option><option label="Японский язык" value="25">Японский язык</option><option label="Изобразительное искусство" value="27">Изобразительное искусство</option><option label="Подготовка к школе" value="29">Подготовка к школе</option><option label="Редкие иностранные языки" value="33">Редкие иностранные языки</option><option label="Спорт и фитнес" value="36">Спорт и фитнес</option></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Разделы</th>
+                                <td>
+                                    <select multiple="multiple" class="form-control select2-tag">
+                                        <option>Общий курс</option>
+                                        <option>Школьный курс</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Дополнения</th>
+                                <td>
+                                    <select multiple="multiple" class="form-control select2-tag">
+                                        <option>Дополнения</option>
+                                        <option>DSD</option>
+                                        <option>DSH</option>
+                                        <option>Goethe-Zertifikat</option>
+                                        <option>C2</option>
+                                        <option>KDS</option>
+                                        <option>TestDAF</option>
+                                        <option>ZDaF</option>
+                                        <option>ZMP</option>
+                                        <option>бизнес-курс</option>
+                                        <option>ЕГЭ</option>
+                                        <option>ОГЭ (ГИА)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Уровень</th>
+                                <td>
+                                     <label><input type="checkbox"> С нуля</label>
+                                     <label><input type="checkbox"> Начальный</label>
+                                     <label><input type="checkbox"> Средний</label>
+                                     <label><input type="checkbox"> Продвинутый</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Ученики</th>
+                                <td>
+
+                                    <b>Дети (лет)</b>
+
+                                    <label><input type="checkbox"> 1-3</label>
+                                    <label><input type="checkbox"> 4-5</label>
+                                    <label><input type="checkbox"> 6-7</label>
+
+                                    <span class="sep"></span>
+
+                                    <b>Школьники (класс)</b>
+                                    <label><input type="checkbox"> 1</label>
+                                    <label><input type="checkbox"> 2</label>
+                                    <label><input type="checkbox"> 3</label>
+                                    <label><input type="checkbox"> 4</label>
+                                    <label><input type="checkbox"> 5</label>
+                                    <label><input type="checkbox"> 6</label>
+                                    <label><input type="checkbox"> 7</label>
+                                    <label><input type="checkbox"> 8</label>
+                                    <label><input type="checkbox"> 9</label>
+                                    <label><input type="checkbox"> 10</label>
+                                    <label><input type="checkbox"> 11</label>
+
+                                    <span class="sep"></span>
+
+                                    <label><input type="checkbox"> Студенты</label>
+                                    <label><input type="checkbox"> Взрослые</label>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="required">Цена занятия</th>
+                                <td>
+
+                                    <table class="teacher-price-table">
+                                        <tr>
+                                            <td>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">У репетитора</div>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">У ученика</div>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">Online (Skype)</div>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><textarea rows="1" class="form-control" placeholder="Комментарий"></textarea></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Добавить предмет</button>
+                </div>
+
+            </div>
+
+            <div class="teacher-accordion-block">
+
+                <div class="teacher-accordion-header">
+                    <span class="teacher-accordion-toggle"><i class="fa fa-chevron-up"></i> Образование <span class="tip">(1)</span></span>
+                </div>
+
+                <div class="teacher-accordion-body">
+                    <div class="teacher-inline-form">
+                        <i class="fa fa-times"></i>
+                        <table class="teacher-inline-table">
+                            <tr>
+                                <td>
+                                    <table class="teacher-education-table">
+                                        <tr>
+                                            <th></th>
+                                            <th class="required">Город</th>
+                                            <th>Учебное заведение</th>
+                                            <th class="teacher-form-year-cell required">Год окончания</th>
+                                            <th>Факультет</th>
+                                            <th class="required">Специальность</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="teacher-education-list" title="Выбрать вуз из списка"><button class="btn btn-default btn-sm active"><i class="fa fa-th-list"></i></button></td>
+                                            <td><select class="form-control select-search"><option>Москва</option></select></td>
+                                            <td><select class="form-control select-search"><option>МГУ</option></select></td>
+                                            <td class="teacher-form-year-cell"><select class="form-control"><option>1990</option></select></td>
+                                            <td><select class="form-control select-search"><option>Механико-математический</option></select></td>
+                                            <td><input class="form-control" type="text"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <tr>
+                                    <td>
+                                        <textarea rows="1" class="form-control" placeholder="Комментарий"></textarea>
+                                    </td>
+                                </tr>
+                            </tr>
+                        </table>
+                    </div>
+                    <button class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Добавить образование</button>
+                </div>
+            </div>
+
+            <div class="teacher-accordion-block">
+                <div class="teacher-accordion-header">
+                    <span class="teacher-accordion-toggle"><i class="fa fa-chevron-up"></i> Документы <span class="tip">(4)</span></span>
+                </div>
+                <div class="teacher-accordion-body">
+                    <div class="teacher-documents">
+                        {% for i in '1234' %}
+                            <div class="teacher-inline-form">
+                                <i class="fa fa-times"></i>
+                                <a href="#">
+                                    <img src="https://www.edx.org/sites/all/themes/atedx/images/example-certificate-verified.png">
+                                </a>
+                                <p>
+                                    <input type="file">
+                                </p>
+                                <input class="form-control" type="text" placeholder="Описание">
+                            </div>
+                        {% endfor %}
+
+                        <div>
+                            <button class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Добавить документ</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    
+        <p>
+            <b>Комментарий к анкете</b>
+            <textarea class="form-control"></textarea>
+        </p>
+
+        <p>
+            <label><input type="checkbox"> Подтвердить анкету</label>
+        </p>
+
+        <hr>
+
+        <p>
+            <label><input type="checkbox"> Подписан на рассылку</label>
+        </p>
+
+        <p>
+            <label><input type="checkbox"> Получать на почту уведомления о подходящих заявках</label>
+        </p>
+    
+    </div>
+
+    <script>
+
+    /* Учиники не нужны */
+
+    new function PupilsNeeded() { var self = this;
+
+        self.tag = $('input[name="puplis_needed"]');
+        self.label = $('.teacher-puplis-needed-label');
+        self.date = $('.teacher-puplis-needed-date');
+
+        self.hide = function() {
+            self.label.hide();
+            self.date.hide();
+        };
+
+        self.show = function() {
+            self.label.show();
+            self.date.show();
+        };
+
+        self.check = function() {
+            if (self.tag.filter(':checked').val() == 'needed') {
+                self.hide();
+            } else {
+                self.show();
+            }
+        };
+
+        self.init = function() {
+            self.check();
+        };
+
+        self.events = function() {
+            self.tag.change(function () {
+                self.check();
+            });
+        };
+
+        self.init();
+        self.events();
+
+    };
+
+    /* Аккордион */
+    $('.teacher-accordion-toggle').click(function() {
+        var header = $(this).closest('.teacher-accordion-header');
+        header.siblings('.teacher-accordion-body').toggle();
+        header.find('.teacher-accordion-toggle .fa').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+    });
+
+    /* Только для прототипа. Чё по нажатию на чё вылазит */
+    $('.btn-task').click(function(){alert('Форма создания быстрой задачи');return false;});
+    $('.btn-primary').click(function(){alert('Форма сохранена');return false;});
+    $('.fa-times').click(function(){alert('Точно удалить?');return false;});
+    $('a:contains(Подобрать координаты)').click(function(){alert('Карта');return false;});
+    $('.btn:contains(Изменить)').click(function(){alert('Форма для кропа');return false;});
+    $('.teacher-documents a').click(function(){alert('Форма для кропа');return false;});
+    $('.teacher-photo-original').click(function(){alert('Оригинальное фото в поп-апе');return false;});
+    $('.teacher-photo-resize').click(function(){alert('Ресайз в попапе');return false;});
+
+    </script>
+
+{% endblock %}

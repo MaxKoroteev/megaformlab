@@ -1,0 +1,152 @@
+<style>
+
+    .current-task {border-right:1px solid #ccc;}
+
+    .current-task-header {line-height:30px;background:#f1f1f5;padding:0 10px;cursor:pointer;-webkit-user-select:none;border-bottom:1px solid #ccc;font-weight:bold;}
+    .current-task-header:hover {background:#e1e1e5;}
+
+        .current-task-tooltip {float:right;color:rgba(0,0,0,0.5);}
+
+            .current-task-tooltip-open {display:block;}
+            .current-task-tooltip-hide {display:none;}
+
+            .current-task.expanded .current-task-tooltip-open {display:none;}
+            .current-task.expanded .current-task-tooltip-hide {display:block;}
+
+    .current-task-body {padding:10px 15px 15px;background:#fff;box-shadow:0 0 5px rgba(0,0,0,0.25);border-bottom:1px solid rgba(0,0,0,0.25);display:none;max-height:500px;overflow-y:auto;}
+    .current-task.expanded .current-task-body {display:block;}
+
+        .current-task-table {}
+            .current-task-table th {white-space:nowrap;width:1%;padding-right:10px;text-align:right;}
+            .current-task-table th, .current-task-table td {line-height:22px;}
+
+                .current-task-priority {}
+                    .current-task-priority td {padding-right:5px;}
+                    .current-task-priority select {height:22px;padding:2px;}
+
+        .current-task-comments {margin:5px 0 10px;}
+            .current-task-comment  {line-height:20px;}
+
+                .current-task-comments-transfer {color:#999;margin-right:10px;}
+                    .current-task-transfer-block {line-height:30px;margin-bottom:5px;}
+                        .current-task-transfer {vertical-align:top;}
+                            .current-task-transfer .fa {width:10px;margin-left:5px;}
+                        .current-task-fields {}
+                            .current-task-fields input {display:inline-block;width:42px;}
+                            .current-task-fields .form-control-date {width:70px;}
+
+        .current-task-form {background:#f1f1f5;padding:10px;border-radius:2px;border:1px solid rgba(0,0,0,0.25)}
+            .current-task-comment-textarea {margin:5px 0;}
+
+        .current-task-footer {border-top:1px solid #ddd;padding-top:15px;margin-top:10px;}
+
+        .current-task-fields {height:30px;display:none;}
+        .current-task-fields.active {display:inline-block;}
+
+</style>
+
+
+<div class="current-task">
+
+    <div class="current-task-header">
+        <div class="current-task-tooltip">
+            <span class="current-task-tooltip-open">Открыть</span>
+            <span class="current-task-tooltip-hide">Скрыть</span>
+        </div>
+        Уточнить и распределить заявку
+    </div>
+
+    <div class="current-task-body">
+        <table class="current-task-table">
+            <tr>
+                <th>Создатель задачи</th>
+                <td>Коротеев М.В.</td>
+            </tr>
+            <tr>
+                <th>Статус</th>
+                <td>В работе</td>
+            </tr>
+            <tr>
+                <th>Приоритет</th>
+                <td>
+                    <table class="current-task-priority">
+                        <tr>
+                            <td>
+                                <select class="form-control">
+                                    <option>Очень важно</option>
+                                    <option>Важно</option>
+                                    <option>Неизвестно</option>
+                                    <option>Маловажно</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary btn-xs">Изменить приоритет</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <th>Описание</th>
+                <td>
+                    Описание задачи, бла бла бла
+                </td>
+            </tr>
+        </table>
+
+        <div class="current-task-comments">
+            {% for i in '12345' %}
+                <div class="current-task-comment">02.03.2011 18:23:00 - Задача перенесена на 03.03.2011 0:00:00. Причина - "не удалось дозвониться до репетитора." (Швачко Рита)</div>
+            {% endfor %}
+        </div>
+
+        <div class="current-task-form">
+
+            <div class="current-task-transfer-block">
+
+                <button class="btn btn-default btn-sm current-task-transfer">Перенести выполнение задачи <i class="fa fa-chevron-right"></i></button>
+
+                <span class="current-task-fields">
+                    Перенести вперёд на
+                    <input type="text" class="form-control">
+                    дней
+                    <input type="text" class="form-control">
+                    часов
+                    <b>ИЛИ</b>
+                    перенести на
+                    <input type="text" class="form-control form-control-date" placeholder="00.00.0000">
+                    <input type="text" class="form-control form-control-time" placeholder="00:00">
+                </span>
+
+            </div>
+
+            <select class="form-control">
+                <option>Комментарий из шаблона</option>
+            </select>
+
+            <textarea rows="2" class="form-control current-task-comment-textarea" placeholder=".. комментарий"></textarea>
+
+            <button class="btn btn-primary btn-sm">Отправить</button>
+            <button class="btn btn-default btn-sm">Трудности при выполнении</button>
+
+        </div>
+
+        <div class="current-task-footer">
+            <button class="btn btn-default btn-sm" style="float:right;">Задача выполнена</button>
+            <button class="btn btn-default btn-sm" disabled>Начать работу</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $('.current-task-header').on('click', function() {$('.current-task').toggleClass('expanded')});
+
+    $('.form-control-time').mask('99:99');
+    $('.form-control-date').mask('99.99.9999');
+
+    $('.current-task-transfer').on('click', function() {
+        $('.current-task-fields').toggleClass('active');
+        $(this).find('.fa').toggleClass('fa-chevron-right').toggleClass('fa-times');
+    });
+</script>
