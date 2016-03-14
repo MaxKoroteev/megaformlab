@@ -30,6 +30,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
 
+    {# bootstrap datepicker https://github.com/eternicode/bootstrap-datepicker #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/locales/bootstrap-datepicker.ru.min.js"></script>
+
     {# select2 #}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/i18n/ru.js"></script>
@@ -74,7 +79,7 @@
         body, input, textarea, button, select, .form-control, .dropdown-menu, .btn.multiselect, .input-group-addon,
         .select2-container--bootstrap .select2-selection {font-size:12px;font-family:tahoma, sans-serif;}
 
-        /* override bootstrap */
+        /* Мальца перекрываем bootstrap */
 
         h1 {margin:0 0 15px;}
 
@@ -84,33 +89,44 @@
         .form-control {height:30px;padding:4px;}
         textarea.form-control {padding:5px 4px 6px;}
 
+        a:focus {color:#337ab7;text-decoration:none;}
+        a:focus:hover {color:#23527c;text-decoration:underline;}
+
+        /* Мальца дополняем bootstrap */
+
         .form-control-half {width:50% !important;} /* Вспомогательный класс, чтобы делать инпут наполовину короче */
 
         /* Делаем возможным использовать в bootstrap tabs обычный <span> в качестве вкладки */
+
         .nav>li>span {position:relative;display:block;padding:10px 15px;}
         .nav-tabs>li>span {margin-right:2px;line-height:1.42857143;border:1px solid transparent;border-radius:4px 4px 0 0;}
         .nav-tabs>li.active>span, .nav-tabs>li.active>span:focus, .nav-tabs>li.active>span:hover {color:#555;background-color:#fff;border:1px solid #ddd;border-bottom-color:transparent;}
 
         /* Очищаем бутстраповский z-index */
+
         .btn-group-vertical>.btn.active, .btn-group-vertical>.btn:active, .btn-group-vertical>.btn:focus, .btn-group-vertical>.btn:hover, .btn-group>.btn.active, .btn-group>.btn:active, .btn-group>.btn:focus, .btn-group>.btn:hover,
         .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group,
         .input-group .form-control {z-index:0;}
 
-        /* override bootstrap select2, чтобы по высоте он был 30px */
+        /* Перекрываем bootstrap select2, чтобы по высоте он был 30px */
+
         .select2-container--bootstrap .select2-selection--single {height:30px;padding:6px 24px 6px 8px;}
         .select2-container--bootstrap .select2-selection--multiple {min-height:30px;}
         .select2-container--bootstrap .select2-selection--multiple .select2-search--inline .select2-search__field {height:28px;padding:0 8px;}
 
         /* bootstrap multiselect */
+
         .btn.multiselect {padding:5px 8px 6px;text-align:left;}
         .btn .caret {top:13px;position:absolute;right:3px;}
         .multiselect-container>li.multiselect-group label {padding:3px 10px 3px 10px;}
 
-        /* multiple-select и select2 не должен прыгать */
+        /* select2-search и select2-tag не должен прыгать */
+
         .select2-tag {height:30px !important;display:block;opacity:0;}
         select.multiselect-tag {height:30px;display:block;opacity:0;}
 
         /* Вспомогательные классы */
+
         .field-tip {line-height:30px;}
         .tip {color:#999;}
         .sep {color:#ccc;font-size:10px;font-style:normal;}
@@ -129,7 +145,7 @@
                 .filter-title-collapse:hover {background:#f1f1f5;}
                 .filter-content {padding:3px 5px;border:1px solid #ccc;border-top:0;border-radius:0 0 2px 2px;}
                     .filter-content .filter-title {margin-top:5px;}
-                        .filter-title .fa {float:right;margin-top:2px;}
+                        .filter-title .fa {float:right;margin-top:3px;}
                 .filter-content {display:none;}
                 .filter-block.active .filter-content {display:block;}
                 .filter-range {}
@@ -138,18 +154,23 @@
             .filter-float-submit {position:absolute;top:50%;margin-top:-6px;left:100%;background:#337ab7;margin-left:15px;display:none;border-radius:0 2px 2px 0;z-index:2;box-shadow:1px 1px 1px rgba(0,0,0,0.25);}
             .filter-float-submit:before {width:0;height:0;border-top:15px solid transparent;border-bottom:15px solid transparent;border-right:10px solid #337ab7;content:'';position:absolute;top:0;left:-10px;}
             .filter-float-submit:hover:before {border-right-color:#286090;}
-                .filter-float-submit .btn {border:0;height:30px;}
+
+                .filter-float-submit .btn {border:0;height:30px;background:#337ab7;color:#fff;}
+                .filter-float-submit:hover .btn {background:#286090;}
+
+                .filter-float-submit .fa {position:absolute;background:#333;color:#fff;top:-8px;right:-8px;height:15px;line-height:15px;width:15px;text-align:center;display:block;border-radius:10px;font-size:11px;cursor:pointer;}
+                .filter-float-submit .fa:hover {background:#d9534f;}
 
             .btn-filter-submit {margin-top:10px;}
 
-        /* global */
+        /* Глобальное */
 
         .top-wrapper-placeholder {height:31px;}
-        .top-wrapper    {background:#f00;width:100%;position:fixed;top:0;left:0;right:0;z-index:2;height:0;}
+        .top-wrapper    {width:100%;position:fixed;top:0;left:0;right:0;z-index:2;height:0;}
             .top-inner  {height:0;width:1251px;padding-left:30px;}
 
         .bottom-wrapper-placeholder {height:51px;}
-        .bottom-wrapper {background:#f00;width:100%;position:fixed;bottom:51px;left:0;right:0;z-index:10;height:0;}
+        .bottom-wrapper {width:100%;position:fixed;bottom:51px;left:0;right:0;z-index:10;height:0;}
             .bottom-inner  {height:0;width:1251px;}
 
         .columns {min-height:100%;border-right:1px solid #ccc;width:1251px;}
@@ -168,6 +189,8 @@
                         .column-menu-item .fa {width:30px;height:30px;line-height:30px;text-align:center;color:#fff;font-size:14px;}
                         .column-menu-item-text {display:none;color:#fff;width:170px;position:absolute;}
                         .column-menu-item:hover .column-menu-item-text {display:inline !important;}
+
+                    .wide-toggle {float:right;position:relative;z-index:1;margin-right:10px;text-transform:none;}
 
                     /* Стрелочка наверх */
                     .go-top {width:30px;display:none;height:51px;line-height:51px;background:#232323;z-index:3;border-top:1px solid #444;float:left;color:#fff;cursor:pointer;-webkit-user-select:none;}
@@ -200,6 +223,14 @@
             .go-top {width:200px;}
                 .go-top-text {display:inline;}
         }
+
+        body.wide .columns {border-right:0;width:100%;}
+
+        body.wide .top-inner {width:100%;}
+            body.wide .current-task {border-right:0;}
+
+        body.wide .bottom-inner {width:100%;}
+            body.wide .footer-buttons {border-right:0;}
 
     </style>
 
@@ -254,7 +285,7 @@
                 </div>
 
                 <div class="column-menu-group">
-                    <div class="column-menu-group-title"><i class="fa fa-user"></i><span class="column-menu-group-title-text">Петров константин</span></div>
+                    <div class="column-menu-group-title"><i class="fa fa-user"></i><span class="column-menu-group-title-text"><a href="#" class="wide-toggle">100%</a> Петров К.В.</span></div>
                     <a href="#" class="column-menu-item"><i class="fa fa-sign-out"></i><span class="column-menu-item-text">Выйти</span></a>
                 </div>
 
@@ -300,6 +331,45 @@
     </table>
 
     <script>
+
+        /* Бутстраповский dropdown не должен закрываться по click inside */
+        $('.dropdown-menu').on('click', function() {return false;});
+
+        /* Скресчиваем и вызываем select2 для обычного селекта с поиском */
+        $('.select2-search').select2({
+            theme: 'bootstrap',
+            language: 'ru'
+        }).on('select2:unselect', function(e) {
+            /* Не показываем окно с опциями при удалении тега */
+            if (!e.params.originalEvent) return;
+            e.params.originalEvent.stopPropagation();
+        });
+        
+        /* Вызываем multiple select2 */
+        $('.select2-tag').select2({
+            theme: 'bootstrap',
+            language: 'ru',
+            closeOnSelect: false
+        }).on('select2:unselect', function(e) {
+            /* Не показываем окно с опциями при удалении тега */
+            if (!e.params.originalEvent) return;
+            e.params.originalEvent.stopPropagation();
+        });
+
+        /* Текстарея должна автоматически ресайзиться под текст */
+        autosize($('textarea'));
+
+        /* Крутые всплывающие подсказки */
+        $('[title]').tooltipster({delay:50});
+
+        $('.datepicker-tag').datepicker({
+            weekStart: 1,
+            format: 'dd.mm.yyyy',
+            todayBtn: 'linked',
+            language: 'ru',
+            todayHighlight: true,
+            orientation: 'bottom'
+        });
 
         /* Кнопка "Наверх / К закладке" */
         new function GoTop() { var self = this;
@@ -357,59 +427,52 @@
 
         };
 
-        /* Скрываем левую колонку */
-        $('.column-menu-toggle').on('click', function() {
-            var $body = $('body');
-            $body.toggleClass('menu-collapsed');
-            if ($body.hasClass('menu-collapsed')) {
-                // Пишем в сессию о том, что у данного пользователя колонка свёрнута
-            } else {
-                // Пишем в сессию о том, что у данного пользователя колонка раскрыта
-            }
-        });
+        new function Filter() { var self = this;
 
-        /* Скресчиваем и вызываем select2 для обычного селекта с поиском */
-        $('.select-search').select2({
-            theme: 'bootstrap',
-            language: 'ru'
-        }).on('select2:unselect', function(e) {
-            /* Не показываем окно с опциями при удалении тега */
-            if (!e.params.originalEvent) return;
-            e.params.originalEvent.stopPropagation();
-        });
-        
-        /* Вызываем multiple select2 */
-        $('.select2-tag').select2({
-            theme: 'bootstrap',
-            language: 'ru',
-            closeOnSelect: false
-        }).on('select2:unselect', function(e) {
-            /* Не показываем окно с опциями при удалении тега */
-            if (!e.params.originalEvent) return;
-            e.params.originalEvent.stopPropagation();
-        });
+            self.floatSubmit = $('.filter-float-submit');
+            self.floatSubmitClose = self.floatSubmit.find('.fa-times');
+            self.titles = $('.filter-title');
 
-        /* Текстарея должна автоматически ресайзиться под текст */
-        autosize($('textarea'));
+            self.events = function() {
 
-        /* Крутые всплывающие подсказки */
-        $('[title]').tooltipster({delay:50});
+                /* Скрываемые блочки в фильтре */
+                self.titles.on('click', function() {
+                    var $this = $(this);
+                    $(this).closest('.filter-block').toggleClass('active');
+                    $(this).find('.fa').toggleClass('fa-chevron-down').toggleClass('fa-chevron-up');
+                });
 
-        /* Бутстраповский dropdown не должен закрываться по click inside */
-        $('.dropdown-menu').on('click', function() {return false;});
+                /* У фильтра должна появляться кнопка субмита */
+                $('.filter input, .filter select').on('change keyup', function() {
+                    $(this).closest('.filter-block').prepend(self.floatSubmit.show());
+                });
 
-        /* Скрываемые блочки в фильтре */
-        $('.filter-title').on('click', function() {
-            $(this).closest('.filter-block').toggleClass('active');
-            $(this).find('.fa').toggleClass('fa-chevron-down').toggleClass('fa-chevron-up');
-        });
+                self.floatSubmitClose.on('click', function() {
+                    self.floatSubmit.hide();
+                });
 
-        /* У фильтра должна появляться кнопка субмита */
-        $('.filter input, .filter select').on('change keyup', function() {
-            $(this).closest('.filter-block').prepend($('.filter-float-submit').show());
-        });
-        $('.filter-float-submit').click(function(e){e.stopPropagation();});
-        $('body').click(function(){$('.filter-float-submit').hide();});
+            };
+
+            self.events();
+
+        };
+
+        new function Wide() { var self = this;
+
+            self.body = $('body');
+            self.button = $('.wide-toggle');
+
+            self.events = function() {
+                self.button.on('click', function() {
+                    self.body.toggleClass('wide');
+                    self.button.toggleText('100%', 'Fixed');
+                    return false;
+                });
+            };
+
+            self.events();
+
+        };
 
     </script>
 

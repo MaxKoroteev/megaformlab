@@ -69,7 +69,6 @@ urlpatterns = [
     url(r'^mp/$',                 TemplateView.as_view(template_name='back/mp.html'),                 name='mp'),
 
     url(r'^layout/$',             TemplateView.as_view(template_name='back/layout.html'),             name='layout'),
-    url(r'^nb/$',                 TemplateView.as_view(template_name='nb/nb.html'),                   name='nb'),
     url(r'^repetitors/$',         TemplateView.as_view(template_name='back/repetitors.html'),         name='repetitors'),
     url(r'^repetitors_new/$',     TemplateView.as_view(template_name='back/repetitors_new.html'),     name='repetitors_new'),
     url(r'^repetitors_final/$',   TemplateView.as_view(template_name='back/repetitors_final.html'),   name='repetitors_final'),
