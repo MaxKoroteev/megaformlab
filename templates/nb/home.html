@@ -129,7 +129,7 @@
 
         .field-tip {line-height:30px;}
         .tip {color:#999;}
-        .sep {color:#ccc;font-size:10px;font-style:normal;}
+        .sep {color:#ccc;font-size:10px;line-height:10px;font-style:normal;}
         .sep:after {content:'•'}
 
         /* Фильтр. Используется в списке репетиторов, в списке задач, может ещё где будет */
@@ -176,6 +176,7 @@
         .columns {min-height:100%;border-right:1px solid #ccc;width:1251px;}
             .column-menu {width:30px;background:#333;padding-bottom:51px;}
                 .column-menu-group {margin:0 0 10px;}
+                .column-menu-group-user {border-top:1px solid #555;padding-top:10px;}
                     .column-menu-group-title {line-height:30px;height:30px;background:#333;position:relative;z-index:3;}
                     .column-menu-group-title:hover, .column-menu-group-title:hover * {background:#333;}
                     .column-menu-group-title.active, .column-menu-group-title.active * {background:#337ab7;}
@@ -274,7 +275,7 @@
 
                 <div class="column-menu-group">
                     <div class="column-menu-group-title"><i class="fa fa-mortar-board"></i><span class="column-menu-group-title-text">Репетиторы</span></div>
-                    <a href="#" class="column-menu-item"><i class="fa fa-mortar-board"></i><span class="column-menu-item-text">Репетиторы</span></a>
+                    <a href="{% url 'teachers' %}" class="column-menu-item{% active 'teachers' %}"><i class="fa fa-mortar-board"></i><span class="column-menu-item-text">Репетиторы</span></a>
                     <a href="#" class="column-menu-item"><i class="fa fa-upload"></i><span class="column-menu-item-text">Загрузка паспортных данных</span></a>
                 </div>
 
@@ -284,9 +285,14 @@
                     <a href="#" class="column-menu-item"><i class="fa fa-fax"></i><span class="column-menu-item-text">Автоматические обзвоны</span></a>
                 </div>
 
-                <div class="column-menu-group">
+                <div class="column-menu-group column-menu-group-user">
                     <div class="column-menu-group-title"><i class="fa fa-user"></i><span class="column-menu-group-title-text"><a href="#" class="wide-toggle">100%</a> Петров К.В.</span></div>
                     <a href="#" class="column-menu-item"><i class="fa fa-sign-out"></i><span class="column-menu-item-text">Выйти</span></a>
+                </div>
+
+                <div class="column-menu-group">
+                    <div class="column-menu-group-title"><i class="fa fa-file-text-o"></i><span class="column-menu-group-title-text">Документация прототипа</span></div>
+                    <a href="{% url 'layout' %}" class="column-menu-item{% active 'layout' %}"><i class="fa fa-th-large"></i><span class="column-menu-item-text">Layout</span></a>
                 </div>
 
             </td>
@@ -303,7 +309,61 @@
                     </div>
                 </div>
 
-                {% block content %}{% endblock %}
+                {% block content %}
+
+                    <h1>Правила layout-а</h1>
+
+                    <table class="table" style="width:auto;">
+                        <tr>
+                            <th>Ширина окна браузера</th>
+                            <th>Ширина сайта</th>
+                            <th>Ширина контент блока</th>
+                            <th>Ориентация</th>
+                            <th>Левое меню</th>
+                            <th>Горизонтальный скролл</th>
+                        </tr>
+                        <tr>
+                            <th>от 1600px</th>
+                            <td>1420</td>
+                            <td>1220</td>
+                            <td>По центру</td>
+                            <td>Развёрнуто</td>
+                            <td>Нет</td>
+                        </tr>
+                        <tr>
+                            <th>1440px до 1600px</th>
+                            <td>1420</td>
+                            <td>1220</td>
+                            <td>К левому краю</td>
+                            <td>Развёрнуто</td>
+                            <td>Нет</td>
+                        </tr>
+                        <tr>
+                            <th>1280px до 1440px</th>
+                            <td>1250</td>
+                            <td>1220</td>
+                            <td>К левому краю</td>
+                            <td>Свёрнуто</td>
+                            <td>Нет</td>
+                        </tr>
+                        <tr>
+                            <th>до 1280px</th>
+                            <td>1250</td>
+                            <td>1220</td>
+                            <td>К левому краю</td>
+                            <td>Свёрнуто</td>
+                            <td>Да</td>
+                        </tr>
+                    </table>
+
+
+                    <div class="alert alert-info" role="alert" style="display:inline-block;">
+                        Справа от имени пользователя доступна кнопочка - <b>100% | Fixed</b> - которая растягивает сайт на весь экран, не отменяя поведения, описанного выше.
+                        <br>
+                        За качество отображения на 100% ширине - никто не отвечает. Нужно для специфических страниц и специфических пользователей, типа Андрюхи и Митяя.
+                    </div>
+
+                {% endblock %}
 
                 <!-- Если мы на странице редактирования репетитора - показываем плейсхолдер для кнопки -->
                 {% if url_name == 'teacher' %}
@@ -457,7 +517,7 @@
 
         };
 
-        new function Wide() { var self = this;
+        new function WideButton() { var self = this;
 
             self.body = $('body');
             self.button = $('.wide-toggle');

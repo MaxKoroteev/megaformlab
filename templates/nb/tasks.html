@@ -25,7 +25,6 @@
 
     </style>
 
-
     <ul class="nav nav-tabs">
         <li role="presentation" class="active"><span>Задачи</span></li>
         <li role="presentation"><a href="#">Мои задачи</a></li>
@@ -126,11 +125,11 @@
                         <th class="tasks-table-comment">Последний комментарий</th>
                         <th>Исполнитель</th>
                     </tr>
-                    {% for i in '1234567890' %}
+                    {% for i in '123456789012345678901234567890' %}
                         <tr>
                             <td>1700497{{ i }}</td>
                             <td class="tasks-table-title">
-                                <a href="#"><b>Позвонить репетитору</b></a>
+                                <a href="{% url 'order' %}"><b>Позвонить репетитору</b></a>
                             </td>
                             <td>
                                 02.05.2000 15:00

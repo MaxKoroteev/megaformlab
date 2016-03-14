@@ -68,7 +68,7 @@ urlpatterns = [
     url(r'^duplicates/$',         TemplateView.as_view(template_name='back/duplicates.html'),         name='duplicates'),
     url(r'^mp/$',                 TemplateView.as_view(template_name='back/mp.html'),                 name='mp'),
 
-    url(r'^layout/$',             TemplateView.as_view(template_name='back/layout.html'),             name='layout'),
+    # url(r'^layout/$',             TemplateView.as_view(template_name='back/layout.html'),             name='layout'),
     url(r'^repetitors/$',         TemplateView.as_view(template_name='back/repetitors.html'),         name='repetitors'),
     url(r'^repetitors_new/$',     TemplateView.as_view(template_name='back/repetitors_new.html'),     name='repetitors_new'),
     url(r'^repetitors_final/$',   TemplateView.as_view(template_name='back/repetitors_final.html'),   name='repetitors_final'),
@@ -95,9 +95,8 @@ urlpatterns = [
     url(r'^db/$',           TemplateView.as_view(template_name='rp/db.html'),           name='db'),
     url(r'^menu/$',           TemplateView.as_view(template_name='rp/menu.html'),           name='menu'),
 
-    url(r'^home/$',  TemplateView.as_view(template_name='nb/home.html'),  name='home'),
+    url(r'^layout/$',  TemplateView.as_view(template_name='nb/home.html'),  name='layout'),
     url(r'^tasks/$', TemplateView.as_view(template_name='nb/tasks.html'), name='tasks'),
-    url(r'^repetitor_list/$', TemplateView.as_view(template_name='nb/repetitor_list.html'), name='repetitor_list'),
     url(r'^teachers/$', TemplateView.as_view(template_name='nb/teachers.html'), name='teachers'),
     url(r'^teacher/$', TemplateView.as_view(template_name='nb/teacher.html'), name='teacher'),
     url(r'^order/$', TemplateView.as_view(template_name='nb/order.html'), name='order'),

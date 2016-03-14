@@ -15,19 +15,20 @@
                             .teacher-item .dropdown-table {margin-left:-200px;width:400px;padding:0;border-top:0;}
                                 .teacher-item .dropdown-table table {margin:0;}
 
-                        .teacher-photo-cell {width:100px;padding-right:10px;}
-                            .teacher-photo-cell a {display:block;position:relative;width:90px;height:145px;}
-                                .teacher-photo {height:145px;}
-
+                        .teacher-photo-cell {width:75px;padding-right:10px;}
+                            .teacher-photo-cell a {display:block;position:relative;width:65px;height:105px;}
+                                .teacher-photo {height:105px;}
+                                .teacher-photo-cell.zoomed .teacher-photo {position:absolute;width:90px;height:145px;right:0;bottom:0;box-shadow:0 0 5px rgba(0,0,0,0.25);}
+                                .teacher-photo-cell .fa.teacher-zoom-photo {position:absolute;bottom:0;right:0;color:#999;background:#fff;font-size:10px;text-align:center;line-height:15px;width:14px;height:14px;border-radius:2px 0 0 0;}
+                                .teacher-photo-cell.zoomed .fa.teacher-zoom-photo {background:transparent;color:transparent;}
                         .teacher-info-cell {}
-                            .teacher-header {line-height:14px;margin-bottom:5px;}
-                                .teacher-header-city {float:right;}
+                            .teacher-header {line-height:14px;margin-bottom:4px;}
                                 .teacher-header .fa-map-marker {font-size:15px;}
                                 .teacher-name {font-weight:bold;}
+                                .teacher-education {color:#337ab7;cursor:default;}
+                            .teacher-stats {line-height:14px;margin-bottom:4px;}
 
-                            .teacher-stats {line-height:14px;margin-bottom:5px;}
-
-                                .teacher-stars {margin-right:2px;font-size:0;line-height:0;} /* STARS */
+                                .teacher-stars {margin-right:2px;font-size:0;} /* STARS */
                                 .teacher-stats .fa {}
                                 .teacher-stats .fa-star,
                                 .teacher-stats .fa-star-o,
@@ -45,17 +46,10 @@
                                 .teacher-stats .fa-ban          {color:#d9534f;}
                                 .teacher-stats .fa-info         {color:#5bc0de;}
 
-                            .teacher-status {line-height:14px;margin-bottom:5px;}
-
-                            .teacher-comments {line-height:14px;margin-bottom:5px;}
-                                .teacher-comment {display:inline-block;}
-                                    .teacher-comment .fa-info {color:#5bc0de;}
-                                    .teacher-comment .fa-skype {color:#5bc0de;}
-
-                            .teacher-subjects-table {margin-bottom:5px;width:100%;border:1px solid #ccc;border-bottom:0;}
+                            .teacher-subjects-table {margin-bottom:5px;width:589px;border:1px solid #ccc;border-bottom:0;}
 
                                 .teacher-subjects-table .fa {margin-top:2px;color:#999;}
-                                .teacher-subjects-table .fa-skype {margin-top:3px;}
+                                .teacher-subjects-table .fa-skype {margin-top:3px;color:#5bc0de;}
                                 .teacher-subjects-table th, .teacher-subjects-table td {line-height:19px;border-bottom:1px solid #ccc;}
                                 .teacher-subjects-table td {width:1px;white-space:nowrap;padding:0 10px 0 5px;}
                                 .teacher-subjects-table th {padding-left:5px;}
@@ -71,20 +65,19 @@
                                 .teacher-subject-body.expanded {display:table-row;}
                                     .teacher-subject-body span {color:#999;}
 
-                            .teacher-places {margin-bottom:5px;border:1px solid #ccc;border-bottom:0;width:100%;}
+                            .teacher-places {margin-bottom:5px;width:589px;border:1px solid #ccc;border-bottom:0;}
                                 .teacher-places .fa {margin-top:2px;}
-                            .teacher-places th, .teacher-places td {line-height:19px;border-bottom:1px solid #ccc;width:1px;white-space:nowrap;padding:0 10px;}
-                            .teacher-places th {padding-left:5px;}
+                            .teacher-places th, .teacher-places td {line-height:19px;border-bottom:1px solid #ccc;width:1px;white-space:nowrap;padding:0 5px;}
                             .teacher-places td {}
                                 .teacher-metro-dot {width:4px;height:4px;border-radius:5px;margin:8px 2px 0 0;background:#e00;display:inline-block;}
 
+                                td.teacher-places-home {padding-left:10px;}
+                                td.teacher-places-map {padding-left:10px;}
                                 td.teacher-place-address {width:auto;white-space:normal;}
 
-                            .teacher-education {line-height:14px;}
+                            .teacher-order-info {line-height:14px;}
 
-                            .teacher-order-info {line-height:14px;margin-top:5px;}
-
-                                .teacher-order-info .fa {}
+                                .teacher-order-info .fa {margin-top:1px;}
 
                                 .teacher-order-comment {display:inline-block;}
 
@@ -101,16 +94,16 @@
                             .teacher-suit .btn:first-child {margin-left:0;}
                             .teacher-suit .btn .fa {vertical-align:top;margin-top:3px;}
 
-                            .teacher-call-result {font-size:12px;line-height:12px;display:inline-block;margin:5px 0 10px;}
-                            .teacher-actions-cell .btn-wide {width:100%;text-align:left;margin-top:10px;}
+                            .teacher-call-result {font-size:12px;line-height:12px;display:inline-block;margin:5px 0 5px;}
+                            .teacher-actions-cell .btn-wide {width:100%;text-align:left;margin-top:5px;}
                             .teacher-actions-cell .btn-wide .fa {width:14px;vertical-align:top;margin-top:2px;text-align:center;font-size:14px;margin-right:2px;}
 
                             .teacher-actions-cell .fa-toggle-off {margin-top:2px;}
                             .teacher-actions-cell .fa-toggle-on {margin-top:2px;}
-                            .teacher-actions-cell .fa-certificate {margin-top:2px;}
 
-                            .btn-auto {width:100%;margin-bottom:5px;text-align:left;}
-                            .btn-assign {width:100%;text-align:left;}
+                            .teacher-actions-cell .btn-group {width:100%;}
+                                .btn-auto {width:45%;}
+                                .btn-assign {width:55%;}
     </style>
 
     <table class="teachers-table">
@@ -362,6 +355,7 @@
                             <td class="teacher-photo-cell">
                                 <a href="{% url 'teacher' %}">
                                     <img src="http://www.img.repetit.ru/photo/teacher_5399.jpg" class="teacher-photo">
+                                    <i class="fa fa-plus teacher-zoom-photo"></i>
                                 </a>
                             </td>
                             <td class="teacher-info-cell">
@@ -379,7 +373,35 @@
 
                                     <i class="sep"></i>
 
-                                    <i class="fa fa-venus" title="Жен."></i>
+                                    <span class="teacher-education" title="МГУ им. Ломоносова">Преподаватель вуза</span>
+
+                                    <i class="sep"></i>
+
+                                    <div class="dropdown">
+                                        <a href="#" class="fa fa-graduation-cap dropdown-toggle" data-toggle="dropdown" title="Показать образование репетитора"></a>
+                                        <div class="dropdown-menu dropdown-table">
+                                            <table class="table table-condensed table-striped">
+                                                <tr>
+                                                    <th>Вуз</th>
+                                                    <th>Год</th>
+                                                    <th>Факультет</th>
+                                                    <th>Специальность</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>МГУ</td>
+                                                    <td>'85</td>
+                                                    <td>юридический факультет</td>
+                                                    <td>юрист-международник</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>МГУ</td>
+                                                    <td>'90</td>
+                                                    <td>факультет экономики</td>
+                                                    <td>экономис</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
 
                                     <i class="sep"></i>
 
@@ -392,28 +414,13 @@
 
                                     <i class="sep"></i>
 
-                                    Ханты-Мансийск и Ханты-Мансийский автономный округ
-
-                                </div>
-
-                                <div class="teacher-status">
-
-                                    Преподаватель вуза
+                                    <i class="fa fa-venus" title="Жен."></i>
 
                                     <i class="sep"></i>
 
-                                    Московский государственный университет М. В. Ломоносова
-
-                                    <!--
-                                        Носитель языка
-                                        <i class="sep"></i>
-                                        Уровень владения русским языком: Понимаю, но не говорю
-                                        <i class="sep"></i>
-                                        Страна: Германия
-                                    -->
+                                    <i class="fa fa-map-marker" title="Москва и Московская область"></i>
 
                                 </div>
-
                                 <div class="teacher-stats">
                                     <span class="teacher-stars" title="Оценки">
                                         <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i>
@@ -451,22 +458,14 @@
                                     <i class="fa fa-clock-o" title="Не нуждается в учениках до 02.08.2020"></i>
                                     <i class="sep"></i>
                                     <i class="fa fa-ban" title="Запрещено отдавать заявки"></i>
-
-                                    <i class="sep"></i> <span>№ 23675432</span>
-
-                                </div>
-
-                                <div class="teacher-comments hide-data" style="display:none;">
-
-                                    <span class="teacher-comment">
-                                        <i class="fa fa-info" title="Комментарий сотрудника"></i>
-                                        Преподаватель не хочет отображаться на сайте.
-                                    </span>
-
-                                    <span class="teacher-comment">
-                                        <i class="fa fa-skype" title="Комментарий к удалённым занятиям"></i>
-                                        Общение по скайпу предпочтительно в видео-формате
-                                    </span>
+                                    <i class="sep"></i>
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Показать комментарий сотрудника"><i class="fa fa-info"></i></a>
+                                        <div class="dropdown-menu">
+                                            Аллергия на кошек и собак.
+                                        </div>
+                                    </div>
+                                    <i class="sep"></i> <span title="ID">23675432</span>
 
                                 </div>
 
@@ -476,7 +475,7 @@
                                         <td><span class="teacher-subject-time" title="Минимальная предолжительность одного занятия">120</span></td>
                                         <td><i class="fa fa-graduation-cap" title="У репетитора"></i> от <b>1200</b> р/ч</td>
                                         <td><i class="fa fa-user" title="У ученика"></i> от <b>2000</b> р/ч</td>
-                                        <td><i class="fa fa-skype"></i> от <b>1000</b> р/ч</td>
+                                        <td><i class="fa fa-skype" title="Комментарий к удалённым занятиям"></i> от <b>1000</b> р/ч</td>
                                     </tr>
                                     <tr class="teacher-subject-body">
                                         <td colspan="5">
@@ -493,7 +492,7 @@
                                         <td><span class="teacher-subject-time" title="Минимальная предолжительность одного занятия">120</span></td>
                                         <td><i class="fa fa-graduation-cap" title="У репетитора"></i> от <b>1200</b> р/ч</td>
                                         <td><i class="fa fa-user" title="У ученика"></i> от <b>2000</b> р/ч</td>
-                                        <td><i class="fa fa-skype"></i> от <b>1000</b> р/ч</td>
+                                        <td><i class="fa fa-skype" title="Комментарий к удалённым занятиям"></i> от <b>1000</b> р/ч</td>
                                     </tr>
                                     <tr class="teacher-subject-body">
                                         <td colspan="5">
@@ -508,7 +507,7 @@
                                         <td><span class="teacher-subject-time" title="Минимальная предолжительность одного занятия">120</span></td>
                                         <td><i class="fa fa-graduation-cap" title="У репетитора"></i> от <b>1200</b> р/ч</td>
                                         <td><i class="fa fa-user" title="У ученика"></i> от <b>2000</b> р/ч</td>
-                                        <td><i class="fa fa-skype"></i> от <b>1000</b> р/ч</td>
+                                        <td><i class="fa fa-skype" title="Комментарий к удалённым занятиям"></i> от <b>1000</b> р/ч</td>
                                     </tr>
                                     <tr class="teacher-subject-body">
                                         <td colspan="5">
@@ -521,12 +520,14 @@
 
                                 </table>
 
+
+
                                 <table class="teacher-places">
                                     <tr>
                                         <th><span class="teacher-metro-dot"></span><b>Юго-Западная</b></th>
-                                        <td class="teacher-place-address">Ленинский проспект, 150/3 (15 мин. от метро)</td>
-                                        <td class="teacher-places-home"><i class="fa fa-home" title="Проводится занятия"></i> </td>
+                                        <td class="teacher-place-address">Ленинский проспект, 150/3</td>
                                         <td><i class="fa fa-car" title="Проводится выезд"></i> не более 40 мин. от своего района</td>
+                                        <td class="teacher-places-home"><i class="fa fa-home" title="Проводится занятия (15 мин. от метро)"></i> </td>
                                         <td class="teacher-places-map">
                                             <div class="dropdown">
                                                 <a href="#" class="fa fa-map-marker dropdown-toggle" data-toggle="dropdown" title="Показать карту"></a>
@@ -540,9 +541,9 @@
                                     {# HIDDEN #}
                                     <tr class="hide-data" style="display:none;">
                                         <th><span class="teacher-metro-dot"></span><b>Юго-Западная</b></th>
-                                        <td class="teacher-place-address">Ленинский проспект, 150/3 (15 мин. от метро)</td>
-                                        <td class="teacher-places-home"><i class="fa fa-home" title="Проводится занятия"></i> </td>
+                                        <td class="teacher-place-address">Ленинский проспект, 150/3</td>
                                         <td><i class="fa fa-car" title="Проводится выезд"></i> не более 40 мин. от своего района</td>
+                                        <td class="teacher-places-home"><i class="fa fa-home" title="Проводится занятия (15 мин. от метро)"></i> </td>
                                         <td class="teacher-places-map">
                                             <div class="dropdown">
                                                 <a href="#" class="fa fa-map-marker dropdown-toggle" data-toggle="dropdown" title="Показать карту"></a>
@@ -556,12 +557,6 @@
 
                                 </table>
 
-                                <div class="teacher-education"><i class="sep"></i> МГУ, '85, Юридический факультет, Юрист-международник</div>
-
-                                {# HIDDEN #}
-                                    <div class="teacher-education hide-data" style="display:none;"><i class="sep"></i> МГУ, '85, Юридический факультет, Юрист-международник</div>
-                                {# ENDHIDDEN #}
-
                                 <div class="teacher-order-info">
                                     <i class="fa fa-gift" title="Желаемый"></i>
                                     <i class="fa fa-info-circle" title="Запрос"></i>
@@ -571,7 +566,6 @@
                                     <span class="teacher-order-comment"><i class="sep"></i> <i class="fa fa-graduation-cap" title="Запрос репетитора"></i> Возьму, если договоримся о формате</span>
                                     <span class="teacher-order-comment"><i class="sep"></i> <i class="fa fa-black-tie" title="Комментарий сотрудника"></i> По формальным критериям</span>
                                 </div>
-
                             </td>
                             <td class="teacher-actions-cell">
 
@@ -589,10 +583,10 @@
 
                                 <a href="#" class="teacher-call-result">Репетитор согласился с доп. условиями</a>
 
-
-                                <button class="btn btn-default btn-auto   btn-xs active"><i class="fa fa-toggle-on"></i> Автоназначение</button>
-                                <button class="btn btn-default btn-assign btn-xs"><i class="fa fa-certificate"></i> Назначить</button>
-
+                                <div class="btn-group">
+                                    <button class="btn btn-default btn-auto   btn-xs active"><i class="fa fa-toggle-on"></i> Авто</button>
+                                    <button class="btn btn-default btn-assign btn-xs"><!--i class="fa fa-certificate"></i--> Назначить</button>
+                                </div>
                             </td>
                         </tr>
                     </table>
@@ -604,6 +598,15 @@
     </table>
 
     <script>
+
+    /* Увеличиваем фоточку */
+    $('.teacher-photo-cell').click(function(e){
+        $('.teacher-photo-cell.zoomed').not($(this).closest('.teacher-photo-cell.zoomed')).removeClass('zoomed');
+        $(this).closest('.teacher-photo-cell').toggleClass('zoomed');
+        e.preventDefault();
+        e.stopPropagation();
+    });
+    $('body').click(function(){$('.teacher-photo-cell.zoomed').removeClass('zoomed');});
 
     /* Гармошка для предметов */
     $('.teacher-subject-header').on('click', function() {
