@@ -38,7 +38,7 @@
       <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/nb/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="10.291667">
+            <state vertical-scroll-proportion="25.291666">
               <caret line="132" column="32" selection-start-line="132" selection-start-column="32" selection-end-line="132" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -58,30 +58,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tasks.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tasks.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/nb/tasks.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.958333">
+            <state vertical-scroll-proportion="0.65543646">
               <caret line="127" column="63" selection-start-line="127" selection-start-column="63" selection-end-line="127" selection-end-column="63" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="b_teachers_old.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/nb/b_teachers_old.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.4583335">
-              <caret line="96" column="116" selection-start-line="96" selection-start-column="116" selection-end-line="96" selection-end-column="117" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="b_teachers.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="b_teachers.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/nb/b_teachers.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22205207">
+            <state vertical-scroll-proportion="-6.0416665">
               <caret line="463" column="43" selection-start-line="463" selection-start-column="43" selection-end-line="463" selection-end-column="43" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
@@ -613,7 +603,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -625,7 +615,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34042552" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1217,38 +1207,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/nb/tasks.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.958333">
-          <caret line="127" column="63" selection-start-line="127" selection-start-column="63" selection-end-line="127" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/nb/b_teachers_old.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.4583335">
-          <caret line="96" column="116" selection-start-line="96" selection-start-column="116" selection-end-line="96" selection-end-column="117" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/nb/teacher.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-63.458332">
           <caret line="609" column="65" selection-start-line="609" selection-start-column="65" selection-end-line="609" selection-end-column="65" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/nb/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="10.291667">
-          <caret line="132" column="32" selection-start-line="132" selection-start-column="32" selection-end-line="132" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1262,7 +1225,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/nb/b_teachers.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22205207">
+        <state vertical-scroll-proportion="-6.0416665">
           <caret line="463" column="43" selection-start-line="463" selection-start-column="43" selection-end-line="463" selection-end-column="43" />
           <folding>
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
@@ -1270,6 +1233,25 @@
             <element signature="n#style#0;n#tr#4;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#tr#1;n#table#1;n#td#1;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#5;n#td#1;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/nb/tasks.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65543646">
+          <caret line="127" column="63" selection-start-line="127" selection-start-column="63" selection-end-line="127" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/nb/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="25.291666">
+          <caret line="132" column="32" selection-start-line="132" selection-start-column="32" selection-end-line="132" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
