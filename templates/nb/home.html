@@ -7,7 +7,7 @@
     <title></title>
 
     {# jquery #}
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 
     {# bootstrap #}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -87,7 +87,7 @@
         .btn:focus, .btn:active:focus, .btn.active:focus {outline:none;box-shadow:none;}
 
         .form-control {height:30px;padding:4px;}
-        textarea.form-control {padding:5px 4px 6px;}
+        textarea.form-control {padding:5px 4px 6px;resize:vertical;}
 
         a:focus {color:#337ab7;text-decoration:none;}
         a:focus:hover {color:#23527c;text-decoration:underline;}
@@ -233,6 +233,36 @@
         body.wide .bottom-inner {width:100%;}
             body.wide .footer-buttons {border-right:0;}
 
+        [data-icon="Администрирование"]      .fa:before {content:'\f085';}
+        [data-icon="Редактирование прав"]    .fa:before {content:'\f0e3';}
+        [data-icon="Редактирование ролей"]   .fa:before {content:'\f0f0';}
+        [data-icon="Редактирование доступа"] .fa:before {content:'\f13e';}
+        [data-icon="Управление проектами"]   .fa:before {content:'\f1de';}
+        [data-icon="Динамические сборки"]    .fa:before {content:'\f1b3';}
+        [data-icon="Документация SQL"]       .fa:before {content:'\f1c0';}
+
+        [data-icon="Контент"]    .fa:before {content:'\f15c';}
+        [data-icon="Регионы"]    .fa:before {content:'\f0ac';}
+        [data-icon="Вузы"]       .fa:before {content:'\f19c';}
+        [data-icon="Школы"]      .fa:before {content:'\f015';}
+        [data-icon="Предметы"]   .fa:before {content:'\f02d';}
+        [data-icon="Разделы"]    .fa:before {content:'\f0e8';}
+        [data-icon="Дополнения"] .fa:before {content:'\f12e';}
+
+        [data-icon="Сотрудники"]               .fa:before {content:'\f0c0';}
+        [data-icon="Сотрудники"]               .fa:before {content:'\f0c0';}
+        [data-icon="Дни рождения сотрудников"] .fa:before {content:'\f1fd';}
+        [data-icon="Для консультантов"]        .fa:before {content:'\f27e';}
+        [data-icon="Зарплата из Excel"]        .fa:before {content:'\f1c3';}
+
+        [data-icon="Репетиторы"]                 .fa:before {content:'\f19d';}
+        [data-icon="Репетиторы"]                 .fa:before {content:'\f19d';}
+        [data-icon="Загрузка паспортных данных"] .fa:before {content:'\f093';}
+
+        [data-icon="Звонки"]                 .fa:before {content:'\f19d';}
+        [data-icon="Прослушка разговоров"]   .fa:before {content:'\f19d';}
+        [data-icon="Автоматические обзвоны"] .fa:before {content:'\f093';}
+
     </style>
 
 </head>
@@ -246,43 +276,43 @@
                 </div>
 
                 <div class="column-menu-group">
-                    <div class="column-menu-group-title"><i class="fa fa-cogs"></i><span class="column-menu-group-title-text">Администрирование</span></div>
-                    <a href="#" class="column-menu-item"><i class="fa fa-gavel"></i><span class="column-menu-item-text">Редактирование прав</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-user-md"></i><span class="column-menu-item-text">Редактирование ролей</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-unlock-alt"></i><span class="column-menu-item-text">Редактирование доступа</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-sliders"></i><span class="column-menu-item-text">Управление проектами</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-cubes"></i><span class="column-menu-item-text">Динамические сборки</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-database"></i><span class="column-menu-item-text">Документация SQL</span></a>
+                    <div class="column-menu-group-title" data-icon="Администрирование"><i class="fa"><!-- fa-cogs --></i><span class="column-menu-group-title-text">Администрирование</span></div>
+                    <a href="#" class="column-menu-item" data-icon="Редактирование прав"><i class="fa fa-gavel"></i><span class="column-menu-item-text">Редактирование прав</span></a>
+                    <a href="#" class="column-menu-item" data-icon="Редактирование ролей"><i class="fa fa-user-md"></i><span class="column-menu-item-text">Редактирование ролей</span></a>
+                    <a href="#" class="column-menu-item" data-icon="Редактирование доступа"><i class="fa fa-unlock-alt"></i><span class="column-menu-item-text">Редактирование доступа</span></a>
+                    <a href="#" class="column-menu-item" data-icon="Управление проектами"><i class="fa fa-sliders"></i><span class="column-menu-item-text">Управление проектами</span></a>
+                    <a href="#" class="column-menu-item" data-icon="Динамические сборки"><i class="fa fa-cubes"></i><span class="column-menu-item-text">Динамические сборки</span></a>
+                    <a href="#" class="column-menu-item" data-icon="Документация SQL"><i class="fa fa-database"></i><span class="column-menu-item-text">Документация SQL</span></a>
                 </div>
 
                 <div class="column-menu-group">
-                    <div class="column-menu-group-title"><i class="fa fa-file-text"></i><span class="column-menu-group-title-text">Контент</span></div>
-                    <a href="#" class="column-menu-item"><i class="fa fa-globe"></i><span class="column-menu-item-text">Регионы</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-institution"></i><span class="column-menu-item-text">Вузы</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-home"></i><span class="column-menu-item-text">Школы</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-book"></i><span class="column-menu-item-text">Предметы</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-sitemap"></i><span class="column-menu-item-text">Разделы</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-puzzle-piece"></i><span class="column-menu-item-text">Дополнения</span></a>
+                    <div class="column-menu-group-title" data-icon="Контент"><i class="fa fa-file-text"></i><span class="column-menu-group-title-text">Контент</span></div>
+                    <a href="#" class="column-menu-item" data-icon="Регионы"><i class="fa fa-globe"></i><span class="column-menu-item-text">Регионы</span></a>
+                    <a href="#" class="column-menu-item" data-icon="Вузы"><i class="fa fa-institution"></i><span class="column-menu-item-text">Вузы</span></a>
+                    <a href="#" class="column-menu-item" data-icon="Школы"><i class="fa fa-home"></i><span class="column-menu-item-text">Школы</span></a>
+                    <a href="#" class="column-menu-item" data-icon="Предметы"><i class="fa fa-book"></i><span class="column-menu-item-text">Предметы</span></a>
+                    <a href="#" class="column-menu-item" data-icon="Разделы"><i class="fa fa-sitemap"></i><span class="column-menu-item-text">Разделы</span></a>
+                    <a href="#" class="column-menu-item" data-icon="Дополнения"><i class="fa fa-puzzle-piece"></i><span class="column-menu-item-text">Дополнения</span></a>
                 </div>
 
                 <div class="column-menu-group">
-                    <div class="column-menu-group-title"><i class="fa fa-users"></i><span class="column-menu-group-title-text">Сотрудники</span></div>
-                    <a href="#" class="column-menu-item"><i class="fa fa-users"></i><span class="column-menu-item-text">Сотрудники</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-birthday-cake"></i><span class="column-menu-item-text">Дни рождения сотрудников</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-black-tie"></i><span class="column-menu-item-text">Для консультантов</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-file-excel-o"></i><span class="column-menu-item-text">Зарплата из Excel</span></a>
+                    <div class="column-menu-group-title" data-icon="Сотрудники"><i class="fa fa-users"></i><span class="column-menu-group-title-text">Сотрудники</span></div>
+                    <a href="#" class="column-menu-item" data-icon="Сотрудники"><i class="fa fa-users"></i><span class="column-menu-item-text">Сотрудники</span></a>
+                    <a href="#" class="column-menu-item" data-icon="Дни рождения сотрудников"><i class="fa fa-birthday-cake"></i><span class="column-menu-item-text">Дни рождения сотрудников</span></a>
+                    <a href="#" class="column-menu-item" data-icon="Для консультантов"><i class="fa fa-black-tie"></i><span class="column-menu-item-text">Для консультантов</span></a>
+                    <a href="#" class="column-menu-item" data-icon="Зарплата из Excel"><i class="fa fa-file-excel-o"></i><span class="column-menu-item-text">Зарплата из Excel</span></a>
                 </div>
 
                 <div class="column-menu-group">
-                    <div class="column-menu-group-title"><i class="fa fa-mortar-board"></i><span class="column-menu-group-title-text">Репетиторы</span></div>
-                    <a href="{% url 'teachers' %}" class="column-menu-item{% active 'teachers' %}"><i class="fa fa-mortar-board"></i><span class="column-menu-item-text">Репетиторы</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-upload"></i><span class="column-menu-item-text">Загрузка паспортных данных</span></a>
+                    <div class="column-menu-group-title" data-icon="Репетиторы"><i class="fa fa-mortar-board"></i><span class="column-menu-group-title-text">Репетиторы</span></div>
+                    <a href="{% url 'teachers' %}" class="column-menu-item{% active 'teachers' %}" data-icon="Репетиторы"><i class="fa fa-mortar-board"></i><span class="column-menu-item-text">Репетиторы</span></a>
+                    <a href="#" class="column-menu-item"><i class="fa fa-upload" data-icon="Загрузка паспортных данных"></i><span class="column-menu-item-text">Загрузка паспортных данных</span></a>
                 </div>
 
                 <div class="column-menu-group">
-                    <div class="column-menu-group-title"><i class="fa fa-phone"></i><span class="column-menu-group-title-text">Звонки</span></div>
-                    <a href="#" class="column-menu-item"><i class="fa fa-microphone"></i><span class="column-menu-item-text">Прослушка разговоров</span></a>
-                    <a href="#" class="column-menu-item"><i class="fa fa-fax"></i><span class="column-menu-item-text">Автоматические обзвоны</span></a>
+                    <div class="column-menu-group-title" data-icon="Звонки"><i class="fa fa-phone"></i><span class="column-menu-group-title-text">Звонки</span></div>
+                    <a href="#" class="column-menu-item" data-icon="Прослушка разговоров"><i class="fa fa-microphone"></i><span class="column-menu-item-text">Прослушка разговоров</span></a>
+                    <a href="#" class="column-menu-item" data-icon="Автоматические обзвоны"><i class="fa fa-fax"></i><span class="column-menu-item-text">Автоматические обзвоны</span></a>
                 </div>
 
                 <div class="column-menu-group column-menu-group-user">
