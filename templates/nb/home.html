@@ -357,11 +357,26 @@
                     </table>
 
 
-                    <div class="alert alert-info" role="alert" style="display:inline-block;">
-                        Справа от имени пользователя доступна кнопочка - <b>100% | Fixed</b> - которая растягивает сайт на весь экран, не отменяя поведения, описанного выше.
-                        <br>
-                        За качество отображения на 100% ширине - никто не отвечает. Нужно для специфических страниц и специфических пользователей, типа Андрюхи и Митяя.
+                    <div class="alert alert-info">
+                        <ul style="padding-left:20px;">
+                            <li>Справа от имени пользователя доступна кнопочка - <b>100% | Fixed</b> - которая растягивает сайт на весь экран, не отменяя поведения, описанного выше.</li>
+                            <li>За качество отображения на 100% ширине - никто не отвечает. Нужно для специфических страниц и специфических пользователей, типа Динамических сборок для Андрюхи и Митяя.</li>
+                            <li>Данные этой кнопочки храняться в localStorage</li>
+                        </ul>
                     </div>
+
+                    <h2>Опрос сотрудников, на предмет разрешения экрана</h2>
+
+                    <table class="table">
+                        <tr>
+                            <th>Результат опроса</th>
+                            <td><a href="https://docs.google.com/spreadsheets/d/1866Ch9YW0BS0EvHVBRCXJ4EKWL3hK49-bLZA91XKJmg/edit#gid=0">https://docs.google.com/spreadsheets/d/1866Ch9YW0BS0EvHVBRCXJ4EKWL3hK49-bLZA91XKJmg/edit#gid=0</a></td>
+                        </tr>
+                        <tr>
+                            <th>Использовался сервис</th>
+                            <td><a href="http://www.whatismyscreenresolution.com/">http://www.whatismyscreenresolution.com/</a></td>
+                        </tr>
+                    </table>
 
                 {% endblock %}
 
@@ -521,15 +536,42 @@
 
             self.body = $('body');
             self.button = $('.wide-toggle');
+            self.isWide = $.parseJSON(localStorage.getItem('wide'));
+
+            self.init = function() {
+                if (self.isWide) {
+                    self.makeWide();
+                } else {
+                    self.makeNarrow();
+                }
+            };
+
+            self.makeWide = function() {
+                self.body.addClass('wide');
+                self.button.text('Fixed');
+                localStorage.setItem('wide', true);
+                self.isWide = true
+            };
+
+            self.makeNarrow = function() {
+                self.body.removeClass('wide');
+                self.button.text('100%');
+                localStorage.setItem('wide', false);
+                self.isWide = false
+            };
 
             self.events = function() {
                 self.button.on('click', function() {
-                    self.body.toggleClass('wide');
-                    self.button.toggleText('100%', 'Fixed');
+                    if (self.isWide) {
+                        self.makeNarrow();
+                    } else {
+                        self.makeWide();
+                    }
                     return false;
                 });
             };
 
+            self.init();
             self.events();
 
         };
