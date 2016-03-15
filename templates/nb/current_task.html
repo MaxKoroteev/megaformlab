@@ -140,6 +140,11 @@
 </div>
 
 <script>
+
+    {# TODO: Оформить ввиде класса #}
+    {# TODO: При открытии .modal-window ничё не должно прыгать #}
+    {# TODO: Клювая вёрстка пагинации #}
+
     $('.current-task-header').on('click', function() {$('.current-task').toggleClass('expanded')});
 
     $('.form-control-time').mask('99:99');
@@ -149,4 +154,5 @@
         $('.current-task-fields').toggleClass('active');
         $(this).find('.fa').toggleClass('fa-chevron-right').toggleClass('fa-times');
     });
+
 </script>
