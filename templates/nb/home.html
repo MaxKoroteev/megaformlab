@@ -135,7 +135,7 @@
         .sep:after {content:'•'}
 
         /* Фильтр. Используется в списке репетиторов, в списке задач, может ещё где будет */
-        .filter {width:200px;padding-right:15px;border-right:1px solid #ccc;}
+        .filter {width:210px;padding-right:15px;border-right:1px solid #ccc;}
             .filter-subject-block {padding:5px;border:1px solid #ccc;border-radius:2px;margin:10px 0;position:relative;}
                 .filter-subject-close {display:inline-block;border-radius:2px;position:absolute;top:-7px;right:-7px;background:#337ab7;color:#fff;width:15px;height:15px;line-height:15px;text-align:center;cursor:pointer;}
                 .filter-subject-close:hover {background:#286090;}
@@ -180,6 +180,7 @@
                 .column-menu-group {margin:0 0 10px;}
                 .column-menu-group-user {border-top:1px solid #555;padding-top:10px;}
                     .column-menu-group-title {line-height:30px;height:30px;background:#333;position:relative;z-index:3;}
+                    .column-menu-group-title[data-icon="Основное"] {display:none;}
                     .column-menu-group-title:hover, .column-menu-group-title:hover * {background:#333;}
                     .column-menu-group-title.active, .column-menu-group-title.active * {background:#337ab7;}
                         .column-menu-group-title .fa {width:30px;height:30px;line-height:30px;text-align:center;color:#999;font-size:14px;}
@@ -208,6 +209,8 @@
 
         .footer-buttons {background:#f1f1f5;border-top:1px solid #ccc;border-right:1px solid #ccc;padding:10px;margin-left:30px;}
             .footer-buttons .btn-task {float:right;}
+
+        .modal-open {padding-right:0 !important;}
 
         @media (min-width:1600px) {
             .top-inner,
@@ -278,11 +281,12 @@
             <td class="column-menu">
 
                 <div class="column-menu-group">
+                    <div class="column-menu-group-title" data-icon="Основное"><i class="fa fa-cogs"></i><span class="column-menu-group-title-text">Основное</span></div>
                     <a href="{% url 'tasks' %}" class="column-menu-item{% active 'tasks' %}"><i class="fa fa-tasks"></i><span class="column-menu-item-text">Задачи</span></a>
                 </div>
 
                 <div class="column-menu-group">
-                    <div class="column-menu-group-title" data-icon="Администрирование"><i class="fa"><!-- fa-cogs --></i><span class="column-menu-group-title-text">Администрирование</span></div>
+                    <div class="column-menu-group-title" data-icon="Администрирование"><i class="fa"></i><span class="column-menu-group-title-text">Администрирование</span></div>
                     <a href="#" class="column-menu-item" data-icon="Редактирование прав"><i class="fa fa-gavel"></i><span class="column-menu-item-text">Редактирование прав</span></a>
                     <a href="#" class="column-menu-item" data-icon="Редактирование ролей"><i class="fa fa-user-md"></i><span class="column-menu-item-text">Редактирование ролей</span></a>
                     <a href="#" class="column-menu-item" data-icon="Редактирование доступа"><i class="fa fa-unlock-alt"></i><span class="column-menu-item-text">Редактирование доступа</span></a>
@@ -415,8 +419,33 @@
                     </table>
 
                     <h2>Конвенции</h2>
+
                     <div class="alert alert-info">
-                        Договорились, что выбирая из №, ID, #, по всему бэкофису используем <b>ID</b>, тем более, что именно в таком формате, пользователи вилят это на сайте.
+                        Договорились, что, для идентификации объектов, выбирая из №, ID, #, по всему бэкофису используем <b>ID</b>, тем более, что именно в таком формате, пользователи вилят это на сайте.
+                    </div>
+
+                    <!-- Trigger the modal with a button -->
+                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Пример попапа</button>
+
+                    <!-- Modal -->
+                    <div id="myModal" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>Some text in the modal.</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+
+                      </div>
                     </div>
 
                 {% endblock %}

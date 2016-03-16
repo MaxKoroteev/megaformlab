@@ -141,18 +141,34 @@
 
 <script>
 
-    {# TODO: Оформить ввиде класса #}
-    {# TODO: При открытии .modal-window ничё не должно прыгать #}
-    {# TODO: Клювая вёрстка пагинации #}
+    {# TODO: разобраться с датами в фильтре #}
 
-    $('.current-task-header').on('click', function() {$('.current-task').toggleClass('expanded')});
+    new function CurrentTask() { var self = this;
 
-    $('.form-control-time').mask('99:99');
-    $('.form-control-date').mask('99.99.9999');
+        self.task = $('.current-task');
+        self.header = $('.current-task-header');
+        self.transferBlock = $('.current-task-fields');
+        self.transferButton = $('.current-task-transfer');
+        self.transferButtonArrow = self.transferButton.find('.fa');
 
-    $('.current-task-transfer').on('click', function() {
-        $('.current-task-fields').toggleClass('active');
-        $(this).find('.fa').toggleClass('fa-chevron-right').toggleClass('fa-times');
-    });
+        self.events = function() {
+
+            self.header.on('click', function() {
+                self.task.toggleClass('expanded');
+            });
+
+            self.transferButton.on('click', function() {
+                self.transferBlock.toggleClass('active');
+                self.transferButtonArrow.toggleClass('fa-chevron-right').toggleClass('fa-times');
+            });
+
+        };
+
+        self.events();
+
+        {# $('.form-control-time').mask('99:99'); #}
+        {# $('.form-control-date').mask('99.99.9999'); #}
+
+    };
 
 </script>
