@@ -24,12 +24,12 @@
                                 .teacher-photo {height:145px;}
 
                         .teacher-info-cell {}
-                            .teacher-header {line-height:14px;margin-bottom:4px;}
-                                .teacher-header-city {float:right;}
-                                .teacher-header .fa-map-marker {font-size:15px;}
+                            .teacher-header {line-height:14px;}
                                 .teacher-name {font-weight:bold;}
 
-                            .teacher-stats {line-height:14px;margin-bottom:5px;}
+                            .teacher-status {line-height:14px;margin-bottom:4px;border-radius:2px;color:#888;}
+
+                            .teacher-stats {line-height:14px;margin-bottom:4px;}
 
                                 .teacher-stars {margin-right:2px;font-size:0;line-height:0;} /* STARS */
                                 .teacher-stats .fa {}
@@ -49,42 +49,48 @@
                                 .teacher-stats .fa-ban          {color:#d9534f;}
                                 .teacher-stats .fa-info         {color:#5bc0de;}
 
-                            .teacher-status {line-height:19px;margin-bottom:4px;background:#f1f1f5;display:inline-block;padding:0 5px;border-radius:2px;}
-
-                            .teacher-comments {line-height:14px;margin-bottom:5px;}
+                            .teacher-comments {line-height:17px;margin-bottom:5px;padding:0;border-radius:2px;background-color:#EFF6F9;border-color:#CBE7EC;}
+                                .teacher-comments .fa {margin-top:2px;width:19px;text-align:center;}
                                 .teacher-comment {display:inline-block;}
                                     .teacher-comment .fa-info {color:#5bc0de;}
                                     .teacher-comment .fa-skype {color:#5bc0de;}
 
-                            .teacher-subjects-table {margin-bottom:5px;width:100%;border:1px solid #ccc;border-bottom:0;}
+                            .teacher-related {width:100%;}
 
-                                .teacher-subjects-table .fa {margin-top:2px;color:#999;}
-                                .teacher-subjects-table .fa-skype {margin-top:3px;}
-                                .teacher-subjects-table th, .teacher-subjects-table td {line-height:19px;border-bottom:1px solid #ccc;}
-                                .teacher-subjects-table td {width:1px;white-space:nowrap;padding:0 10px 0 5px;}
-                                .teacher-subjects-table th {padding-left:5px;}
+                                .teacher-related-icon {width:20px;text-align:center;}
+                                    .teacher-related-icon .fa {line-height:21px;color:#aaa;}
+                                    .teacher-related-icon .fa-book {font-size:16px;}
+                                    .teacher-related-icon .fa-map-marker {font-size:19px;}
 
-                                .teacher-subject-header th,
-                                .teacher-subject-header td {background:#f9f9fa;cursor:default;}
-                                .teacher-subject-header:hover th,
-                                .teacher-subject-header:hover td {background:#f1f1f5;}
+                                    .teacher-subjects-table {margin-bottom:4px;width:100%;border:1px solid #ddd;border-bottom:0;}
 
-                                    .teacher-subject-time {margin-top:2px;padding:0 3px;height:15px;line-height:15px;background:#999;color:#fff;text-align:center;font-weight:bold;font-size:10px;border-radius:10px;display:inline-block;cursor:default;}
+                                        .teacher-subjects-table .fa {margin-top:3px;color:#999;}
+                                        .teacher-subjects-table .fa-skype {margin-top:3px;}
+                                        .teacher-subjects-table th, .teacher-subjects-table td {line-height:19px;border-bottom:1px solid #ddd;}
+                                        .teacher-subjects-table td {width:1px;white-space:nowrap;padding:0 10px 0 5px;}
+                                        .teacher-subjects-table th {padding-left:5px;}
 
-                                .teacher-subject-body {display:none;}
-                                .teacher-subject-body.expanded {display:table-row;}
-                                    .teacher-subject-body span {color:#999;}
+                                        .teacher-subject-header th,
+                                        .teacher-subject-header td {cursor:default;background:#f9f9fa;}
+                                        .teacher-subject-header:hover th,
+                                        .teacher-subject-header:hover td {background:#f1f1f5;}
 
-                            .teacher-places {margin-bottom:5px;border:1px solid #ccc;border-bottom:0;width:100%;}
-                                .teacher-places .fa {margin-top:2px;}
-                            .teacher-places th, .teacher-places td {line-height:19px;border-bottom:1px solid #ccc;width:1px;white-space:nowrap;padding:0 10px;}
-                            .teacher-places th {padding-left:5px;}
-                            .teacher-places td {}
-                                .teacher-metro-dot {width:4px;height:4px;border-radius:5px;margin:8px 2px 0 0;background:#e00;display:inline-block;}
+                                            .teacher-subject-time {margin-top:2px;padding:0 3px;height:15px;line-height:15px;background:#999;color:#fff;text-align:center;font-weight:bold;font-size:10px;border-radius:10px;display:inline-block;cursor:default;}
 
-                                td.teacher-place-address {width:auto;white-space:normal;}
+                                        .teacher-subject-body {display:none;}
+                                        .teacher-subject-body.expanded {display:table-row;}
+                                            .teacher-subject-body span {color:#999;}
 
-                            .teacher-education {line-height:14px;}
+                                    .teacher-places {margin-bottom:4px;border:1px solid #ddd;border-bottom:0;width:100%;}
+                                        .teacher-places .fa {margin-top:2px;}
+                                    .teacher-places th, .teacher-places td {line-height:19px;border-bottom:1px solid #ddd;width:1px;white-space:nowrap;padding:0 10px 0 0;}
+                                    .teacher-places th {padding-left:5px;}
+                                    .teacher-places td {}
+                                        .teacher-metro-dot {width:4px;height:4px;border-radius:5px;margin:8px 2px 0 0;background:#e00;display:inline-block;}
+
+                                        td.teacher-place-address {width:auto;white-space:normal;}
+
+                                    .teacher-education {line-height:19px;border:1px solid #ddd;padding:0 5px;}
 
                             .teacher-order-info {line-height:14px;margin-top:5px;}
 
@@ -396,7 +402,7 @@
 
                                     <i class="sep"></i>
 
-                                    Ханты-Мансийск и Ханты-Мансийский автономный округ
+                                    Москва и Московская область
 
                                 </div>
 
@@ -450,111 +456,125 @@
 
                                 </div>
 
-                                <div class="teacher-comments hide-data" style="display:none;">
+                                <div class="teacher-comments hide-data alert alert-info">
 
                                     <span class="teacher-comment">
-                                        <i class="fa fa-info" title="Комментарий сотрудника"></i>
-                                        Преподаватель не хочет отображаться на сайте.
+                                        <i class="fa fa-info" title="Комментарий сотрудника"></i>Преподаватель не хочет отображаться на сайте.
                                     </span>
 
                                     <span class="teacher-comment">
-                                        <i class="fa fa-skype" title="Комментарий к удалённым занятиям"></i>
-                                        Общение по скайпу предпочтительно в видео-формате
+                                        <i class="fa fa-skype" title="Комментарий к удалённым занятиям"></i>Общение по скайпу предпочтительно в видео-формате
                                     </span>
 
                                 </div>
 
-                                <table class="teacher-subjects-table">
-                                    <tr class="teacher-subject-header">
-                                        <th><i class="fa fa-chevron fa-chevron-down"></i> Математика</th>
-                                        <td><span class="teacher-subject-time" title="Минимальная предолжительность одного занятия">120</span></td>
-                                        <td><i class="fa fa-graduation-cap" title="У репетитора"></i> от <b>1200</b> р/ч</td>
-                                        <td><i class="fa fa-user" title="У ученика"></i> от <b>2000</b> р/ч</td>
-                                        <td><i class="fa fa-skype"></i> от <b>1000</b> р/ч</td>
-                                    </tr>
-                                    <tr class="teacher-subject-body">
-                                        <td colspan="5">
-                                            <i class="fa fa-sitemap" title="Разделы"></i>  школьный курс <i class="sep"></i>
-                                            <i class="fa fa-puzzle-piece" title="Дополнения"></i> ОГЭ (ГИА) ЕГЭ <i class="sep"></i>
-                                            <i class="fa fa-users" title="Категории учеников"></i> школьники 5-11 классов <i class="sep"></i>
-                                            <i class="fa fa-graduation-cap" title="Уровень знаний"></i> начальный
-                                        </td>
-                                    </tr>
-
-                                    {# HIDDEN #}
-                                    <tr class="teacher-subject-header hide-data" style="display:none;">
-                                        <th><i class="fa fa-chevron fa-chevron-down"></i> Математика</th>
-                                        <td><span class="teacher-subject-time" title="Минимальная предолжительность одного занятия">120</span></td>
-                                        <td><i class="fa fa-graduation-cap" title="У репетитора"></i> от <b>1200</b> р/ч</td>
-                                        <td><i class="fa fa-user" title="У ученика"></i> от <b>2000</b> р/ч</td>
-                                        <td><i class="fa fa-skype"></i> от <b>1000</b> р/ч</td>
-                                    </tr>
-                                    <tr class="teacher-subject-body">
-                                        <td colspan="5">
-                                            <i class="fa fa-sitemap" title="Разделы"></i>  школьный курс <i class="sep"></i>
-                                            <i class="fa fa-puzzle-piece" title="Дополнения"></i> ОГЭ (ГИА) ЕГЭ <i class="sep"></i>
-                                            <i class="fa fa-users" title="Категории учеников"></i> школьники 5-11 классов
-                                        </td>
-                                    </tr>
-
-                                    <tr class="teacher-subject-header hide-data" style="display:none;">
-                                        <th><i class="fa fa-chevron fa-chevron-down"></i> Математика</th>
-                                        <td><span class="teacher-subject-time" title="Минимальная предолжительность одного занятия">120</span></td>
-                                        <td><i class="fa fa-graduation-cap" title="У репетитора"></i> от <b>1200</b> р/ч</td>
-                                        <td><i class="fa fa-user" title="У ученика"></i> от <b>2000</b> р/ч</td>
-                                        <td><i class="fa fa-skype"></i> от <b>1000</b> р/ч</td>
-                                    </tr>
-                                    <tr class="teacher-subject-body">
-                                        <td colspan="5">
-                                            <i class="fa fa-sitemap" title="Разделы"></i>  школьный курс <i class="sep"></i>
-                                            <i class="fa fa-puzzle-piece" title="Дополнения"></i> ОГЭ (ГИА) ЕГЭ <i class="sep"></i>
-                                            <i class="fa fa-users" title="Категории учеников"></i> школьники 5-11 классов
-                                        </td>
-                                    </tr>
-                                    {# ENDHIDDEN #}
-
-                                </table>
-
-                                <table class="teacher-places">
+                                <table class="teacher-related">
                                     <tr>
-                                        <th><span class="teacher-metro-dot"></span><b>Юго-Западная</b></th>
-                                        <td class="teacher-place-address">Ленинский проспект, 150/3 (15 мин. от метро)</td>
-                                        <td class="teacher-places-home"><i class="fa fa-home" title="Проводится занятия"></i> </td>
-                                        <td><i class="fa fa-car" title="Проводится выезд"></i> не более 40 мин. от своего района</td>
-                                        <td class="teacher-places-map">
-                                            <div class="dropdown">
-                                                <a href="#" class="fa fa-map-marker dropdown-toggle" data-toggle="dropdown" title="Показать карту"></a>
-                                                <div class="dropdown-menu dropdown-map">
-                                                    <img src="http://itc.ua/wp-content/uploads/narodnayakarta.png">
-                                                </div>
-                                            </div>
+                                        <th class="teacher-related-icon"><i class="fa fa-book" title="Предметы"></i></th>
+                                        <td>
+                                            <table class="teacher-subjects-table">
+                                                <tr class="teacher-subject-header">
+                                                    <th><i class="fa fa-chevron fa-chevron-down"></i> Математика</th>
+                                                    <td><span class="teacher-subject-time" title="Минимальная предолжительность одного занятия">120</span></td>
+                                                    <td><i class="fa fa-graduation-cap" title="У репетитора"></i> от <b>1200</b> р/ч</td>
+                                                    <td><i class="fa fa-user" title="У ученика"></i> от <b>2000</b> р/ч</td>
+                                                    <td><i class="fa fa-skype"></i> от <b>1000</b> р/ч</td>
+                                                </tr>
+                                                <tr class="teacher-subject-body">
+                                                    <td colspan="5">
+                                                        <i class="fa fa-sitemap" title="Разделы"></i>  школьный курс <i class="sep"></i>
+                                                        <i class="fa fa-puzzle-piece" title="Дополнения"></i> ОГЭ (ГИА) ЕГЭ <i class="sep"></i>
+                                                        <i class="fa fa-users" title="Категории учеников"></i> школьники 5-11 классов <i class="sep"></i>
+                                                        <i class="fa fa-graduation-cap" title="Уровень знаний"></i> начальный
+                                                    </td>
+                                                </tr>
+
+                                                {# HIDDEN #}
+                                                <tr class="teacher-subject-header hide-data" style="display:none;">
+                                                    <th><i class="fa fa-chevron fa-chevron-down"></i> Математика</th>
+                                                    <td><span class="teacher-subject-time" title="Минимальная предолжительность одного занятия">120</span></td>
+                                                    <td><i class="fa fa-graduation-cap" title="У репетитора"></i> от <b>1200</b> р/ч</td>
+                                                    <td><i class="fa fa-user" title="У ученика"></i> от <b>2000</b> р/ч</td>
+                                                    <td><i class="fa fa-skype"></i> от <b>1000</b> р/ч</td>
+                                                </tr>
+                                                <tr class="teacher-subject-body">
+                                                    <td colspan="5">
+                                                        <i class="fa fa-sitemap" title="Разделы"></i>  школьный курс <i class="sep"></i>
+                                                        <i class="fa fa-puzzle-piece" title="Дополнения"></i> ОГЭ (ГИА) ЕГЭ <i class="sep"></i>
+                                                        <i class="fa fa-users" title="Категории учеников"></i> школьники 5-11 классов
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="teacher-subject-header hide-data" style="display:none;">
+                                                    <th><i class="fa fa-chevron fa-chevron-down"></i> Математика</th>
+                                                    <td><span class="teacher-subject-time" title="Минимальная предолжительность одного занятия">120</span></td>
+                                                    <td><i class="fa fa-graduation-cap" title="У репетитора"></i> от <b>1200</b> р/ч</td>
+                                                    <td><i class="fa fa-user" title="У ученика"></i> от <b>2000</b> р/ч</td>
+                                                    <td><i class="fa fa-skype"></i> от <b>1000</b> р/ч</td>
+                                                </tr>
+                                                <tr class="teacher-subject-body">
+                                                    <td colspan="5">
+                                                        <i class="fa fa-sitemap" title="Разделы"></i>  школьный курс <i class="sep"></i>
+                                                        <i class="fa fa-puzzle-piece" title="Дополнения"></i> ОГЭ (ГИА) ЕГЭ <i class="sep"></i>
+                                                        <i class="fa fa-users" title="Категории учеников"></i> школьники 5-11 классов
+                                                    </td>
+                                                </tr>
+                                                {# ENDHIDDEN #}
+                                            </table>
+
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <th class="teacher-related-icon"><i class="fa fa-map-marker" title="Адреса"></i></th>
+                                        <td>
 
-                                    {# HIDDEN #}
-                                    <tr class="hide-data" style="display:none;">
-                                        <th><span class="teacher-metro-dot"></span><b>Юго-Западная</b></th>
-                                        <td class="teacher-place-address">Ленинский проспект, 150/3 (15 мин. от метро)</td>
-                                        <td class="teacher-places-home"><i class="fa fa-home" title="Проводится занятия"></i> </td>
-                                        <td><i class="fa fa-car" title="Проводится выезд"></i> не более 40 мин. от своего района</td>
-                                        <td class="teacher-places-map">
-                                            <div class="dropdown">
-                                                <a href="#" class="fa fa-map-marker dropdown-toggle" data-toggle="dropdown" title="Показать карту"></a>
-                                                <div class="dropdown-menu dropdown-map">
-                                                    <img src="http://itc.ua/wp-content/uploads/narodnayakarta.png">
-                                                </div>
-                                            </div>
+                                            <table class="teacher-places">
+                                                <tr>
+                                                    <th><span class="teacher-metro-dot"></span><b>Юго-Западная</b></th>
+                                                    <td class="teacher-place-address">Ленинский проспект, 150/3 (15 мин. от метро)</td>
+                                                    <td class="teacher-places-home"><i class="fa fa-home" title="Проводится занятия"></i> </td>
+                                                    <td><i class="fa fa-car" title="Проводится выезд"></i> не более 40 мин. от своего района</td>
+                                                    <td class="teacher-places-map">
+                                                        <div class="dropdown">
+                                                            <a href="#" class="fa fa-map-marker dropdown-toggle" data-toggle="dropdown" title="Показать карту"></a>
+                                                            <div class="dropdown-menu dropdown-map">
+                                                                <img src="http://itc.ua/wp-content/uploads/narodnayakarta.png">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                {# HIDDEN #}
+                                                <tr class="hide-data" style="display:none;">
+                                                    <th><span class="teacher-metro-dot"></span><b>Юго-Западная</b></th>
+                                                    <td class="teacher-place-address">Ленинский проспект, 150/3 (15 мин. от метро)</td>
+                                                    <td class="teacher-places-home"><i class="fa fa-home" title="Проводится занятия"></i> </td>
+                                                    <td><i class="fa fa-car" title="Проводится выезд"></i> не более 40 мин. от своего района</td>
+                                                    <td class="teacher-places-map">
+                                                        <div class="dropdown">
+                                                            <a href="#" class="fa fa-map-marker dropdown-toggle" data-toggle="dropdown" title="Показать карту"></a>
+                                                            <div class="dropdown-menu dropdown-map">
+                                                                <img src="http://itc.ua/wp-content/uploads/narodnayakarta.png">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                {# ENDHIDDEN #}
+                                            </table>
+
                                         </td>
                                     </tr>
-                                    {# ENDHIDDEN #}
+                                    <tr>
+                                        <th class="teacher-related-icon"><i class="fa fa-university" title="Образование"></i></th>
+                                        <td>
+                                            <div class="teacher-education"><b>МГУ им. Ломоносова</b>, '85, Юридический факультет, Юрист-международник</div>
 
+                                            {# HIDDEN #}
+                                                <div class="teacher-education hide-data" style="display:none;">МГУ, '85, Юридический факультет, Юрист-международник</div>
+                                            {# ENDHIDDEN #}
+                                        </td>
+                                    </tr>
                                 </table>
-
-                                <div class="teacher-education"><i class="sep"></i> МГУ, '85, Юридический факультет, Юрист-международник</div>
-
-                                {# HIDDEN #}
-                                    <div class="teacher-education hide-data" style="display:none;"><i class="sep"></i> МГУ, '85, Юридический факультет, Юрист-международник</div>
-                                {# ENDHIDDEN #}
 
                                 <div class="teacher-order-info">
                                     <i class="fa fa-gift" title="Желаемый"></i>

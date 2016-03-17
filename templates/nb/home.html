@@ -7,7 +7,7 @@
     <title></title>
 
     {# jquery #}
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
     {# bootstrap #}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -36,9 +36,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/locales/bootstrap-datepicker.ru.min.js"></script>
 
     {# select2 #}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.full.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/i18n/ru.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/i18n/ru.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css">
     <link rel="stylesheet" href="http://select2.github.io/select2-bootstrap-theme/css/select2-bootstrap.css">
 
     {# custom global js lib #}
@@ -75,7 +75,7 @@
 
         html {overflow-y:scroll;}
 
-        body {background:#f1f1f5;}
+        body {background:#f1f1f5;overflow-x:visible !important;}
 
         /* Задаём шрифты */
         body, input, textarea, button, select, .form-control, .dropdown-menu, .btn.multiselect, .input-group-addon,
@@ -135,7 +135,7 @@
         .sep:after {content:'•'}
 
         /* Фильтр. Используется в списке репетиторов, в списке задач, может ещё где будет */
-        .filter {width:210px;padding-right:15px;border-right:1px solid #ccc;}
+        .filter {width:210px;padding-right:15px;border-right:1px solid #ccc;position:relative;}
             .filter-subject-block {padding:5px;border:1px solid #ccc;border-radius:2px;margin:10px 0;position:relative;}
                 .filter-subject-close {display:inline-block;border-radius:2px;position:absolute;top:-7px;right:-7px;background:#337ab7;color:#fff;width:15px;height:15px;line-height:15px;text-align:center;cursor:pointer;}
                 .filter-subject-close:hover {background:#286090;}
@@ -153,14 +153,14 @@
                 .filter-range {}
                     .filter-range td, .filter-range th {line-height:30px;}
 
-            .filter-float-submit {position:absolute;top:50%;margin-top:-6px;left:100%;background:#337ab7;margin-left:15px;display:none;border-radius:0 2px 2px 0;z-index:2;box-shadow:1px 1px 1px rgba(0,0,0,0.25);}
-            .filter-float-submit:before {width:0;height:0;border-top:15px solid transparent;border-bottom:15px solid transparent;border-right:10px solid #337ab7;content:'';position:absolute;top:0;left:-10px;}
-            .filter-float-submit:hover:before {border-right-color:#286090;}
+            .filter-float-submit {position:absolute;top:50%;left:100%;background:#444;margin-top:1px;display:none;border-radius:0 2px 2px 0;z-index:2;box-shadow:1px 1px 1px rgba(0,0,0,0.25);}
+            .filter-float-submit:before {width:0;height:0;border-top:15px solid transparent;border-bottom:15px solid transparent;border-right:10px solid #444;content:'';position:absolute;top:0;left:-10px;}
+            .filter-float-submit:hover:before {border-right-color:#222;}
 
-                .filter-float-submit .btn {border:0;height:30px;background:#337ab7;color:#fff;}
-                .filter-float-submit:hover .btn {background:#286090;}
+                .filter-float-submit .btn {border:0;height:30px;background:#444;color:#fff;}
+                .filter-float-submit:hover .btn {background:#222;}
 
-                .filter-float-submit .fa {position:absolute;background:#333;color:#fff;top:-8px;right:-8px;height:15px;line-height:15px;width:15px;text-align:center;display:block;border-radius:10px;font-size:11px;cursor:pointer;}
+                .filter-float-submit .fa {position:absolute;background:#337ab7;color:#fff;top:-8px;right:-8px;height:15px;line-height:15px;width:15px;text-align:center;display:block;border-radius:10px;font-size:11px;cursor:pointer;}
                 .filter-float-submit .fa:hover {background:#d9534f;}
 
             .btn-filter-submit {margin-top:10px;}
@@ -421,7 +421,7 @@
                     <h2>Конвенции</h2>
 
                     <div class="alert alert-info">
-                        Договорились, что, для идентификации объектов, выбирая из №, ID, #, по всему бэкофису используем <b>ID</b>, тем более, что именно в таком формате, пользователи вилят это на сайте.
+                        Договорились, что, для идентификации объектов, выбирая из №, ID, #, по всему бэкофису используем <b>ID</b>, тем более, что именно в таком формате, пользователи видят это на сайте.
                     </div>
 
                     <!-- Trigger the modal with a button -->
@@ -489,7 +489,7 @@
             if (!e.params.originalEvent) return;
             e.params.originalEvent.stopPropagation();
         });
-        
+
         /* Вызываем multiple select2 */
         $('.select2-tag').select2({
             theme: 'bootstrap',
@@ -504,8 +504,15 @@
         /* Текстарея должна автоматически ресайзиться под текст */
         autosize($('textarea'));
 
-        /* Крутые всплывающие подсказки */
-        $('[title]').tooltipster({delay:50});
+        /* Крутые всплывающие подсказки кроме подсказок в select2 */
+        $('[title]').not('[class*="select2"]').tooltipster({delay:50});
+
+        /* Вызываем multiselect */
+        $('.multiselect-tag').multiselect({
+            nonSelectedText: 'Выберите',
+            allSelectedText: 'Все',
+            nSelectedText: 'знаений'
+        });
 
         $('.datepicker-tag').datepicker({
             weekStart: 1,
@@ -555,7 +562,7 @@
                     e.preventDefault();
                 });
 
-                self.window.scroll(function() {
+                self.window.on('scroll', function() {
                     self.el.show();
                     if (!self.scrolledByClick) {
                         self.arrowState();
@@ -575,6 +582,7 @@
         new function Filter() { var self = this;
 
             self.floatSubmit = $('.filter-float-submit');
+            self.floatSubmitHeight = self.floatSubmit.outerHeight()
             self.floatSubmitClose = self.floatSubmit.find('.fa-times');
             self.titles = $('.filter-title');
 
@@ -583,16 +591,21 @@
                 /* Скрываемые блочки в фильтре */
                 self.titles.on('click', function() {
                     var $this = $(this);
-                    $(this).closest('.filter-block').toggleClass('active');
-                    $(this).find('.fa').toggleClass('fa-chevron-down').toggleClass('fa-chevron-up');
+                    $this.closest('.filter-block').toggleClass('active');
+                    $this.find('.fa').toggleClass('fa-chevron-down').toggleClass('fa-chevron-up');
                 });
 
-                /* У фильтра должна появляться кнопка субмита */
-                $('.filter input, .filter select').on('change keyup', function() {
-                    $(this).closest('.filter-block').prepend(self.floatSubmit.show());
+                /* У фильтра должна появляться кнопка при смене значения в инпуте */
+                $('.filter input').on('change keyup', function() {
+                    self.floatSubmit.css('top', ($(this).offset().top - $('.filter').offset().top) - ((self.floatSubmitHeight - $(this).height()) / 2)).show();
                 });
 
-                self.floatSubmitClose.on('click', function() {
+                /* У фильтра должна появляться кнопка при смене значения в селекте */
+                $('.filter select').on('change', function() {
+                    self.floatSubmit.css('top', ($(this).offset().top - $('.filter').offset().top)).show();
+                });
+
+                self.floatSubmit.on('click', function() {
                     self.floatSubmit.hide();
                 });
 

@@ -24,11 +24,11 @@
 
             .teacher-table {width:100%;margin-top:7px;}
 
-                .teacher-table-left  {vertical-align:top;}
+                .teacher-table-left  {vertical-align:top;width:550px;}
                 .teacher-table-left th {width:155px;white-space:nowrap;}
                     .teacher-table-left .fa {font-size:15px;}
 
-                .teacher-table-right {vertical-align:top;width:49%;padding-left:2%;}
+                .teacher-table-right {vertical-align:top;padding-left:15px;;}
 
                     .teacher-form {width:100%;margin:3px 0 2px;}
 
@@ -783,12 +783,17 @@
 
     };
 
-    /* Аккордион */
-    $('.teacher-accordion-toggle').click(function() {
-        var header = $(this).closest('.teacher-accordion-header');
-        header.siblings('.teacher-accordion-body').toggle();
-        header.find('.teacher-accordion-toggle .fa').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
-    });
+    new function Accordion() { var self = this;
+
+        self.toggle = $('.teacher-accordion-toggle');
+
+        self.toggle.on('click', function() {
+            var header = $(this).closest('.teacher-accordion-header');
+            header.siblings('.teacher-accordion-body').toggle();
+            header.find('.teacher-accordion-toggle .fa').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+        });
+
+    };
 
     /* Только для прототипа. Чё по нажатию на чё вылазит */
     $('.btn-task').click(function(){alert('Форма создания быстрой задачи');return false;});
