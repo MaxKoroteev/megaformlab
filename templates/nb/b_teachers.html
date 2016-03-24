@@ -1,7 +1,7 @@
     <style>
         .teachers-table {width:100%;}
 
-            .teachers-list {padding-left:15px;}
+            .teachers-list {/*padding-left:15px;*/}
                 .teacher-row {padding:15px 0;border-bottom:1px solid #ccc;font-size:12px;}
                 .teacher-row:first-child {padding-top:0;}
 
@@ -24,7 +24,7 @@
                                 .teacher-photo {height:145px;}
 
                         .teacher-info-cell {}
-                            .teacher-header {line-height:14px;}
+                            .teacher-header {line-height:14px;margin-bottom:4px;}
                                 .teacher-name {font-weight:bold;}
 
                             .teacher-status {line-height:14px;margin-bottom:4px;border-radius:2px;color:#888;}
@@ -49,7 +49,7 @@
                                 .teacher-stats .fa-ban          {color:#d9534f;}
                                 .teacher-stats .fa-info         {color:#5bc0de;}
 
-                            .teacher-comments {line-height:17px;margin-bottom:5px;padding:0;border-radius:2px;background-color:#EFF6F9;border-color:#CBE7EC;}
+                            .teacher-comments {line-height:17px;margin-bottom:5px;padding:0;border-radius:2px;background-color:#EFF6F9;border:0;}
                                 .teacher-comments .fa {margin-top:2px;width:19px;text-align:center;}
                                 .teacher-comment {display:inline-block;}
                                     .teacher-comment .fa-info {color:#5bc0de;}
@@ -62,7 +62,7 @@
                                     .teacher-related-icon .fa-book {font-size:16px;}
                                     .teacher-related-icon .fa-map-marker {font-size:19px;}
 
-                                    .teacher-subjects-table {margin-bottom:4px;width:100%;border:1px solid #ddd;border-bottom:0;}
+                                    .teacher-subjects-table {margin-bottom:4px;width:100%;/*border:1px solid #ddd;border-bottom:0;*/}
 
                                         .teacher-subjects-table .fa {margin-top:3px;color:#999;}
                                         .teacher-subjects-table .fa-skype {margin-top:3px;}
@@ -81,7 +81,7 @@
                                         .teacher-subject-body.expanded {display:table-row;}
                                             .teacher-subject-body span {color:#999;}
 
-                                    .teacher-places {margin-bottom:4px;border:1px solid #ddd;border-bottom:0;width:100%;}
+                                    .teacher-places {margin-bottom:4px;width:100%;/*border:1px solid #ddd;border-bottom:0;*/}
                                         .teacher-places .fa {margin-top:2px;}
                                     .teacher-places th, .teacher-places td {line-height:19px;border-bottom:1px solid #ddd;width:1px;white-space:nowrap;padding:0 10px 0 0;}
                                     .teacher-places th {padding-left:5px;}
@@ -90,7 +90,7 @@
 
                                         td.teacher-place-address {width:auto;white-space:normal;}
 
-                                    .teacher-education {line-height:19px;border:1px solid #ddd;padding:0 5px;}
+                                    .teacher-education {line-height:19px;padding:0 5px;border-bottom:1px solid #ddd;}
 
                             .teacher-order-info {line-height:14px;margin-top:5px;}
 
@@ -104,10 +104,10 @@
                                 .teacher-order-info .fa-asterisk {color:#000;}
 
 
-                        .teacher-actions-cell {width:140px;padding-left:10px;}
+                        .teacher-actions-cell {width:300px;padding-left:10px;}
 
                             .teacher-suit {font-size:0;}
-                            .teacher-suit .btn {cursor:pointer;width:40px;height:22px;line-height:20px;text-align:center;border-radius:2px;padding:0;font-size:14px;margin-left:5px;}
+                            .teacher-suit .btn {cursor:pointer;width:40px;text-align:center;border-radius:2px;padding:0;font-size:14px;margin-right:5px;}
                             .teacher-suit .btn:first-child {margin-left:0;}
                             .teacher-suit .btn .fa {vertical-align:top;margin-top:3px;}
 
@@ -119,13 +119,218 @@
                             .teacher-actions-cell .fa-toggle-on {margin-top:2px;}
                             .teacher-actions-cell .fa-certificate {margin-top:2px;}
 
-                            .btn-auto {width:100%;margin-bottom:5px;text-align:left;}
-                            .btn-assign {width:100%;text-align:left;}
+        .filter-table {}
+            .filter-table td {padding:5px 5px 5px 0;}
+
     </style>
+
+{#    <style>#}
+{#        .teachers-filter {padding:10px 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd;margin-bottom:20px;}#}
+{##}
+{#            .teachers-filter-label {}#}
+{##}
+{#            .teachers-filter-table table {width:100%;}#}
+{#            .teachers-filter-table table th {width:1px;white-space:nowrap;padding:3px 3px 3px 0;line-height:12px;vertical-align:middle;}#}
+{#            .teachers-filter-table table td {padding:0;}#}
+{#            .teachers-filter-table {width:100%;}#}
+{##}
+{#                .teachers-filter-table td {padding-right:10px;padding-bottom:5px;}#}
+{#                .teachers-filter-table td:last-child {padding-right:0;}#}
+{#                .teachers-filter-table tr:last-child td {padding-bottom:0;}#}
+{##}
+{#                    .teachers-filter-checkbox-group {line-height:28px;display:inline-block;padding:0 5px;background:#fff;border:1px solid #ddd;border-radius:2px;white-space:nowrap;}#}
+{#                    .teachers-filter-table label {margin:0 5px 0 0;font-weight:normal;}#}
+{##}
+{#    </style>#}
+{##}
+{#    <div class="teachers-filter">#}
+{#        <table class="teachers-filter-table">#}
+{#            <tr>#}
+{#                <td>#}
+{#                    <table>#}
+{#                        <tr>#}
+{#                            <th>#}
+{#                                <div class="teachers-filter-label">Регион</div>#}
+{#                                <a href="#">x Сброс</a>#}
+{#                            </th>#}
+{#                            <td>#}
+{#                                <select class="form-control"><option>Москва и Московская область</option></select>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <table>#}
+{#                        <tr>#}
+{#                            <th>#}
+{#                                <div class="teachers-filter-label">Район</div>#}
+{#                                <a href="#">x Сброс</a>#}
+{#                            </th>#}
+{#                            <td>#}
+{#                                <select class="form-control"><option>м. Юго-Западная</option></select>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <table>#}
+{#                        <tr>#}
+{#                            <th>#}
+{#                                <div class="teachers-filter-label">Формат</div>#}
+{#                                <a href="#">x Сброс</a>#}
+{#                            </th>#}
+{#                            <td>#}
+{#                                <div class="teachers-filter-checkbox-group">#}
+{#                                    <label><input type="checkbox"> У репетитора</label>#}
+{#                                    <label><input type="checkbox"> У ученика</label>#}
+{#                                    <label><input type="checkbox"> Online (Skype)</label>#}
+{#                                </div>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td></td>#}
+{#                <td></td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td>#}
+{#                    <table>#}
+{#                        <tr>#}
+{#                            <th>#}
+{#                                <div class="teachers-filter-label">Предмет</div>#}
+{#                                <a href="#">x Сброс</a>#}
+{#                            </th>#}
+{#                            <td>#}
+{#                                <select class="form-control"><option>Предмет</option></select>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td colspan="2">#}
+{#                    <table>#}
+{#                        <tr>#}
+{#                            <th>#}
+{#                                <div class="teachers-filter-label">Разделы</div>#}
+{#                                <a href="#">x Сброс</a>#}
+{#                            </th>#}
+{#                            <td>#}
+{#                                <select class="form-control"><option>Разделы</option></select>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <table>#}
+{#                        <tr>#}
+{#                            <th>#}
+{#                                <div class="teachers-filter-label">Дополнения</div>#}
+{#                                <a href="#">x Сброс</a>#}
+{#                            </th>#}
+{#                            <td>#}
+{#                                <select class="form-control"><option>Дополнения</option></select>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <div>&nbsp;</div>#}
+{#                    <button class="btn btn-sm btn-default"><i class="fa fa-plus"></i></button>#}
+{#                </td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td colspan="2">#}
+{##}
+{#                    <b>Статус репетитора <a href="#">x Сброс</a></b>#}
+{#                    <div class="teachers-filter-checkbox-group">#}
+{#                        <label><input type="checkbox"> Студент</label>#}
+{#                        <label><input type="checkbox"> Аспирант</label>#}
+{#                        <label><input type="checkbox"> Школьный преподаватель</label>#}
+{#                        <label><input type="checkbox"> Преподаватель вуза</label>#}
+{#                        <label><input type="checkbox"> Частный преподаватель</label>#}
+{#                        <label><input type="checkbox"> Носитель языка</label>#}
+{#                    </div>#}
+{#                </td>#}
+{#                <td>#}
+{##}
+{#                    <b>Пол репетитора <a href="#">x Сброс</a></b>#}
+{#                    <div class="teachers-filter-checkbox-group">#}
+{#                        <label><input type="radio" name="gender"> Любой</label>#}
+{#                        <label><input type="radio" name="gender"> Мужской</label>#}
+{#                        <label><input type="radio" name="gender"> Женский</label>#}
+{#                    </div>#}
+{#                </td>#}
+{#                <td></td>#}
+{#                <td></td>#}
+{#            </tr>#}
+{##}
+{#            <tr>#}
+{#                <td colspan="5">#}
+{##}
+{#                    <b>Категория ученика <a href="#">x Сброс</a></b>#}
+{#                    <div class="teachers-filter-checkbox-group">#}
+{#                        Дошкольники (Лет)#}
+{#                        <label><input type="checkbox"> 1-3</label>#}
+{#                        <label><input type="checkbox"> 4-5</label>#}
+{#                        <label><input type="checkbox"> 6-7</label>#}
+{##}
+{#                        Школьники (класс)#}
+{#                        <label><input type="checkbox"> 1</label>#}
+{#                        <label><input type="checkbox"> 2</label>#}
+{#                        <label><input type="checkbox"> 3</label>#}
+{#                        <label><input type="checkbox"> 4</label>#}
+{#                        <label><input type="checkbox"> 5</label>#}
+{#                        <label><input type="checkbox"> 6</label>#}
+{#                        <label><input type="checkbox"> 7</label>#}
+{#                        <label><input type="checkbox"> 8</label>#}
+{#                        <label><input type="checkbox"> 9</label>#}
+{#                        <label><input type="checkbox"> 10</label>#}
+{#                        <label><input type="checkbox"> 11</label>#}
+{##}
+{#                        Студенты и взрослые#}
+{#                        <label><input type="checkbox"> Студенты</label>#}
+{#                        <label><input type="checkbox"> Взрослые</label>#}
+{#                    </div>#}
+{#                </td>#}
+{#            </tr>#}
+{##}
+{#            <tr>#}
+{#                <td>#}
+{#                    <table class="filter-range">#}
+{#                        <tr>#}
+{#                            <td><input type="text" class="form-control" placeholder="от"></td>#}
+{#                            <td>&nbsp;-&nbsp;</td>#}
+{#                            <td><input type="text" class="form-control" placeholder="до"></td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <table class="filter-range">#}
+{#                        <tr>#}
+{#                            <td><input type="text" class="form-control" placeholder="от"></td>#}
+{#                            <td>&nbsp;-&nbsp;</td>#}
+{#                            <td><input type="text" class="form-control" placeholder="до"></td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <table class="filter-range">#}
+{#                        <tr>#}
+{#                            <td><input type="text" class="form-control" placeholder="от"></td>#}
+{#                            <td>&nbsp;-&nbsp;</td>#}
+{#                            <td><input type="text" class="form-control" placeholder="до"></td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td></td>#}
+{#                <td></td>#}
+{#            </tr>#}
+{##}
+{#        </table>#}
+{#    </div>#}
 
     <table class="teachers-table">
         <tr>
-            <td class="filter">
+            <!--td class="filter">
 
                 <div class="filter-block">
                     <div><label><input name="common" type="checkbox"> С фото</label></div>
@@ -362,7 +567,7 @@
 
                 <button class="btn btn-primary btn-sm btn-filter-submit">Показать задачи</button>
 
-            </td>
+            </td-->
             <td class="teachers-list">
 
             {% for i in '123456789' %}
@@ -456,7 +661,7 @@
 
                                 </div>
 
-                                <div class="teacher-comments hide-data alert alert-info">
+                                <div class="teacher-comments alert alert-info">
 
                                     <span class="teacher-comment">
                                         <i class="fa fa-info" title="Комментарий сотрудника"></i>Преподаватель не хочет отображаться на сайте.
@@ -576,36 +781,50 @@
                                     </tr>
                                 </table>
 
-                                <div class="teacher-order-info">
-                                    <i class="fa fa-gift" title="Желаемый"></i>
-                                    <i class="fa fa-info-circle" title="Запрос"></i>
-                                    <i class="fa fa-check-square" title="Подходящий"></i>
-                                    <i class="sep"></i>
-                                    <b><i class="fa fa-asterisk" title="Коэффициент"></i> 1.25</b>
-                                    <span class="teacher-order-comment"><i class="sep"></i> <i class="fa fa-graduation-cap" title="Запрос репетитора"></i> Возьму, если договоримся о формате</span>
-                                    <span class="teacher-order-comment"><i class="sep"></i> <i class="fa fa-black-tie" title="Комментарий сотрудника"></i> По формальным критериям</span>
-                                </div>
-
                             </td>
                             <td class="teacher-actions-cell">
 
-                                <div class="teacher-suit">
-                                    <span class="btn btn-default btn-xs" title="Подходящий репетитор"><i class="fa fa-check"></i></span>
-                                    {% if i == '3' %}
-                                        <span class="btn btn-default btn-xs active" title="Только если получится по выходным, и без кошек в доме."><i class="fa fa-comment"></i></span>
-                                    {% else %}
-                                        <span class="btn btn-default btn-xs" title="Подходящий с условиями"><i class="fa fa-comment"></i></span>
-                                    {% endif %}
-                                    <span class="btn btn-default btn-xs" title="Неподходящий репетитор"><i class="fa fa-ban"></i></span>
+                                <div>
+                                    <div class="teacher-suit">
+
+                                        <div style="float:right;margin:1px 0;">
+                                            <span style="height:20px;line-height:20px;padding:0 5px;font-size:10px;display:inline-block;" class="label label-info">Желаемый</span>
+                                            <b style="font-size:14px;line-height:20px;margin-left:5px;" title="Коэффициент"><i class="fa fa-asterisk" style="line-height:22px;"></i> 1.25</b>
+                                        </div>
+
+                                        <span class="btn btn-default btn-xs" title="Подходящий репетитор"><i class="fa fa-check"></i></span>
+                                        {% if i == '3' %}
+                                            <span class="btn btn-default btn-xs active" title="Только если получится по выходным, и без кошек в доме."><i class="fa fa-comment"></i></span>
+                                        {% else %}
+                                            <span class="btn btn-default btn-xs" title="Подходящий с условиями"><i class="fa fa-comment"></i></span>
+                                        {% endif %}
+                                        <span class="btn btn-default btn-xs" title="Неподходящий репетитор"><i class="fa fa-ban"></i></span>
+
+                                    </div>
+
                                 </div>
 
-                                <button class="btn btn-default btn-xs btn-wide"><i class="fa fa-phone"></i> Позвонить</button>
+                                <div style="margin:5px 0 0;"><i class="fa fa-comment" title="Комментарий сотрудника"></i> По формальным критериям</div>
 
-                                <a href="#" class="teacher-call-result">Репетитор согласился с доп. условиями</a>
+                                <span class="teacher-order-comment" style="line-height:15px;margin-top:5px;"><span style="height:15px;line-height:15px;padding:0 5px;font-size:10px;display:inline-block;" class="label label-primary">Запрос</span> Возьму, если договоримся о формате проведения занятий</span>
 
+                                <table style="margin:5px 0 8px;">
+                                    <tr>
+                                        <td><button class="btn btn-default btn-sm" style="width:30px;height:30px;"><i class="fa fa-phone" style="margin-top:2px;"></i></button></td>
+                                        <td style="padding-left:5px;line-height:13px;vertical-align:middle;">
+                                            <div style="background: #f9f9fa;border: 1px solid #ccc;padding:1px 3px;display:inline-block;height:30px;border-radius:2px;">
+                                                Репетитор согласился с доп. условиями <div><a href="#">Изменить</a></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
 
-                                <button class="btn btn-default btn-auto   btn-xs active"><i class="fa fa-toggle-on"></i> Автоназначение</button>
-                                <button class="btn btn-default btn-assign btn-xs"><i class="fa fa-certificate"></i> Назначить</button>
+                                <table>
+                                    <tr>
+                                        <td style="padding-right:5px;"><button class="btn btn-default btn-auto   btn-xs active"><i class="fa fa-toggle-on"></i> Автоназначение</button></td>
+                                        <td><button class="btn btn-default btn-assign btn-xs"><i class="fa fa-certificate"></i> Назначить</button></td>
+                                    </tr>
+                                </table>
 
                             </td>
                         </tr>
@@ -616,6 +835,26 @@
             </td>
         </tr>
     </table>
+
+    <nav>
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
     <script>
 

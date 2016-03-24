@@ -476,17 +476,12 @@
         </span>
 
     </div>
-    
+
     <div class="order-tabs-buttons">
 
-        <span class="more-data" style="position:absolute;right:200px;top:5px;margin-left:20px;white-space:nowrap;border-radius:2px;cursor:pointer;color:#aaa;">
+        <span class="more-data" style="position:absolute;right:10px;top:5px;margin-left:20px;white-space:nowrap;border-radius:2px;cursor:pointer;color:#aaa;">
             Много данных
         </span>
-
-        <div class="btn-group">
-            <a href="#" class="btn btn-default btn-sm active"><i class="fa fa-list"></i> Списком</a>
-            <a href="#" class="btn btn-default btn-sm"><i class="fa fa-map-marker"></i> На карте</a>
-        </div>
 
         <ul class="nav nav-tabs">
             <li class="active"><a href="#">Подобрать репетиторов</a></li>
@@ -497,6 +492,8 @@
         </ul>
 
     </div>
+
+    {% include 'nb/b_teachers_filter.html' %}
 
     {% include 'nb/b_teachers.html' %}
 

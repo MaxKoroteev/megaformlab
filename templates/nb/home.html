@@ -153,15 +153,15 @@
                 .filter-range {}
                     .filter-range td, .filter-range th {line-height:30px;}
 
-            .filter-float-submit {position:absolute;top:50%;left:100%;background:#444;margin-top:1px;display:none;border-radius:0 2px 2px 0;z-index:2;box-shadow:1px 1px 1px rgba(0,0,0,0.25);}
+            .filter-float-submit {position:absolute;top:50%;left:100%;background:#444;display:none;border-radius:0 2px 2px 0;z-index:2;box-shadow:1px 1px 1px rgba(0,0,0,0.25);}
             .filter-float-submit:before {width:0;height:0;border-top:15px solid transparent;border-bottom:15px solid transparent;border-right:10px solid #444;content:'';position:absolute;top:0;left:-10px;}
             .filter-float-submit:hover:before {border-right-color:#222;}
 
                 .filter-float-submit .btn {border:0;height:30px;background:#444;color:#fff;}
                 .filter-float-submit:hover .btn {background:#222;}
 
-                .filter-float-submit .fa {position:absolute;background:#337ab7;color:#fff;top:-8px;right:-8px;height:15px;line-height:15px;width:15px;text-align:center;display:block;border-radius:10px;font-size:11px;cursor:pointer;}
-                .filter-float-submit .fa:hover {background:#d9534f;}
+                .filter-float-submit .fa {position:absolute;background:#d9534f;color:#fff;top:-8px;right:-8px;height:15px;line-height:15px;width:15px;text-align:center;display:block;border-radius:10px;font-size:11px;cursor:pointer;}
+                .filter-float-submit .fa:hover {background:#c9302c;}
 
             .btn-filter-submit {margin-top:10px;}
 
@@ -418,11 +418,19 @@
                         </tr>
                     </table>
 
-                    <h2>Конвенции</h2>
+                    <h1>Конвенции</h1>
 
                     <div class="alert alert-info">
                         Договорились, что, для идентификации объектов, выбирая из №, ID, #, по всему бэкофису используем <b>ID</b>, тем более, что именно в таком формате, пользователи видят это на сайте.
                     </div>
+
+                    <h1>Очередь сортировки списка задач</h1>
+
+                    <ul>
+                        <li>priority_id</li>
+                        <li>shift_num</li>
+                        <li>date_end - текущая дата (осталось)</li>
+                    </ul>
 
                     <!-- Trigger the modal with a button -->
                     <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Пример попапа</button>
@@ -446,6 +454,7 @@
                         </div>
 
                       </div>
+
                     </div>
 
                 {% endblock %}
@@ -517,6 +526,7 @@
         $('.datepicker-tag').datepicker({
             weekStart: 1,
             format: 'dd.mm.yyyy',
+{#            format: 'yyyy-mm-dd',#}
             todayBtn: 'linked',
             language: 'ru',
             todayHighlight: true,
@@ -582,7 +592,7 @@
         new function Filter() { var self = this;
 
             self.floatSubmit = $('.filter-float-submit');
-            self.floatSubmitHeight = self.floatSubmit.outerHeight()
+            self.floatSubmitHeight = self.floatSubmit.outerHeight();
             self.floatSubmitClose = self.floatSubmit.find('.fa-times');
             self.titles = $('.filter-title');
 
@@ -597,7 +607,7 @@
 
                 /* У фильтра должна появляться кнопка при смене значения в инпуте */
                 $('.filter input').on('change keyup', function() {
-                    self.floatSubmit.css('top', ($(this).offset().top - $('.filter').offset().top) - ((self.floatSubmitHeight - $(this).height()) / 2)).show();
+                    self.floatSubmit.css('top', ($(this).offset().top - $('.filter').offset().top) - ((self.floatSubmitHeight - $(this).outerHeight()) / 2)).show();
                 });
 
                 /* У фильтра должна появляться кнопка при смене значения в селекте */

@@ -23,6 +23,9 @@
                 .tasks-table th.tasks-table-comment,
                 .tasks-table td.tasks-table-comment {white-space:normal;width:auto;}
 
+    .filter-clear {margin-bottom:5px;font-weight:bold;padding-bottom:5px;display:inline-block;border-bottom:1px solid #ccc;line-height:15px;position:relative;top:-3px;}
+        .filter-clear .fa {float:right;color:#d9534f;line-height:15px;margin-left:10px;}
+
     </style>
 
     <ul class="nav nav-tabs">
@@ -33,6 +36,8 @@
     <table class="tasks-main-table">
         <tr>
             <td class="filter">
+
+                <a href="#" class="filter-clear"><span class="fa fa-times"></span> Очистить фильтр</a>
 
                 <div class="filter-block">
                     <div class="filter-title">ID</div>
