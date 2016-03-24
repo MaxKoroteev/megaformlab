@@ -60,16 +60,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.23642172">
               <caret line="299" column="0" selection-start-line="299" selection-start-column="2" selection-end-line="316" selection-end-column="31" />
-              <folding>
-                <marker date="1458820867000" expanded="true" signature="15118:16297" placeholder="..." />
-                <marker date="1458820867000" expanded="true" signature="15155:15450" placeholder="..." />
-                <marker date="1458820867000" expanded="true" signature="15272:15412" placeholder="..." />
-                <marker date="1458820867000" expanded="true" signature="15513:16263" placeholder="..." />
-                <marker date="1458820867000" expanded="true" signature="15591:15870" placeholder="..." />
-                <marker date="1458820867000" expanded="false" signature="15717:15740" placeholder="..." />
-                <marker date="1458820867000" expanded="true" signature="15948:16225" placeholder="..." />
-                <marker date="1458820867000" expanded="false" signature="16074:16097" placeholder="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1177,16 +1168,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23642172">
           <caret line="299" column="0" selection-start-line="299" selection-start-column="2" selection-end-line="316" selection-end-column="31" />
-          <folding>
-            <marker date="1458820867000" expanded="true" signature="15118:16297" placeholder="..." />
-            <marker date="1458820867000" expanded="true" signature="15155:15450" placeholder="..." />
-            <marker date="1458820867000" expanded="true" signature="15272:15412" placeholder="..." />
-            <marker date="1458820867000" expanded="true" signature="15513:16263" placeholder="..." />
-            <marker date="1458820867000" expanded="true" signature="15591:15870" placeholder="..." />
-            <marker date="1458820867000" expanded="false" signature="15717:15740" placeholder="..." />
-            <marker date="1458820867000" expanded="true" signature="15948:16225" placeholder="..." />
-            <marker date="1458820867000" expanded="false" signature="16074:16097" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
