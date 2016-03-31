@@ -73,9 +73,9 @@
 
         html, body {height:100%;}
 
-        html {overflow-y:scroll;}
+        html {/*overflow-y:scroll;*/}
 
-        body {background:#f1f1f5;overflow-x:visible !important;}
+        body {background:#f1f1f5;/*overflow-x:visible !important;*/}
 
         /* Задаём шрифты */
         body, input, textarea, button, select, .form-control, .dropdown-menu, .btn.multiselect, .input-group-addon,
@@ -171,10 +171,6 @@
         .top-wrapper    {width:100%;position:fixed;top:0;left:0;right:0;z-index:2;height:0;}
             .top-inner  {height:0;width:1251px;padding-left:30px;}
 
-        .bottom-wrapper-placeholder {height:51px;}
-        .bottom-wrapper {width:100%;position:fixed;bottom:51px;left:0;right:0;z-index:10;height:0;}
-            .bottom-inner  {height:0;width:1251px;}
-
         .columns {min-height:100%;border-right:1px solid #ccc;width:1251px;}
             .column-menu {width:30px;background:#333;padding-bottom:51px;}
                 .column-menu-group {margin:0 0 10px;}
@@ -196,38 +192,45 @@
 
                     .wide-toggle {float:right;position:relative;z-index:1;margin-right:10px;text-transform:none;}
 
-                    /* Стрелочка наверх */
-                    .go-top {width:30px;display:none;height:51px;line-height:51px;background:#232323;z-index:3;border-top:1px solid #444;float:left;color:#fff;cursor:pointer;-webkit-user-select:none;}
-                    .go-top:hover, .go-top:hover * {background:#111;}
-
-                        .go-top .fa {width:30px;height:51px;line-height:51px;text-align:center;font-size:14px;}
-                        .go-top:hover .fa {color:#337ab7;}
-
-                        .go-top-text {display:none;color:#fff;}
-
             .column-content {background:#fff;padding:15px 15px 15px;}
 
-        .footer-buttons {background:#f1f1f5;border-top:1px solid #ccc;border-right:1px solid #ccc;padding:10px;margin-left:30px;}
-            .footer-buttons .btn-task {float:right;}
+        .modal-open {/*padding-right:0 !important;*/}
 
-        .modal-open {padding-right:0 !important;}
+        .go-top-wrapper {position:fixed;bottom:51px;left:0;right:0;z-index:10;height:0;}
+            .go-top-inner {width:1251px;height:0;}
+                .go-top {text-align:left;width:30px;display:none;height:51px;line-height:51px;background:#232323;z-index:3;border-top:1px solid #444;float:left;color:#fff;cursor:pointer;-webkit-user-select:none;user-select:none;}
+
+                .go-top:hover, .go-top:hover * {background:#111;}
+
+                    .go-top .fa {width:30px;height:51px;line-height:51px;text-align:center;font-size:14px;}
+                    .go-top:hover .fa {color:#337ab7;}
+
+                    .go-top-text {display:none;color:#fff;}
+
+        .footer-buttons-placeholder {height:51px;}
+        .footer-buttons-wrapper {position:fixed;bottom:51px;left:0;right:0;z-index:10;height:0;}
+            .footer-buttons-inner {width:1251px;height:0;padding-left:30px;}
+                .footer-buttons {background:#f1f1f5;border-top:1px solid #ccc;border-right:1px solid #ccc;padding:10px;}
+                    .footer-buttons .btn-task {float:right;}
 
         @media (min-width:1600px) {
             .top-inner,
-            .bottom-inner,
+            .go-top-inner,
+            .footer-buttons-inner,
             .columns {margin:0 auto;}
         }
 
         @media (min-width:1440px) {
             .top-inner {width:1421px;padding-left:200px;}
-            .bottom-inner {width:1421px;}
-                .footer-buttons {margin-left:200px;}
             .columns {width:1421px;}
                 .column-menu {width:200px;}
                     .column-menu-group-title-text {display:inline;}
                     .column-menu-item-text {display:inline;}
-            .go-top {width:200px;}
-                .go-top-text {display:inline;}
+
+                .footer-buttons-inner {padding-left:200px;width:1421px;}
+                .go-top-inner {width:1421px;}
+                    .go-top {width:200px;}
+                        .go-top-text {display:inline;}
         }
 
         body.wide .columns {border-right:0;width:100%;}
@@ -235,7 +238,9 @@
         body.wide .top-inner {width:100%;}
             body.wide .current-task {border-right:0;}
 
-        body.wide .bottom-inner {width:100%;}
+        body.wide .go-top-inner {width:100%;}
+
+        body.wide .footer-buttons-inner {width:100%;}
             body.wide .footer-buttons {border-right:0;}
 
         /* Иконки */
@@ -459,26 +464,23 @@
 
                 {% endblock %}
 
-                <!-- Если мы на странице редактирования репетитора - показываем плейсхолдер для кнопки -->
-                {% if url_name == 'teacher' %}
-                    <div class="bottom-wrapper-placeholder"></div>
-                {% endif %}
-                <!-- Конец если -->
-
-                <div class="bottom-wrapper">
-                    <div class="bottom-inner">
+                <div class="go-top-wrapper">
+                    <div class="go-top-inner">
                         <div class="go-top"><i class="fa fa-chevron-up"></i><span class="go-top-text">Наверх</span></div>
+                    </div>
+                </div>
 
-                        <!-- Если мы на странице редактирования репетитора - показываем плейсхолдер для кнопки -->
-                        {% if url_name == 'teacher' %}
+                {% if url_name == 'teacher' %}
+                    <div class="footer-buttons-placeholder"></div>
+                    <div class="footer-buttons-wrapper">
+                        <div class="footer-buttons-inner">
                             <div class="footer-buttons">
                                 <button class="btn btn-sm btn-default btn-task">Создать задачу</button>
                                 <button class="btn btn-sm btn-primary">Сохранить</button>
                             </div>
-                        {% endif %}
-                        <!-- Конец если -->
+                        </div>
                     </div>
-                </div>
+                {% endif %}
 
             </td>
         </tr>

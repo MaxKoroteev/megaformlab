@@ -132,10 +132,27 @@
 
 
             .teacher-documents {font-size:0;}
-                .teacher-documents .teacher-inline-form {display:inline-block;width:280px;margin:5px 15px 10px 0;font-size:12px;}
-                    .teacher-documents img {width:258px;margin-bottom:10px;}
+                .teacher-documents .teacher-inline-form {display:inline-block;width:280px;margin:5px 15px 10px 0;font-size:12px;padding:9px;}
 
-                .teacher-documents .btn {margin-bottom:20px;}
+                    .teacher-documents a {width:260px;height:260px;background:#fff;vertical-align:middle;display:table-cell;}
+                        .teacher-documents img {max-width:260px;max-height:260px;}
+
+                        .teacher-documents-form {margin:10px 0;width:100%;}
+                            .teacher-documents-form-button {width:1px;}
+                                .teacher-documents-form-button .btn {margin-bottom:0;margin-left:10px;}
+
+                .btn-add-document {margin-bottom:20px;}
+
+    .select2-selection--multiple {cursor:text !important;}
+    .select2-results__option {cursor:default !important;}
+    .select2-results__option--highlighted {background:#f1f1f5 !important;color:#000 !important;}
+    .select2-results__option:before {font-size:10px;font-family:FontAwesome, sans-serif;content:'\f00c';color:#fff;width:13px;height:13px;line-height:13px;text-align:center;background:#fff;border:1px solid #ccc;border-radius:2px;display: inline-block;margin-right:5px;}
+    .select2-results__option--highlighted:before {border-color:#337ab7;}
+    .select2-results__option[aria-selected="true"] {background:#337ab7 !important;color:#fff !important;}
+    .select2-results__option[aria-selected="true"]:hover {background:#286090 !important;color:#fff !important;}
+    .select2-results__option[aria-selected="true"]:before {border-color:rgba(0,0,0,0.1);color:#000 !important;}
+
+    .select2-dropdown {border-top:1px solid #ccc !important;}
 
     </style>
     
@@ -297,24 +314,24 @@
                                 </a>
                             </td>
                         </tr>
-{#                        <tr>#}
-{#                            <th>#}
-{#                                Фото 1:1#}
-{#                                <div class="teacher-resize-button">#}
-{#                                    <button class="btn btn-default btn-xs">Изменить</button>#}
-{#                                </div>#}
-{#                            </th>#}
-{#                            <td class="teacher-photo-2-3">#}
-{#                                <a href="#" class="teacher-photo-resize">#}
-{#                                    <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg" style="width:90px;height:90px;">#}
-{#                                    <span class="teacher-photo-size">200x200</span>#}
-{#                                </a>#}
-{#                                <a href="#" class="teacher-photo-resize">#}
-{#                                    <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg" style="width:90px;height:90px;">#}
-{#                                    <span class="teacher-photo-size">90x90</span>#}
-{#                                </a>#}
-{#                            </td>#}
-{#                        </tr>#}
+                        <tr>
+                            <th>
+                                Фото 1:1
+                                <div class="teacher-resize-button">
+                                    <button class="btn btn-default btn-xs">Изменить</button>
+                                </div>
+                            </th>
+                            <td class="teacher-photo-2-3">
+                                <a href="#" class="teacher-photo-resize">
+                                    <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg" style="width:90px;height:90px;">
+                                    <span class="teacher-photo-size">200x200</span>
+                                </a>
+                                <a href="#" class="teacher-photo-resize">
+                                    <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg" style="width:90px;height:90px;">
+                                    <span class="teacher-photo-size">90x90</span>
+                                </a>
+                            </td>
+                        </tr>
                         <tr>
                             <th>Удалить</th>
                             <td><button class="btn btn-default btn-xs">Удалить все фото, кроме оригинала</button></td>
@@ -706,15 +723,18 @@
                                 <a href="#">
                                     <img src="https://www.edx.org/sites/all/themes/atedx/images/example-certificate-verified.png">
                                 </a>
-                                <p>
-                                    <input type="file">
-                                </p>
+                                <table class="teacher-documents-form">
+                                    <tr>
+                                        <td><input class="form-control" type="file"></td>
+                                        <td class="teacher-documents-form-button"><button class="btn btn-primary btn-sm"><i class="fa fa-upload"></i></button></td>
+                                    </tr>
+                                </table>
                                 <input class="form-control" type="text" placeholder="Описание">
                             </div>
                         {% endfor %}
 
                         <div>
-                            <button class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Добавить документ</button>
+                            <button class="btn btn-default btn-sm btn-add-document"><i class="fa fa-plus"></i> Добавить документ</button>
                         </div>
 
                     </div>
