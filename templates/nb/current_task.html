@@ -31,9 +31,10 @@
                     .current-task-transfer-block {line-height:30px;margin-bottom:5px;}
                         .current-task-transfer {vertical-align:top;}
                             .current-task-transfer .fa {width:10px;margin-left:5px;}
-                        .current-task-fields {}
-                            .current-task-fields input {display:inline-block;width:42px;}
-                            .current-task-fields .form-control-date {width:75px;}
+                        .current-task-fields {vertical-align: top;}
+                            .current-task-fields table td {padding-left:5px;}
+                                .current-task-fields input {display:inline-block;width:42px !important;}
+                                .current-task-fields .form-control-date {width:75px !important;}
 
         .current-task-form {background:#f1f1f5;padding:10px;border-radius:2px;border:1px solid rgba(0,0,0,0.25)}
             .current-task-comment-textarea {margin:5px 0;}
@@ -42,6 +43,8 @@
 
         .current-task-fields {height:30px;display:none;}
         .current-task-fields.active {display:inline-block;}
+        .btn-problems {display:none;}
+        .btn-problems.btn-active {display:inline-block;}
 
 </style>
 
@@ -107,27 +110,50 @@
                 <button class="btn btn-default btn-sm current-task-transfer">Перенести выполнение задачи <i class="fa fa-chevron-right"></i></button>
 
                 <span class="current-task-fields">
-                    Перенести вперёд на
-                    <input type="text" class="form-control">
-                    дней
-                    <input type="text" class="form-control">
-                    часов
-                    <b>ИЛИ</b>
-                    перенести на
-                    <input type="text" class="form-control form-control-date" placeholder="00.00.0000">
-                    <input type="text" class="form-control form-control-time" placeholder="00:00">
+                    <table>
+                        <tr>
+                            <td>Перенести вперёд на</td>
+                            <td>
+                                <div class="input-group">
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-addon">дней</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-addon">часов</div>
+                                </div>
+                            </td>
+                            <td>
+                                <b>ИЛИ</b> перенести на
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <div class="input-group-addon">дата</div>
+                                    <input type="text" class="form-control form-control-date" placeholder="00.00.0000">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <div class="input-group-addon">время</div>
+                                    <input type="text" class="form-control form-control-time" placeholder="00:00">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </span>
 
             </div>
 
-            <select class="form-control">
+            <select class="form-control" style="display:none;">
                 <option>Комментарий из шаблона</option>
             </select>
 
             <textarea rows="2" class="form-control current-task-comment-textarea" placeholder=".. комментарий"></textarea>
 
             <button class="btn btn-primary btn-sm">Отправить</button>
-            <button class="btn btn-default btn-sm">Трудности при выполнении</button>
+            <button class="btn btn-default btn-sm btn-problems btn-active">Трудности при выполнении</button>
 
         </div>
 
@@ -160,6 +186,7 @@
         self.header = $('.current-task-header');
         self.transferBlock = $('.current-task-fields');
         self.transferButton = $('.current-task-transfer');
+        self.btnProblems = $('.btn-problems');
         self.transferButtonArrow = self.transferButton.find('.fa');
 
         self.events = function() {
@@ -169,6 +196,7 @@
             });
 
             self.transferButton.on('click', function() {
+                self.btnProblems.toggleClass('btn-active');
                 self.transferBlock.toggleClass('active');
                 self.transferButtonArrow.toggleClass('fa-chevron-right').toggleClass('fa-times');
             });
