@@ -1,0 +1,442 @@
+{#    <style>#}
+{#        .teachers-filter {padding:10px 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd;margin-bottom:20px;}#}
+{##}
+{#            .teachers-filter-label {}#}
+{##}
+{#            .teachers-filter-table table {width:100%;}#}
+{#            .teachers-filter-table table th {width:1px;white-space:nowrap;padding:3px 3px 3px 0;line-height:12px;vertical-align:middle;}#}
+{#            .teachers-filter-table table td {padding:0;}#}
+{#            .teachers-filter-table {width:100%;}#}
+{##}
+{#                .teachers-filter-table td {padding-right:10px;padding-bottom:5px;}#}
+{#                .teachers-filter-table td:last-child {padding-right:0;}#}
+{#                .teachers-filter-table tr:last-child td {padding-bottom:0;}#}
+{##}
+{#                    .teachers-filter-checkbox-group {line-height:28px;display:inline-block;padding:0 5px;background:#fff;border:1px solid #ddd;border-radius:2px;white-space:nowrap;}#}
+{#                    .teachers-filter-table label {margin:0 5px 0 0;font-weight:normal;}#}
+{##}
+{#    </style>#}
+{##}
+{#    <div class="teachers-filter">#}
+{#        <table class="teachers-filter-table">#}
+{#            <tr>#}
+{#                <td>#}
+{#                    <table>#}
+{#                        <tr>#}
+{#                            <th>#}
+{#                                <div class="teachers-filter-label">Регион</div>#}
+{#                                <a href="#">x Сброс</a>#}
+{#                            </th>#}
+{#                            <td>#}
+{#                                <select class="form-control"><option>Москва и Московская область</option></select>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <table>#}
+{#                        <tr>#}
+{#                            <th>#}
+{#                                <div class="teachers-filter-label">Район</div>#}
+{#                                <a href="#">x Сброс</a>#}
+{#                            </th>#}
+{#                            <td>#}
+{#                                <select class="form-control"><option>м. Юго-Западная</option></select>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <table>#}
+{#                        <tr>#}
+{#                            <th>#}
+{#                                <div class="teachers-filter-label">Формат</div>#}
+{#                                <a href="#">x Сброс</a>#}
+{#                            </th>#}
+{#                            <td>#}
+{#                                <div class="teachers-filter-checkbox-group">#}
+{#                                    <label><input type="checkbox"> У репетитора</label>#}
+{#                                    <label><input type="checkbox"> У ученика</label>#}
+{#                                    <label><input type="checkbox"> Online (Skype)</label>#}
+{#                                </div>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td></td>#}
+{#                <td></td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td>#}
+{#                    <table>#}
+{#                        <tr>#}
+{#                            <th>#}
+{#                                <div class="teachers-filter-label">Предмет</div>#}
+{#                                <a href="#">x Сброс</a>#}
+{#                            </th>#}
+{#                            <td>#}
+{#                                <select class="form-control"><option>Предмет</option></select>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td colspan="2">#}
+{#                    <table>#}
+{#                        <tr>#}
+{#                            <th>#}
+{#                                <div class="teachers-filter-label">Разделы</div>#}
+{#                                <a href="#">x Сброс</a>#}
+{#                            </th>#}
+{#                            <td>#}
+{#                                <select class="form-control"><option>Разделы</option></select>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <table>#}
+{#                        <tr>#}
+{#                            <th>#}
+{#                                <div class="teachers-filter-label">Дополнения</div>#}
+{#                                <a href="#">x Сброс</a>#}
+{#                            </th>#}
+{#                            <td>#}
+{#                                <select class="form-control"><option>Дополнения</option></select>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <div>&nbsp;</div>#}
+{#                    <button class="btn btn-sm btn-default"><i class="fa fa-plus"></i></button>#}
+{#                </td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td colspan="2">#}
+{##}
+{#                    <b>Статус репетитора <a href="#">x Сброс</a></b>#}
+{#                    <div class="teachers-filter-checkbox-group">#}
+{#                        <label><input type="checkbox"> Студент</label>#}
+{#                        <label><input type="checkbox"> Аспирант</label>#}
+{#                        <label><input type="checkbox"> Школьный преподаватель</label>#}
+{#                        <label><input type="checkbox"> Преподаватель вуза</label>#}
+{#                        <label><input type="checkbox"> Частный преподаватель</label>#}
+{#                        <label><input type="checkbox"> Носитель языка</label>#}
+{#                    </div>#}
+{#                </td>#}
+{#                <td>#}
+{##}
+{#                    <b>Пол репетитора <a href="#">x Сброс</a></b>#}
+{#                    <div class="teachers-filter-checkbox-group">#}
+{#                        <label><input type="radio" name="gender"> Любой</label>#}
+{#                        <label><input type="radio" name="gender"> Мужской</label>#}
+{#                        <label><input type="radio" name="gender"> Женский</label>#}
+{#                    </div>#}
+{#                </td>#}
+{#                <td></td>#}
+{#                <td></td>#}
+{#            </tr>#}
+{##}
+{#            <tr>#}
+{#                <td colspan="5">#}
+{##}
+{#                    <b>Категория ученика <a href="#">x Сброс</a></b>#}
+{#                    <div class="teachers-filter-checkbox-group">#}
+{#                        Дошкольники (Лет)#}
+{#                        <label><input type="checkbox"> 1-3</label>#}
+{#                        <label><input type="checkbox"> 4-5</label>#}
+{#                        <label><input type="checkbox"> 6-7</label>#}
+{##}
+{#                        Школьники (класс)#}
+{#                        <label><input type="checkbox"> 1</label>#}
+{#                        <label><input type="checkbox"> 2</label>#}
+{#                        <label><input type="checkbox"> 3</label>#}
+{#                        <label><input type="checkbox"> 4</label>#}
+{#                        <label><input type="checkbox"> 5</label>#}
+{#                        <label><input type="checkbox"> 6</label>#}
+{#                        <label><input type="checkbox"> 7</label>#}
+{#                        <label><input type="checkbox"> 8</label>#}
+{#                        <label><input type="checkbox"> 9</label>#}
+{#                        <label><input type="checkbox"> 10</label>#}
+{#                        <label><input type="checkbox"> 11</label>#}
+{##}
+{#                        Студенты и взрослые#}
+{#                        <label><input type="checkbox"> Студенты</label>#}
+{#                        <label><input type="checkbox"> Взрослые</label>#}
+{#                    </div>#}
+{#                </td>#}
+{#            </tr>#}
+{##}
+{#            <tr>#}
+{#                <td>#}
+{#                    <table class="filter-range">#}
+{#                        <tr>#}
+{#                            <td><input type="text" class="form-control" placeholder="от"></td>#}
+{#                            <td>&nbsp;-&nbsp;</td>#}
+{#                            <td><input type="text" class="form-control" placeholder="до"></td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <table class="filter-range">#}
+{#                        <tr>#}
+{#                            <td><input type="text" class="form-control" placeholder="от"></td>#}
+{#                            <td>&nbsp;-&nbsp;</td>#}
+{#                            <td><input type="text" class="form-control" placeholder="до"></td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <table class="filter-range">#}
+{#                        <tr>#}
+{#                            <td><input type="text" class="form-control" placeholder="от"></td>#}
+{#                            <td>&nbsp;-&nbsp;</td>#}
+{#                            <td><input type="text" class="form-control" placeholder="до"></td>#}
+{#                        </tr>#}
+{#                    </table>#}
+{#                </td>#}
+{#                <td></td>#}
+{#                <td></td>#}
+{#            </tr>#}
+{##}
+{#        </table>#}
+{#    </div>#}
+
+           <!--td class="filter">
+
+                <div class="filter-block">
+                    <div><label><input name="common" type="checkbox"> С фото</label></div>
+                    <div><label><input name="common" type="checkbox"> Верифицированные</label></div>
+                    <div><label><input name="common" type="checkbox"> Можно отдавать заявки</label></div>
+                    <div><label><input name="common" type="checkbox"> Нуждается в учениках</label></div>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Зона</div>
+                    <select class="form-control select2-search">
+                        <option>Москва и Московская область</option>
+                    </select>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Район</div>
+                    <select class="form-control select2-search">
+                        <option>Балашиха</option>
+                        <option>Юго-западная</option>
+                        <option>Тропарёво</option>
+                    </select>
+                </div>
+
+                <div class="filter-subject-block">
+
+                    <div class="filter-block">
+                        <div class="filter-title">Предмет 1</div>
+                        <select class="form-control">
+                            <option>Математика</option>
+                            <option selected>Русский язык</option>
+                            <option>Литература</option>
+                        </select>
+                    </div>
+
+
+                    <div class="filter-block">
+                        <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Разделы</div>
+                        <div class="filter-content">
+                            <label><input type="checkbox"> Школьный курс</label>
+                            <label><input type="checkbox"> Вузовский курс</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-block">
+                        <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Дополнения</div>
+                        <div class="filter-content">
+                            <label><input type="checkbox"> ЕГЭ</label>
+                            <label><input type="checkbox"> ГИА</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="filter-subject-block">
+
+                    <i title="Убрать предмет" class="fa fa-times filter-subject-close"></i>
+
+                    <div class="filter-block">
+                        <div class="filter-title">Предмет 2</div>
+                        <select class="form-control">
+                            <option>Математика</option>
+                            <option>Русский язык</option>
+                            <option>Литература</option>
+                        </select>
+                    </div>
+
+
+                    <div class="filter-block">
+                        <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Разделы</div>
+                        <div class="filter-content">
+                            <label><input type="checkbox"> Школьный курс</label>
+                            <label><input type="checkbox"> Вузовский курс</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-block">
+                        <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Дополнения</div>
+                        <div class="filter-content">
+                            <label><input type="checkbox"> ЕГЭ</label>
+                            <label><input type="checkbox"> ГИА</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="btn btn-primary btn-xs btn-add-subject"><i class="fa fa-plus"></i> Указать ещё предмет</button>
+
+                <div class="filter-block">
+                    <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Формат</div>
+                    <div class="filter-content">
+                        <label><input type="checkbox"> У репетитора</label>
+                        <label><input type="checkbox"> У ученика</label>
+                        <label><input type="checkbox"> Online (Skype)</label>
+                    </div>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Категория ученика</div>
+                    <div class="filter-content">
+
+                            <div class="filter-title">Дошкольники (Лет)</div>
+                            <label><input type="checkbox"> 1-3</label>
+                            <label><input type="checkbox"> 4-5</label>
+                            <label><input type="checkbox"> 6-7</label>
+
+                            <div class="filter-title">Школьники (класс)</div>
+                            <label><input type="checkbox"> 1</label>
+                            <label><input type="checkbox"> 2</label>
+                            <label><input type="checkbox"> 3</label>
+                            <label><input type="checkbox"> 4</label>
+                            <label><input type="checkbox"> 5</label>
+                            <label><input type="checkbox"> 6</label>
+                            <label><input type="checkbox"> 7</label>
+                            <label><input type="checkbox"> 8</label>
+                            <label><input type="checkbox"> 9</label>
+                            <label><input type="checkbox"> 10</label>
+                            <label><input type="checkbox"> 11</label>
+
+                            <div class="filter-title">Студенты и взрослые</div>
+                            <label><input type="checkbox"> Студенты</label>
+                            <label><input type="checkbox"> Взрослые</label>
+
+                    </div>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Статус репетитора</div>
+                    <div class="filter-content">
+                        <div><label><input type="checkbox"> Студент</label></div>
+                        <div><label><input type="checkbox"> Аспирант</label></div>
+                        <div><label><input type="checkbox"> Школьный преподаватель</label></div>
+                        <div><label><input type="checkbox"> Преподаватель вуза</label></div>
+                        <div><label><input type="checkbox"> Частный преподаватель</label></div>
+                        <div><label><input type="checkbox"> Носитель языка</label></div>
+                    </div>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title filter-title-collapse"><i class="fa fa-chevron-down"></i> Пол репетитора</div>
+                    <div class="filter-content">
+                        <div><label><input type="radio" name="gender"> Любой</label></div>
+                        <div><label><input type="radio" name="gender"> Мужской</label></div>
+                        <div><label><input type="radio" name="gender"> Женский</label></div>
+                    </div>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Цена</div>
+                    <table class="filter-range">
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="от"></td>
+                            <td>&nbsp;-&nbsp;</td>
+                            <td><input type="text" class="form-control" placeholder="до"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Возраст</div>
+                    <table class="filter-range">
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="от"></td>
+                            <td>&nbsp;-&nbsp;</td>
+                            <td><input type="text" class="form-control" placeholder="до"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Опыт</div>
+                    <table class="filter-range">
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="от"></td>
+                            <td>&nbsp;-&nbsp;</td>
+                            <td><input type="text" class="form-control" placeholder="до"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Вуз</div>
+                    <select class="form-control select2-search">
+                        <option>МГУ</option>
+                        <option>МГТУ</option>
+                        <option>РГАИС</option>
+                    </select>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">ID</div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">ФИО</div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Телефон</div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Email</div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Ключевое слово</div>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Анкеты</div>
+                    <select class="form-control">
+                        <option>Все</option>
+                        <option>Подтверждённые</option>
+                        <option>Неподтверждённые</option>
+                    </select>
+                </div>
+
+                <div class="filter-block">
+                    <div class="filter-title">Регистратор</div>
+                    <select class="form-control select2-search">
+                        <option>Иванов</option>
+                        <option>Петров</option>
+                        <option>Сидоров</option>
+                    </select>
+                </div>
+
+                <div class="filter-float-submit"><button class="btn btn-sm">Показать задачи</button><i class="fa fa-times"></i></div>
+
+                <button class="btn btn-primary btn-sm btn-filter-submit">Показать задачи</button>
+
+            </td-->
