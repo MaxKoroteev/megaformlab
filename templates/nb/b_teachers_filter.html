@@ -4,6 +4,14 @@
     .teachers-filter {width:100%;}
         .teachers-filter .filter-range {width:130px;}
 
+        .teachers-filter-district {width:420px;}
+        .teachers-filter-format {line-height:30px !important;}
+        .teachers-filter-staff {width:1px;white-space:nowrap;line-height:15px;}
+        .teachers-filter-gender {line-height:30px !important;}
+        .teachers-filter-education {max-width:1px;}
+
+        .btn-add-subject {border-radius:3px !important;margin-left:10px !important;width:30px !important;margin-bottom:0 !important;}
+
         .teachers-filter input {margin:0;}
         .teachers-filter label {margin:0 5px 0 0;font-weight:normal;line-height:15px;}
 
@@ -18,29 +26,44 @@
                 .teachers-filter-label .fa {font-size:12px;margin-top:-1px;}
                 .teachers-filter-label a {}
 
+        .teachers-filter-multiselect .btn.multiselect {width:100%;}
+        .teachers-filter-multiselect .multiselect-selected-text {overflow:hidden;display:block;text-overflow:ellipsis;}
+        .teachers-filter-multiselect .btn-group {width:100%;}
+            .teachers-filter-multiselect .btn {width:100%;}
+
+            .teachers-filter-multiselect-input-group {width:100%;}
+
+        .teachers-filter-pupils-needed {line-height:15px;}
+
+        .teachers-filter-footer {border-top:1px solid #ccc;left:15px;right:15px;margin-top:10px;padding:10px 0 10px;position:absolute;bottom:0;background:#f9f9fa;}
+
+            .teachers-filter-detailed {position:absolute;left:50%;margin-left:-75px;width:150px;}
+                .teachers-filter-detailed .fa {float:left;margin-top:3px;}
+            .teachers-filter-submit {margin-right:10px;}
+
 </style>
 
 <div class="teachers-filter-wrapper" teachersFilter>
     <table class="teachers-filter">
         <tr>
             <td>
-                <div class="teachers-filter-label">Регион <a href="#"><i class="fa fa-times"></i></a></div>
-                <select class="form-control"><option>Москва и Московская область</option></select>
+                <div class="teachers-filter-label">Регион <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
+                <select class="form-control select2-search"><option>Москва и Московская область</option></select>
             </td>
-            <td style="width:420px;">
-                <div class="teachers-filter-label">Район <a href="#"><i class="fa fa-times"></i></a></div>
-                <select class="form-control"><option>Москва и Московская область</option></select>
+            <td  class="teachers-filter-district">
+                <div class="teachers-filter-label">Район <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
+                <select class="form-control select2-search"><option>Москва и Московская область</option></select>
             </td>
             <td>
-                <div class="teachers-filter-label">Формат <a href="#"><i class="fa fa-times"></i></a></div>
-                <div class="teachers-filter-checkbox-group" style="line-height:30px;">
+                <div class="teachers-filter-label">Формат <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
+                <div class="teachers-filter-checkbox-group teachers-filter-format">
                     <label><input type="checkbox"> У репетитора</label>
                     <label><input type="checkbox"> У ученика</label>
                     <label><input type="checkbox"> Online (Skype)</label>
                 </div>
             </td>
             <td>
-                <div class="teachers-filter-label">Цена занятия <a href="#"><i class="fa fa-times"></i></a></div>
+                <div class="teachers-filter-label">Цена занятия <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
                 <div class="teachers-filter-checkbox-group">
                     <table class="filter-range">
                         <tr>
@@ -51,45 +74,45 @@
                     </table>
                 </div>
             </td>
-            <td style="width:1px;white-space:nowrap;line-height:15px;">
-                <div class="teachers-filter-label">Анкеты <a href="#"><i class="fa fa-times"></i></a></div>
+            <td class="teachers-filter-staff">
+                <div class="teachers-filter-label">Анкеты <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
                 <div><label><input type="checkbox"> С фото</label></div>
                 <div><label><input type="checkbox"> Верифицированные</label></div>
             </td>
         </tr>
         <tr>
             <td>
-                <div class="teachers-filter-label">Предмет 1 <a href="#"><i class="fa fa-times"></i></a></div>
+                <div class="teachers-filter-label">Предмет 1 <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
                 <select class="form-control">
                     <option>Математика</option>
                     <option selected>Русский язык</option>
                     <option>Литература</option>
                 </select>
             </td>
-            <td>
-                <div class="teachers-filter-label">Разделы <a href="#"><i class="fa fa-times"></i></a></div>
-                <select class="form-control"><option>Разделы</option></select>
+            <td class="teachers-filter-multiselect">
+                <div class="teachers-filter-label">Разделы <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
+                <select multiple class="multiselect-tag"><option>Разделы</option></select>
             </td>
-            <td colspan="3">
-                <div class="teachers-filter-label">Дополнения <a href="#"><i class="fa fa-times"></i></a></div>
-                <div class="input-group" style="width:100%;">
-                    <select class="form-control"><option>Дополнения</option></select>
+            <td colspan="3" class="teachers-filter-multiselect">
+                <div class="teachers-filter-label">Дополнения <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
+                <div class="input-group teachers-filter-multiselect-input-group">
+                    <select multiple class="multiselect-tag"><option>Дополнения</option></select>
                     <span class="input-group-btn">
-                        <button class="btn btn-sm btn-default" style="border-radius:3px;margin-left:10px;" title="Добавить ещё предмет"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-sm btn-default btn-add-subject" title="Добавить ещё предмет"><i class="fa fa-plus"></i></button>
                     </span>
                 </div>
             </td>
         </tr>
         <tr>
-            <td><div class="teachers-filter-label">Пол репетитора <a href="#"><i class="fa fa-times"></i></a></div>
-                <div class="teachers-filter-checkbox-group" style="line-height:30px;">
+            <td><div class="teachers-filter-label">Пол репетитора <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
+                <div class="teachers-filter-checkbox-group teachers-filter-gender">
                     <label><input type="radio" name="gender"> Любой</label>
                     <label><input type="radio" name="gender"> Муж.</label>
                     <label><input type="radio" name="gender"> Жен.</label>
                 </div>
             </td>
             <td>
-                <div class="teachers-filter-label">Статус репетитора <a href="#"><i class="fa fa-times"></i></a></div>
+                <div class="teachers-filter-label">Статус репетитора <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
                 <div class="teachers-filter-checkbox-group">
                 <label><input type="checkbox"> Студент</label>
                 <label><input type="checkbox"> Аспирант</label>
@@ -99,14 +122,14 @@
                 <label><input type="checkbox"> Носитель языка</label>
                 </div>
             </td>
-            <td>
-                <div class="teachers-filter-label">Образование репетитора <a href="#"><i class="fa fa-times"></i></a></div>
-                <select class="form-control">
+            <td class="teachers-filter-education">
+                <div class="teachers-filter-label">Образование репетитора <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
+                <select class="form-control select2-search">
                     <option>МГУ</option>
                 </select>
             </td>
             <td>
-                <div class="teachers-filter-label">Возраст реп. <a href="#"><i class="fa fa-times"></i></a></div>
+                <div class="teachers-filter-label">Возраст реп. <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
                 <table class="filter-range">
                     <tr>
                         <td><input type="text" class="form-control" placeholder="от"></td>
@@ -116,8 +139,8 @@
                 </table>
             </td>
             <td>
-                <div class="teachers-filter-label">Опыт репетитора <a href="#"><i class="fa fa-times"></i></a></div>
-                <table class="filter-range" style="float:left;">
+                <div class="teachers-filter-label">Опыт репетитора <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
+                <table class="filter-range">
                     <tr>
                         <td><input type="text" class="form-control" placeholder="от"></td>
                         <td>&nbsp;-&nbsp;</td>
@@ -128,42 +151,42 @@
         </tr>
         <tr>
             <td>
-                <div class="teachers-filter-label">ID <a href="#"><i class="fa fa-times"></i></a></div>
+                <div class="teachers-filter-label">ID <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
                 <input type="text" class="form-control">
             </td>
             <td>
-                <div class="teachers-filter-label">ФИО <a href="#"><i class="fa fa-times"></i></a></div>
+                <div class="teachers-filter-label">ФИО <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
                 <input type="text" class="form-control">
             </td>
             <td>
-                <div class="teachers-filter-label">Телефон <a href="#"><i class="fa fa-times"></i></a></div>
+                <div class="teachers-filter-label">Телефон <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
                 <input type="text" class="form-control">
             </td>
             <td>
-                <div class="teachers-filter-label">E-mail <a href="#"><i class="fa fa-times"></i></a></div>
+                <div class="teachers-filter-label">E-mail <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
                 <input type="text" class="form-control">
             </td>
             <td>
-                <div class="teachers-filter-label">Ключевое слово <a href="#"><i class="fa fa-times"></i></a></div>
+                <div class="teachers-filter-label">Ключевое слово <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
                 <input type="text" class="form-control">
             </td>
         </tr>
         <tr>
             <td>
-                <div class="teachers-filter-label">Анкеты <a href="#"><i class="fa fa-times"></i></a></div>
+                <div class="teachers-filter-label">Анкеты <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
                 <select class="form-control">
                     <option>Подтверждённые</option>
                     <option>Неподтверждённые</option>
                 </select>
             </td>
             <td>
-                <div class="teachers-filter-label">Регистратор <a href="#"><i class="fa fa-times"></i></a></div>
+                <div class="teachers-filter-label">Регистратор <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
                 <select class="form-control">
                     <option>Коротеев М.В.</option>
                 </select>
             </td>
-            <td style="line-height:15px;">
-                <div class="teachers-filter-label">Дополнительно <a href="#"><i class="fa fa-times"></i></a></div>
+            <td class="teachers-filter-pupils-needed">
+                <div class="teachers-filter-label">Дополнительно <a href="#" title="Сбросить"><i class="fa fa-times"></i></a></div>
                 <label><input type="checkbox"> Нуждается в учениках</label>
                 <label><input type="checkbox"> Можно отдавать заявки</label>
             </td>
@@ -171,16 +194,16 @@
             <td></td>
         </tr>
     </table>
-    <div style="border-top:1px solid #ccc;left:15px;right:15px;margin-top:10px;padding:10px 0 10px;position:absolute;bottom:0;background:#f9f9fa;">
+    <div class="teachers-filter-footer">
 
-        <div class="btn-group" style="float:right;">
+        <!--div class="btn-group" style="float:right;">
             <a href="#" class="btn btn-default btn-sm active"><i class="fa fa-list"></i> Списком</a>
             <a href="#" class="btn btn-default btn-sm"><i class="fa fa-map-marker"></i> На карте</a>
-        </div>
+        </div-->
 
-        <button class="btn btn-default btn-sm" style="position:absolute;left:50%;margin-left:-75px;width:150px;" teachersFilterExpand><i class="fa fa-chevron-down" style="float:left;margin-top:3px;"></i> <span>Подробный фильтр</span></button>
-        <button class="btn btn-primary btn-sm" style="margin-right:10px;">Применить фильтр</button><!--
--->{#        <button class="btn btn-default btn-sm">Очистить фильтр</button>#}
+        <button class="btn btn-default btn-sm teachers-filter-detailed" teachersFilterExpand><i class="fa fa-chevron-down"></i> <span>Подробный фильтр</span></button>
+        <button class="btn btn-primary btn-sm teachers-filter-submit">Применить фильтр</button><!--
+-->        <button class="btn btn-default btn-sm">Очистить фильтр</button>
     </div>
 </div>
 
