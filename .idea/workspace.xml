@@ -29,7 +29,17 @@
         <entry file="file://$PROJECT_DIR$/core/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
+              <caret line="103" column="74" selection-start-line="103" selection-start-column="74" selection-end-line="103" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="codes.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/nb/codes.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.333333">
+              <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -67,21 +77,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="b_teachers_filter.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="b_teachers_filter.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/nb/b_teachers_filter.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.083334">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3598775">
+              <caret line="177" column="31" selection-start-line="177" selection-start-column="31" selection-end-line="177" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="b_teachers.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="b_teachers.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/nb/b_teachers.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.9954057">
-              <caret line="137" column="68" selection-start-line="137" selection-start-column="68" selection-end-line="137" selection-end-column="68" />
+            <state vertical-scroll-proportion="-4.375">
+              <caret line="7" column="79" selection-start-line="7" selection-start-column="79" selection-end-line="7" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -100,8 +110,8 @@
       <file leaf-file-name="order.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/nb/order.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.0784316">
-              <caret line="113" column="35" selection-start-line="113" selection-start-column="34" selection-end-line="113" selection-end-column="35" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -122,7 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/rp/about.html" />
         <option value="$PROJECT_DIR$/templates/rp/task.html" />
         <option value="$PROJECT_DIR$/templates/rp/db.html" />
         <option value="$PROJECT_DIR$/templates/rp/rp.html" />
@@ -162,7 +171,6 @@
         <option value="$PROJECT_DIR$/templates/nb/nb.html" />
         <option value="$PROJECT_DIR$/templates/nb/select2.html" />
         <option value="$PROJECT_DIR$/templates/nb/todo.html" />
-        <option value="$PROJECT_DIR$/core/urls.py" />
         <option value="$PROJECT_DIR$/templates/nb/b_teachers_old.html" />
         <option value="$PROJECT_DIR$/templates/nb/tasks.html" />
         <option value="$PROJECT_DIR$/templates/nb/teachers.html" />
@@ -170,9 +178,11 @@
         <option value="$PROJECT_DIR$/templates/nb/teacher.html" />
         <option value="$PROJECT_DIR$/templates/nb/home.html" />
         <option value="$PROJECT_DIR$/templates/nb/current_task.html" />
-        <option value="$PROJECT_DIR$/templates/nb/b_teachers_filter.html" />
         <option value="$PROJECT_DIR$/templates/nb/reserv.html" />
         <option value="$PROJECT_DIR$/templates/nb/b_teachers.html" />
+        <option value="$PROJECT_DIR$/core/urls.py" />
+        <option value="$PROJECT_DIR$/templates/nb/codes.html" />
+        <option value="$PROJECT_DIR$/templates/nb/b_teachers_filter.html" />
       </list>
     </option>
   </component>
@@ -626,13 +636,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/media/css/rp.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="19" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/rp/task.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="45.0">
@@ -1028,14 +1031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/nb/current_task.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.125">
@@ -1054,26 +1049,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/nb/order.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.0784316">
-          <caret line="113" column="35" selection-start-line="113" selection-start-column="34" selection-end-line="113" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/nb/teachers.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.25">
           <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/nb/b_teachers_filter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.083334">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1088,8 +1067,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/nb/b_teachers.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.9954057">
-          <caret line="137" column="68" selection-start-line="137" selection-start-column="68" selection-end-line="137" selection-end-column="68" />
+        <state vertical-scroll-proportion="-4.375">
+          <caret line="7" column="79" selection-start-line="7" selection-start-column="79" selection-end-line="7" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="74" selection-start-line="103" selection-start-column="74" selection-end-line="103" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/nb/order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/nb/codes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.333333">
+          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/nb/b_teachers_filter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3598775">
+          <caret line="177" column="31" selection-start-line="177" selection-start-column="31" selection-end-line="177" selection-end-column="31" />
           <folding />
         </state>
       </provider>

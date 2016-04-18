@@ -1,0 +1,51 @@
+{% extends 'nb/home.html' %}
+
+{% block content %}
+
+    <style>
+
+        .table tr > *:first-child {max-width:30px;}
+
+    </style>
+
+    <h1>Code</h1>
+
+    <table class="table">
+
+        <tr>
+            <th></th>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Блок</th>
+            <th>Тип</th>
+            <th>Проект</th>
+            <th>Порядок</th>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+            <td><select class="form-control"><option>Все блоки</option></select></td>
+            <td><select class="form-control"><option>Все типы</option></select></td>
+            <td><select class="form-control"><option>Все проекты</option></select></td>
+            <td></td>
+        </tr>
+
+        {% for i in '123456789' %}
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>3422{{ i }}</td>
+                <th>
+                    <a href="#">Название</a>
+                </th>
+                <td>Блок</td>
+                <td>Тип</td>
+                <td>Проект</td>
+                <td>0</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}
