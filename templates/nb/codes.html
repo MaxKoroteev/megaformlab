@@ -2,19 +2,103 @@
 
 {% block content %}
 
+    {# Блоки - это таблица #}
+
     <style>
 
-        .table tr > *:first-child {max-width:30px;}
+        .table-code {margin-top:20px;}
+
+        .table-code tr > * {vertical-align:middle !important;}
+        .table-code tr > *:nth-child(1) {width:1px;white-space:nowrap;}
+        .table-code tr > *:last-child {max-width:50px;}
+
+        .table-code .fa-check-circle {color:#5cb85c;font-size:15px;vertical-align:middle;}
+
+        .table-code-title {font-weight:bold;cursor:pointer;}
+
+        .modal-dialog-code {width:1220px;}
+
+        .table-form {display:table;width:100%;}
+            .table-form input, .table-form select {width:50%;}
+            .table-form input[type="checkbox"] {width:auto;}
+            .table-form > * {display:table-row;}
+            .table-form > * > * {display:table-cell;padding:5px 0 5px;line-height:20px;}
+            .table-form > * > *:first-child {width:1px;white-space:nowrap;padding-right:5px;font-weight:bold;vertical-align:top;}
+            .table-form > * > *:last-child {vertical-align:middle;}
 
     </style>
 
     <h1>Code</h1>
 
-    <table class="table">
+    <button class="btn btn-primary btn-sm" style="float:right;" data-toggle="modal" data-target="#myModal2">Создать запись</button>
+
+    <!-- Modal -->
+    <div id="myModal2" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-dialog-code">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Создать запись</h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="table-form">
+                <div>
+                    <div>Название</div>
+                    <div><input type="text" class="form-control"></div>
+                </div>
+                <div>
+                    <div>Тип</div>
+                    <div>
+                        <select class="form-control">
+                            <option>---</option>
+                            <option>HTML</option>
+                            <option>JavaScript</option>
+                            <option>C#</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div>Блок</div>
+                    <div><select class="form-control"><option>---</option><option>mainTop</option></select></div>
+                </div>
+                <div>
+                    <div>Проект</div>
+                    <div><select class="form-control"><option>---</option><option>umnik.ru</option></select></div>
+                </div>
+                <div>
+                    <div>Порядок</div>
+                    <div><input type="text" class="form-control"></div>
+                </div>
+                <div>
+                    <div>Содержание</div>
+                    <div><textarea class="form-control"></textarea></div>
+                </div>
+                <div>
+                    <div>Параметры</div>
+                    <div><textarea class="form-control"></textarea></div>
+                </div>
+                <div>
+                    <div></div>
+                    <div><input type="checkbox"> Активен</div>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary btn-sm">Сохранить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-default btn-sm">Активировать umnik.ru</button>
+    <button class="btn btn-default btn-sm">Дективировать umnik.ru</button>
+
+    <table class="table table-code">
 
         <tr>
             <th></th>
-            <th>ID</th>
             <th>Название</th>
             <th>Блок</th>
             <th>Тип</th>
@@ -25,27 +109,123 @@
         <tr>
             <td></td>
             <td><input type="text" class="form-control"></td>
-            <td><input type="text" class="form-control"></td>
             <td><select class="form-control"><option>Все блоки</option></select></td>
-            <td><select class="form-control"><option>Все типы</option></select></td>
-            <td><select class="form-control"><option>Все проекты</option></select></td>
+            <td><select class="form-control">
+                <option>Все типы</option>
+                <option>HTML</option>
+                <option>JavaScript</option>
+                <option>C#</option>
+            </select></td>
+            <td><select class="form-control">
+                <option>Все проекты</option>
+                <option>repetit.ru</option>
+                <option>umnik.ru</option>
+            </select></td>
             <td></td>
         </tr>
 
         {% for i in '123456789' %}
             <tr>
-                <td><input type="checkbox"></td>
-                <td>3422{{ i }}</td>
-                <th>
-                    <a href="#">Название</a>
-                </th>
-                <td>Блок</td>
-                <td>Тип</td>
-                <td>Проект</td>
-                <td>0</td>
+                <td><i class="fa fa-check-circle"></i></td>
+                <td>
+                    <!-- Trigger the modal with a button -->
+                    <a class="table-code-title" data-toggle="modal" data-target="#myModal">Аналитика</a>
+
+                    <!-- Modal -->
+                    <div id="myModal" class="modal fade" role="dialog">
+                      <div class="modal-dialog modal-dialog-code">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">umnik.ru - Аналитика в mainTop (HTML)</h4>
+                          </div>
+                          <div class="modal-body">
+
+                            <div class="table-form">
+                                <div>
+                                    <div>ID</div>
+                                    <div>42131</div>
+                                </div>
+                                <div>
+                                    <div>Дата изменения</div>
+                                    <div>21.05.2015</div>
+                                </div>
+                                <div>
+                                    <div>Название</div>
+                                    <div><input type="text" class="form-control" value="Аналитика"></div>
+                                </div>
+                                <div>
+                                    <div>Тип</div>
+                                    <div>
+                                        <select class="form-control">
+                                            <option>HTML</option>
+                                            <option>JavaScript</option>
+                                            <option>C#</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>Блок</div>
+                                    <div><select class="form-control"><option>mainTop</option></select></div>
+                                </div>
+                                <div>
+                                    <div>Проект</div>
+                                    <div><select class="form-control"><option>umnik.ru</option></select></div>
+                                </div>
+                                <div>
+                                    <div>Порядок</div>
+                                    <div><input type="text" class="form-control" value="3"></div>
+                                </div>
+                                <div>
+                                    <div>Содержание</div>
+                                    <div><textarea class="form-control"></textarea></div>
+                                </div>
+                                <div>
+                                    <div>Параметры</div>
+                                    <div><textarea class="form-control"></textarea></div>
+                                </div>
+                                <div>
+                                    <div></div>
+                                    <div><input type="checkbox"> Активен</div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button class="btn btn-primary btn-sm">Сохранить</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                </td>
+                <td>mainTop</td>
+                <td>JavaScript</td>
+                <td>umnik.ru</td>
+                <td><input type="text" value="1" class="form-control"></td>
             </tr>
         {% endfor %}
 
     </table>
+
+    <nav>
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
 {% endblock %}

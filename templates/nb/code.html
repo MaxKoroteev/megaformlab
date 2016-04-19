@@ -1,0 +1,46 @@
+{% extends 'nb/home.html' %}
+
+{% block content %}
+
+    <style>
+
+
+    </style>
+
+    <h1>Umnik.ru - Название</h1>
+
+    <table>
+        <tr>
+            <th>Название</th>
+            <td><input type="text" class="form-control"></td>
+        </tr>
+        <tr>
+            <th>Тип</th>
+            <td><select class="form-control"><option>Все блоки</option></select></td>
+        </tr>
+        <tr>
+            <th>Блок</th>
+            <td><select class="form-control"><option>Все блоки</option></select></td>
+        </tr>
+        <tr>
+            <th>Проект</th>
+            <td><select class="form-control"><option>Все блоки</option></select></td>
+        </tr>
+        <tr>
+            <th>Порядок</th>
+            <td><input type="text" class="form-control"></td>
+        </tr>
+        <tr>
+            <th>Описание</th>
+            <th>Параметры</th>
+        </tr>
+        <tr>
+            <td><textarea class="form-control"></textarea></td>
+            <td><textarea class="form-control"></textarea></td>
+        </tr>
+    </table>
+
+    <button class="btn btn-primary btn-sm">Сохранить</button>
+
+
+{% endblock %}
