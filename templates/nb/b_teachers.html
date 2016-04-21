@@ -13,9 +13,9 @@
                 .teacher-item {width:100%;}
 
                     .teacher-item .dropdown {display:inline;}
-                        .teacher-item .dropdown-menu  {margin-left:-200px;width:400px;padding:10px;}
+                        .teacher-item .dropdown-menu  {width:400px;padding:10px;}
                         .teacher-item .dropdown-map   {width:auto;padding:0;margin:0;right:0;left:auto;}
-                        .teacher-item .dropdown-table {margin-left:-200px;width:400px;padding:0;border-top:0;}
+                        .teacher-item .dropdown-table {width:400px;padding:0;border-top:0;max-height:500px;overflow:auto;}
                             .teacher-item .dropdown-table table {margin:0;}
 
                     .teacher-photo-cell {width:100px;padding-right:10px;}
@@ -49,8 +49,8 @@
                             .teacher-stats .fa-ban          {color:#d9534f;}
                             .teacher-stats .fa-info         {color:#5bc0de;}
 
-                            .teacher-show-orders .fa-undo {font-size:12px;line-height:16px;}
-                            .teacher-show-orders .fa-money {line-height:16px;}
+                            .fa-order-undo  {margin-right:2px;font-size:12px;line-height:16px;}
+                            .fa-order-money {margin-right:2px;line-height:16px;}
 
                         .teacher-comments {line-height:17px;margin-bottom:5px;padding:0;border-radius:2px;background-color:#EFF6F9;border:0;}
                             .teacher-comments .fa {margin-top:2px;width:19px;text-align:center;}
@@ -82,7 +82,8 @@
 
                                     .teacher-subject-body {display:none;}
                                     .teacher-subject-body.expanded {display:table-row;}
-                                        .teacher-subject-body span {color:#999;}
+                                        .teacher-subject-body td {white-space:normal;}
+                                            .teacher-subject-body span {display:inline-block;}
 
                                 .teacher-places {margin-bottom:4px;width:100%;/*border:1px solid #ddd;border-bottom:0;*/}
                                     .teacher-places .fa {margin-top:2px;}
@@ -107,7 +108,7 @@
                             .teacher-order-info .fa-asterisk {color:#000;}
 
 
-                    .teacher-actions-cell {width:300px;padding-left:10px;}
+                    .teacher-actions-cell {width:280px;padding-left:10px;}
 
                         .teacher-suit {font-size:0;}
                         .teacher-suit .btn {cursor:pointer;width:40px;text-align:center;border-radius:2px;padding:0;font-size:14px;margin-right:5px;}
@@ -203,14 +204,13 @@
                             <i class="fa fa-money" title="Баланс"></i>+15950 <i class="sep"></i>
                             <i class="fa fa-credit-card" title="Предположительный баланс"></i>+15950 <i class="sep"></i>
 
-                            <div class="dropdown">
-                                <a href="#" class="dropdown-toggle teacher-show-orders" data-toggle="dropdown" title="Показать историю заявок">
-                                    
-                                    <i class="fa fa-undo"></i> 15 /
-                                    <i class="fa fa-money"></i> 30
-                                    <i class="sep"></i>
-                                    +50+40 / -300-200
+                            <i class="fa fa-undo fa-order-undo" title="Отменённые"></i>15 /
+                            <i class="fa fa-money fa-order-money" title="Оплаченые"></i>30
+                            <i class="sep"></i>
 
+                            <div class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Показать историю заявок">
+                                    <b>-2</b>:20 | <b>-1</b>:15 | <b>0</b>:30 | <b>+1</b>:10 | <b>+2</b>:15
                                 </a>
                                 <div class="dropdown-menu dropdown-table">
                                     <table class="table table-condensed table-striped">
@@ -269,10 +269,10 @@
                                         </tr>
                                         <tr class="teacher-subject-body">
                                             <td colspan="5">
-                                                <i class="fa fa-sitemap" title="Разделы"></i>  школьный курс <i class="sep"></i>
-                                                <i class="fa fa-puzzle-piece" title="Дополнения"></i> ОГЭ (ГИА) ЕГЭ <i class="sep"></i>
-                                                <i class="fa fa-users" title="Категории учеников"></i> школьники 5-11 классов <i class="sep"></i>
-                                                <i class="fa fa-graduation-cap" title="Уровень знаний"></i> начальный
+                                                <span><i class="fa fa-sitemap" title="Разделы"></i>  школьный курс <i class="sep"></i></span>
+                                                <span><i class="fa fa-puzzle-piece" title="Дополнения"></i> ОГЭ (ГИА) ЕГЭ <i class="sep"></i></span>
+                                                <span><i class="fa fa-users" title="Категории учеников"></i> школьники 5-11 классов <i class="sep"></i></span>
+                                                <span><i class="fa fa-graduation-cap" title="Уровень знаний"></i> начальный</span>
                                             </td>
                                         </tr>
 
