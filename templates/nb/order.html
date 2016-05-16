@@ -64,7 +64,7 @@
 
     <div class="order-duplicates">
 
-        <div class="order-duplicates-label">Похожие заявки</div>
+        <div class="order-duplicates-label" style="margin-left:20px;">Похожие заявки</div>
 
         <div class="order-duplicates-block">
             <button class="btn btn-default btn-sm" data-toggle="dropdown">
@@ -124,11 +124,99 @@
 
     </div>
 
+    <div class="order-duplicates">
+
+        <div class="order-duplicates-block">
+            <button class="btn btn-default btn-sm" data-toggle="dropdown">
+                Звонки <span class="tip">(7)</span> <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-menu" style="margin-right: -310px;">
+                <table class="table table-condensed table-striped">
+                    <tr>
+                        <th>Номер</th>
+                        <th>Дата/время</th>
+                        <th>Сотрудник</th>
+                        <th>Заявка</th>
+                        <th>Репетитор</th>
+                        <th></th>
+                        <th>Кто положил трубку</th>
+                        <th>Причина окончания</th>
+                        <th>Тип</th>
+                    </tr>
+                    {% for i in '1234567' %}
+                        <tr>
+                            <td>+79636090993</td>
+                            <td>02.08.2016 2{{ i }}:00</td>
+                            <td>Коротеев М.В.</td>
+                            <td><a href="#">3124{{ i }}</a></td>
+                            <td><a href="#">Павлов А.И.</a></td>
+                            <td><audio controls="" style="width:250px"><source src="/commonPages/getFileFtp.aspx?type=call&amp;id=1267648" type="audio/mpeg"></audio></td>
+                            <th>сторона Б (при исходящих - клиент)</th>
+                            <th>Абонент положил трубку</th>
+                            <th></th>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+        <div class="order-duplicates-block">
+            <button class="btn btn-default btn-sm" data-toggle="dropdown">
+                История заявки <span class="tip">(5)</span> <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-menu">
+                <table class="table table-condensed table-striped">
+                    <tr>
+                        <th>Дата/время</th>
+                        <th></th>
+                        <th>Описание</th>
+                        <th>Сотрудник</th>
+                        <th></th>
+                    </tr>
+                    {% for i in '123456789012345678901234567890' %}
+                        <tr>
+                            <td>02.08.2016 2{{ i }}:00</td>
+                            <td>Изменение данных в заявке</td>
+                            <td>Изменено значение свойства NextEventDate. Было : . Стало : 08.01.2016 0:00:00.</td>
+                            <td><a href="#">Павлов А.И.</a></td>
+                            <td><a href="http://demo.repetit.ru/admin/historyRecord.aspx?externalId=5348090&type=2&taskId=418258">Подробнее</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+        <div class="order-duplicates-block">
+            <button class="btn btn-default btn-sm" data-toggle="dropdown">
+                События по заявке <span class="tip">(13)</span> <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-menu">
+                <table class="table table-condensed table-striped">
+                    <tr>
+                        <th>ID</th>
+                        <th>Название</th>
+                        <th>Ранг</th>
+                        <th>Статус</th>
+                    </tr>
+                    {% for i in '123456789012345678901234567890' %}
+                        <tr>
+                            <td><a href="#">{{ i }}124312</a></td>
+                            <td>Подходящие заявки</td>
+                            <td>1</td>
+                            <td>Выполнено</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+    </div>
+
     <ul class="nav nav-tabs">
         <li class="active"><span>Заявка № 34524</span></li>
-        <li><a href="#">Звонки <span class="tip">(3)</span></a></li>
-        <li><a href="#">История заявки <span class="tip">(5)</span></a></li>
-        <li><a href="#">События по заявке <span class="tip">(7)</span></a></li>
+{#        <li><a href="#">Звонки <span class="tip">(3)</span></a></li>#}
+{#        <li><a href="#">История заявки <span class="tip">(5)</span></a></li>#}
+{#        <li><a href="#">События по заявке <span class="tip">(7)</span></a></li>#}
     </ul>
 
     <table class="order-table">
