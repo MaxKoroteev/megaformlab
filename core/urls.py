@@ -83,7 +83,7 @@ urlpatterns = [
     url(r'^repetitor_compares/$', TemplateView.as_view(template_name='back/repetitor_compares.html'), name='repetitor_compares'),
     url(r'^repetitor_compare/$',  TemplateView.as_view(template_name='back/repetitor_compare.html'),  name='repetitor_compare'),
     url(r'^popup/$',              TemplateView.as_view(template_name='back/popup.html'),              name='popup'),
-    # url(r'^assembly/$',          TemplateView.as_view(template_name='back/assembly.html'),          name='assembly'),
+    # url(r'^assembly/$',         TemplateView.as_view(template_name='back/assembly.html'),           name='assembly'),
 
     url(r'^da/$',                TemplateView.as_view(template_name='back/da/da.html'),                name='da'),
 
@@ -100,6 +100,9 @@ urlpatterns = [
     url(r'^teachers/$', TemplateView.as_view(template_name='nb/teachers.html'), name='teachers'),
     url(r'^teacher/$', TemplateView.as_view(template_name='nb/teacher.html'), name='teacher'),
     url(r'^order/$', TemplateView.as_view(template_name='nb/order.html'), name='order'),
+
+    url(r'^tickets/$', TemplateView.as_view(template_name='nb/tickets.html'), name='tickets'),
+    url(r'^ticket/$',  TemplateView.as_view(template_name='nb/ticket.html'),  name='ticket'),
 
     url(r'^changes/$', TemplateView.as_view(template_name='nb/changes.html'), name='changes'),
     url(r'^codes/$', TemplateView.as_view(template_name='nb/codes.html'), name='codes'),

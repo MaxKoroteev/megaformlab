@@ -1,0 +1,198 @@
+{% extends 'nb/home.html' %}
+
+{% block content %}
+
+    <style>
+
+    a.btn:hover {text-decoration:none;}
+
+    .ticket-title {margin:5px 0 20px;}
+
+    .ticket-table {width:100%;}
+        .ticket-table-left {width:65%;}
+            .ticket {border:1px solid #ccc;margin-bottom:15px;}
+                .ticket-header {line-height:30px;border-bottom:1px solid #ccc;padding:0 10px;background:#f9f9fb;}
+                    .ticket-date {float:right;}
+                .ticket-body {white-space:pre-line;padding:10px;}
+                .ticket-footer {padding:10px;border-top:1px solid #ccc;background:#f9f9fb;}
+                    .ticket-footer a {line-height:20px;}
+                        .ticket-footer .fa {color:#999;margin-right:5px;}
+            .ticket-email-form {padding:10px;background:#f9f9fb;border:1px solid #ccc;}
+                .ticket-email-form textarea {margin:10px 0;}
+            .ticket-comment-form {padding:10px;background:#f9f9fb;border:1px solid #ccc;}
+                .ticket-comment-form textarea {margin:0 0 10px;}
+        .ticket-table-right {width:35%;padding-left:20px;}
+
+    </style>
+
+    <h3 class="ticket-title"><a href="{% url 'tickets' %}">← Обращения</a> <span class="tip">»</span> Обращение ID 15532 - Online Competition "eMuse"</h3>
+
+    <table class="ticket-table">
+        <tr>
+            <td class="ticket-table-left">
+
+                {% for i in '12' %}
+                    <div class="ticket">
+                        <div class="ticket-header"><span class="ticket-date">19.10.2014 02:15</span><b>tmessage26593@somemail.ru</b></div>
+
+                        <div class="ticket-body">Почитаешь и помймешь за 32 м
+                                                 Ни кому не стал отправлять, если бы было непонятно
+                                                 Руководство что я скинул, про заработок будет еще не долго, в паблике его продают приблизетельно за 543 у.е
+                                                 http://iiseg.com/occupation.php
+
+                                                 Будь Счастлив !
+                        </div>
+                        <div class="ticket-footer">
+                            {% for i in '12' %}
+                                <a href="#" target="_blank"><i class="fa fa-paperclip"></i>Программа мероприятия {{ i }}.pdf</a><br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <form method="POST" action="." class="ticket-email-form">
+
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+
+                                <select class="form-control my-templates">
+                                    <option>Шаблон группы "Репетиторы"</option>
+                                    <option>Шаблон группы "Репетиторы"</option>
+                                    <option>Шаблон группы "Репетиторы"</option>
+                                </select>
+
+                                <select class="form-control all-templates" style="display:none;">
+                                    <optgroup label="Общее: info@repetit.ru">
+                                        <option>Шаблон группы "Общее"</option>
+                                        <option>Шаблон группы "Общее"</option>
+                                        <option>Шаблон группы "Общее"</option>
+                                    </optgroup>
+                                    <optgroup label="Заявки: order@repetit.ru">
+                                        <option>Шаблон группы "Заявки"</option>
+                                        <option>Шаблон группы "Заявки"</option>
+                                        <option>Шаблон группы "Заявки"</option>
+                                    </optgroup>
+                                    <optgroup label="Оплата: bill@repetit.ru">
+                                        <option>Шаблон группы "Оплата"</option>
+                                        <option>Шаблон группы "Оплата"</option>
+                                        <option>Шаблон группы "Оплата"</option>
+                                    </optgroup>
+                                    <optgroup label="Репетиторы: reg@repetit.ru">
+                                        <option>Шаблон группы "Репетиторы"</option>
+                                        <option>Шаблон группы "Репетиторы"</option>
+                                        <option>Шаблон группы "Репетиторы"</option>
+                                    </optgroup>
+                                    <optgroup label="Отзывы: opinion@repetit.ru">
+                                        <option>Шаблон группы "Отзывы"</option>
+                                        <option>Шаблон группы "Отзывы"</option>
+                                        <option>Шаблон группы "Отзывы"</option>
+                                    </optgroup>
+                                </select>
+                            </td>
+                            <td style="width:1px;padding-left:10px;">
+                                <a href="#" class="btn btn-default btn-sm btn-templates">Все шаблоны</a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <textarea class="form-control"></textarea>
+
+                    <button type="submit" class="btn btn-primary btn-sm">Отправить письмо</button>
+
+                </form>
+            </td>
+            <td class="ticket-table-right">
+
+                <div style="margin:0 0 5px;"><b>Статус обращения</b></div>
+
+                <form style="padding:10px;background:#f9f9fb;border:1px solid #ccc;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <select class="form-control">
+                                    <option>Новое</option>
+                                    <option>В работе</option>
+                                    <option>Закрыто</option>
+                                </select>
+                            </td>
+                            <td style="width:1px;padding-left:10px;">
+                                <button class="btn btn-sm btn-primary" type="submit">Изменить статус</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+
+                <div style="margin:10px 0 5px;"><b>Сотрудники</b></div>
+
+                {% for i in '12' %}
+                    <div style="line-height:15px;margin-bottom:10px;padding:5px;border:1px solid #ccc">
+                        <button style="float:right;" class="btn btn-sm btn-default">✕</button>
+                        Иванова И.И.
+                        <div class="tip">Главный регистратор</div>
+                    </div>
+                {% endfor %}
+
+                <form method="POST" action="." style="padding:10px;background:#f9f9fb;border:1px solid #ccc;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <select class="form-control">
+                                    <option>Выберите сотрудника</option>
+                                    <option>Иванов И.И.</option>
+                                    <option>Иванов И.И.</option>
+                                </select>
+                            </td>
+                            <td style="width:1px;padding-left:10px;">
+                                <button class="btn btn-sm btn-primary" type="submit">Добавить сотрудника</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+
+                <div style="margin:10px 0 5px;"><b>Репетиторы</b></div>
+                <div><a href="#" target="_blank">421234 - Иванов И.И.</a></div>
+                <div><a href="#" target="_blank">423138 - Иванов И.И.</a></div>
+
+                <div style="margin:10px 0 5px;"><b>Заявки</b></div>
+                <div><a href="#" target="_blank">421234 - История</a></div>
+                <div><a href="#" target="_blank">421234 - Обществознание</a></div>
+
+
+
+                <div style="margin:10px 0 5px;"><b>Комментарии</b></div>
+
+                <div style="margin-bottom:10px;">
+                    15.06.2016 18:42 Константин Петрофф - Комментарий<br>
+                    15.06.2016 18:42 Константин Петрофф - Ещё 1 комментарий<br>
+                </div>
+
+                <form method="POST" action="." class="ticket-comment-form">
+
+                    <textarea class="form-control"></textarea>
+
+                    <button type="submit" class="btn btn-primary btn-sm">Добавить комментарий</button>
+
+                </form>
+
+            </td>
+        </tr>
+    </table>
+
+    <style>.top-wrapper, .top-wrapper-placeholder {display:none;}</style>
+
+    <script>
+        $('.btn-templates').on('click', function(e) {
+            $(this).toggleClass('active');
+            if ($(this).hasClass('active')) {
+                $('.my-templates').hide();
+                $('.all-templates').show();
+            } else {
+                $('.my-templates').show();
+                $('.all-templates').hide();
+            }
+            e.preventDefault();
+        })
+    </script>
+
+{% endblock %}

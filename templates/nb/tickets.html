@@ -1,0 +1,121 @@
+{% extends 'nb/home.html' %}
+
+{% block content %}
+
+    <style>
+
+        label {font-weight:normal;}
+
+        .ticket-title {margin:5px 0 20px;}
+
+        .tickets-container {}
+            .tickets-filter {width:220px;padding-right:20px;white-space:nowrap;padding-top:16px;}
+                .tickets-filter-field {display:block;margin-bottom:15px;font-weight:bold;}
+                    .tickets-filter-field label {margin-right:5px;}
+                    .tickets-filter-field input, select {font-weight:normal;}
+            .tickets-content {}
+                .tickets-table {}
+                    .tickets-table td   {vertical-align:middle !important;width:1px;white-space:nowrap;}
+                    td.tickets-table-auto {width:auto;white-space:normal;}
+
+    </style>
+
+    <h3 class="ticket-title">Обращения</h3>
+
+    <table class="tickets-container">
+        <tr>
+            <td class="tickets-filter">
+
+                <label class="tickets-filter-field">
+                    Email
+                    <input type="text" class="form-control">
+                </label>
+
+                <label class="tickets-filter-field">
+                    Host
+                    <select class="form-control">
+                        <option>Общее: info@repetit.ru</option>
+                        <option>Заявки: order@repetit.ru</option>
+                        <option>Оплата: bill@repetit.ru</option>
+                        <option>Репетиторы: reg@repetit.ru</option>
+                        <option>Отзывы: opinion@repetit.ru</option>
+                    </select>
+                </label>
+
+                <label class="tickets-filter-field">
+                    Сотрудник
+                    <select class="form-control">
+                        <optgroup label="Общее: info@repetit.ru">
+                            <option>Иванов И.И.</option>
+                            <option>Иванов И.И.</option>
+                            <option>Иванов И.И.</option>
+                        </optgroup>
+                        <optgroup label="Заявки: order@repetit.ru">
+                            <option>Иванов И.И.</option>
+                            <option>Иванов И.И.</option>
+                            <option>Иванов И.И.</option>
+                        </optgroup>
+                        <optgroup label="Оплата: bill@repetit.ru">
+                            <option>Иванов И.И.</option>
+                            <option>Иванов И.И.</option>
+                            <option>Иванов И.И.</option>
+                        </optgroup>
+                        <optgroup label="Репетиторы: reg@repetit.ru">
+                            <option>Иванов И.И.</option>
+                            <option>Иванов И.И.</option>
+                            <option>Иванов И.И.</option>
+                        </optgroup>
+                        <optgroup label="Отзывы: opinion@repetit.ru">
+                            <option>Иванов И.И.</option>
+                            <option>Иванов И.И.</option>
+                            <option>Иванов И.И.</option>
+                        </optgroup>
+                    </select>
+                </label>
+
+                <div class="tickets-filter-field">
+                    <div><b>Статус</b></div>
+                    <label><input type="checkbox" checked> Новое</label>
+                    <label><input type="checkbox" checked> В работе</label>
+                    <label><input type="checkbox"> Закрыто</label>
+                </div>
+
+                <button class="btn btn-primary btn-sm">Показать тикеты</button>
+
+            </td>
+            <td class="tickets-content">
+
+                <table class="table table-striped tickets-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Дата</th>
+                            <th>Тема</th>
+                            <th>Email</th>
+                            <th>Host</th>
+                            <th>Статус</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in '1234567890' %}
+                            <tr>
+                                <td>5234{{ i }}</td>
+                                <td>11.10.2014 19:40</td>
+                                <td class="tickets-table-auto"><a href="{% url 'ticket' %}" style="display:inline-block;">Информационные источники конкурентной разведки. Мировые информационные ресурсы. Российские информационные агентства</a></td>
+                                <td>ticket4814@somemail.ru</td>
+                                <td>reg@repetit.ru</td>
+                                <td>Новое</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <button class="btn btn-primary">Пагинация по 30 записей</button>
+
+            </td>
+        </tr>
+    </table>
+
+    <style>.top-wrapper, .top-wrapper-placeholder {display:none;}</style>
+
+{% endblock %}
