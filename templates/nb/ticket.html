@@ -4,8 +4,6 @@
 
     <style>
 
-    a.btn:hover {text-decoration:none;}
-
     .ticket-title {margin:5px 0 20px;}
 
     .ticket-table {width:100%;}
@@ -17,11 +15,21 @@
                 .ticket-footer {padding:10px;border-top:1px solid #ccc;background:#f9f9fb;}
                     .ticket-footer a {line-height:20px;}
                         .ticket-footer .fa {color:#999;margin-right:5px;}
-            .ticket-email-form {padding:10px;background:#f9f9fb;border:1px solid #ccc;}
-                .ticket-email-form textarea {margin:10px 0;}
+            .ticket-form {padding:10px;background:#f9f9fb;border:1px solid #ccc;}
+                .ticket-form textarea {margin:10px 0;}
+                .ticket-templates {width:100%;}
+                    .ticket-templates td:first-child {width:49%;padding-right:2%;}
             .ticket-comment-form {padding:10px;background:#f9f9fb;border:1px solid #ccc;}
                 .ticket-comment-form textarea {margin:0 0 10px;}
         .ticket-table-right {width:35%;padding-left:20px;}
+            .ticket-form-inline {}
+                .ticket-form-inline table {width:100%;}
+                    .ticket-form-inline td:last-child {width:1px;padding-left:10px;}
+            .ticket-assignee {line-height:15px;margin-bottom:10px;padding:5px;border:1px solid #ccc}
+                .ticket-assignee .btn {float:right;}
+            .ticket-form-label {margin:10px 0 5px;}
+                .ticket-form-label.first {margin-top:0;}
+            .ticket-comments {margin-bottom:10px;}
 
     </style>
 
@@ -35,7 +43,7 @@
                     <div class="ticket">
                         <div class="ticket-header"><span class="ticket-date">19.10.2014 02:15</span><b>tmessage26593@somemail.ru</b></div>
 
-                        <div class="ticket-body">Почитаешь и помймешь за 32 м
+                        <div class="ticket-body">Почитаешь и поймешь за 32 м
                                                  Ни кому не стал отправлять, если бы было непонятно
                                                  Руководство что я скинул, про заработок будет еще не долго, в паблике его продают приблизетельно за 543 у.е
                                                  http://iiseg.com/occupation.php
@@ -50,48 +58,125 @@
                     </div>
                 {% endfor %}
 
-                <form method="POST" action="." class="ticket-email-form">
+                <form method="POST" action="." class="ticket-form">
 
-                    <table style="width:100%;">
+                    <table class="ticket-templates">
                         <tr>
                             <td>
+                                <b>Мои шаблоны</b>
+                                <select class="form-control">
 
-                                <select class="form-control my-templates">
-                                    <option>Шаблон группы "Репетиторы"</option>
-                                    <option>Шаблон группы "Репетиторы"</option>
-                                    <option>Шаблон группы "Репетиторы"</option>
+                                    <option>---</option>
+
+                                    <optgroup label="ОБЩЕЕ ДЛЯ ВСЕХ">
+                                        <option>Самый простой ответ</option>
+                                    </optgroup>
+
+                                    <optgroup label="REG@REPETIT.RU - Обращения репетиторов"></optgroup>
+
+                                        <optgroup label="&nbsp; Ответы репетитору">
+                                            <option>Спрашивает, как добавить фото</option>
+                                            <option>Прислал фото</option>
+                                            <option>Прислал изменения</option>
+                                            <option>Удаление анкеты</option>
+                                            <option>Просит удалить анкету без объяснения причины</option>
+                                            <option>Жалуется, что не может войти в личный кабинет</option>
+                                            <option>Просит добавить предмет, но не указал нужных данных.</option>
+                                            <option>Просит добавить иностранный язык, но не указал данные</option>
+                                            <option>Просит удалить фамилию, номер телефона и почту.</option>
+                                            <option>Просит перенести анкету на  другой регион</option>
+                                            <option>К обращению не прикрепилась анкета (по почте не найти, в письме никаких опознавательных данных нет)</option>
+                                        </optgroup>
+
                                 </select>
 
-                                <select class="form-control all-templates" style="display:none;">
-                                    <optgroup label="Общее: info@repetit.ru">
-                                        <option>Шаблон группы "Общее"</option>
-                                        <option>Шаблон группы "Общее"</option>
-                                        <option>Шаблон группы "Общее"</option>
-                                    </optgroup>
-                                    <optgroup label="Заявки: order@repetit.ru">
-                                        <option>Шаблон группы "Заявки"</option>
-                                        <option>Шаблон группы "Заявки"</option>
-                                        <option>Шаблон группы "Заявки"</option>
-                                    </optgroup>
-                                    <optgroup label="Оплата: bill@repetit.ru">
-                                        <option>Шаблон группы "Оплата"</option>
-                                        <option>Шаблон группы "Оплата"</option>
-                                        <option>Шаблон группы "Оплата"</option>
-                                    </optgroup>
-                                    <optgroup label="Репетиторы: reg@repetit.ru">
-                                        <option>Шаблон группы "Репетиторы"</option>
-                                        <option>Шаблон группы "Репетиторы"</option>
-                                        <option>Шаблон группы "Репетиторы"</option>
-                                    </optgroup>
-                                    <optgroup label="Отзывы: opinion@repetit.ru">
-                                        <option>Шаблон группы "Отзывы"</option>
-                                        <option>Шаблон группы "Отзывы"</option>
-                                        <option>Шаблон группы "Отзывы"</option>
-                                    </optgroup>
-                                </select>
                             </td>
-                            <td style="width:1px;padding-left:10px;">
-                                <a href="#" class="btn btn-default btn-sm btn-templates">Все шаблоны</a>
+                            <td>
+                                <b>Внештатные шаблоны</b>
+                                <select class="form-control">
+
+                                    <option>---</option>
+
+                                    <optgroup label="ОБЩЕЕ ДЛЯ ВСЕХ">
+                                        <option>Самый простой ответ</option>
+                                    </optgroup>
+
+                                    <optgroup label="INFO@REPETIT.RU - Общие обращения"></optgroup>
+
+                                        <optgroup label="&nbsp; Ответы репетитору">
+                                            <option>Как изменить данные в анкете</option>
+                                            <option>Забыл логин и пароль</option>
+                                            <option>Про верификацию</option>
+                                            <option>Как зарегистрироваться</option>
+                                            <option>Оставляет запросы и нет никакого результата</option>
+                                            <option>Спрашивает про коэффициенты</option>
+                                        </optgroup>
+
+                                        <optgroup label="&nbsp; Ответы клиенту">
+                                            <option>Присылает отзыв (в ответ на наше письмо)</option>
+                                            <option>Присылает отзыв (нужна проверка)</option>
+                                        </optgroup>
+
+                                    <optgroup label="ORDER@REPETIT.RU - Обращения по заявкам"></optgroup>
+
+                                        <optgroup label="&nbsp; Ответы репетитору">
+                                            <option>Созвонились с клиентом</option>
+                                            <option>Просит снять заявку</option>
+                                            <option>Не может дозвониться до ученика</option>
+                                            <option>Договорился о дате первого занятия</option>
+                                            <option>Прислал данные по платежу</option>
+                                            <option>Провёл первое занятие</option>
+                                            <option>Получил заявку на другом сайте раньше</option>
+                                            <option>Как изменить данные в анкете</option>
+                                            <option>Забыл логин и пароль</option>
+                                            <option>Про верификацию</option>
+                                            <option>В разделе Подходящие заявки пусто</option>
+                                            <option>Оставляет запросы и нет никакого результата</option>
+                                            <option>Спрашивает про коэффициенты</option>
+                                        </optgroup>
+
+                                        <optgroup label="&nbsp; Ответы клиенту">
+                                            <option>Информация по своей заявке</option>
+                                            <option>Прислал другой номер телефона</option>
+                                            <option>Присылает отзыв (в ответ на наше письмо)</option>
+                                            <option>Присылает отзыв (нужна проверка) </option>
+                                        </optgroup>
+
+                                    <optgroup label="BILL@REPETIT.RU - Обращения по оплате"></optgroup>
+
+                                        <optgroup label="&nbsp; Ответы репетитору">
+                                            <option>Прислал данные по платежу</option>
+                                            <option>Забыл логин и пароль</option>
+                                            <option>Про верификацию</option>
+                                            <option>Оставляет запросы и нет никакого результата</option>
+                                            <option>Спрашивает про коэффициенты</option>
+                                        </optgroup>
+
+                                    <optgroup label="OPINION@REPETIT.RU - Отзывы"></optgroup>
+
+                                        <optgroup label="&nbsp; Ответы репетитору">
+                                            <option>Присылает отзыв (в ответ на наше письмо)</option>
+                                            <option>Присылает отзыв (нужна проверка)</option>
+                                        </optgroup>
+
+                                    <optgroup label="REG@REPETIT.RU - Обращения репетиторов"></optgroup>
+
+                                        <optgroup label="&nbsp; Ответы репетитору">
+                                            <option>Спрашивает, как добавить фото</option>
+                                            <option>Прислал фото</option>
+                                            <option>Прислал изменения</option>
+                                            <option>Удаление анкеты</option>
+                                            <option>Просит удалить анкету без объяснения причины</option>
+                                            <option>Жалуется, что не может войти в личный кабинет</option>
+                                            <option>Просит добавить предмет, но не указал нужных данных.</option>
+                                            <option>Просит добавить иностранный язык, но не указал данные</option>
+                                            <option>Просит удалить фамилию, номер телефона и почту.</option>
+                                            <option>Просит перенести анкету на  другой регион</option>
+                                            <option>К обращению не прикрепилась анкета (по почте не найти, в письме никаких опознавательных данных нет)</option>
+                                        </optgroup>
+
+                                </select>
+
                             </td>
                         </tr>
                     </table>
@@ -104,10 +189,10 @@
             </td>
             <td class="ticket-table-right">
 
-                <div style="margin:0 0 5px;"><b>Статус обращения</b></div>
+                <div class="ticket-form-label first"><b>Статус обращения</b></div>
 
-                <form style="padding:10px;background:#f9f9fb;border:1px solid #ccc;">
-                    <table style="width:100%;">
+                <form class="ticket-form ticket-form-inline">
+                    <table>
                         <tr>
                             <td>
                                 <select class="form-control">
@@ -116,25 +201,25 @@
                                     <option>Закрыто</option>
                                 </select>
                             </td>
-                            <td style="width:1px;padding-left:10px;">
+                            <td>
                                 <button class="btn btn-sm btn-primary" type="submit">Изменить статус</button>
                             </td>
                         </tr>
                     </table>
                 </form>
 
-                <div style="margin:10px 0 5px;"><b>Сотрудники</b></div>
+                <div class="ticket-form-label"><b>Сотрудники</b></div>
 
                 {% for i in '12' %}
-                    <div style="line-height:15px;margin-bottom:10px;padding:5px;border:1px solid #ccc">
-                        <button style="float:right;" class="btn btn-sm btn-default">✕</button>
+                    <div class="ticket-assignee">
+                        <button class="btn btn-sm btn-default">✕</button>
                         Иванова И.И.
                         <div class="tip">Главный регистратор</div>
                     </div>
                 {% endfor %}
 
-                <form method="POST" action="." style="padding:10px;background:#f9f9fb;border:1px solid #ccc;">
-                    <table style="width:100%;">
+                <form method="POST" action="." class="ticket-form-inline">
+                    <table>
                         <tr>
                             <td>
                                 <select class="form-control">
@@ -143,26 +228,24 @@
                                     <option>Иванов И.И.</option>
                                 </select>
                             </td>
-                            <td style="width:1px;padding-left:10px;">
+                            <td>
                                 <button class="btn btn-sm btn-primary" type="submit">Добавить сотрудника</button>
                             </td>
                         </tr>
                     </table>
                 </form>
 
-                <div style="margin:10px 0 5px;"><b>Репетиторы</b></div>
-                <div><a href="#" target="_blank">421234 - Иванов И.И.</a></div>
-                <div><a href="#" target="_blank">423138 - Иванов И.И.</a></div>
+                <div class="ticket-form-label"><b>Репетиторы</b></div>
+                <div><a href="#" target="_blank">421234 - Иванов Иван Иванович</a></div>
+                <div><a href="#" target="_blank">423138 - Иванов Иван Иванович</a></div>
 
-                <div style="margin:10px 0 5px;"><b>Заявки</b></div>
+                <div class="ticket-form-label"><b>Заявки</b></div>
                 <div><a href="#" target="_blank">421234 - История</a></div>
                 <div><a href="#" target="_blank">421234 - Обществознание</a></div>
 
+                <div class="ticket-form-label"><b>Комментарии</b></div>
 
-
-                <div style="margin:10px 0 5px;"><b>Комментарии</b></div>
-
-                <div style="margin-bottom:10px;">
+                <div class="ticket-comments">
                     15.06.2016 18:42 Константин Петрофф - Комментарий<br>
                     15.06.2016 18:42 Константин Петрофф - Ещё 1 комментарий<br>
                 </div>
@@ -179,20 +262,8 @@
         </tr>
     </table>
 
+    <!-- ПРОТОТИПНЫЙ МУСОР -->
     <style>.top-wrapper, .top-wrapper-placeholder {display:none;}</style>
-
-    <script>
-        $('.btn-templates').on('click', function(e) {
-            $(this).toggleClass('active');
-            if ($(this).hasClass('active')) {
-                $('.my-templates').hide();
-                $('.all-templates').show();
-            } else {
-                $('.my-templates').show();
-                $('.all-templates').hide();
-            }
-            e.preventDefault();
-        })
-    </script>
+    <!-- КОНЕЦ ПРОТОТИПНОГО МУСОРА -->
 
 {% endblock %}

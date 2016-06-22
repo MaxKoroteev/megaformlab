@@ -17,6 +17,7 @@
                 .tickets-table {}
                     .tickets-table td   {vertical-align:middle !important;width:1px;white-space:nowrap;}
                     td.tickets-table-auto {width:auto;white-space:normal;}
+                        td.tickets-table-auto a {display:inline-block;}
 
     </style>
 
@@ -101,7 +102,7 @@
                             <tr>
                                 <td>5234{{ i }}</td>
                                 <td>11.10.2014 19:40</td>
-                                <td class="tickets-table-auto"><a href="{% url 'ticket' %}" style="display:inline-block;">Информационные источники конкурентной разведки. Мировые информационные ресурсы. Российские информационные агентства</a></td>
+                                <td class="tickets-table-auto"><a href="{% url 'ticket' %}">Информационные источники конкурентной разведки. Мировые информационные ресурсы. Российские информационные агентства</a></td>
                                 <td>ticket4814@somemail.ru</td>
                                 <td>reg@repetit.ru</td>
                                 <td>Новое</td>
@@ -116,6 +117,8 @@
         </tr>
     </table>
 
+    <!-- ПРОТОТИПНЫЙ МУСОР -->
     <style>.top-wrapper, .top-wrapper-placeholder {display:none;}</style>
+    <!-- КОНЕЦ ПРОТОТИПНОГО МУСОРА -->
 
 {% endblock %}
