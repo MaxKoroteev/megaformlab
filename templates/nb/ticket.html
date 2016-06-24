@@ -39,31 +39,45 @@
         <tr>
             <td class="ticket-table-left">
 
-                {% for i in '12' %}
-                    <div class="ticket">
-                        <div class="ticket-header"><span class="ticket-date">19.10.2014 02:15</span><b>tmessage26593@somemail.ru</b></div>
+                <div class="ticket">
+                    <div class="ticket-header"><span class="ticket-date">19.10.2014 02:15</span><b>tmessage26593@somemail.ru</b></div>
 
-                        <div class="ticket-body">Почитаешь и поймешь за 32 м
-                                                 Ни кому не стал отправлять, если бы было непонятно
-                                                 Руководство что я скинул, про заработок будет еще не долго, в паблике его продают приблизетельно за 543 у.е
-                                                 http://iiseg.com/occupation.php
+                    <div class="ticket-body">Почитаешь и поймешь за 32 м
+                                             Ни кому не стал отправлять, если бы было непонятно
+                                             Руководство что я скинул, про заработок будет еще не долго, в паблике его продают приблизетельно за 543 у.е
+                                             http://iiseg.com/occupation.php
 
-                                                 Будь Счастлив !
-                        </div>
-                        <div class="ticket-footer">
-                            {% for i in '12' %}
-                                <a href="#" target="_blank"><i class="fa fa-paperclip"></i>Программа мероприятия {{ i }}.pdf</a><br>
-                            {% endfor %}
-                        </div>
+                                             Будь Счастлив !
                     </div>
-                {% endfor %}
+                    <div class="ticket-footer">
+                        {% for i in '12' %}
+                            <a href="#" target="_blank"><i class="fa fa-paperclip"></i>Программа мероприятия {{ i }}.pdf</a><br>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="ticket">
+                    <div class="ticket-header"><span class="ticket-date">19.10.2014 02:15</span><b>Сотрудников С.С.</b></div>
+
+                    <div class="ticket-body">Почитаешь и поймешь за 32 м
+                                             Ни кому не стал отправлять, если бы было непонятно
+                                             Руководство что я скинул, про заработок будет еще не долго, в паблике его продают приблизетельно за 543 у.е
+                                             http://iiseg.com/occupation.php
+
+                                             Будь Счастлив !
+                    </div>
+                    <div class="ticket-footer">
+                        {% for i in '12' %}
+                            <a href="#" target="_blank"><i class="fa fa-paperclip"></i>Программа мероприятия {{ i }}.pdf</a><br>
+                        {% endfor %}
+                    </div>
+                </div>
 
                 <form method="POST" action="." class="ticket-form">
 
                     <table class="ticket-templates">
                         <tr>
                             <td>
-                                <b>Мои шаблоны</b>
+                                <b>Шаблоны по анкетам</b>
                                 <select class="form-control">
 
                                     <option>---</option>
@@ -72,7 +86,7 @@
                                         <option>Самый простой ответ</option>
                                     </optgroup>
 
-                                    <optgroup label="REG@REPETIT.RU - Обращения репетиторов"></optgroup>
+                                    <optgroup label="Обращения репетиторов - reg@repetit.ru"></optgroup>
 
                                         <optgroup label="&nbsp; Ответы репетитору">
                                             <option>Спрашивает, как добавить фото</option>
@@ -92,7 +106,7 @@
 
                             </td>
                             <td>
-                                <b>Внештатные шаблоны</b>
+                                <b>Все шаблоны</b>
                                 <select class="form-control">
 
                                     <option>---</option>
@@ -101,7 +115,7 @@
                                         <option>Самый простой ответ</option>
                                     </optgroup>
 
-                                    <optgroup label="INFO@REPETIT.RU - Общие обращения"></optgroup>
+                                    <optgroup label="Общие обращения - info@repetit.ru"></optgroup>
 
                                         <optgroup label="&nbsp; Ответы репетитору">
                                             <option>Как изменить данные в анкете</option>
@@ -117,7 +131,7 @@
                                             <option>Присылает отзыв (нужна проверка)</option>
                                         </optgroup>
 
-                                    <optgroup label="ORDER@REPETIT.RU - Обращения по заявкам"></optgroup>
+                                    <optgroup label="Обращения по заявкам - order@repetit.ru"></optgroup>
 
                                         <optgroup label="&nbsp; Ответы репетитору">
                                             <option>Созвонились с клиентом</option>
@@ -142,7 +156,7 @@
                                             <option>Присылает отзыв (нужна проверка) </option>
                                         </optgroup>
 
-                                    <optgroup label="BILL@REPETIT.RU - Обращения по оплате"></optgroup>
+                                    <optgroup label="Обращения по оплате - bill@repetit.ru"></optgroup>
 
                                         <optgroup label="&nbsp; Ответы репетитору">
                                             <option>Прислал данные по платежу</option>
@@ -152,14 +166,14 @@
                                             <option>Спрашивает про коэффициенты</option>
                                         </optgroup>
 
-                                    <optgroup label="OPINION@REPETIT.RU - Отзывы"></optgroup>
+                                    <optgroup label="Отзывы - opinion@repetit.ru"></optgroup>
 
                                         <optgroup label="&nbsp; Ответы репетитору">
                                             <option>Присылает отзыв (в ответ на наше письмо)</option>
                                             <option>Присылает отзыв (нужна проверка)</option>
                                         </optgroup>
 
-                                    <optgroup label="REG@REPETIT.RU - Обращения репетиторов"></optgroup>
+                                    <optgroup label="Обращения репетиторов - reg@repetit.ru"></optgroup>
 
                                         <optgroup label="&nbsp; Ответы репетитору">
                                             <option>Спрашивает, как добавить фото</option>
