@@ -1,0 +1,99 @@
+{% extends 'nb/home.html' %}
+
+{% block content %}
+
+    <style>
+
+        .create-order-similar {padding:10px 5px;background:#f9f9fb;border:1px solid #ccc;display:inline-block;margin:20px 0;}
+            .create-order-similar td {padding:0 5px;vertical-align:middle;}
+                .create-order-similar input.form-control {width:197px;}
+
+        .create-order-table {width:100%;}
+            .create-order-table th {width:1px;white-space:nowrap;padding-top:5px;padding-right:10px;color:#999;text-align:right;}
+            .create-order-table th.required {color:#000;}
+            .create-order-table td {padding-bottom:10px;}
+                .create-order-table input.form-control,
+                .create-order-table select.form-control {width:300px;}
+                .create-order-table textarea.form-control {width:616px;}
+
+                .client-from {float:left;margin-right:10px;}
+
+    </style>
+
+    <h1>Создать заявку</h1>
+
+    <div>Доверьте выбор нам. Опытный консультант, владеющий подробной информацией о каждом репетиторе, состоящем в Ассоциации репетиторов, подберёт Вам преподавателя за один день. Для этого необходимо заполнить заявку, указав подробную информацию о требованиях, которые Вы предъявляете репетитору.</div>
+
+    <form method="POST" action="." class="create-order-similar">
+        <table>
+            <tr>
+                <td>
+                    <b>Номер телефона</b>
+                </td>
+                <td>
+                    <input class="form-control" type="text">
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-primary btn-sm">Найти похожие заявки</button>
+                </td>
+                <!--td>
+                    Похожих заявок не найдено
+                </td-->
+                <!--td>
+                    <a href="#">314010</a>
+                    <a href="#">314010</a>
+                    <a href="#">314010</a>
+                </td-->
+            </tr>
+        </table>
+
+    </form>
+
+    <table class="create-order-table">
+        <tr><th class="required">Зона</th><td>
+            <select class="form-control">
+                <option>Москва и Московская область</option>
+                <option>Зона 1</option>
+            </select>
+        </td></tr>
+        <tr><th class="required">Имя контактного лица</th><td>
+            <input class="form-control" type="text">
+        </td></tr>
+        <tr><th class="required">Телефон</th><td>
+            <input class="form-control" type="text">
+        </td></tr>
+        <tr><th class="required">Назначить консультанта</th><td>
+            <select class="form-control">
+                <option>Согласно расписанию</option>
+                <option>А дальше по какому алгоритму?</option>
+            </select>
+        </td></tr>
+        <tr><th class="required">Источник заявки</th><td>
+            <select class="form-control">
+                <option>РедХелпер</option>
+                <option>E-mail</option>
+                <option>Телефонный звонок</option>
+            </select>
+        </td></tr>
+
+        <tr><th>Идентификатор клиента</th><td><input class="form-control" type="text"></td></tr>
+        <tr><th>Откуда клиент про нас узнал</th><td>
+            <select class="form-control client-from">
+                <option>Не указано</option>
+                <option>Поисковая система</option>
+                <option>Социальные сети</option>
+                <option>Друзья или родственники</option>
+                <option>Другое</option>
+            </select>
+            <input class="form-control" type="text">
+        </td></tr>
+        <tr><th>Дополнительные пожелания</th><td><textarea class="form-control"></textarea></td></tr>
+        <tr>
+            <th></th>
+            <td>
+                <button class="btn btn-sm btn-primary">Отправить заявку</button>
+            </td>
+        </tr>
+    </table>
+
+{% endblock %}
