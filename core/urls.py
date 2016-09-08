@@ -101,6 +101,7 @@ urlpatterns = [
     url(r'^teacher/$', TemplateView.as_view(template_name='nb/teacher.html'), name='teacher'),
     url(r'^order/$', TemplateView.as_view(template_name='nb/order.html'), name='order'),
     url(r'^create/$', TemplateView.as_view(template_name='nb/create.html'), name='create'),
+    url(r'^changes/$', TemplateView.as_view(template_name='nb/changes.html'), name='changes'),
 
     url(r'^tickets/$', TemplateView.as_view(template_name='nb/tickets.html'), name='tickets'),
     url(r'^ticket/$',  TemplateView.as_view(template_name='nb/ticket.html'),  name='ticket'),

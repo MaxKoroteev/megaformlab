@@ -1,0 +1,228 @@
+{% extends 'nb/home.html' %}
+
+{% block content %}
+
+    <style>
+
+        .changes {}
+
+            .changes h2, .changes h3, .changes h4 {text-align:center;}
+            .changes h2:first-child, .changes h4:first-child {margin-top:0;}
+
+            .changes-block {padding:10px;border:1px solid #ccc;margin-bottom:20px;border-radius:2px;}
+
+            .changes-table {width:100%;}
+
+                .changes-table th,
+                .changes-table td {padding:5px 5px 5px 5px;vertical-align:middle;text-align:right;}
+
+                .changes-table th:first-child {width:1px;white-space:nowrap;}
+
+                .changes-table th:last-child,
+                .changes-table td:last-child {text-align:left;width:50%;}
+
+                    .changes-tip {font-weight:normal;color:#999;}
+
+                .changes-images {font-size:0;white-space:nowrap;}
+                    .changes-image {height:145px;line-height:145px;display:inline-block;position:relative;margin-left:5px;cursor:pointer;}
+                    .changes-image:first-child {margin-left:0;}
+
+                        .changes-image img {max-width:100px;max-height:100%;vertical-align:middle;}
+                        .changes-image-doc img {max-width:none;}
+
+                        .changes-image-size {position:absolute;bottom:0;left:0;right:0;font-size:10px;line-height:20px;color:#fff;text-align:center;background:rgba(0,0,0,0.5)}
+
+                    .changes-text {text-align:left;display:inline-block;}
+
+            .changes-buttons {text-align:center;margin:40px 0;}
+                .changes-buttons > * {margin:0 5px;}
+
+    </style>
+
+    <div class="changes">
+
+        <h2>Основная информация</h2>
+
+        <table class="changes-table table-striped table-bordered">
+            <tr>
+                <th></th>
+                <th>Было</th>
+                <th>Стало</th>
+            </tr>
+            <tr>
+                <th>Фото</th>
+                <td class="changes-images">
+                    <a class="changes-image">
+                        <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg">
+                        <span class="changes-image-size">1600x1200</span>
+                    </a>
+                    <a class="changes-image">
+                        <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg">
+                        <span class="changes-image-size">200x320</span>
+                    </a>
+                    <a class="changes-image">
+                        <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg">
+                        <span class="changes-image-size">90x145</span>
+                    </a>
+                </td>
+                <td class="changes-images">
+                    <a class="changes-image">
+                        <img src="http://f.mahmure.com/images/galeri2/galeri_40406/3.jpg">
+                        <span class="changes-image-size">1600x1200</span>
+                    </a>
+                    <a class="changes-image">
+                        <img src="http://f.mahmure.com/images/galeri2/galeri_40406/3.jpg">
+                        <span class="changes-image-size">200x320</span>
+                    </a>
+                    <a class="changes-image">
+                        <img src="http://f.mahmure.com/images/galeri2/galeri_40406/3.jpg">
+                        <span class="changes-image-size">90x145</span>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th>Номер телефона</th>
+                <td>8 800 555-35-35</td>
+                <td><input class="form-control" type="text" value="8 800 000-00-00"></td>
+            </tr>
+            <tr>
+                <th>E-mail</th>
+                <td>hello@hello.ru</td>
+                <td><!--input class="form-control" type="text" value="hi@hi.com"--></td>
+            </tr>
+            <tr>
+                <th>Дополнительная информация</th>
+                <td><span class="changes-text">Какой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текст</span></td>
+                <td><textarea class="form-control">Какой-то текст 2</textarea></td>
+            </tr>
+            <tr>
+                <th>Мин. продолжительность занятия</th>
+                <td>30</td>
+                <td><input class="form-control" type="text" value="60"></td>
+            </tr>
+        </table>
+
+        <h2>Образование</h2>
+
+        {% for i in '12' %}
+            <div class="changes-block">
+                <h4>Московский Государственный Университет</h4>
+                <table class="changes-table table-striped table-bordered">
+                    <tr>
+                        <th>Вуз<br><span class="changes-tip">Если вуз выбран не из списка</span></th>
+                        <td>Московский Государственный Университет</td>
+                        <td><input class="form-control" type="text" value="Московский Государственный Университет	"></td>
+                    </tr>
+                    <tr>
+                        <th>Факультет</th>
+                        <td>Юридический</td>
+                        <td><input class="form-control" type="text" value="Экономический"></td>
+                    </tr>
+                    <tr>
+                        <th>Специальность</th>
+                        <td>Инжинер</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Комментарий</th>
+                        <td><span class="changes-text">Комментарий</span></td>
+                        <td><textarea class="form-control">Новый комментарий</textarea></td>
+                    </tr>
+                </table>
+            </div>
+        {% endfor %}
+
+        <h2>Предметы</h2>
+
+        <div class="changes-block">
+            <h4>Математика</h4>
+            <table class="changes-table table-striped table-bordered">
+                <tr>
+                    <th>У ученика<br><span class="changes-tip">за 60 мин</span></th>
+                    <td>850</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>У репетитора<br><span class="changes-tip">за 60 мин</span></th>
+                    <td>800</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Online (Skype)<br><span class="changes-tip">за 60 мин</span></th>
+                    <td>700</td>
+                    <td><input class="form-control" type="text" value="650"></td>
+                </tr>
+                <tr>
+                    <th>Комментарий</th>
+                    <td><span class="changes-text">Комментарий</span></td>
+                    <td><textarea class="form-control">Новый комментарий</textarea></td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Адреса</h2>
+
+        <div class="changes-block">
+            <h4>Ленинский проспект, д. 156</h4>
+            <table class="changes-table table-striped table-bordered">
+                <tr>
+                    <th>Улица</th>
+                    <td>Ленинский проспект</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Дом</th>
+                    <td>156</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Корпус</th>
+                    <td>65</td>
+                    <td><input class="form-control" type="text" value="64"></td>
+                </tr>
+                <tr>
+                    <th>Строение</th>
+                    <td>-</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Координаты</th>
+                    <td>55,755831, 37,617673</td>
+                    <td><button class="btn btn-sm btn-primary">Задать новые координаты</button></td>
+                </tr>
+                <tr>
+                    <th>Комментарий</th>
+                    <td><span class="changes-text">Комментарий</span></td>
+                    <td><textarea class="form-control">Новый комментарий</textarea></td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Документы</h2>
+
+        <div class="changes-block">
+            <h4>Диплом</h4>
+            <table class="changes-table table-striped table-bordered">
+                <tr>
+                    <th>Изображение</th>
+                    <td><a class="changes-image changes-image-doc"><img src="http://www.pics.edu.pk/Students/images/48/certificate_sample.jpg"></a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Название</th>
+                    <td>Диплом</td>
+                    <td><input class="form-control" type="text" value="Сертификат"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="changes-buttons">
+
+            <button class="btn btn-success">Подтвердить</button>
+            <button class="btn btn-danger">Отклонить</button>
+
+        </div>
+
+    </div>
+
+{% endblock %}
