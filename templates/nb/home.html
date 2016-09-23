@@ -527,12 +527,12 @@
         $('.select2-tag').select2({
             theme: 'bootstrap',
             language: 'ru',
-            closeOnSelect: false
-        }).on('select2:unselect', function(e) {
+{#            closeOnSelect: false#}
+        });//;.on('select2:unselect', function(e) {
             /* Не показываем окно с опциями при удалении тега */
-            if (!e.params.originalEvent) return;
-            e.params.originalEvent.stopPropagation();
-        });
+          //  if (!e.params.originalEvent) return;
+            //e.params.originalEvent.stopPropagation();
+        //});
 
         /* Текстарея должна автоматически ресайзиться под текст */
         autosize($('textarea'));

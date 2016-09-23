@@ -109,6 +109,9 @@ urlpatterns = [
     url(r'^changes/$', TemplateView.as_view(template_name='nb/changes.html'), name='changes'),
     url(r'^codes/$', TemplateView.as_view(template_name='nb/codes.html'), name='codes'),
     url(r'^code/$',  TemplateView.as_view(template_name='nb/code.html'),  name='code'),
+
+    url(r'^activity/$',  TemplateView.as_view(template_name='nb/activity.html'), name='activity'),
+    url(r'^tabel/$',     TemplateView.as_view(template_name='nb/tabel.html'),    name='tabel'),
 ]
 
 from django.conf import settings

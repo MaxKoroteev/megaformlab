@@ -1,0 +1,296 @@
+{% extends 'nb/home.html' %}
+
+{% block content %}
+
+    <style>
+
+        /* МУСОР (Он в продакшене не нужен) */  .top-wrapper-placeholder, .top-wrapper {display:none;} /* КОНЕЦ МУСОРА */
+
+        .tabel-title {margin:0 0 15px;text-align:center;position:relative;line-height:26px;}
+            .tabel-title-templates {font-size:15px;position:absolute;top:0;right:0;}
+        .tabel-sub-title {text-align:center;margin:15px 0}
+
+        .tabel-filter {padding:10px;border:1px solid #ddd;background:#f9f9fa;border-radius:2px;}
+            .tabel-filter table {white-space:nowrap;width:100%}
+            .tabel-filter label {display:block}
+                .tabel-filter td {padding-right:15px;}
+                .tabel-filter td:last-child {padding-right:0;}
+                    .tabel-filter .form-control, .tabel-filter label > * {font-weight:normal !important;}
+                    
+                    .tabel-filter-input-group {display:table;width:100%;}
+                        .tabel-filter-input-radio {display:table-cell;vertical-align:bottom;padding-right:5px;padding-bottom:8px;}
+                        .tabel-filter-input-select {display:table-cell}
+                .tabel-filter-button-cell {vertical-align:bottom;padding-bottom:5px;}
+
+        .tabel-wrapper {position:relative;z-index:1;}
+
+        .tabel-days {border:1px solid rgba(50,60,70, 0.2);background:#f5f5f8;z-index:2;}
+            .tabel-days td {width:33px;height:33px;line-height:12px;border-left:1px solid rgba(50,60,70, 0.1);padding:0;text-align:center;vertical-align:middle}
+            .tabel-days-user {width:130px !important;padding:0 5px !important;text-align:left !important;}
+            .tabel-hollyday {border-top:1px solid rgba(255,0,0,0.5)}
+            .tabel-days .active {background:#47b;color:#fff;}
+            .tabel-days .tabel-weekday {color:rgba(0,0,0,0.5);}
+            .tabel-days .active .tabel-weekday {color:rgba(255,255,255,0.5);}
+
+        .tabel-table {border-right:1px solid rgba(50,60,70, 0.2);border-bottom:1px solid rgba(50,60,70, 0.2);}
+        .tabel-table .active {background:rgba(225,225,230, 1) !important;}
+            .tabel-table tr {}
+            .tabel-table tr:hover th {background:#47b;color:#fff;}
+            .tabel-table tr:hover th .tabel-table-user-status {background:#47b;color:rgba(255,255,255,0.5);}
+            .tabel-table tr:nth-child(2n)    {background:rgba(225,225,230, 0.75);}
+                .tabel-table-user {vertical-align:middle;padding:0 5px !important;line-height:15px;width:130px !important;}
+                    .tabel-table-user-status {color:rgba(0,0,0,0.5);}
+                        .tabel-table td {width:33px;border-left:1px solid rgba(50,60,70, 0.2);border-right:0;padding:3px;border-bottom:1px solid rgba(50,60,70, 0.2);}
+                        .tabel-table th {width:33px;border-left:1px solid rgba(50,60,70, 0.2);border-right:0;padding:3px;border-bottom:1px solid rgba(50,60,70, 0.2);font-weight:normal;}
+                            .tabel-table-time   .form-control {position:relative;z-index:1;-webkit-appearance:none;-moz-appearance:none;appearance:none;padding:0 6px 0 4px;height:20px;margin-bottom:3px;}
+                            .tabel-table-status .form-control {position:relative;z-index:1;-webkit-appearance:none;-moz-appearance:none;appearance:none;padding:0 4px 0 2px;height:20px;}
+                .tabel-by-template {width:33px;vertical-align:middle;text-align:center;}
+                    .tabel-by-template .fa {vertical-align:middle;width:26px;height:26px;line-height:26px;border-radius:2px;}
+                    .tabel-by-template .fa:hover {background:#47b;color:#fff;text-decoration:none;}
+
+        .tabel-print-wrapper {text-align:center;margin:20px 0;}
+
+    </style>
+
+    <h3 class="tabel-title">
+        Табель рабочего времени
+        <a href="#" class="tabel-title-templates">Редактировать шаблоны графиков сотрудников</a>
+    </h3>
+
+    <div class="tabel-filter">
+    <table>
+        <tr>
+            <td>
+                <label>
+                    Год
+                    <input class="form-control" value="2016">
+                </label>
+            </td>
+            <td>
+                <label>
+                    Месяц
+                    <select class="form-control">
+                        <option>Январь</option>
+                        <option>Февраль</option>
+                        <option>Март</option>
+                        <option>Апрель</option>
+                        <option>Май</option>
+                        <option>Июнь</option>
+                        <option>Июль</option>
+                        <option>Август</option>
+                        <option>Сентябрь</option>
+                        <option selected>Октябрь</option>
+                        <option>Ноябрь</option>
+                        <option>декабрь</option>
+                    </select>
+                </label>
+            </td>
+            <td>
+                <label>
+                    Часть месяца
+                    <select class="form-control">
+                        <option>Весь месяц</option>
+                        <option>Первая половина</option>
+                        <option>Вторая половина</option>
+                    </select>
+                </label>
+            </td>
+            <td>
+                <label>
+                    Статус сотрудников
+                    <select class="form-control select2-tag">
+                        <option>Действующий</option>
+                        <option>В отпуске</option>
+                        <option>Уволен</option>
+                        <option>На испытательном сроке</option>
+                    </select>
+                </label>
+            </td>
+            <td>
+                <label>
+                    Роли сотрудников
+                    <span class="tabel-filter-input-group" >
+                        <span class="tabel-filter-input-radio">
+                            <input type="radio" name="user-type" checked>
+                        </span>
+                        <span class="tabel-filter-input-select">
+                            <select class="form-control select2-tag">
+                                <option>Все роли</option>
+                                <option>Администратор</option>
+                                <option>Главный консультант</option>
+                                <option>Управление demo.repetit.ru</option>
+                                <option>Управление backofficedemo.repetit.ru</option>
+                                <option>Регистратор</option>
+                                <option>Главный регистратор</option>
+                                <option>Мастер тестов</option>
+                                <option>Оператор</option>
+                                <option>Главный оператор</option>
+                                <option>Консультант</option>
+                                <option>Сборщик отзывов</option>
+                            </select>
+                        </span>
+                    </span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    Сотрудники
+
+                    <span class="tabel-filter-input-group" >
+                        <span class="tabel-filter-input-radio">
+                            <input type="radio" name="user-type">
+                        </span>
+                        <span class="tabel-filter-input-select">
+                            <select class="form-control select2-tag">
+                                <optgroup label="Администратор">
+                                    {% for i in '12345' %}<option>Иванов И.И. (Действующий)</option>{% endfor %}
+                                </optgroup>
+                                <optgroup label="Главный консультант">
+                                    {% for i in '12345' %}<option>Иванов И.И. (Действующий)</option>{% endfor %}
+                                </optgroup>
+                                <optgroup label="Управление demo.repetit.ru">
+                                    {% for i in '12345' %}<option>Иванов И.И. (Действующий)</option>{% endfor %}
+                                </optgroup>
+                                <optgroup label="Управление backofficedemo.repetit.ru">
+                                    {% for i in '12345' %}<option>Иванов И.И. (Действующий)</option>{% endfor %}
+                                </optgroup>
+                                <optgroup label="Регистратор">
+                                    {% for i in '12345' %}<option>Иванов И.И. (Действующий)</option>{% endfor %}
+                                </optgroup>
+                                <optgroup label="Главный регистратор">
+                                    {% for i in '12345' %}<option>Иванов И.И. (Действующий)</option>{% endfor %}
+                                </optgroup>
+                                <optgroup label="Мастер тестов">
+                                    {% for i in '12345' %}<option>Иванов И.И. (Действующий)</option>{% endfor %}
+                                </optgroup>
+                                <optgroup label="Оператор">
+                                    {% for i in '12345' %}<option>Иванов И.И. (Действующий)</option>{% endfor %}
+                                </optgroup>
+                                <optgroup label="Главный оператор">
+                                    {% for i in '12345' %}<option>Иванов И.И. (Действующий)</option>{% endfor %}
+                                </optgroup>
+                                <optgroup label="Консультант">
+                                    {% for i in '12345' %}<option>Иванов И.И. (Действующий)</option>{% endfor %}
+                                </optgroup>
+                                <optgroup label="Сборщик отзывов">
+                                    {% for i in '12345' %}<option>Иванов И.И. (Действующий)</option>{% endfor %}
+                                </optgroup>
+                            </select>
+                        </span>
+                    </span>
+                </label>
+            </td>
+            <td class="tabel-filter-button-cell">
+                <button class="btn btn-primary btn-sm">Показать</button>
+            </td>
+        </tr>
+    </table>
+    </div>
+
+    <h4 class="tabel-sub-title">Август 2016 (Весь месяц)</h4>
+
+    <table class="tabel-days">
+        <tr>
+            <td class="tabel-days-user"><span class="tabel-wrapper">Сотрудник</span></td>
+            <td class="tabel-by-template">
+                <a title="Заполнить табель по шаблонам для всех сотрудников" href="#" class="fa fa-magic"></a>
+            </td>
+            <td>1 <div class="tabel-weekday">ПН</div></td>
+            <td>2 <div class="tabel-weekday">ВТ</div></td>
+            <td>3 <div class="tabel-weekday">СР</div></td>
+            <td>4 <div class="tabel-weekday">ЧТ</div></td>
+            <td>5 <div class="tabel-weekday">ПТ</div></td>
+            <td class="tabel-hollyday">6 <div class="tabel-weekday">СБ</div></td>
+            <td class="tabel-hollyday">7 <div class="tabel-weekday">ВС</div></td>
+            <td>8 <div class="tabel-weekday">ПН</div></td>
+            <td>9 <div class="tabel-weekday">ВТ</div></td>
+            <td>10<div class="tabel-weekday">СР</div></td>
+            <td>11<div class="tabel-weekday">ЧТ</div></td>
+            <td>12<div class="tabel-weekday">ПТ</div></td>
+            <td class="tabel-hollyday">13<div class="tabel-weekday">СБ</div></td>
+            <td class="tabel-hollyday">14<div class="tabel-weekday">ВС</div></td>
+            <td>15<div class="tabel-weekday">ПН</div></td>
+            <td>16<div class="tabel-weekday">ВТ</div></td>
+            <td>17<div class="tabel-weekday">СР</div></td>
+            <td>18<div class="tabel-weekday">ЧТ</div></td>
+            <td>19<div class="tabel-weekday">ПТ</div></td>
+            <td class="tabel-hollyday">20<div class="tabel-weekday">СБ</div></td>
+            <td class="tabel-hollyday">21<div class="tabel-weekday">ВС</div></td>
+            <td>22<div class="tabel-weekday">ПН</div></td>
+            <td>23<div class="tabel-weekday">ВТ</div></td>
+            <td>24<div class="tabel-weekday">СР</div></td>
+            <td>25<div class="tabel-weekday">ЧТ</div></td>
+            <td>26<div class="tabel-weekday">ПТ</div></td>
+            <td class="tabel-hollyday">27<div class="tabel-weekday">СБ</div></td>
+            <td class="tabel-hollyday">28<div class="tabel-weekday">ВС</div></td>
+            <td>29<div class="tabel-weekday">ПН</div></td>
+            <td>30<div class="tabel-weekday">ВТ</div></td>
+            <td>31<div class="tabel-weekday">СР</div></td>
+        </tr>
+    </table>
+
+    <table class="tabel-table">
+        {% for i in '1234567890' %}
+            <tr>
+                <th class="tabel-table-user">
+                    <div class="tabel-wrapper">
+                        Коротеев М.В.
+                        <div class="tabel-table-user-status">Действующий</div>
+                    </div>
+                </th>
+                <td class="tabel-by-template">
+                    <a title="Заполнить табель по шаблону для всех сотрудников" href="#" class="fa fa-magic"></a>
+                </td>
+                {% for i in '1234567890123456789012345678901' %}
+                    <td data-tabel-table-info>
+
+                        <div class="tabel-table-time">
+                            <select class="form-control">
+                                {% for o in ' 123456789' %}
+                                    <option>&nbsp;{{ o }}</option>
+                                {% endfor %}
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                            </select>
+                        </div>
+
+                        <div class="tabel-table-status">
+                            <select class="form-control">
+                                <option></option>
+                                <option>&nbsp;Я &nbsp;&nbsp;Рабочий день</option>
+                                <option>ОТ      &nbsp;&nbsp;Ежегодный основной оплачиваемый отпуск</option>
+                                <option>ДО      &nbsp;&nbsp;Отпуск без сохранения заработной платы</option>
+                                <option>ПР      &nbsp;&nbsp;Прогул</option>
+                                <option>&nbsp;В &nbsp;&nbsp;&nbsp;Выходной день</option>
+                                <option>НН      &nbsp;&nbsp;Неявка по невыясненным причинам</option>
+                                <option>&nbsp;Б &nbsp;&nbsp;&nbsp;Больничный</option>
+                            </select>
+                        </div>
+
+                    </td>
+                {% endfor %}
+            </tr>
+
+        {% endfor %}
+    </table>
+
+    <div class="tabel-print-wrapper">
+        <button class="btn btn-success">Распечатать</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/jquery.sticky-kit/1.1.2/jquery.sticky-kit.min.js"></script>
+
+    <script>
+        $('.tabel-days').stick_in_parent();
+
+        $(document).on('mouseenter', '[data-tabel-table-info]', function() {
+            $('.tabel-days td:nth-child('+ parseInt($(this).index() + 1) +')').addClass('active')
+            $('.tabel-table td:nth-child('+ parseInt($(this).index() + 1) +')').addClass('active')
+        }).on('mouseleave', '[data-tabel-table-info]', function() {
+            $('.tabel-days td:nth-child('+ parseInt($(this).index() + 1) +')').removeClass('active')
+            $('.tabel-table td:nth-child('+ parseInt($(this).index() + 1) +')').removeClass('active')
+        })
+    </script>
+
+{% endblock %}

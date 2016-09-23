@@ -6,6 +6,8 @@
 
         .changes {}
 
+            .changes textarea {vertical-align:top;}
+
             .changes h2, .changes h3, .changes h4 {text-align:center;}
             .changes h2:first-child, .changes h4:first-child {margin-top:0;}
 
@@ -16,10 +18,12 @@
                 .changes-table th,
                 .changes-table td {padding:5px 5px 5px 5px;vertical-align:middle;text-align:right;}
 
-                .changes-table th:first-child {width:1px;white-space:nowrap;}
+                .changes-table th:first-child {width:1px;white-space:nowrap;line-height:15px;}
 
-                .changes-table th:last-child,
-                .changes-table td:last-child {text-align:left;width:50%;}
+                .changes-table th:last-child {text-align:left;width:50%;}
+                .changes-table td:last-child {text-align:left;width:50%;vertical-align:top;}
+
+                .changes-change {background:#fe9;}
 
                     .changes-tip {font-weight:normal;color:#999;}
 
@@ -65,7 +69,7 @@
                         <span class="changes-image-size">90x145</span>
                     </a>
                 </td>
-                <td class="changes-images">
+                <td class="changes-images changes-change">
                     <a class="changes-image">
                         <img src="http://f.mahmure.com/images/galeri2/galeri_40406/3.jpg">
                         <span class="changes-image-size">1600x1200</span>
@@ -83,7 +87,7 @@
             <tr>
                 <th>Номер телефона</th>
                 <td>8 800 555-35-35</td>
-                <td><input class="form-control" type="text" value="8 800 000-00-00"></td>
+                <td class="changes-change"><input class="form-control" type="text" value="8 800 000-00-00"></td>
             </tr>
             <tr>
                 <th>E-mail</th>
@@ -93,12 +97,12 @@
             <tr>
                 <th>Дополнительная информация</th>
                 <td><span class="changes-text">Какой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текст</span></td>
-                <td><textarea class="form-control">Какой-то текст 2</textarea></td>
+                <td class="changes-change"><textarea class="form-control">Какой-то текст 2</textarea></td>
             </tr>
             <tr>
                 <th>Мин. продолжительность занятия</th>
                 <td>30</td>
-                <td><input class="form-control" type="text" value="60"></td>
+                <td class="changes-change"><input class="form-control" type="text" value="60"></td>
             </tr>
         </table>
 
@@ -111,22 +115,22 @@
                     <tr>
                         <th>Вуз<br><span class="changes-tip">Если вуз выбран не из списка</span></th>
                         <td>Московский Государственный Университет</td>
-                        <td><input class="form-control" type="text" value="Московский Государственный Университет	"></td>
+                        <td class="changes-change"><input class="form-control" type="text" value="Московский Государственный Университет	"></td>
                     </tr>
                     <tr>
                         <th>Факультет</th>
                         <td>Юридический</td>
-                        <td><input class="form-control" type="text" value="Экономический"></td>
+                        <td class="changes-change"><input class="form-control" type="text" value="Экономический"></td>
                     </tr>
                     <tr>
                         <th>Специальность</th>
-                        <td>Инжинер</td>
+                        <td>Инженер</td>
                         <td></td>
                     </tr>
                     <tr>
                         <th>Комментарий</th>
                         <td><span class="changes-text">Комментарий</span></td>
-                        <td><textarea class="form-control">Новый комментарий</textarea></td>
+                        <td class="changes-change"><textarea class="form-control">Новый комментарий</textarea></td>
                     </tr>
                 </table>
             </div>
@@ -155,7 +159,7 @@
                 <tr>
                     <th>Комментарий</th>
                     <td><span class="changes-text">Комментарий</span></td>
-                    <td><textarea class="form-control">Новый комментарий</textarea></td>
+                    <td class="changes-change"><textarea class="form-control">Новый комментарий</textarea></td>
                 </tr>
             </table>
         </div>
@@ -178,7 +182,7 @@
                 <tr>
                     <th>Корпус</th>
                     <td>65</td>
-                    <td><input class="form-control" type="text" value="64"></td>
+                    <td class="changes-change"><input class="form-control" type="text" value="64"></td>
                 </tr>
                 <tr>
                     <th>Строение</th>
@@ -188,12 +192,12 @@
                 <tr>
                     <th>Координаты</th>
                     <td>55,755831, 37,617673</td>
-                    <td><button class="btn btn-sm btn-primary">Задать новые координаты</button></td>
+                    <td class="changes-change"><button class="btn btn-sm btn-primary">Задать новые координаты</button></td>
                 </tr>
                 <tr>
                     <th>Комментарий</th>
                     <td><span class="changes-text">Комментарий</span></td>
-                    <td><textarea class="form-control">Новый комментарий</textarea></td>
+                    <td class="changes-change"><textarea class="form-control">Новый комментарий</textarea></td>
                 </tr>
             </table>
         </div>
@@ -211,7 +215,7 @@
                 <tr>
                     <th>Название</th>
                     <td>Диплом</td>
-                    <td><input class="form-control" type="text" value="Сертификат"></td>
+                    <td class="changes-change"><input class="form-control" type="text" value="Сертификат"></td>
                 </tr>
             </table>
         </div>
