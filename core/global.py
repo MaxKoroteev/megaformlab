@@ -75,7 +75,7 @@ def site(request):
          'my_message': False},
     ]
 
-    hours = [unicode(i).zfill(2) + u':00' for i in range(24)][8:]
+    hours = [str(i).zfill(2) + u':00' for i in range(24)][8:]
 
     full_hours = []
     for hour in hours:
@@ -140,5 +140,5 @@ def site(request):
         'screen': request.session['screen'],
         'subs': subs,
         'url_name': request.resolver_match.url_name,
-        'form_range': xrange(0, 100)
+        # 'form_range': xrange(0, 100)
     }

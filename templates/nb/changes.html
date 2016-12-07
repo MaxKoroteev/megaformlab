@@ -1,40 +1,68 @@
 {% extends 'nb/home.html' %}
 
+{# КРЕСТИКИ ФОТКАМ #}
+{# ПРОДУМАТЬ ВУЗЫ #}
+
 {% block content %}
 
     <style>
 
+        .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+            border-color:rgba(0,0,0,0.075);
+        }
+
         .changes {}
 
-            .changes textarea {vertical-align:top;}
+            .changes h2 {font-size:25px;}
+
+            .changes textarea {vertical-align:middle;}
 
             .changes h2, .changes h3, .changes h4 {text-align:center;}
             .changes h2:first-child, .changes h4:first-child {margin-top:0;}
 
-            .changes-block {padding:10px;border:1px solid #ccc;margin-bottom:20px;border-radius:2px;}
+            .changes-table {width:100%;margin-bottom:20px;}
 
-            .changes-table {width:100%;}
+                .changes-table td[colspan="2"] {text-align:center !important;}
 
                 .changes-table th,
-                .changes-table td {padding:5px 5px 5px 5px;vertical-align:middle;text-align:right;}
+                .changes-table td {padding:3px;vertical-align:middle;text-align:right;}
+
+                .changes-table th .btn {margin-top:5px;}
+
+                .changes-table .can-not-be-changed th {color:#999;}
 
                 .changes-table th:first-child {width:1px;white-space:nowrap;line-height:15px;}
 
-                .changes-table th:last-child {text-align:left;width:50%;}
-                .changes-table td:last-child {text-align:left;width:50%;vertical-align:top;}
+                .changes-table th:nth-child(2) {text-align:right;width:50%;vertical-align:middle;}
+                .changes-table td:nth-child(2) {text-align:right;width:50%;vertical-align:middle;}
 
-                .changes-change {background:#fe9;}
+                .changes-table th:nth-child(3) {text-align:left;width:50%;vertical-align:middle;}
+                .changes-table td:nth-child(3) {text-align:left;width:50%;vertical-align:middle;}
 
-                    .changes-tip {font-weight:normal;color:#999;}
+                .changes-table th:last-child {text-align:right;}
+                .changes-table td:last-child {text-align:right;}
+
+                .changes-table th:last-child, .changes-table td:last-child {width:1px;white-space:nowrap;line-height:15px;}
+
+                .need-attention          {background:#ffdddd !important;}
+                .need-attention.canceled {background:#f7fdce !important;}
+                .need-attention.accepted {background:#dafbd0 !important;}
+
+                    .changes-tip {font-weight:normal;color:rgba(0,0,0,0.5);}
+                    .changes-tip.absolute {position:absolute;margin-left:5px;}
+
+                .changes-year-input {display:inline-block;width:50px;}
 
                 .changes-images {font-size:0;white-space:nowrap;}
-                    .changes-image {height:145px;line-height:145px;display:inline-block;position:relative;margin-left:5px;cursor:pointer;}
+                    .changes-image {height:145px;line-height:145px;text-align:center;display:inline-block;position:relative;margin-left:3px;cursor:pointer;}
                     .changes-image:first-child {margin-left:0;}
 
-                        .changes-image img {max-width:100px;max-height:100%;vertical-align:middle;}
+                    .changes-image-square {height:90px;line-height:90px;}
+
+                        .changes-image img {max-width:90px;max-height:100%;vertical-align:middle;}
                         .changes-image-doc img {max-width:none;}
 
-                        .changes-image-size {position:absolute;bottom:0;left:0;right:0;font-size:10px;line-height:20px;color:#fff;text-align:center;background:rgba(0,0,0,0.5)}
+                        .changes-image-size {position:absolute;bottom:0;left:0;right:0;font-size:10px;line-height:20px;color:#fff;text-align:center;background:rgba(0,0,0,0.75)}
 
                     .changes-text {text-align:left;display:inline-block;}
 
@@ -45,188 +73,522 @@
 
     <div class="changes">
 
-        <h2>Основная информация</h2>
-
         <table class="changes-table table-striped table-bordered">
             <tr>
                 <th></th>
                 <th>Было</th>
                 <th>Стало</th>
+                <th></th>
             </tr>
-            <tr>
-                <th>Фото</th>
+            <tr class="can-not-be-changed">
+                <th>ID</th>
+                <td colspan="2">33</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Зона</th>
+                <td colspan="2">Москва и Московская область</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Фамилия</th>
+                <td colspan="2">Коротеев</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Имя</th>
+                <td colspan="2">Максим</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Отчество</th>
+                <td colspan="2">Витальевич</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Дата рождения</th>
+                <td colspan="2">02.08.1990<span class="changes-tip absolute">Полных лет - 26</span></td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Стаж преподавания (лет)</th>
+                <td colspan="2">10<span class="changes-tip absolute">Преподаёт с - 16</span></td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Пол</th>
+                <td colspan="2">Мужской</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>ИП</th>
+                <td colspan="2">Нет</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Номер телефона</th>
+                <td colspan="2">+7 (999) 999-99-99</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>E-mail</th>
+                <td colspan="2">hello@hello.ru</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Skype</th>
+                <td colspan="2">hello.hello</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Ученики</th>
+                <td colspan="2">Не нужны до 02.08.2100<!-- Иначе просто: Нужны --></td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Отображать анкету на сайте</th>
+                <td colspan="2">Да</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Подписан на рассылку</th>
+                <td colspan="2">Да</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Получать уведомления о подходящих заявках</th>
+                <td colspan="2">Да</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Отображать адреса на карте</th>
+                <td colspan="2">Да</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Проводятся удалённые занятия</th>
+                <td colspan="2">Да</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Комментарий к удалённым занятиям</th>
+                <td colspan="2">Занимаюсь не по скайпу, а по тимвьюверу</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Статус</th>
+                <td colspan="2">Частный преподаватель</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Название уч. заведения</th>
+                <td colspan="2"></td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Вуз</th>
+                <td colspan="2"></td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Актуален до</th>
+                <td colspan="2"></td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Страна</th>
+                <td colspan="2">Россия</td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Владение русским языком</th>
+                <td colspan="2"></td>
+                <td></td>
+            </tr>
+            <tr class="can-not-be-changed">
+                <th>Отображать место работы на сайте</th>
+                <td colspan="2">Нет</td>
+                <td></td>
+            </tr>
+            <tr class="need-attention">
+                <th>Оригинальное фото</th>
                 <td class="changes-images">
                     <a class="changes-image">
                         <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg">
                         <span class="changes-image-size">1600x1200</span>
                     </a>
-                    <a class="changes-image">
-                        <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg">
-                        <span class="changes-image-size">200x320</span>
-                    </a>
-                    <a class="changes-image">
-                        <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg">
-                        <span class="changes-image-size">90x145</span>
-                    </a>
                 </td>
-                <td class="changes-images changes-change">
+                <td class="changes-images">
                     <a class="changes-image">
                         <img src="http://f.mahmure.com/images/galeri2/galeri_40406/3.jpg">
                         <span class="changes-image-size">1600x1200</span>
                     </a>
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                    <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                </td>
+            </tr>
+            <tr class="need-attention">
+                <th>Прямоугольный кроп<br><button class="btn btn-sm btn-primary">Изменить</button></th>
+                <td class="changes-images">
                     <a class="changes-image">
-                        <img src="http://f.mahmure.com/images/galeri2/galeri_40406/3.jpg">
+                        <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg">
                         <span class="changes-image-size">200x320</span>
                     </a>
                     <a class="changes-image">
-                        <img src="http://f.mahmure.com/images/galeri2/galeri_40406/3.jpg">
+                        <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg">
                         <span class="changes-image-size">90x145</span>
                     </a>
                 </td>
+                <td class="changes-images">
+                    <a class="changes-image">
+                        <img src="http://f.mahmure.com/images/galeri2/galeri_40406/3.jpg" style="height:100%;">
+                        <span class="changes-image-size">200x320</span>
+                    </a>
+                    <a class="changes-image">
+                        <img src="http://f.mahmure.com/images/galeri2/galeri_40406/3.jpg" style="height:100%;">
+                        <span class="changes-image-size">90x145</span>
+                    </a>
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                    <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                </td>
             </tr>
-            <tr>
-                <th>Номер телефона</th>
-                <td>8 800 555-35-35</td>
-                <td class="changes-change"><input class="form-control" type="text" value="8 800 000-00-00"></td>
+            <tr class="need-attention">
+                <th>Квадратный кроп<br><button class="btn btn-sm btn-primary">Изменить</button></th>
+                <td class="changes-images">
+                    <a class="changes-image changes-image-square">
+                        <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg" style="width:100px;height:100px;">
+                        <span class="changes-image-size">200x200</span>
+                    </a>
+                    <a class="changes-image changes-image-square">
+                        <img src="http://maxkoroteev.pythonanywhere.com/media/img/girl_original.jpg" style="width:100px;height:100px;">
+                        <span class="changes-image-size">90x90</span>
+                    </a>
+                </td>
+                <td class="changes-images">
+                    <a class="changes-image changes-image-square">
+                        <img src="http://f.mahmure.com/images/galeri2/galeri_40406/3.jpg" style="width:100px;height:100px;">
+                        <span class="changes-image-size">200x200</span>
+                    </a>
+                    <a class="changes-image changes-image-square">
+                        <img src="http://f.mahmure.com/images/galeri2/galeri_40406/3.jpg" style="width:100px;height:100px;">
+                        <span class="changes-image-size">90x90</span>
+                    </a>
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                    <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                </td>
             </tr>
-            <tr>
-                <th>E-mail</th>
-                <td>hello@hello.ru</td>
-                <td><!--input class="form-control" type="text" value="hi@hi.com"--></td>
-            </tr>
-            <tr>
+            <tr class="need-attention">
                 <th>Дополнительная информация</th>
                 <td><span class="changes-text">Какой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текстКакой-то текст</span></td>
-                <td class="changes-change"><textarea class="form-control">Какой-то текст 2</textarea></td>
+                <td><textarea class="form-control">Какой-то текст 2</textarea></td>
+                <td>
+                    <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                    <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                </td>
             </tr>
-            <tr>
+            <tr class="need-attention">
                 <th>Мин. продолжительность занятия</th>
                 <td>30</td>
-                <td class="changes-change"><input class="form-control" type="text" value="60"></td>
+                <td><input class="form-control" type="text" value="60"></td>
+                <td>
+                    <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                    <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                </td>
             </tr>
         </table>
 
         <h2>Образование</h2>
 
         {% for i in '12' %}
-            <div class="changes-block">
-                <h4>Московский Государственный Университет</h4>
-                <table class="changes-table table-striped table-bordered">
-                    <tr>
-                        <th>Вуз<br><span class="changes-tip">Если вуз выбран не из списка</span></th>
-                        <td>Московский Государственный Университет</td>
-                        <td class="changes-change"><input class="form-control" type="text" value="Московский Государственный Университет	"></td>
-                    </tr>
-                    <tr>
-                        <th>Факультет</th>
-                        <td>Юридический</td>
-                        <td class="changes-change"><input class="form-control" type="text" value="Экономический"></td>
-                    </tr>
-                    <tr>
-                        <th>Специальность</th>
-                        <td>Инженер</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>Комментарий</th>
-                        <td><span class="changes-text">Комментарий</span></td>
-                        <td class="changes-change"><textarea class="form-control">Новый комментарий</textarea></td>
-                    </tr>
-                </table>
-            </div>
+            <table class="changes-table table-striped table-bordered">
+                <tr class="can-not-be-changed">
+                    <th>ID</th>
+                    <td colspan="2">4321{{ i }}</td>
+                    <td></td>
+                </tr>
+                <tr class="need-attention">
+                    <th>Вуз</th>
+                    <td colspan="2">Московский Государственный Университет</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Проверено</button>
+                    </td>
+                </tr>
+                <tr class="need-attention">
+                    <th>Факультет</th>
+                    <td colspan="2">Юридический</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Проверено</button>
+                    </td>
+                </tr>
+                <tr class="need-attention">
+                    <th>Вуз строкой</th>
+                    <td></td>
+                    <td><input class="form-control" type="text" value="Московский Государственный Университет"></td>
+                    <td>
+                        <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                        <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                    </td>
+                </tr>
+                <tr class="need-attention">
+                    <th>Специальность</th>
+                    <td>Инженер</td>
+                    <td><input class="form-control" type="text" value="Экономист"></td>
+                    <td>
+                        <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                        <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                    </td>
+                </tr>
+                <tr class="need-attention">
+                    <th>Год окончания</th>
+                    <td>2016</td>
+                    <td>
+                        <input class="form-control changes-year-input" type="text" value="2017">
+                        <span class="changes-tip">Возраст на момент окончания - 16</span>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                        <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                    </td>
+                </tr>
+                <tr class="need-attention">
+                    <th>Комментарий</th>
+                    <td><span class="changes-text">Комментарий</span></td>
+                    <td><textarea class="form-control">Новый комментарий</textarea></td>
+                    <td>
+                        <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                        <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                    </td>
+                </tr>
+            </table>
         {% endfor %}
 
         <h2>Предметы</h2>
 
-        <div class="changes-block">
-            <h4>Математика</h4>
-            <table class="changes-table table-striped table-bordered">
-                <tr>
-                    <th>У ученика<br><span class="changes-tip">за 60 мин</span></th>
-                    <td>850</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>У репетитора<br><span class="changes-tip">за 60 мин</span></th>
-                    <td>800</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Online (Skype)<br><span class="changes-tip">за 60 мин</span></th>
-                    <td>700</td>
-                    <td><input class="form-control" type="text" value="650"></td>
-                </tr>
-                <tr>
-                    <th>Комментарий</th>
-                    <td><span class="changes-text">Комментарий</span></td>
-                    <td class="changes-change"><textarea class="form-control">Новый комментарий</textarea></td>
-                </tr>
-            </table>
-        </div>
+        <table class="changes-table table-striped table-bordered">
+            <tr class="can-not-be-changed">
+                <th>ID</th>
+                <td colspan="2">4231</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Предмет</th>
+                <td colspan="2">Математика</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Разделы</th>
+                <td colspan="2">.школьный курс</td>
+                <td></td>
+            </tr>
+            <tr class="need-attention">
+                <th>Дополнения</th>
+                <td colspan="2">ОГЭ, ЕГЭ</td>
+                <td>
+                    <button class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Проверено</button>
+                </td>
+            </tr>
+            <tr class="need-attention">
+                <th>Категории учеников</th>
+                <td colspan="2">9 класс, 10 класс, 11 класс</td>
+                <td>
+                    <button class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Проверено</button>
+                </td>
+            </tr>
+            <tr>
+                <th>Уровни знаний</th>
+                <td colspan="2"></td>
+                <td></td>
+            </tr>
+            <tr class="need-attention">
+                <th>У ученика<br><span class="changes-tip">за 60 мин</span></th>
+                <td>800</td>
+                <td><input class="form-control" type="text" value="850"></td>
+                <td>
+                    <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                    <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                </td>
+            </tr>
+            <tr class="need-attention">
+                <th>У репетитора<br><span class="changes-tip">за 60 мин</span></th>
+                <td>750</td>
+                <td><input class="form-control" type="text" value="800"></td>
+                <td>
+                    <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                    <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                </td>
+            </tr>
+            <tr class="need-attention">
+                <th>Online (Skype)<br><span class="changes-tip">за 60 мин</span></th>
+                <td>650</td>
+                <td><input class="form-control" type="text" value="700"></td>
+                <td>
+                    <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                    <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                </td>
+            </tr>
+            <tr class="need-attention">
+                <th>Комментарий</th>
+                <td><span class="changes-text">Какой-то комментарий</span></td>
+                <td><textarea class="form-control">Какой-то новый комментарий</textarea></td>
+                <td>
+                    <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                    <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                </td>
+            </tr>
+        </table>
 
         <h2>Адреса</h2>
 
-        <div class="changes-block">
-            <h4>Ленинский проспект, д. 156</h4>
-            <table class="changes-table table-striped table-bordered">
-                <tr>
-                    <th>Улица</th>
-                    <td>Ленинский проспект</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Дом</th>
-                    <td>156</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Корпус</th>
-                    <td>65</td>
-                    <td class="changes-change"><input class="form-control" type="text" value="64"></td>
-                </tr>
-                <tr>
-                    <th>Строение</th>
-                    <td>-</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Координаты</th>
-                    <td>55,755831, 37,617673</td>
-                    <td class="changes-change"><button class="btn btn-sm btn-primary">Задать новые координаты</button></td>
-                </tr>
-                <tr>
-                    <th>Комментарий</th>
-                    <td><span class="changes-text">Комментарий</span></td>
-                    <td class="changes-change"><textarea class="form-control">Новый комментарий</textarea></td>
-                </tr>
-            </table>
-        </div>
+        <table class="changes-table table-striped table-bordered">
+            <tr class="can-not-be-changed">
+                <th>ID</th>
+                <td colspan="2">42131</td>
+                <td></td>
+            </tr>
+            <tr class="need-attention">
+                <th>Район/город</th>
+                <td colspan="2">м. Университет</td>
+                <td>
+                    <button class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Проверено</button>
+                </td>
+            </tr>
+            <tr>
+                <th>Улица</th>
+                <td colspan="2">Ленинский проспект</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Дом</th>
+                <td colspan="2">156</td>
+                <td></td>
+            </tr>
+            <tr class="need-attention">
+                <th>Корпус</th>
+                <td>65</td>
+                <td><input class="form-control" type="text" value="64"></td>
+                <td>
+                    <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                    <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                </td>
+            </tr>
+            <tr>
+                <th>Строение</th>
+                <td colspan="2"></td>
+                <td></td>
+            </tr>
+            <tr class="need-attention">
+                <th>Координаты</th>
+                <td>55,755831, 37,617673</td>
+                <td><button class="btn btn-sm btn-primary" style="white-space:normal;">Задать новые координаты</button></td>
+                <td>
+                    <button class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Проверено</button>
+                </td>
+            </tr>
+            <tr class="need-attention">
+                <th>По этому адресу</th>
+                <td colspan="2">Проводятся занятия и выезд</td>
+                <td>
+                    <button class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Проверено</button>
+                </td>
+            </tr>
+            <tr>
+                <th>Расстояние от метро транспортом</th>
+                <td colspan="2"></td>
+                <td></td>
+            </tr>
+            <tr class="need-attention">
+                <th>Расстояние от метро пешком</th>
+                <td></td>
+                <td><input class="form-control" type="text" value="10"></td>
+                <td>
+                    <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                    <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                </td>
+            </tr>
+            <tr class="need-attention">
+                <th>Условия выезда</th>
+                <td colspan="2">Любой район</td>
+                <td>
+                    <button class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Проверено</button>
+                </td>
+            </tr>
+            <tr class="need-attention">
+                <th>Не более минут от своего района</th>
+                <td>20</td>
+                <td><input class="form-control" type="text" value="10"></td>
+                <td>
+                    <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                    <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                </td>
+            </tr>
+            <tr class="need-attention">
+                <th>Комментарий</th>
+                <td><span class="changes-text">Комментарий</span></td>
+                <td><textarea class="form-control">Новый комментарий</textarea></td>
+                <td>
+                    <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                    <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                </td>
+            </tr>
+        </table>
 
         <h2>Документы</h2>
 
-        <div class="changes-block">
-            <h4>Диплом</h4>
+        {% for i in '12' %}
             <table class="changes-table table-striped table-bordered">
-                <tr>
-                    <th>Изображение</th>
-                    <td><a class="changes-image changes-image-doc"><img src="http://www.pics.edu.pk/Students/images/48/certificate_sample.jpg"></a></td>
+                <tr class="can-not-be-changed">
+                    <th>ID</th>
+                    <td colspan="2">71231</td>
                     <td></td>
                 </tr>
-                <tr>
+                <tr class="need-attention">
+                    <th>Изображение<br><button class="btn btn-sm btn-primary">Изменить</button></th>
+                    <td><a class="changes-image changes-image-doc"><img src="http://www.pics.edu.pk/Students/images/48/certificate_sample.jpg"></a></td>
+                    <td><a class="changes-image changes-image-doc"><img src="https://marketplace.canva.com/MAB7eme0yLU/1/0/thumbnail_large/canva-mixed-patterns-birthday-certificate-MAB7eme0yLU.jpg"></a></td>
+                    <td>
+                        <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                        <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                    </td>
+                </tr>
+                <tr class="need-attention">
                     <th>Название</th>
                     <td>Диплом</td>
-                    <td class="changes-change"><input class="form-control" type="text" value="Сертификат"></td>
+                    <td><input class="form-control" type="text" value="Сертификат"></td>
+                    <td>
+                        <button class="btn btn-sm btn-default"><i class="fa fa-times"></i> Не применять</button>
+                        <button class="btn btn-sm btn-success"><i class="fa fa-check"></i> Применить</button>
+                    </td>
                 </tr>
             </table>
-        </div>
+        {% endfor %}
 
         <div class="changes-buttons">
 
-            <button class="btn btn-success">Подтвердить</button>
-            <button class="btn btn-danger">Отклонить</button>
+            <button class="btn btn-lg btn-primary">Сохранить</button>
 
         </div>
 
     </div>
+
+    <script>
+        $('tr .btn-success, tr .btn-primary').on('click', function() {
+            $(this).toggleClass('active');
+            $(this).siblings('.btn').removeClass('active');
+            $(this).closest('tr').toggleClass('accepted');
+            $(this).closest('tr').removeClass('canceled');
+        });
+        $('tr .btn-default').on('click', function() {
+            $(this).toggleClass('active');
+            $(this).siblings('.btn').removeClass('active');
+            $(this).closest('tr').toggleClass('canceled');
+            $(this).closest('tr').removeClass('accepted');
+        });
+    </script>
 
 {% endblock %}

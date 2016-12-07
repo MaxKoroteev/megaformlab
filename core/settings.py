@@ -67,6 +67,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'core.global.site',
             ],
+            'builtins': [
+                'core.templatetags.core'
+            ]
         },
     },
 ]
@@ -105,7 +108,7 @@ USE_TZ = True
 STATIC_URL, MEDIA_URL = '/static/', '/media/'
 STATIC_ROOT, MEDIA_ROOT = os.path.join(BASE_DIR, 'static'), os.path.join(BASE_DIR, 'media')
 
-from django.template.base import add_to_builtins
-TEMPLATETAGS = ('core.templatetags.core',)
-for tag in TEMPLATETAGS: add_to_builtins(tag)
+# from django.template.base import add_to_builtins
+# TEMPLATETAGS = ('core.templatetags.core',)
+# for tag in TEMPLATETAGS: add_to_builtins(tag)
 

@@ -42,13 +42,14 @@
                     .tabel-table-user-status {color:rgba(0,0,0,0.5);}
                         .tabel-table td {width:33px;border-left:1px solid rgba(50,60,70, 0.2);border-right:0;padding:3px;border-bottom:1px solid rgba(50,60,70, 0.2);}
                         .tabel-table th {width:33px;border-left:1px solid rgba(50,60,70, 0.2);border-right:0;padding:3px;border-bottom:1px solid rgba(50,60,70, 0.2);font-weight:normal;}
-                            .tabel-table-time   .form-control {position:relative;z-index:1;-webkit-appearance:none;-moz-appearance:none;appearance:none;padding:0 6px 0 4px;height:20px;margin-bottom:3px;}
-                            .tabel-table-status .form-control {position:relative;z-index:1;-webkit-appearance:none;-moz-appearance:none;appearance:none;padding:0 4px 0 2px;height:20px;}
+                            .tabel-table-status .form-control {position:relative;z-index:1;-webkit-appearance:none;-moz-appearance:none;appearance:none;padding:0 4px 0 2px;height:20px;margin-bottom:3px;}
+                            .tabel-table-time   .form-control {position:relative;z-index:1;-webkit-appearance:none;-moz-appearance:none;appearance:none;padding:0 6px 0 4px;height:20px;}
                 .tabel-by-template {width:33px;vertical-align:middle;text-align:center;}
                     .tabel-by-template .fa {vertical-align:middle;width:26px;height:26px;line-height:26px;border-radius:2px;}
                     .tabel-by-template .fa:hover {background:#47b;color:#fff;text-decoration:none;}
 
-        .tabel-print-wrapper {text-align:center;margin:20px 0;}
+        .tabel-print-wrapper {margin:20px 0;}
+            .tabel-print-wrapper .btn-download {float:right;}
 
     </style>
 
@@ -241,21 +242,10 @@
                     </div>
                 </th>
                 <td class="tabel-by-template">
-                    <a title="Заполнить табель по шаблону для всех сотрудников" href="#" class="fa fa-magic"></a>
+                    <a title="Заполнить табель сотрудника по шаблону" href="#" class="fa fa-magic"></a>
                 </td>
                 {% for i in '1234567890123456789012345678901' %}
                     <td data-tabel-table-info>
-
-                        <div class="tabel-table-time">
-                            <select class="form-control">
-                                {% for o in ' 123456789' %}
-                                    <option>&nbsp;{{ o }}</option>
-                                {% endfor %}
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
-                            </select>
-                        </div>
 
                         <div class="tabel-table-status">
                             <select class="form-control">
@@ -270,6 +260,17 @@
                             </select>
                         </div>
 
+                        <div class="tabel-table-time">
+                            <select class="form-control">
+                                {% for o in ' 123456789' %}
+                                    <option>&nbsp;{{ o }}</option>
+                                {% endfor %}
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                            </select>
+                        </div>
+
                     </td>
                 {% endfor %}
             </tr>
@@ -278,12 +279,14 @@
     </table>
 
     <div class="tabel-print-wrapper">
-        <button class="btn btn-success">Распечатать</button>
+        <button class="btn btn-success btn-download" onclick="alert('1) Необходимо заполнить все значения. 2) Распечатать можно только если выбран полный месяц.')">Скачать</button>
+        <button class="btn btn-default">Сохранить</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/jquery.sticky-kit/1.1.2/jquery.sticky-kit.min.js"></script>
 
     <script>
+
         $('.tabel-days').stick_in_parent();
 
         $(document).on('mouseenter', '[data-tabel-table-info]', function() {
@@ -293,6 +296,7 @@
             $('.tabel-days td:nth-child('+ parseInt($(this).index() + 1) +')').removeClass('active')
             $('.tabel-table td:nth-child('+ parseInt($(this).index() + 1) +')').removeClass('active')
         })
+
     </script>
 
 {% endblock %}
