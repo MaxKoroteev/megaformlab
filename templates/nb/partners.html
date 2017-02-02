@@ -1,0 +1,42 @@
+{% extends 'nb/home.html' %}
+
+{% block content %}
+
+    <style>
+        .top-wrapper-placeholder, .top-wrapper {display:none;}
+
+        h1 {font-size:30px;}
+
+        .table-partners {border:1px solid #ddd;width:auto;}
+            .table-partners td {vertical-align:middle !important;}
+
+    </style>
+
+    <h1><i class="fa fa-handshake-o"></i> Партнёры</h1>
+
+    <table class="table table-striped table-partners table-hover">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Сайт</th>
+                <th>ID Партнёра</th>
+                <th>Email</th>
+                <th>Телефон</th>
+                <th>Ссылка на логин</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in '1234567890' %}
+                <tr>
+                    <td>Mosrepetitors.ru</td>
+                    <td>mosrepetitors.ru</td>
+                    <td>MosRepetitorsYandex</td>
+                    <td>pr@4ege.ru</td>
+                    <td>89101502518</td>
+                    <td><button class="btn btn-default btn-sm"><i class="fa fa-sign-in"></i> Скопировать</button></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
