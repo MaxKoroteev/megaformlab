@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <title></title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.sticky-kit/1.1.2/jquery.sticky-kit.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+
+        * {margin:0;padding:0;vertical-align:top;box-sizing:border-box;outline:none;}
+
+        table {border-collapse:collapse}
+
+        a, span, label {display:inline-block;}
+
+        a {color:#27c;text-decoration:none;}
+        a:hover {text-decoration:underline;}
+
+        h1 {font-weight:normal;font-size:24px;line-height:25px;margin:0 0 30px;}
+        h2 {font-weight:normal;font-size:22px;line-height:20px;}
+        h3 {font-weight:normal;font-size:20px;line-height:15px;}
+        h4 {font-weight:normal;font-size:18px;line-height:15px;}
+        h5 {font-weight:normal;font-size:16px;line-height:15px;}
+        h6 {font-weight:normal;font-size:14px;line-height:15px;}
+
+        body, input {font-family:'Open Sans', sans-serif;font-size:14px;}
+
+        .button {background:#27c;color:#fff;padding:0 15px;line-height:40px;border-radius:2px;text-decoration:none;cursor:pointer;font-weight:600;}
+        .button:hover  {box-shadow:inset 0 50px 0 rgba(0,0,30,0.05);text-decoration:none;}
+        .button:active {box-shadow:inset 0 50px 0 rgba(0,0,30,0.1)}
+
+        .button.fa {width:40px;padding:0;text-align:center;}
+
+        .button-big {line-height:50px;padding:0 30px;}
+
+        .button-light {border:1px solid #ddd;color:#000;padding:0 14px;line-height:38px;background:#fff;}
+
+        .info {margin:30px 0;color:#6a737c;line-height:20px;}
+
+        input[type="text"].form-control       {transition:all 300ms ease;line-height:38px;border:1px solid #ddd;padding:0 10px;border-radius:2px;}
+        input[type="text"].form-control:focus {transition:all 300ms ease;border-color:#27c;box-shadow:0 0 5px -1px #27c;}
+
+        html {height:100%;}
+        body {height:100%;background:#fafafa;color:#333;-webkit-font-smoothing:antialiased;}
+        .main {display:table;width:100%;height:100%;}
+            .head {display:table-row;}
+                .header {background:#fff;box-shadow:0 0 6px -1px #334;/*border-bottom:1px solid #dbdbe1;*/}
+                .header-table {display:table;width:100%;}
+                    .logo-wrapper {width:1px;display:table-cell;}
+                        .logo {font-size:30px;color:#27c;margin-right:15px;line-height:65px;text-decoration:none;font-weight:800;}
+                        .logo:hover {text-decoration:none;}
+                    .header-link        {width:1px;transition:all 200ms ease;font-size:13px;padding:0 15px;color:#333;font-weight:600;white-space:nowrap;text-decoration:none;display:table-cell;line-height:65px;}
+                    .header-link:hover  {transition:all 200ms ease;background:#fafafa;text-decoration:none;}
+                    .header-link:active {transition:all 200ms ease;background:#f1f1f1;}
+                    .header-link.active {color:#27c;padding-top:5px;border-bottom:5px solid #27c;line-height:55px;}
+                    .header-link.fa     {padding:0;width:65px;text-align:center;font-size:16px;}
+                    .header-link .fa    {vertical-align:middle;margin-left:5px;}
+            .body {display:table-row;height:100%;}
+                .columns {display:table;width:100%;height:100%;margin:30px 0;}
+                @media (max-width:760px) {.columns {display:block;}}
+                    .sidebar {display:table-cell;width:280px;padding:0;}
+                    @media (max-width:760px) {.sidebar {display:block;width:auto;border-right:0;border-bottom:1px solid #dbdbe1;}}
+                    .content {display:table-cell;padding:30px;border:1px solid #ddd;border-left-color:#eee;background:#fff;}
+                    @media (max-width:760px) {.content {display:block;}}
+            .foot {display:table-row;}
+                .footer {background:#fff;border-top:1px solid #ddd;padding:20px;line-height:20px;}
+            .wrapper {margin:0 auto;height:100%;max-width:1200px;position:relative;}
+
+        .search {position:relative;display:table-cell;padding:15px;}
+
+            .search input       {transition:all 200ms ease;border-radius:2px;width:100%;line-height:33px;border:1px solid #ddd;padding:0 45px 0 10px;font-size:13px;background:#fafafa;}
+            .search input:focus {transition:all 200ms ease;background:#fff;}
+
+            .search button {border:0;position:absolute;color:#000;font-size:14px;top:16px;right:16px;line-height:33px;width:33px;background:none;}
+            .search button:hover  {background:#fafafa;}
+            .search button:active {background:#f1f1f1;}
+            .search button:focus + input {background:#fff;}
+
+        .filter-wrapper {text-align:center;}
+            .filter {text-align:left;border:1px solid #ddd;border-right:0;background:#fff;}
+            .filter .fa {color:#848d95;}
+                .filter-select {color:#848d95;display:block;line-height:50px;padding:0 10px;border-bottom:1px solid #eee;}
+                .filter-select:hover  {background:#fafafa;text-decoration:none;color:#6a737c}
+                .filter-select:active {background:#f1f1f1;}
+                    .filter-select .fa-angle-down {float:right;line-height:50px;}
+                    .filter-select .fa-clock-o    {opacity:0.5;line-height:50px;font-size:18px;width:16px;text-align:center;margin-right:10px;}
+                    .filter-select .fa-map-marker {opacity:0.5;line-height:50px;font-size:18px;width:16px;text-align:center;margin-right:10px;}
+                .filter-time .filter-select:last-child .fa {        -moz-transform: scaleX(-1);  -o-transform: scaleX(-1);  -webkit-transform: scaleX(-1);  transform: scaleX(-1);  filter: FlipH;  -ms-filter: "FlipH";}
+                .filter-format {line-height:50px;border-bottom:1px solid #eee;}
+                    .filter-format-check {width:50%;color:#848d95;}
+                    .filter-format-check.checked {background:#fafafa;color:#333;}
+                    .filter-format-check:hover  {background:#fafafa;text-decoration:none;}
+                    .filter-format-check:active {background:#f1f1f1;}
+                    .filter-format-check:first-child {border-right:1px solid #eee;}
+                        .filter-format-checkbox {width:16px;height:16px;background:#fff;border:1px solid #ccc;border-radius:15px;text-align:center;margin:17px 10px 17px 10px;}
+                        .filter-format-check.checked .filter-format-checkbox {background:#27c;border-color:rgba(0,0,0,0.25);box-shadow:inset 0 0 1px rgba(255,255,255,0.75)}
+                        
+            .go-top {background:#f1f1f1;cursor:pointer;width:50px;line-height:48px;font-size:20px;color:#646d75;border:1px solid #ddd;border-radius:50px;margin-top:15px;}
+            .go-top:hover  {background:#fff;color:#848d95;}
+            .go-top:active {background:#fafafa;}
+
+            .categories {}
+                .category {line-height:40px;padding:0 15px;display:block;cursor:pointer;}
+                .category:hover  {background:#fafafa;}
+                .category:active {background:#f1f1f1;}
+                .category.active {border-left:4px solid #2277cc;color:#2277cc;padding-left:11px;}
+                .sub-category {line-height:35px;padding-left:30px;color:#6a737c;}
+
+        .courses {}
+            .course {display:table;background:#fff;margin:30px 0;border-bottom:1px solid #eee;width:100%;}
+            .course:last-child {border-bottom:0;}
+                .course-image {display:table-cell;padding-right:15px;padding-bottom:30px;width:1px;}
+                .course:last-child .course-image {padding-bottom:0;}
+                    .course-image img {max-width:140px;}
+                .course-info {display:table-cell;padding-bottom:30px;}
+                .course:last-child .course-info {padding-bottom:0;}
+                    .course-name {font-size:20px;line-height:20px;}
+                        .course-company-name {line-height:15px;margin:15px 0;}
+                            .course-company-name a {color:#848d95;}
+
+                        .course-tariffs {margin:15px 0 0;}
+                            .course-tariff {display:table;margin-top:15px;}
+                            .course-tariff:first-child {margin-top:0;}
+                                .course-tariff-price {display:table-cell;}
+                                    .course-tariff-price-tag {padding:15px;background:#f3f3f3;border-radius:3px;}
+                                        .course-tariff-cost {font-size:18px;line-height:20px;margin-bottom:10px;}
+                                        .course-tariff-format  {font-size:12px;line-height:15px;display:block;color:#646d75;}
+                                .course-tariff-dates {display:table-cell;padding:0 10px;vertical-align:middle;}
+                                    .course-tariff-duration {font-size:14px;line-height:20px;}
+                                    .course-tariff-closest-group {font-size:12px;line-height:15px;display:block;color:#848d95;}
+
+                                .course-places {margin:0 0 0;}
+                                    .course-place {margin-top:10px;line-height:30px;display:block;margin-right:10px;}
+                                        .course-place-tag {padding:0 10px;margin-right:10px;background:#f3f3f3;border-radius:3px;}
+                                            .course-metro-dot {width:6px;height:6px;border-radius:3px;vertical-align:middle;}
+
+        .question {border:1px solid #ddd;border-radius:20px;width:20px;height:20px;vertical-align:baseline;text-align:center;background:#fafafa;font-size:16px;line-height:20px;font-weight:600;color:#848d95;cursor:pointer;}
+        .question:hover {color:#27c;}
+
+        .load-more {padding-top:30px;border-top:1px solid #eee;text-align:center;}
+
+        #go-top {display:none;}
+        #answer {display:none;}
+
+{#        .block {background:#fff;margin:30px 0;}#}
+{#            .block-header {line-height:20px;}#}
+{#                .block-name {}#}
+{#                    .block-name a {text-decoration:none;}#}
+{#                    .block-name a:hover {text-decoration:underline;}#}
+{#            .block-sub-categories {}#}
+{#                .block-sub-category {margin:20px 20px 20px 0;text-decoration:none;line-height:20px;color:#848d95;}#}
+{#                .block-sub-category:hover {text-decoration:underline;}#}
+{#            .block-table {width:100%;border:1px solid #ddd;border-bottom:0;}#}
+{#                .block-table th,#}
+{#                .block-table td {padding:5px 0;line-height:20px;text-align:left;border-bottom:1px solid #ddd;vertical-align:middle;}#}
+{#                .block-table th {font-weight:600;font-size:12px;color:#848d95;padding:0 5px;}#}
+{#                .block-table tr:hover {outline:1px solid #27c}#}
+{#                .block-table tr:hover td {background:#f6f6f9;}#}
+{#                    .block-table a {text-decoration:none;}#}
+{#                    .block-table a:hover {text-decoration:underline;}#}
+{##}
+{#            .course {width:255px;padding:0 20px 0 0;}#}
+{#            .course:last-child {width:235px;padding:0;}#}
+{##}
+{#            .block-footer {line-height:20px;padding:5px 10px;}#}
+{#                .block-footer a {color:#000;text-decoration:none;}#}
+{#                .block-footer a:hover {text-decoration:underline;}#}
+
+    </style>
+
+</head>
+<body>
+
+<div class="main">
+    <div class="head" style="height:65px;">
+        <div class="header" style="position:fixed;width:100%;z-index:1;">
+            <div class="wrapper">
+                {% spaceless %}
+                    <div class="header-table">
+
+                        <span class="logo-wrapper">
+                            <a href="{% url 'home' %}" class="logo">edugo</a>
+                        </span>
+
+                        <a href="{% url 'home' %}" class="header-link">
+                            Москва<i class="fa fa-angle-down"></i>
+                        </a>
+                        <a href="{% url 'home' %}" class="header-link active">Учебные заведения</a>
+
+                        <form class="search">
+                            <button class="fa fa-search"></button>
+                            <input type="text" placeholder="Чему вы хотите научиться?">
+                        </form>
+
+                        <a href="{% url 'home' %}" class="header-link">Регистрация</a>
+                        <a href="{% url 'home' %}" class="header-link">Войти</a>
+
+                    </div>
+                {% endspaceless %}
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="wrapper">
+                <div class="columns">
+                    {% spaceless %}
+                    <div class="sidebar">
+
+                        <div class="filter-wrapper">
+                            <div class="filter">
+{#                                <a href="#" class="filter-select"><i class="fa fa-angle-down"></i><i class="fa fa-clock-o"></i>Удобное время</a>#}
+                                <div class="filter-time">
+                                    <a href="#" class="filter-select" style="width:50%;display:inline-block;border-right:1px solid #eee;"><i class="fa fa-angle-down"></i><i class="fa fa-clock-o"></i>Удобно с</a>
+                                    <a href="#" class="filter-select" style="width:50%;display:inline-block;"><i class="fa fa-angle-down"></i><i class="fa fa-clock-o"></i>Удобно по</a>
+                                </div>
+                                <div class="filter-format">
+                                    <a href="#" class="filter-format-check"><span class="filter-format-checkbox"></span>Только online</a><a href="#" class="filter-format-check"><span class="filter-format-checkbox"></span>Только очно</a>
+                                </div>
+                                <a href="#" class="filter-select"><i class="fa fa-angle-down"></i><i class="fa fa-map-marker"></i>Ближайшее к метро</a>
+                                <div class="categories">
+                                    <span class="category">Менеджмент</span>
+                                    <span class="category">IT</span>
+                                    <span class="category active">Реклама & PR</span>
+                                    <span class="category sub-category">Реклама</span>
+                                    <span class="category sub-category">PR</span>
+                                    <span class="category">Бухгалтерия</span>
+                                    <span class="category">Строительство</span>
+                                </div>
+                            </div>
+                            <span id="go-top" class="go-top fa fa-angle-up"></span>
+                        </div>
+
+                    </div>
+                    {% endspaceless %}
+                    <div class="content">
+            {% block content %}
+
+                {% spaceless %}
+
+                    <h1>Самые популярные курсы (3431) <span class="question" onclick="$('#answer').toggle()">?</span></h1>
+
+                    <div id="answer" class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
+
+                        <div class="courses">
+                            {% for i in '12345' %}
+                                <div class="course">
+                                    <div class="course-image">
+                                        <a href="#">
+                                            <img src="/media/images/examples/{{ i }}.jpg">
+                                        </a>
+                                    </div>
+                                    <div class="course-info">
+
+                                        <a href="#" class="course-name">Архитектура баз данных</a>
+                                        <div class="course-company-name"><a href="#">Центр "Специалист"</a> · <a href="#">Реклама & PR</a> · <a href="#">PR</a></div>
+
+                                        <div class="course-tariffs">
+                                            <div class="course-tariff">
+                                                <span class="course-tariff-price">
+                                                    <span class="course-tariff-price-tag">
+                                                        <span class="course-tariff-cost">25 000 ₽</span>
+                                                        <span class="course-tariff-format">18:00 - 21:00</span>
+                                                    </span>
+                                                </span>
+                                                <span class="course-tariff-dates">
+                                                    <span class="course-tariff-duration">Очно</span>
+                                                    <span class="course-tariff-closest-group">3 месяца, 40 часов, 10 занятий</span>
+
+                                                    <div class="course-places">
+                                                        <div class="course-place">
+                                                            <span class="course-place-tag">
+                                                                <span class="course-metro-dot" style="background:#4dbe52;"></span> Сокол<span class="course-metro-dot" style="background:#4dbe52;margin-left:10px;"></span> Авиамоторная
+                                                            </span>
+                                                            <span style="color:#848d95;font-size:12px;line-height:15px;"><div style="color:#333">Ближайшая группа</div>31 сентября 2017</span>
+                                                        </div>
+                                                        {% if i == '2' %}
+                                                            <div class="course-place">
+                                                                <span class="course-place-tag">
+                                                                    <span class="course-metro-dot" style="background:#2c75c4;"></span> Бауманская
+                                                                </span>
+                                                                <span style="color:#848d95;font-size:12px;line-height:15px;"><div style="color:#333">Ближайшая группа</div>Уточняйте по телефону</span>
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+
+                                                </span>
+                                            </div>
+
+                                            {% if i == '3' %}
+                                                <div class="course-tariff">
+                                                    <span class="course-tariff-price">
+                                                        <span class="course-tariff-price-tag">
+                                                            <span class="course-tariff-cost">10 500 ₽</span>
+                                                            <span class="course-tariff-format">12:00 - 14:00</span>
+                                                        </span>
+                                                    </span>
+                                                    <span class="course-tariff-dates">
+                                                        <span class="course-tariff-duration">Очно (Экспресс)</span>
+                                                        <span class="course-tariff-closest-group">1 месяц, 20 часов, 5 занятий</span>
+
+                                                        <div class="course-places">
+                                                            <div class="course-place">
+                                                                <span class="course-place-tag">
+                                                                    <span class="course-metro-dot" style="background:#4dbe52;"></span> Сокол<span class="course-metro-dot" style="background:#4dbe52;margin-left:10px;"></span> Авиамоторная
+                                                                </span>
+                                                                <span style="color:#848d95;font-size:12px;line-height:15px;"><div style="color:#333">Ближайшая группа</div>31 сентября 2017</span>
+                                                            </div>
+                                                            {% if i == '2' %}
+                                                                <div class="course-place">
+                                                                    <span class="course-place-tag">
+                                                                        <span class="course-metro-dot" style="background:#2c75c4;"></span> Бауманская
+                                                                    </span>
+                                                                    <span style="color:#848d95;font-size:12px;line-height:15px;"><div style="color:#333">Ближайшая группа</div>Уточняйте по телефону</span>
+                                                                </div>
+                                                            {% endif %}
+                                                        </div>
+
+                                                    </span>
+                                                </div>
+                                            {% endif %}
+                                            {% if i == '4' %}
+                                                <span class="course-tariff">
+                                                    <span class="course-tariff-price">
+                                                    <span class="course-tariff-price-tag">
+                                                        <span class="course-tariff-cost">10 500 ₽</span>
+                                                        <span class="course-tariff-format">12:00 - 14:00</span>
+                                                    </span>
+                                                    </span>
+                                                    <span class="course-tariff-dates">
+                                                        <span class="course-tariff-duration">Online</span>
+                                                        <span class="course-tariff-closest-group">1 месяц, 20 часов, 5 занятий</span>
+
+                                                        <div class="course-places">
+                                                            <div class="course-place">
+{#                                                                <span class="course-place-tag">#}
+{#                                                                    <span class="course-metro-dot" style="background:#4dbe52;"></span> Сокол<span class="course-metro-dot" style="background:#4dbe52;margin-left:10px;"></span> Авиамоторная#}
+{#                                                                </span>#}
+                                                                <span style="color:#848d95;font-size:12px;line-height:15px;"><div style="color:#333">Ближайшая группа</div>2 мая 2017</span>
+                                                            </div>
+                                                            {% if i == '2' %}
+                                                                <div class="course-place">
+{#                                                                    <span class="course-place-tag">#}
+{#                                                                        <span class="course-metro-dot" style="background:#2c75c4;"></span> Бауманская#}
+{#                                                                    </span>#}
+                                                                    <span style="color:#848d95;font-size:12px;line-height:15px;"><div style="color:#333">Ближайшая группа</div>Уточняйте по телефону</span>
+                                                                </div>
+                                                            {% endif %}
+                                                        </div>
+
+                                                    </span>
+                                                </span>
+                                            {% endif %}
+                                        </div>
+
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="load-more">
+                            <a href="#" class="button button-big">Показать ещё 20</a>
+                        </div>
+                {% endspaceless %}
+            {% endblock %}
+                    </div>
+                </div>
+
+            <div class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
+
+        </div>
+    </div>
+    <div class="foot">
+        <div class="footer">
+            <div class="wrapper">
+                © {% now 'Y' %} edugo | Все курсы в одном месте
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'color.html' %}
+
+<script>
+    $('.filter-wrapper').stick_in_parent({offset_top:95}).trigger('sticky_kit:recalc');
+    $(window).on('load scroll', function() {
+        if ($(window).scrollTop() > 0) {
+            $('#go-top').fadeIn();
+        } else {
+            $('#go-top').fadeOut();
+        }
+    });
+    $(document).on('click', '#go-top', function() {
+        $(window).scrollTop(0);
+    });
+</script>
+
+</body>
+</html>

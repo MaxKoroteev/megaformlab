@@ -113,6 +113,8 @@ urlpatterns = [
 
     url(r'^activity/$',  TemplateView.as_view(template_name='nb/activity.html'), name='activity'),
     url(r'^tabel/$',     TemplateView.as_view(template_name='nb/tabel.html'),    name='tabel'),
+
+    url(r'^edugo/$',     TemplateView.as_view(template_name='edugo.html'),  name='terms'),
 ]
 
 from django.conf import settings
